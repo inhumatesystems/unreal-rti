@@ -2,14 +2,14 @@
 
 root="$(realpath $(dirname $0)/..)"
 
-if [ -d "$root/../../../../rti/clients/cpp" ]; then
-    cpp_root="$root/../../../../rti/clients/cpp"
+if [ -d "$root/../../rti/clients/cpp" ]; then
+    cpp_root="$root/../../rti/clients/cpp"
     echo "Using local c++ client"
 else
     echo "Where c++ client?"
     exit 1
 fi
-cpp_build_root="$cpp_root/build-ue4"
+cpp_build_root="$cpp_root/build-ue5"
 cd "$cpp_root"
 
 #scripts/linux_ue4_build.sh
