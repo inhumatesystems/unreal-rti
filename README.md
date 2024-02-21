@@ -6,7 +6,7 @@
 
 ```sh
 scripts/windows_update_dependencies.sh
-# scripts/windows_build.sh
+scripts/windows_build.sh
 ```
 
 ### Linux
@@ -19,6 +19,6 @@ scripts/linux_build.sh
 ### macOS
 
 ```sh
-# scripts/macos_update_dependencies.sh
-# scripts/macos_build.sh
+scripts/macos_update_dependencies.sh
+scripts/macos_build.sh
 ```

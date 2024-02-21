@@ -55,17 +55,17 @@ void URTIPositionComponent::ReceivePosition(const inhumate::rti::proto::EntityPo
         }
         LastVelocityValid = false;
         if (message.has_velocity()) {
-            LastVelocity = RTIVelocityToUE4(message.velocity());
+            LastVelocity = RTIVelocityToUE(message.velocity());
             LastVelocityValid = true;
         }
         LastAccelerationValid = false;
         if (message.has_acceleration()) {
-            LastAcceleration = RTIVelocityToUE4(message.acceleration());
+            LastAcceleration = RTIVelocityToUE(message.acceleration());
             LastAccelerationValid = true;
         }
         LastAngularVelocityValid = false;
         if (message.has_angular_velocity()) {
-            LastAngularVelocity = RTIEulerRotationToUE4(message.angular_velocity());
+            LastAngularVelocity = RTIEulerRotationToUE(message.angular_velocity());
             LastAngularVelocityValid = true;
         }
     }
@@ -167,9 +167,9 @@ void URTIPositionComponent::SetPositionMessageFromActor(inhumate::rti::proto::En
         euler->set_yaw(RTIRotation.Yaw);
         message.set_allocated_euler_rotation(euler);
     } else {
-        message.set_allocated_local(UE4ToRTILocalPosition(actor->GetActorLocation()));
-        message.set_allocated_local_rotation(UE4ToRTILocalRotation(actor->GetActorQuat()));
-        message.set_allocated_euler_rotation(UE4ToRTIEulerRotation(actor->GetActorRotation()));
+        message.set_allocated_local(UEToRTILocalPosition(actor->GetActorLocation()));
+        message.set_allocated_local_rotation(UEToRTILocalRotation(actor->GetActorQuat()));
+        message.set_allocated_euler_rotation(UEToRTIEulerRotation(actor->GetActorRotation()));
     }
 
     if (LevelBP && LevelBP->Implements<URTIGeodeticCoordinateConversionInterface>()) {
@@ -183,7 +183,7 @@ void URTIPositionComponent::SetPositionMessageFromActor(inhumate::rti::proto::En
         message.set_allocated_geodetic(geo);
     }
 
-    message.set_allocated_velocity(UE4ToRTIVelocity(actor->GetActorRotation().GetInverse().RotateVector(actor->GetVelocity())));
+    message.set_allocated_velocity(UEToRTIVelocity(actor->GetActorRotation().GetInverse().RotateVector(actor->GetVelocity())));
 
     auto Primitive = Cast<UPrimitiveComponent>(actor->GetRootComponent());
     if (Primitive) {
@@ -208,7 +208,7 @@ FVector URTIPositionComponent::GetMessageLocation(const inhumate::rti::proto::En
             RTILocation.Z = message.local().z();
             return Conversion->Execute_RTIToLocalLocation(LevelBP, RTILocation);
         }
-        return RTILocalPositionToUE4(message.local());
+        return RTILocalPositionToUE(message.local());
     } else if (message.has_geodetic()) {
         if (LevelBP && LevelBP->Implements<URTIGeodeticCoordinateConversionInterface>()) {
             IRTIGeodeticCoordinateConversionInterface *Conversion = Cast<IRTIGeodeticCoordinateConversionInterface>(LevelBP);
@@ -234,10 +234,10 @@ FRotator URTIPositionComponent::GetMessageRotation(const inhumate::rti::proto::E
         return Conversion->Execute_RTIEulerToLocalRotation(LevelBP, RTIRotation);
     }
     if (message.has_local_rotation()) {
-        FQuat rotation = RTILocalRotationToUE4(message.local_rotation());
+        FQuat rotation = RTILocalRotationToUE(message.local_rotation());
         return FRotator(rotation);
     } else if (message.has_euler_rotation()) {
-        FRotator rotation = RTIEulerRotationToUE4(message.euler_rotation());
+        FRotator rotation = RTIEulerRotationToUE(message.euler_rotation());
         return rotation;
     }
     return FRotator();
@@ -257,7 +257,7 @@ FRotator URTIPositionComponent::GetMessageRotation(const inhumate::rti::proto::E
 
 // The following methods convert between these coordinate systems.
 
-inhumate::rti::proto::EntityPosition_LocalPosition *URTIPositionComponent::UE4ToRTILocalPosition(const FVector &location)
+inhumate::rti::proto::EntityPosition_LocalPosition *URTIPositionComponent::UEToRTILocalPosition(const FVector &location)
 {
     auto local = new inhumate::rti::proto::EntityPosition_LocalPosition();
     local->set_x(location.Y / 100);
@@ -266,7 +266,7 @@ inhumate::rti::proto::EntityPosition_LocalPosition *URTIPositionComponent::UE4To
     return local;
 }
 
-FVector URTIPositionComponent::RTILocalPositionToUE4(const inhumate::rti::proto::EntityPosition_LocalPosition &local)
+FVector URTIPositionComponent::RTILocalPositionToUE(const inhumate::rti::proto::EntityPosition_LocalPosition &local)
 {
     FVector location;
     location.X = local.z() * 100;
@@ -275,7 +275,7 @@ FVector URTIPositionComponent::RTILocalPositionToUE4(const inhumate::rti::proto:
     return location;
 }
 
-inhumate::rti::proto::EntityPosition_LocalRotation *URTIPositionComponent::UE4ToRTILocalRotation(const FQuat &quat)
+inhumate::rti::proto::EntityPosition_LocalRotation *URTIPositionComponent::UEToRTILocalRotation(const FQuat &quat)
 {
     auto rot = new inhumate::rti::proto::EntityPosition_LocalRotation();
     rot->set_x(quat.Y);
@@ -285,12 +285,12 @@ inhumate::rti::proto::EntityPosition_LocalRotation *URTIPositionComponent::UE4To
     return rot;
 }
 
-FQuat URTIPositionComponent::RTILocalRotationToUE4(const inhumate::rti::proto::EntityPosition_LocalRotation &local)
+FQuat URTIPositionComponent::RTILocalRotationToUE(const inhumate::rti::proto::EntityPosition_LocalRotation &local)
 {
    return FQuat(local.z(), local.x(), local.y(), local.w());
 }
 
-inhumate::rti::proto::EntityPosition_EulerRotation *URTIPositionComponent::UE4ToRTIEulerRotation(const FRotator &Rotation)
+inhumate::rti::proto::EntityPosition_EulerRotation *URTIPositionComponent::UEToRTIEulerRotation(const FRotator &Rotation)
 {
     auto rotation = new inhumate::rti::proto::EntityPosition_EulerRotation();
     rotation->set_roll(Rotation.Roll);
@@ -299,7 +299,7 @@ inhumate::rti::proto::EntityPosition_EulerRotation *URTIPositionComponent::UE4To
     return rotation;
 }
 
-FRotator URTIPositionComponent::RTIEulerRotationToUE4(const inhumate::rti::proto::EntityPosition_EulerRotation &rotation)
+FRotator URTIPositionComponent::RTIEulerRotationToUE(const inhumate::rti::proto::EntityPosition_EulerRotation &rotation)
 {
     FRotator Rotation;
     Rotation.Roll = rotation.roll();
@@ -308,7 +308,7 @@ FRotator URTIPositionComponent::RTIEulerRotationToUE4(const inhumate::rti::proto
     return Rotation;
 }
 
-inhumate::rti::proto::EntityPosition_VelocityVector *URTIPositionComponent::UE4ToRTIVelocity(const FVector &velocity)
+inhumate::rti::proto::EntityPosition_VelocityVector *URTIPositionComponent::UEToRTIVelocity(const FVector &velocity)
 {
     auto vel = new inhumate::rti::proto::EntityPosition_VelocityVector();
     vel->set_forward(velocity.X / 100);
@@ -317,7 +317,7 @@ inhumate::rti::proto::EntityPosition_VelocityVector *URTIPositionComponent::UE4T
     return vel;
 }
 
-FVector URTIPositionComponent::RTIVelocityToUE4(const inhumate::rti::proto::EntityPosition_VelocityVector& velocity)
+FVector URTIPositionComponent::RTIVelocityToUE(const inhumate::rti::proto::EntityPosition_VelocityVector& velocity)
 {
     FVector vel;
     vel.X = velocity.forward() * 100;

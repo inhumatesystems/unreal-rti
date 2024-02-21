@@ -69,14 +69,14 @@ public:
     static FVector GetMessageLocation(const inhumate::rti::proto::EntityPosition& message, UWorld *world);
     static FRotator GetMessageRotation(const inhumate::rti::proto::EntityPosition& message, UWorld *world);
 
-    static inhumate::rti::proto::EntityPosition_LocalPosition* UE4ToRTILocalPosition(const FVector& vector);
-    static FVector RTILocalPositionToUE4(const inhumate::rti::proto::EntityPosition_LocalPosition& position);
-    static inhumate::rti::proto::EntityPosition_LocalRotation* UE4ToRTILocalRotation(const FQuat& quat);
-    static FQuat RTILocalRotationToUE4(const inhumate::rti::proto::EntityPosition_LocalRotation& rotation);
-    static inhumate::rti::proto::EntityPosition_EulerRotation * UE4ToRTIEulerRotation(const FRotator& quat);
-    static FRotator RTIEulerRotationToUE4(const inhumate::rti::proto::EntityPosition_EulerRotation& rotation);
-    static inhumate::rti::proto::EntityPosition_VelocityVector* UE4ToRTIVelocity(const FVector& velocity);
-    static FVector RTIVelocityToUE4(const inhumate::rti::proto::EntityPosition_VelocityVector& velocity);
+    static inhumate::rti::proto::EntityPosition_LocalPosition* UEToRTILocalPosition(const FVector& vector);
+    static FVector RTILocalPositionToUE(const inhumate::rti::proto::EntityPosition_LocalPosition& position);
+    static inhumate::rti::proto::EntityPosition_LocalRotation* UEToRTILocalRotation(const FQuat& quat);
+    static FQuat RTILocalRotationToUE(const inhumate::rti::proto::EntityPosition_LocalRotation& rotation);
+    static inhumate::rti::proto::EntityPosition_EulerRotation * UEToRTIEulerRotation(const FRotator& quat);
+    static FRotator RTIEulerRotationToUE(const inhumate::rti::proto::EntityPosition_EulerRotation& rotation);
+    static inhumate::rti::proto::EntityPosition_VelocityVector* UEToRTIVelocity(const FVector& velocity);
+    static FVector RTIVelocityToUE(const inhumate::rti::proto::EntityPosition_VelocityVector& velocity);
 
 private:
 

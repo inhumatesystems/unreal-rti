@@ -537,7 +537,7 @@ bool URTISubsystem::Tick(float DeltaTime)
     }
 #endif
 
-    // Retry and check for connection error (as we don't have exception handling in UE4 and websocketpp/asio uses that...)
+    // Retry and check for connection error (as we don't have exception handling in Unreal and websocketpp/asio uses that...)
     if (Connecting && (FDateTime::UtcNow() - ConnectDateTime).GetTotalSeconds() > CONNECT_TIMEOUT) {
         if (!rti) {
             Connecting = false;

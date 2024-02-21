@@ -360,7 +360,7 @@ inhumate::rti::proto::GeometryOperation_Spline3D *URTIGeometryComponent::CreateS
 
 void URTIGeometryComponent::SetPoint2D(const FVector &location, inhumate::rti::proto::GeometryOperation_Point2D *point)
 {
-    point->set_allocated_local(UE4ToRTILocalPoint2D(location));
+    point->set_allocated_local(UEToRTILocalPoint2D(location));
 
     AActor *LevelBP = (AActor *)GetOwner()->GetWorld()->GetLevelScriptActor();
     if (LevelBP && LevelBP->Implements<URTIGeodeticCoordinateConversionInterface>()) {
@@ -375,7 +375,7 @@ void URTIGeometryComponent::SetPoint2D(const FVector &location, inhumate::rti::p
 
 void URTIGeometryComponent::SetPoint3D(const FVector &location, inhumate::rti::proto::GeometryOperation_Point3D *point)
 {
-    point->set_allocated_local(UE4ToRTILocalPoint3D(location));
+    point->set_allocated_local(UEToRTILocalPoint3D(location));
 
     AActor *LevelBP = (AActor *)GetOwner()->GetWorld()->GetLevelScriptActor();
     if (LevelBP && LevelBP->Implements<URTIGeodeticCoordinateConversionInterface>()) {
@@ -389,7 +389,7 @@ void URTIGeometryComponent::SetPoint3D(const FVector &location, inhumate::rti::p
     }
 }
 
-inhumate::rti::proto::GeometryOperation_LocalPoint2D *URTIGeometryComponent::UE4ToRTILocalPoint2D(const FVector &location)
+inhumate::rti::proto::GeometryOperation_LocalPoint2D *URTIGeometryComponent::UEToRTILocalPoint2D(const FVector &location)
 {
     auto local = new inhumate::rti::proto::GeometryOperation_LocalPoint2D();
     local->set_x(location.Y / 100);
@@ -397,7 +397,7 @@ inhumate::rti::proto::GeometryOperation_LocalPoint2D *URTIGeometryComponent::UE4
     return local;
 }
 
-inhumate::rti::proto::GeometryOperation_LocalPoint3D *URTIGeometryComponent::UE4ToRTILocalPoint3D(const FVector &location)
+inhumate::rti::proto::GeometryOperation_LocalPoint3D *URTIGeometryComponent::UEToRTILocalPoint3D(const FVector &location)
 {
     auto local = new inhumate::rti::proto::GeometryOperation_LocalPoint3D();
     local->set_x(location.Y / 100);
@@ -406,7 +406,7 @@ inhumate::rti::proto::GeometryOperation_LocalPoint3D *URTIGeometryComponent::UE4
     return local;
 }
 
-inhumate::rti::proto::Color *URTIGeometryComponent::UE4ToRTIColor(const FColor &Color)
+inhumate::rti::proto::Color *URTIGeometryComponent::UEToRTIColor(const FColor &Color)
 {
     if (Color.R > 0 || Color.G > 0 || Color.B > 0 || Color.A > 0) {
         auto color = new inhumate::rti::proto::Color();

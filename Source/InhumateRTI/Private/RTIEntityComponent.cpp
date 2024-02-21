@@ -160,7 +160,7 @@ void URTIEntityComponent::FillEntityData(inhumate::rti::proto::EntityOperation_E
         dimensions->set_width(Size.Y / 100);
         dimensions->set_height(Size.Z / 100);
         if (Center.Size() > 1e-5) {
-            auto center = URTIPositionComponent::UE4ToRTILocalPosition(Center);
+            auto center = URTIPositionComponent::UEToRTILocalPosition(Center);
             dimensions->set_allocated_center(center);
         }
         data->set_allocated_dimensions(dimensions);

@@ -6,7 +6,7 @@
 
 URTIEntityBaseComponent::URTIEntityBaseComponent(const FObjectInitializer& init)
 {
-    // uh.. this is required by UE4. dunno what to do.
+    // uh.. this is required by Unreal. dunno what to do.
 }
 
 URTIEntityBaseComponent::URTIEntityBaseComponent(const FString& channelName, const bool stateless, const bool ephemeral)

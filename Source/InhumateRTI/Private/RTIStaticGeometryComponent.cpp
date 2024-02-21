@@ -56,12 +56,12 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
     data->set_type(TCHAR_TO_UTF8(*Type));
     data->set_category(PbCategoryFromGeometryCategory(Category));
 
-    auto RTIColor = UE4ToRTIColor(Color);
+    auto RTIColor = UEToRTIColor(Color);
     if (RTIColor == nullptr) {
         TArray<UShapeComponent *> ShapeComponents;
         GetComponents<UShapeComponent>(ShapeComponents, true);
         for (auto ShapeComponent : ShapeComponents) {
-            RTIColor = UE4ToRTIColor(ShapeComponent->ShapeColor);
+            RTIColor = UEToRTIColor(ShapeComponent->ShapeColor);
             if (RTIColor != nullptr) break;
         }
     }
@@ -69,7 +69,7 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
 
     data->set_transparency(1 - Opacity);
     data->set_title(TCHAR_TO_UTF8(*Title));
-    data->set_allocated_label_color(UE4ToRTIColor(LabelColor));
+    data->set_allocated_label_color(UEToRTIColor(LabelColor));
     data->set_label_transparency(1 - LabelOpacity);
     data->set_wireframe(Wireframe);
     data->set_line_width(LineWidth);

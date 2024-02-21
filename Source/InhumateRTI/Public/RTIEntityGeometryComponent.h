@@ -26,7 +26,7 @@ class INHUMATERTI_API URTIEntityGeometryComponent : public URTIGeometryComponent
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
     FString EntityType;
 
-    // Type of RTI shape to create from the UE4 components.
+    // Type of RTI shape to create from the Unreal components.
     // Set to "Auto" to use defaults (let the component try to figure it out).
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
     EEntityGeometryShape Shape;

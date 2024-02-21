@@ -82,9 +82,9 @@ class INHUMATERTI_API URTIGeometryComponent : public URTISceneComponent
     void SetPoint3D(const FVector &location, inhumate::rti::proto::GeometryOperation_Point3D *point);
 
     public:
-    static inhumate::rti::proto::GeometryOperation_LocalPoint2D *UE4ToRTILocalPoint2D(const FVector &location);
-    static inhumate::rti::proto::GeometryOperation_LocalPoint3D *UE4ToRTILocalPoint3D(const FVector &location);
-    static inhumate::rti::proto::Color *UE4ToRTIColor(const FColor &color);
+    static inhumate::rti::proto::GeometryOperation_LocalPoint2D *UEToRTILocalPoint2D(const FVector &location);
+    static inhumate::rti::proto::GeometryOperation_LocalPoint3D *UEToRTILocalPoint3D(const FVector &location);
+    static inhumate::rti::proto::Color *UEToRTIColor(const FColor &color);
 
     UPROPERTY(BlueprintReadWrite, Category = "RTI")
     bool Owned = true;

@@ -17,9 +17,9 @@ void URTIEntityGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
 {
     data->set_usage(inhumate::rti::proto::GeometryOperation::Usage::GeometryOperation_Usage_ENTITY);
     data->set_scalable(ScaleToEntityDimensions);
-    data->set_allocated_color(UE4ToRTIColor(Color));
+    data->set_allocated_color(UEToRTIColor(Color));
     data->set_transparency(1 - Opacity);
-    data->set_allocated_label_color(UE4ToRTIColor(LabelColor));
+    data->set_allocated_label_color(UEToRTIColor(LabelColor));
     data->set_label_transparency(1 - LabelOpacity);
 
     auto UseShape = Shape;
