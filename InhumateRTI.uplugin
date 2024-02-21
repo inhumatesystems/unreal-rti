@@ -1,0 +1,32 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "InhumateRTI",
+	"Description": "RTI",
+	"Category": "Other",
+	"CreatedBy": "Inhumate",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "InhumateRTI",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen",
+			"WhitelistPlatforms": [ "Linux", "Win64", "Mac" ],
+			"SupportedTargetPlatforms": [ "Linux", "Win64", "Mac" ]
+		},
+        {
+            "Name": "InhumateRTIEditor",
+            "Type": "UncookedOnly",
+            "LoadingPhase": "PreDefault",
+			"WhitelistPlatforms": [ "Linux", "Win64", "Mac" ],
+			"SupportedTargetPlatforms": [ "Linux", "Win64", "Mac" ]
+        }
+	]
+}

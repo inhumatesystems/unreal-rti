@@ -1,0 +1,5 @@
+ThirdParty/Win64/inhumaterti.lib filter=lfs diff=lfs merge=lfs -text
+ThirdParty/Win64/libprotobuf-lite.lib filter=lfs diff=lfs merge=lfs -text
+ThirdParty/Win64/libprotobuf.lib filter=lfs diff=lfs merge=lfs -text
+ThirdParty/Win64/libprotoc.lib filter=lfs diff=lfs merge=lfs -text
+ThirdParty/Win64/protoc.exe filter=lfs diff=lfs merge=lfs -text
