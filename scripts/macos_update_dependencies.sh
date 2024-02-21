@@ -12,9 +12,9 @@ fi
 cpp_build_root="$cpp_root/build-ue5"
 cd "$cpp_root"
 
-#scripts/linux_ue5_build.sh
+#scripts/macos_ue5_build.sh
 
 rm -rf "$root/ThirdParty/Include"
-rm -rf "$root/ThirdParty/Linux"
+rm -rf "$root/ThirdParty/Mac"
 cp -rfp "$cpp_build_root/Include" "$root/ThirdParty/"
-cp -rfp "$cpp_build_root/Linux" "$root/ThirdParty/"
+cp -rfp "$cpp_build_root/Mac" "$root/ThirdParty/"

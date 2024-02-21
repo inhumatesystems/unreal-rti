@@ -20,7 +20,7 @@ fi
 cpp_build_root="$cpp_root/build-ue5"
 cd "$cpp_root"
 
-#bash scripts/windows_ue4_build.sh
+#bash scripts/windows_ue5_build.sh
 
 cd "$cpp_build_root"
 rm -rf "$root/ThirdParty/Include"/*
