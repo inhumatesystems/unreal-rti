@@ -13,6 +13,9 @@ root="$(realpath $(dirname $0)/..)"
 if [ -d "$root/../../rti/clients/cpp" ]; then
     cpp_root="$root/../../rti/clients/cpp"
     echo "Using local c++ client"
+elif [ -d "$root/../../../../rti/clients/cpp" ]; then
+    cpp_root="$root/../../../../rti/clients/cpp"
+    echo "Using local c++ client"
 else
     echo "Where c++ client?"
     exit 1

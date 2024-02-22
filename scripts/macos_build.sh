@@ -9,5 +9,5 @@ fi
 cd "$(dirname $0)/.."
 
 rm -rf Binaries Intermediate Saved Build
-"$UE5/Engine/Build/BatchFiles/RunUAT.sh" BuildPlugin -Plugin="$PWD/InhumateRTI.uplugin" -Package="$PWD/Build" -Rocket -TargetPlatform=Linux
+"$UE5/Engine/Build/BatchFiles/RunUAT.sh" BuildPlugin -Plugin="$PWD/InhumateRTI.uplugin" -Package="$PWD/Build" -Rocket -TargetPlatform=Mac -specifiedarchitecture=arm64
 rm -rf Build/Intermediate

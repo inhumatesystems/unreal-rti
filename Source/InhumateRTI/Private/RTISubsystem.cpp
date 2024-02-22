@@ -52,9 +52,10 @@ void URTISubsystem::Initialize(FSubsystemCollectionBase &Collection)
         }
     }
 
-    if (Application.IsEmpty()) Application = FString(FApp::GetProjectName());
-    FTickerDelegate TickDelegate = FTickerDelegate::CreateUObject(this, &URTISubsystem::Tick);
-    TickDelegateHandle = FTicker::GetCoreTicker().AddTicker(TickDelegate);
+    // FIXME
+    // if (Application.IsEmpty()) Application = FString(FApp::GetProjectName());
+    // FTickerDelegate TickDelegate = FTickerDelegate::CreateUObject(this, &URTISubsystem::Tick);
+    // TickDelegateHandle = FTicker::GetCoreTicker().AddTicker(TickDelegate);
 
     if (!HomeLevel.IsValid()) {
         UE_LOG(LogRTI, Log, TEXT("No home level defined in RTI settings"));
@@ -91,10 +92,11 @@ void URTISubsystem::Initialize(FSubsystemCollectionBase &Collection)
 void URTISubsystem::Deinitialize()
 {
     Initialized = false;
-    if (TickDelegateHandle.IsValid()) {
-        FTicker::GetCoreTicker().RemoveTicker(TickDelegateHandle);
-        TickDelegateHandle.Reset();
-    }
+    // FIXME
+    // if (TickDelegateHandle.IsValid()) {
+    //     FTicker::GetCoreTicker().RemoveTicker(TickDelegateHandle);
+    //     TickDelegateHandle.Reset();
+    // }
 #if WITH_EDITOR
     try {
 #endif

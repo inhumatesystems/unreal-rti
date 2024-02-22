@@ -1,7 +1,7 @@
 
 // Style guide: https://google.github.io/styleguide/cppguide.html
 // Conforming to Google's style guide because of protobuf dependency,
-// and it plays fairly well with Unreal ditto.
+// and it plays fairly well with UE4 ditto.
 
 #ifndef __INHUMATE_RTI_H__
 #define __INHUMATE_RTI_H__
@@ -375,7 +375,7 @@ class INHUMATE_RTI_EXPORT RTIClient
     uint64_t lastPingTime;
     uint64_t cid;
 
-    // vectors are used here instead of unordered_map because clang/Unreal build would crash weirdly in destructor
+    // vectors are used here instead of unordered_map because clang/UE4 build would crash weirdly in destructor
     std::vector<proto::ChannelUse> usedChannels;
     std::vector<proto::Channel> knownChannels;
 
