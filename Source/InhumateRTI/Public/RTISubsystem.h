@@ -214,7 +214,7 @@ protected:
     
     TUniquePtr<inhumate::rti::RTIClient> rti;
 
-    FDelegateHandle TickDelegateHandle;
+    FTSTicker::FDelegateHandle TickDelegateHandle;
     bool Tick(float deltaTime);
 
     void OnRuntimeControl(const std::string& channelName, const inhumate::rti::proto::RuntimeControl& message);

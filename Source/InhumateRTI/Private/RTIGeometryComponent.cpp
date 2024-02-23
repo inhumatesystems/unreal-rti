@@ -199,50 +199,50 @@ uint32 URTIGeometryComponent::AddMesh(inhumate::rti::proto::GeometryOperation_Me
 {
     // FIXME
     return 0;
-//     FString MeshName = Mesh->GetPathName(NULL);
-//     if (!Mesh->bAllowCPUAccess) {
-// #if WITH_EDITOR
-//         UE_LOG(LogRTI, Warning,
-//                TEXT("Packaged build won't create mesh geometry - static mesh %s needs 'Allow CPU Access' flag"), *MeshName);
-// #else
-//         return 0;
-// #endif
-//     }
-//     auto RenderData = Mesh->GetRenderData();
-//     if (!RenderData) return 0;
-//     auto NumLODs = RenderData->LODResources.Num();
-//     if (NumLODs == 0) return 0;
-//     auto LOD = NumLODs - 1;
-//     auto &LODResource = RenderData->LODResources[LOD];
-//     auto VertexBuffer = &LODResource.VertexBuffers.PositionVertexBuffer;
-//     if (!VertexBuffer) return 0;
-//     auto IndexBuffer = &LODResource.IndexBuffer;
-//     if (!IndexBuffer) return 0;
-//     if (VertexBuffer->GetNumVertices() > WARN_MESH_SIZE || IndexBuffer->GetNumIndices() > WARN_MESH_SIZE) {
-//         UE_LOG(LogRTI, Warning, TEXT("Creating mesh geometry from large static mesh %s - LOD %d has %d vertices and %d indices"),
-//                *MeshName, LOD, VertexBuffer->GetNumVertices(), IndexBuffer->GetNumIndices());
-//     }
-//     for (uint32 i = 0; i < VertexBuffer->GetNumVertices(); i++) {
-//         FVector Point = VertexBuffer->VertexPosition(i);
-//         if (ComponentTransform) Point = ComponentTransform->TransformPosition(Point);
-//         if (ActorTransform) Point = ActorTransform->InverseTransformPosition(Point);
-//         auto point = mesh->add_vertices();
-//         point->set_x(Point.Y / 100);
-//         point->set_y(Point.Z / 100);
-//         point->set_z(Point.X / 100);
-//     }
-//     if (LODResource.bHasReversedIndices && bFlippedNormals == false) {
-//         for (int32 i = 0; i + 2 < IndexBuffer->GetNumIndices(); i += 3) {
-//             mesh->add_indices(Offset + IndexBuffer->GetIndex(i + 2));
-//             mesh->add_indices(Offset + IndexBuffer->GetIndex(i + 1));
-//             mesh->add_indices(Offset + IndexBuffer->GetIndex(i));
-//         }
-//     } else {
-//         for (int32 i = 0; i < IndexBuffer->GetNumIndices(); i++) {
-//             mesh->add_indices(Offset + IndexBuffer->GetIndex(i));
-//         }
-//     }
-//     return VertexBuffer->GetNumVertices();
+     FString MeshName = Mesh->GetPathName(NULL);
+     if (!Mesh->bAllowCPUAccess) {
+ #if WITH_EDITOR
+         UE_LOG(LogRTI, Warning,
+                TEXT("Packaged build won't create mesh geometry - static mesh %s needs 'Allow CPU Access' flag"), *MeshName);
+ #else
+         return 0;
+ #endif
+     }
+     auto RenderData = Mesh->GetRenderData();
+     if (!RenderData) return 0;
+     auto NumLODs = RenderData->LODResources.Num();
+     if (NumLODs == 0) return 0;
+     auto LOD = NumLODs - 1;
+     auto &LODResource = RenderData->LODResources[LOD];
+     auto VertexBuffer = &LODResource.VertexBuffers.PositionVertexBuffer;
+     if (!VertexBuffer) return 0;
+     auto IndexBuffer = &LODResource.IndexBuffer;
+     if (!IndexBuffer) return 0;
+     if (VertexBuffer->GetNumVertices() > WARN_MESH_SIZE || IndexBuffer->GetNumIndices() > WARN_MESH_SIZE) {
+         UE_LOG(LogRTI, Warning, TEXT("Creating mesh geometry from large static mesh %s - LOD %d has %d vertices and %d indices"),
+                *MeshName, LOD, VertexBuffer->GetNumVertices(), IndexBuffer->GetNumIndices());
+     }
+     for (uint32 i = 0; i < VertexBuffer->GetNumVertices(); i++) {
+         FVector Point = FVector(VertexBuffer->VertexPosition(i));
+         if (ComponentTransform) Point = ComponentTransform->TransformPosition(Point);
+         if (ActorTransform) Point = ActorTransform->InverseTransformPosition(Point);
+         auto point = mesh->add_vertices();
+         point->set_x(Point.Y / 100);
+         point->set_y(Point.Z / 100);
+         point->set_z(Point.X / 100);
+     }
+     if (LODResource.bHasReversedIndices && bFlippedNormals == false) {
+         for (int32 i = 0; i + 2 < IndexBuffer->GetNumIndices(); i += 3) {
+             mesh->add_indices(Offset + IndexBuffer->GetIndex(i + 2));
+             mesh->add_indices(Offset + IndexBuffer->GetIndex(i + 1));
+             mesh->add_indices(Offset + IndexBuffer->GetIndex(i));
+         }
+     } else {
+         for (int32 i = 0; i < IndexBuffer->GetNumIndices(); i++) {
+             mesh->add_indices(Offset + IndexBuffer->GetIndex(i));
+         }
+     }
+     return VertexBuffer->GetNumVertices();
 }
 
 FVector BOX_CORNERS[] = {
