@@ -97,7 +97,7 @@ void URTIGeometryComponent::PublishCreate()
     message.set_allocated_create(data);
     switch (data->usage()) {
     case inhumate::rti::proto::GeometryOperation::Usage::GeometryOperation_Usage_SCENARIO:
-        UE_LOG(LogRTI, Log, TEXT("Publish scenario geometry %s"), *Id);
+        UE_LOG(LogRTI, Log, TEXT("Publish static geometry %s"), *Id);
         break;
     case inhumate::rti::proto::GeometryOperation::Usage::GeometryOperation_Usage_ENTITY:
         UE_LOG(LogRTI, Log, TEXT("Publish entity geometry %s"), *Id);
@@ -197,8 +197,6 @@ uint32 URTIGeometryComponent::AddMesh(inhumate::rti::proto::GeometryOperation_Me
                                       const FTransform *ActorTransform = nullptr,
                                       const bool bFlippedNormals)
 {
-    // FIXME
-    return 0;
      FString MeshName = Mesh->GetPathName(NULL);
      if (!Mesh->bAllowCPUAccess) {
  #if WITH_EDITOR

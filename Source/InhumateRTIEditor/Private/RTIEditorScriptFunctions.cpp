@@ -1,7 +1,7 @@
 #include "RTIEditorScriptFunctions.h"
 
 URTIStaticGeometryComponent* URTIEditorScriptFunctions::AddRTIStaticGeometryToActor(AActor *Actor) {
-    auto Component = NewObject<URTIStaticGeometryComponent>(Actor, FName(TEXT("RTI Scenario Geometry")));
+    auto Component = NewObject<URTIStaticGeometryComponent>(Actor, FName(TEXT("RTI Static Geometry")));
     Actor->AddInstanceComponent(Component);
     Component->AttachToComponent(Actor->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
     if (!Actor->IsRootComponentMovable()) Component->SetMobility(EComponentMobility::Static);
