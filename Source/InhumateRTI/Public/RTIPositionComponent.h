@@ -21,13 +21,17 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
     float UpdateInterval;
 
-    // Minimum distance to move to publish update
+    // Minimum distance (in cm) to move to publish update
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
     float PositionThreshold;
 
     // Minimum angular distance (in degrees) to rotate to publish update
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
     float RotationThreshold;
+
+    // Minimum velocity (in cm/s) change to publish update
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
+    float VelocityThreshold;
 
     // If checked, position will be interpolated between incoming position updates
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
