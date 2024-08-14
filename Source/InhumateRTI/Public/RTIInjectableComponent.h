@@ -127,11 +127,11 @@ protected:
     void AutoInject();
 
     void UpdateState(FInjection& Injection, EInjectionState state);
-    void GetBehaviours(const FInjection& Injection, TArray<class URTIInjectionBaseComponent*>& outBehaviours);
+    void GetBehaviours(const FInjection& Injection, TArray<class URTIInjectionBehaviourComponent*>& outBehaviours);
 
     TArray<FInjection> Injections;
-    TArray<class URTIInjectionBaseComponent*> Behaviours;
-    TMap<FString, TArray<class URTIInjectionBaseComponent*>> InjectionBehaviours;
+    TArray<class URTIInjectionBehaviourComponent*> Behaviours;
+    TMap<FString, TArray<class URTIInjectionBehaviourComponent*>> InjectionBehaviours;
 
     float LastRtiTime;
 

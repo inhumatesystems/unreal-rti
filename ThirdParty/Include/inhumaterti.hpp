@@ -1,7 +1,7 @@
 
 // Style guide: https://google.github.io/styleguide/cppguide.html
 // Conforming to Google's style guide because of protobuf dependency,
-// and it plays fairly well with UE4 ditto.
+// and it plays fairly well with Unreal Engine ditto.
 
 #ifndef __INHUMATE_RTI_H__
 #define __INHUMATE_RTI_H__
@@ -45,14 +45,18 @@ typedef std::shared_ptr<void> message_ptr_t;
 #include "Channels.pb.h"
 #include "Clients.pb.h"
 #include "EntityOperation.pb.h"
+#include "Entity.pb.h"
 #include "EntityPosition.pb.h"
 #include "RuntimeControl.pb.h"
 #include "Scenarios.pb.h"
 #include "GeometryOperation.pb.h"
+#include "Geometry.pb.h"
 #include "Measures.pb.h"
 #include "Measurement.pb.h"
-#include "Injectables.pb.h"
-#include "Injections.pb.h"
+#include "InjectableOperation.pb.h"
+#include "Injectable.pb.h"
+#include "InjectionOperation.pb.h"
+#include "Injection.pb.h"
 #include "Parameter.pb.h"
 #include "Commands.pb.h"
 
@@ -61,48 +65,58 @@ namespace inhumate
 namespace rti
 {
 
-constexpr auto VERSION = "0.0.1-dev-version";
+constexpr auto VERSION = "1.0.0";
 constexpr auto DEFAULT_URL = "ws://localhost:8000/";
 constexpr auto CONTROL_CHANNEL = "rti/control";
 constexpr auto CHANNELS_CHANNEL = "rti/channels";
 constexpr auto CLIENTS_CHANNEL = "rti/clients";
+constexpr auto ENTITY_OPERATION_CHANNEL = "rti/entities";
 constexpr auto ENTITY_CHANNEL = "rti/entity";
 constexpr auto POSITION_CHANNEL = "rti/position";
 constexpr auto SCENARIOS_CHANNEL = "rti/scenarios";
 constexpr auto FEDERATIONS_CHANNEL = "rti/federations";
 constexpr auto LAUNCH_CONFIGURATIONS_CHANNEL = "rti/launchconfigurations";
 constexpr auto LAUNCH_CHANNEL = "rti/launch";
-constexpr auto LOGS_CHANNEL = "rti/sessions";
+constexpr auto LOGS_CHANNEL = "rti/logs";
 constexpr auto BROKER_STATS_CHANNEL = "rti/brokerstats";
 constexpr auto BROKER_PINGS_CHANNEL = "rti/brokerpings";
 constexpr auto CLIENT_CONNECT_CHANNEL = "rti/clientconnect";
 constexpr auto CLIENT_DISCONNECT_CHANNEL = "rti/clientdisconnect";
 constexpr auto MESSAGE_BUNDLE_CHANNEL = "rti/messagebundle";
+constexpr auto GEOMETRY_OPERATION_CHANNEL = "rti/geometries";
 constexpr auto GEOMETRY_CHANNEL = "rti/geometry";
 constexpr auto MEASURES_CHANNEL = "rti/measures";
 constexpr auto MEASUREMENT_CHANNEL = "rti/measurement";
 constexpr auto MEASUREMENT_BUNDLE_CHANNEL = "rti/measurementbundle";
 constexpr auto TOAST_CHANNEL = "rti/toast";
-constexpr auto INJECTABLES_CHANNEL = "rti/injectables";
+constexpr auto INJECTABLE_OPERATION_CHANNEL = "rti/injectables";
+constexpr auto INJECTABLE_CHANNEL = "rti/injectable";
 constexpr auto INJECTION_OPERATION_CHANNEL = "rti/injections";
 constexpr auto INJECTION_CHANNEL = "rti/injection";
 constexpr auto COMMANDS_CHANNEL = "rti/commands";
 
+constexpr auto RUNTIME_CONTROL_CAPABILITY = "runtime";
+constexpr auto SCENARIO_CAPABILITY = "scenario";
+constexpr auto TIME_SCALE_CAPABILITY = "timescale";
+constexpr auto LOG_CAPABILITY = "log";
+constexpr auto PLAYBACK_CAPABILITY = "playback";
+constexpr auto LAUNCH_CAPABILITY = "launch";
+
 typedef std::function<void()> connectcallback_t;
 typedef std::shared_ptr<connectcallback_t> connectcallback_p;
-typedef std::weak_ptr<connectcallback_t> connectcallback_wp;
 
 typedef std::function<void()> disconnectcallback_t;
 typedef std::shared_ptr<disconnectcallback_t> disconnectcallback_p;
-typedef std::weak_ptr<disconnectcallback_t> disconnectcallback_wp;
 
 typedef std::function<void(const std::string &, const std::string &)> messagecallback_t;
 typedef std::shared_ptr<messagecallback_t> messagecallback_p;
-typedef std::weak_ptr<messagecallback_t> messagecallback_wp;
 
 typedef std::function<void(const std::string &, const std::string &)> errorcallback_t;
 typedef std::shared_ptr<errorcallback_t> errorcallback_p;
-typedef std::weak_ptr<errorcallback_t> errorcallback_wp;
+
+typedef std::function<void(const std::string &)> stringcallback_t;
+typedef std::shared_ptr<stringcallback_t> stringcallback_p;
+typedef std::unordered_map<int, stringcallback_p> intstringcallbackmap_t;
 
 typedef std::unordered_map<std::string, std::vector<messagecallback_p>> subscriptionmap_t;
 
@@ -277,6 +291,13 @@ class INHUMATE_RTI_EXPORT RTIClient
     {
         integrationVersion = version;
     }
+    const std::vector<std::string> &capabilities()
+    {
+        return _capabilities;
+    }
+    void add_capability(const std::string& capability) {
+        _capabilities.push_back(capability);
+    }
     const float measurement_interval_time_scale()
     {
         return measurementIntervalTimeScale;
@@ -295,6 +316,7 @@ class INHUMATE_RTI_EXPORT RTIClient
 
     void PublishClient();
     void PublishState();
+    void PublishMeasures();
     void PublishError(const std::string &message);
     void PublishError(const std::string &message, const proto::RuntimeState state);
     void PublishHeartbeat();
@@ -344,6 +366,9 @@ class INHUMATE_RTI_EXPORT RTIClient
     void Measure(const std::string& measureId, const float value);
     void Measure(const proto::Measure &measure, const float value);
 
+    void Invoke(const std::string &method, const std::string &data, const stringcallback_t callback);
+    void Invoke(const std::string &method, const std::string &data, const stringcallback_t callback, const stringcallback_t errorCallback);
+
     private:
     std::unique_ptr<client> wsclient;
     std::unique_ptr<client_tls> wsclient_tls;
@@ -365,17 +390,20 @@ class INHUMATE_RTI_EXPORT RTIClient
     std::string secret;
     std::string _user;
     std::string _password;
+    std::vector<std::string> _capabilities;
     std::string brokerVersion;
     subscriptionmap_t subscriptions;
     std::vector<connectcallback_p> connectcallbacks;
     std::vector<disconnectcallback_p> disconnectcallbacks;
     std::vector<errorcallback_p> errorcallbacks;
+    intstringcallbackmap_t rpcCallbacks;
+    intstringcallbackmap_t rpcErrorCallbacks;
     uint64_t connectTime;
     uint64_t lastReconnectTime;
     uint64_t lastPingTime;
     uint64_t cid;
 
-    // vectors are used here instead of unordered_map because clang/UE4 build would crash weirdly in destructor
+    // vectors are used here instead of unordered_map because clang/unreal build would crash weirdly in destructor
     std::vector<proto::ChannelUse> usedChannels;
     std::vector<proto::Channel> knownChannels;
 
@@ -579,3 +607,5 @@ inline std::string base64_decode(std::string const &input)
 } // namespace inhumate
 
 #endif
+
+

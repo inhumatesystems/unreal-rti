@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "Containers/Ticker.h"
 #include "InhumateRTI.h"
 #include "inhumaterti.hpp"
 #include "RuntimeStateEnum.h"
@@ -219,9 +220,10 @@ protected:
 
     void OnRuntimeControl(const std::string& channelName, const inhumate::rti::proto::RuntimeControl& message);
     void OnScenarios(const std::string& channelName, const inhumate::rti::proto::Scenarios& message);
+    void OnEntity(const std::string &channelName, const inhumate::rti::proto::Entity& message);
     void OnEntityOperation(const std::string& channelName, const inhumate::rti::proto::EntityOperation& message);
     void OnGeometryOperation(const std::string& channelName, const inhumate::rti::proto::GeometryOperation& message);
-    void OnInjectables(const std::string& channelName, const inhumate::rti::proto::Injectables& message);
+    void OnInjectableOperation(const std::string& channelName, const inhumate::rti::proto::InjectableOperation& message);
     void OnInjectionOperation(const std::string& channelName, const inhumate::rti::proto::InjectionOperation& message);
     void OnClientDisconnect(const std::string& channelName, const std::string& clientId);
     void QueryPersistentGeometryOwner();

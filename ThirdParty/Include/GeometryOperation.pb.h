@@ -31,10 +31,8 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
-#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/empty.pb.h>
-#include "Color.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_GeometryOperation_2eproto INHUMATE_RTI_PROTOS_EXPORT
@@ -50,7 +48,7 @@ struct INHUMATE_RTI_PROTOS_EXPORT TableStruct_GeometryOperation_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[14]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -63,151 +61,39 @@ namespace proto {
 class GeometryOperation;
 class GeometryOperationDefaultTypeInternal;
 INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperationDefaultTypeInternal _GeometryOperation_default_instance_;
-class GeometryOperation_GeodeticPoint2D;
-class GeometryOperation_GeodeticPoint2DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_GeodeticPoint2DDefaultTypeInternal _GeometryOperation_GeodeticPoint2D_default_instance_;
-class GeometryOperation_GeodeticPoint3D;
-class GeometryOperation_GeodeticPoint3DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_GeodeticPoint3DDefaultTypeInternal _GeometryOperation_GeodeticPoint3D_default_instance_;
-class GeometryOperation_Geometry;
-class GeometryOperation_GeometryDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_GeometryDefaultTypeInternal _GeometryOperation_Geometry_default_instance_;
-class GeometryOperation_Line2D;
-class GeometryOperation_Line2DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_Line2DDefaultTypeInternal _GeometryOperation_Line2D_default_instance_;
-class GeometryOperation_Line3D;
-class GeometryOperation_Line3DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_Line3DDefaultTypeInternal _GeometryOperation_Line3D_default_instance_;
-class GeometryOperation_LocalPoint2D;
-class GeometryOperation_LocalPoint2DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_LocalPoint2DDefaultTypeInternal _GeometryOperation_LocalPoint2D_default_instance_;
-class GeometryOperation_LocalPoint3D;
-class GeometryOperation_LocalPoint3DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_LocalPoint3DDefaultTypeInternal _GeometryOperation_LocalPoint3D_default_instance_;
-class GeometryOperation_Mesh;
-class GeometryOperation_MeshDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_MeshDefaultTypeInternal _GeometryOperation_Mesh_default_instance_;
-class GeometryOperation_Point2D;
-class GeometryOperation_Point2DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_Point2DDefaultTypeInternal _GeometryOperation_Point2D_default_instance_;
-class GeometryOperation_Point3D;
-class GeometryOperation_Point3DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_Point3DDefaultTypeInternal _GeometryOperation_Point3D_default_instance_;
-class GeometryOperation_Polygon;
-class GeometryOperation_PolygonDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_PolygonDefaultTypeInternal _GeometryOperation_Polygon_default_instance_;
-class GeometryOperation_Spline2D;
-class GeometryOperation_Spline2DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_Spline2DDefaultTypeInternal _GeometryOperation_Spline2D_default_instance_;
-class GeometryOperation_Spline3D;
-class GeometryOperation_Spline3DDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_Spline3DDefaultTypeInternal _GeometryOperation_Spline3D_default_instance_;
+class GeometryOperation_ApplicationClient;
+class GeometryOperation_ApplicationClientDefaultTypeInternal;
+INHUMATE_RTI_PROTOS_EXPORT extern GeometryOperation_ApplicationClientDefaultTypeInternal _GeometryOperation_ApplicationClient_default_instance_;
 }  // namespace proto
 }  // namespace rti
 }  // namespace inhumate
 PROTOBUF_NAMESPACE_OPEN
 template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_Geometry* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_Geometry>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_Line2D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_Line2D>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_Line3D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_Line3D>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_LocalPoint2D>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_LocalPoint3D>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_Mesh* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_Mesh>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_Point2D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_Point2D>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_Point3D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_Point3D>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_Polygon* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_Polygon>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_Spline2D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_Spline2D>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_Spline3D* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_Spline3D>(Arena*);
+template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::GeometryOperation_ApplicationClient* Arena::CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_ApplicationClient>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace inhumate {
 namespace rti {
 namespace proto {
 
-enum GeometryOperation_Usage : int {
-  GeometryOperation_Usage_SCENARIO = 0,
-  GeometryOperation_Usage_ENTITY = 1,
-  GeometryOperation_Usage_GeometryOperation_Usage_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  GeometryOperation_Usage_GeometryOperation_Usage_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
-};
-INHUMATE_RTI_PROTOS_EXPORT bool GeometryOperation_Usage_IsValid(int value);
-constexpr GeometryOperation_Usage GeometryOperation_Usage_Usage_MIN = GeometryOperation_Usage_SCENARIO;
-constexpr GeometryOperation_Usage GeometryOperation_Usage_Usage_MAX = GeometryOperation_Usage_ENTITY;
-constexpr int GeometryOperation_Usage_Usage_ARRAYSIZE = GeometryOperation_Usage_Usage_MAX + 1;
-
-INHUMATE_RTI_PROTOS_EXPORT const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GeometryOperation_Usage_descriptor();
-template<typename T>
-inline const std::string& GeometryOperation_Usage_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, GeometryOperation_Usage>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function GeometryOperation_Usage_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    GeometryOperation_Usage_descriptor(), enum_t_value);
-}
-inline bool GeometryOperation_Usage_Parse(
-    const std::string& name, GeometryOperation_Usage* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<GeometryOperation_Usage>(
-    GeometryOperation_Usage_descriptor(), name, value);
-}
-enum GeometryOperation_Category : int {
-  GeometryOperation_Category_UNKNOWN_GEOMETRY = 0,
-  GeometryOperation_Category_PHYSICAL_GEOMETRY = 10,
-  GeometryOperation_Category_GROUND = 11,
-  GeometryOperation_Category_VEGETATION = 12,
-  GeometryOperation_Category_STRUCTURE = 13,
-  GeometryOperation_Category_ROAD = 14,
-  GeometryOperation_Category_ABSTRACT_GEOMETRY = 100,
-  GeometryOperation_Category_ZONE = 101,
-  GeometryOperation_Category_TRIGGER = 102,
-  GeometryOperation_Category_EDGE = 103,
-  GeometryOperation_Category_PATH = 104,
-  GeometryOperation_Category_PLANNED_PATH = 105,
-  GeometryOperation_Category_HISTORIC_PATH = 106,
-  GeometryOperation_Category_SENSOR_COVERAGE = 151,
-  GeometryOperation_Category_SENSOR_HIT = 152,
-  GeometryOperation_Category_DEBUG_GEOMETRY = 200,
-  GeometryOperation_Category_GeometryOperation_Category_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  GeometryOperation_Category_GeometryOperation_Category_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
-};
-INHUMATE_RTI_PROTOS_EXPORT bool GeometryOperation_Category_IsValid(int value);
-constexpr GeometryOperation_Category GeometryOperation_Category_Category_MIN = GeometryOperation_Category_UNKNOWN_GEOMETRY;
-constexpr GeometryOperation_Category GeometryOperation_Category_Category_MAX = GeometryOperation_Category_DEBUG_GEOMETRY;
-constexpr int GeometryOperation_Category_Category_ARRAYSIZE = GeometryOperation_Category_Category_MAX + 1;
-
-INHUMATE_RTI_PROTOS_EXPORT const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GeometryOperation_Category_descriptor();
-template<typename T>
-inline const std::string& GeometryOperation_Category_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, GeometryOperation_Category>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function GeometryOperation_Category_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    GeometryOperation_Category_descriptor(), enum_t_value);
-}
-inline bool GeometryOperation_Category_Parse(
-    const std::string& name, GeometryOperation_Category* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<GeometryOperation_Category>(
-    GeometryOperation_Category_descriptor(), name, value);
-}
 // ===================================================================
 
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Geometry :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.Geometry) */ {
+class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_ApplicationClient :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.ApplicationClient) */ {
  public:
-  GeometryOperation_Geometry();
-  virtual ~GeometryOperation_Geometry();
+  GeometryOperation_ApplicationClient();
+  virtual ~GeometryOperation_ApplicationClient();
 
-  GeometryOperation_Geometry(const GeometryOperation_Geometry& from);
-  GeometryOperation_Geometry(GeometryOperation_Geometry&& from) noexcept
-    : GeometryOperation_Geometry() {
+  GeometryOperation_ApplicationClient(const GeometryOperation_ApplicationClient& from);
+  GeometryOperation_ApplicationClient(GeometryOperation_ApplicationClient&& from) noexcept
+    : GeometryOperation_ApplicationClient() {
     *this = ::std::move(from);
   }
 
-  inline GeometryOperation_Geometry& operator=(const GeometryOperation_Geometry& from) {
+  inline GeometryOperation_ApplicationClient& operator=(const GeometryOperation_ApplicationClient& from) {
     CopyFrom(from);
     return *this;
   }
-  inline GeometryOperation_Geometry& operator=(GeometryOperation_Geometry&& from) noexcept {
+  inline GeometryOperation_ApplicationClient& operator=(GeometryOperation_ApplicationClient&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -225,49 +111,37 @@ class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Geometry :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const GeometryOperation_Geometry& default_instance();
-
-  enum ShapeCase {
-    kPoint = 1,
-    kPoint3D = 2,
-    kLine = 3,
-    kLine3D = 4,
-    kPolygon = 5,
-    kMesh = 6,
-    kSpline = 7,
-    kSpline3D = 8,
-    SHAPE_NOT_SET = 0,
-  };
+  static const GeometryOperation_ApplicationClient& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_Geometry* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_Geometry*>(
-               &_GeometryOperation_Geometry_default_instance_);
+  static inline const GeometryOperation_ApplicationClient* internal_default_instance() {
+    return reinterpret_cast<const GeometryOperation_ApplicationClient*>(
+               &_GeometryOperation_ApplicationClient_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(GeometryOperation_Geometry& a, GeometryOperation_Geometry& b) {
+  friend void swap(GeometryOperation_ApplicationClient& a, GeometryOperation_ApplicationClient& b) {
     a.Swap(&b);
   }
-  inline void Swap(GeometryOperation_Geometry* other) {
+  inline void Swap(GeometryOperation_ApplicationClient* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline GeometryOperation_Geometry* New() const final {
-    return CreateMaybeMessage<GeometryOperation_Geometry>(nullptr);
+  inline GeometryOperation_ApplicationClient* New() const final {
+    return CreateMaybeMessage<GeometryOperation_ApplicationClient>(nullptr);
   }
 
-  GeometryOperation_Geometry* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_Geometry>(arena);
+  GeometryOperation_ApplicationClient* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GeometryOperation_ApplicationClient>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_Geometry& from);
-  void MergeFrom(const GeometryOperation_Geometry& from);
+  void CopyFrom(const GeometryOperation_ApplicationClient& from);
+  void MergeFrom(const GeometryOperation_ApplicationClient& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -281,10 +155,10 @@ class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Geometry :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_Geometry* other);
+  void InternalSwap(GeometryOperation_ApplicationClient* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.Geometry";
+    return "inhumate.rti.proto.GeometryOperation.ApplicationClient";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -309,2133 +183,48 @@ class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Geometry :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTitleFieldNumber = 12,
-    kTypeFieldNumber = 21,
-    kColorFieldNumber = 10,
-    kLabelColorFieldNumber = 13,
-    kTransparencyFieldNumber = 11,
-    kLabelTransparencyFieldNumber = 14,
-    kScalableFieldNumber = 15,
-    kWireframeFieldNumber = 16,
-    kHiddenFieldNumber = 18,
-    kLineWidthFieldNumber = 17,
-    kUsageFieldNumber = 20,
-    kCategoryFieldNumber = 22,
-    kPointFieldNumber = 1,
-    kPoint3DFieldNumber = 2,
-    kLineFieldNumber = 3,
-    kLine3DFieldNumber = 4,
-    kPolygonFieldNumber = 5,
-    kMeshFieldNumber = 6,
-    kSplineFieldNumber = 7,
-    kSpline3DFieldNumber = 8,
+    kApplicationFieldNumber = 1,
+    kClientIdFieldNumber = 2,
   };
-  // string title = 12;
-  void clear_title();
-  const std::string& title() const;
-  void set_title(const std::string& value);
-  void set_title(std::string&& value);
-  void set_title(const char* value);
-  void set_title(const char* value, size_t size);
-  std::string* mutable_title();
-  std::string* release_title();
-  void set_allocated_title(std::string* title);
+  // string application = 1;
+  void clear_application();
+  const std::string& application() const;
+  void set_application(const std::string& value);
+  void set_application(std::string&& value);
+  void set_application(const char* value);
+  void set_application(const char* value, size_t size);
+  std::string* mutable_application();
+  std::string* release_application();
+  void set_allocated_application(std::string* application);
   private:
-  const std::string& _internal_title() const;
-  void _internal_set_title(const std::string& value);
-  std::string* _internal_mutable_title();
+  const std::string& _internal_application() const;
+  void _internal_set_application(const std::string& value);
+  std::string* _internal_mutable_application();
   public:
 
-  // string type = 21;
-  void clear_type();
-  const std::string& type() const;
-  void set_type(const std::string& value);
-  void set_type(std::string&& value);
-  void set_type(const char* value);
-  void set_type(const char* value, size_t size);
-  std::string* mutable_type();
-  std::string* release_type();
-  void set_allocated_type(std::string* type);
+  // string client_id = 2;
+  void clear_client_id();
+  const std::string& client_id() const;
+  void set_client_id(const std::string& value);
+  void set_client_id(std::string&& value);
+  void set_client_id(const char* value);
+  void set_client_id(const char* value, size_t size);
+  std::string* mutable_client_id();
+  std::string* release_client_id();
+  void set_allocated_client_id(std::string* client_id);
   private:
-  const std::string& _internal_type() const;
-  void _internal_set_type(const std::string& value);
-  std::string* _internal_mutable_type();
+  const std::string& _internal_client_id() const;
+  void _internal_set_client_id(const std::string& value);
+  std::string* _internal_mutable_client_id();
   public:
 
-  // .inhumate.rti.proto.Color color = 10;
-  bool has_color() const;
-  private:
-  bool _internal_has_color() const;
-  public:
-  void clear_color();
-  const ::inhumate::rti::proto::Color& color() const;
-  ::inhumate::rti::proto::Color* release_color();
-  ::inhumate::rti::proto::Color* mutable_color();
-  void set_allocated_color(::inhumate::rti::proto::Color* color);
-  private:
-  const ::inhumate::rti::proto::Color& _internal_color() const;
-  ::inhumate::rti::proto::Color* _internal_mutable_color();
-  public:
-
-  // .inhumate.rti.proto.Color label_color = 13;
-  bool has_label_color() const;
-  private:
-  bool _internal_has_label_color() const;
-  public:
-  void clear_label_color();
-  const ::inhumate::rti::proto::Color& label_color() const;
-  ::inhumate::rti::proto::Color* release_label_color();
-  ::inhumate::rti::proto::Color* mutable_label_color();
-  void set_allocated_label_color(::inhumate::rti::proto::Color* label_color);
-  private:
-  const ::inhumate::rti::proto::Color& _internal_label_color() const;
-  ::inhumate::rti::proto::Color* _internal_mutable_label_color();
-  public:
-
-  // float transparency = 11;
-  void clear_transparency();
-  float transparency() const;
-  void set_transparency(float value);
-  private:
-  float _internal_transparency() const;
-  void _internal_set_transparency(float value);
-  public:
-
-  // float label_transparency = 14;
-  void clear_label_transparency();
-  float label_transparency() const;
-  void set_label_transparency(float value);
-  private:
-  float _internal_label_transparency() const;
-  void _internal_set_label_transparency(float value);
-  public:
-
-  // bool scalable = 15;
-  void clear_scalable();
-  bool scalable() const;
-  void set_scalable(bool value);
-  private:
-  bool _internal_scalable() const;
-  void _internal_set_scalable(bool value);
-  public:
-
-  // bool wireframe = 16;
-  void clear_wireframe();
-  bool wireframe() const;
-  void set_wireframe(bool value);
-  private:
-  bool _internal_wireframe() const;
-  void _internal_set_wireframe(bool value);
-  public:
-
-  // bool hidden = 18;
-  void clear_hidden();
-  bool hidden() const;
-  void set_hidden(bool value);
-  private:
-  bool _internal_hidden() const;
-  void _internal_set_hidden(bool value);
-  public:
-
-  // float line_width = 17;
-  void clear_line_width();
-  float line_width() const;
-  void set_line_width(float value);
-  private:
-  float _internal_line_width() const;
-  void _internal_set_line_width(float value);
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Usage usage = 20;
-  void clear_usage();
-  ::inhumate::rti::proto::GeometryOperation_Usage usage() const;
-  void set_usage(::inhumate::rti::proto::GeometryOperation_Usage value);
-  private:
-  ::inhumate::rti::proto::GeometryOperation_Usage _internal_usage() const;
-  void _internal_set_usage(::inhumate::rti::proto::GeometryOperation_Usage value);
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Category category = 22;
-  void clear_category();
-  ::inhumate::rti::proto::GeometryOperation_Category category() const;
-  void set_category(::inhumate::rti::proto::GeometryOperation_Category value);
-  private:
-  ::inhumate::rti::proto::GeometryOperation_Category _internal_category() const;
-  void _internal_set_category(::inhumate::rti::proto::GeometryOperation_Category value);
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Point2D point = 1;
-  bool has_point() const;
-  private:
-  bool _internal_has_point() const;
-  public:
-  void clear_point();
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& point() const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* release_point();
-  ::inhumate::rti::proto::GeometryOperation_Point2D* mutable_point();
-  void set_allocated_point(::inhumate::rti::proto::GeometryOperation_Point2D* point);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& _internal_point() const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* _internal_mutable_point();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Point3D point3d = 2;
-  bool has_point3d() const;
-  private:
-  bool _internal_has_point3d() const;
-  public:
-  void clear_point3d();
-  const ::inhumate::rti::proto::GeometryOperation_Point3D& point3d() const;
-  ::inhumate::rti::proto::GeometryOperation_Point3D* release_point3d();
-  ::inhumate::rti::proto::GeometryOperation_Point3D* mutable_point3d();
-  void set_allocated_point3d(::inhumate::rti::proto::GeometryOperation_Point3D* point3d);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Point3D& _internal_point3d() const;
-  ::inhumate::rti::proto::GeometryOperation_Point3D* _internal_mutable_point3d();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Line2D line = 3;
-  bool has_line() const;
-  private:
-  bool _internal_has_line() const;
-  public:
-  void clear_line();
-  const ::inhumate::rti::proto::GeometryOperation_Line2D& line() const;
-  ::inhumate::rti::proto::GeometryOperation_Line2D* release_line();
-  ::inhumate::rti::proto::GeometryOperation_Line2D* mutable_line();
-  void set_allocated_line(::inhumate::rti::proto::GeometryOperation_Line2D* line);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Line2D& _internal_line() const;
-  ::inhumate::rti::proto::GeometryOperation_Line2D* _internal_mutable_line();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Line3D line3d = 4;
-  bool has_line3d() const;
-  private:
-  bool _internal_has_line3d() const;
-  public:
-  void clear_line3d();
-  const ::inhumate::rti::proto::GeometryOperation_Line3D& line3d() const;
-  ::inhumate::rti::proto::GeometryOperation_Line3D* release_line3d();
-  ::inhumate::rti::proto::GeometryOperation_Line3D* mutable_line3d();
-  void set_allocated_line3d(::inhumate::rti::proto::GeometryOperation_Line3D* line3d);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Line3D& _internal_line3d() const;
-  ::inhumate::rti::proto::GeometryOperation_Line3D* _internal_mutable_line3d();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Polygon polygon = 5;
-  bool has_polygon() const;
-  private:
-  bool _internal_has_polygon() const;
-  public:
-  void clear_polygon();
-  const ::inhumate::rti::proto::GeometryOperation_Polygon& polygon() const;
-  ::inhumate::rti::proto::GeometryOperation_Polygon* release_polygon();
-  ::inhumate::rti::proto::GeometryOperation_Polygon* mutable_polygon();
-  void set_allocated_polygon(::inhumate::rti::proto::GeometryOperation_Polygon* polygon);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Polygon& _internal_polygon() const;
-  ::inhumate::rti::proto::GeometryOperation_Polygon* _internal_mutable_polygon();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Mesh mesh = 6;
-  bool has_mesh() const;
-  private:
-  bool _internal_has_mesh() const;
-  public:
-  void clear_mesh();
-  const ::inhumate::rti::proto::GeometryOperation_Mesh& mesh() const;
-  ::inhumate::rti::proto::GeometryOperation_Mesh* release_mesh();
-  ::inhumate::rti::proto::GeometryOperation_Mesh* mutable_mesh();
-  void set_allocated_mesh(::inhumate::rti::proto::GeometryOperation_Mesh* mesh);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Mesh& _internal_mesh() const;
-  ::inhumate::rti::proto::GeometryOperation_Mesh* _internal_mutable_mesh();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Spline2D spline = 7;
-  bool has_spline() const;
-  private:
-  bool _internal_has_spline() const;
-  public:
-  void clear_spline();
-  const ::inhumate::rti::proto::GeometryOperation_Spline2D& spline() const;
-  ::inhumate::rti::proto::GeometryOperation_Spline2D* release_spline();
-  ::inhumate::rti::proto::GeometryOperation_Spline2D* mutable_spline();
-  void set_allocated_spline(::inhumate::rti::proto::GeometryOperation_Spline2D* spline);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Spline2D& _internal_spline() const;
-  ::inhumate::rti::proto::GeometryOperation_Spline2D* _internal_mutable_spline();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Spline3D spline3d = 8;
-  bool has_spline3d() const;
-  private:
-  bool _internal_has_spline3d() const;
-  public:
-  void clear_spline3d();
-  const ::inhumate::rti::proto::GeometryOperation_Spline3D& spline3d() const;
-  ::inhumate::rti::proto::GeometryOperation_Spline3D* release_spline3d();
-  ::inhumate::rti::proto::GeometryOperation_Spline3D* mutable_spline3d();
-  void set_allocated_spline3d(::inhumate::rti::proto::GeometryOperation_Spline3D* spline3d);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Spline3D& _internal_spline3d() const;
-  ::inhumate::rti::proto::GeometryOperation_Spline3D* _internal_mutable_spline3d();
-  public:
-
-  void clear_shape();
-  ShapeCase shape_case() const;
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.Geometry)
- private:
-  class _Internal;
-  void set_has_point();
-  void set_has_point3d();
-  void set_has_line();
-  void set_has_line3d();
-  void set_has_polygon();
-  void set_has_mesh();
-  void set_has_spline();
-  void set_has_spline3d();
-
-  inline bool has_shape() const;
-  inline void clear_has_shape();
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr title_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_;
-  ::inhumate::rti::proto::Color* color_;
-  ::inhumate::rti::proto::Color* label_color_;
-  float transparency_;
-  float label_transparency_;
-  bool scalable_;
-  bool wireframe_;
-  bool hidden_;
-  float line_width_;
-  int usage_;
-  int category_;
-  union ShapeUnion {
-    ShapeUnion() {}
-    ::inhumate::rti::proto::GeometryOperation_Point2D* point_;
-    ::inhumate::rti::proto::GeometryOperation_Point3D* point3d_;
-    ::inhumate::rti::proto::GeometryOperation_Line2D* line_;
-    ::inhumate::rti::proto::GeometryOperation_Line3D* line3d_;
-    ::inhumate::rti::proto::GeometryOperation_Polygon* polygon_;
-    ::inhumate::rti::proto::GeometryOperation_Mesh* mesh_;
-    ::inhumate::rti::proto::GeometryOperation_Spline2D* spline_;
-    ::inhumate::rti::proto::GeometryOperation_Spline3D* spline3d_;
-  } shape_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Point2D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.Point2D) */ {
- public:
-  GeometryOperation_Point2D();
-  virtual ~GeometryOperation_Point2D();
-
-  GeometryOperation_Point2D(const GeometryOperation_Point2D& from);
-  GeometryOperation_Point2D(GeometryOperation_Point2D&& from) noexcept
-    : GeometryOperation_Point2D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_Point2D& operator=(const GeometryOperation_Point2D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_Point2D& operator=(GeometryOperation_Point2D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_Point2D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_Point2D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_Point2D*>(
-               &_GeometryOperation_Point2D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(GeometryOperation_Point2D& a, GeometryOperation_Point2D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_Point2D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_Point2D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_Point2D>(nullptr);
-  }
-
-  GeometryOperation_Point2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_Point2D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_Point2D& from);
-  void MergeFrom(const GeometryOperation_Point2D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_Point2D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.Point2D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kLocalFieldNumber = 1,
-    kGeodeticFieldNumber = 2,
-  };
-  // .inhumate.rti.proto.GeometryOperation.LocalPoint2D local = 1;
-  bool has_local() const;
-  private:
-  bool _internal_has_local() const;
-  public:
-  void clear_local();
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint2D& local() const;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* release_local();
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* mutable_local();
-  void set_allocated_local(::inhumate::rti::proto::GeometryOperation_LocalPoint2D* local);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint2D& _internal_local() const;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* _internal_mutable_local();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.GeodeticPoint2D geodetic = 2;
-  bool has_geodetic() const;
-  private:
-  bool _internal_has_geodetic() const;
-  public:
-  void clear_geodetic();
-  const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D& geodetic() const;
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* release_geodetic();
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* mutable_geodetic();
-  void set_allocated_geodetic(::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* geodetic);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D& _internal_geodetic() const;
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* _internal_mutable_geodetic();
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.Point2D)
+  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.ApplicationClient)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* local_;
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* geodetic_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_LocalPoint2D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.LocalPoint2D) */ {
- public:
-  GeometryOperation_LocalPoint2D();
-  virtual ~GeometryOperation_LocalPoint2D();
-
-  GeometryOperation_LocalPoint2D(const GeometryOperation_LocalPoint2D& from);
-  GeometryOperation_LocalPoint2D(GeometryOperation_LocalPoint2D&& from) noexcept
-    : GeometryOperation_LocalPoint2D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_LocalPoint2D& operator=(const GeometryOperation_LocalPoint2D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_LocalPoint2D& operator=(GeometryOperation_LocalPoint2D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_LocalPoint2D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_LocalPoint2D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_LocalPoint2D*>(
-               &_GeometryOperation_LocalPoint2D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(GeometryOperation_LocalPoint2D& a, GeometryOperation_LocalPoint2D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_LocalPoint2D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_LocalPoint2D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_LocalPoint2D>(nullptr);
-  }
-
-  GeometryOperation_LocalPoint2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_LocalPoint2D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_LocalPoint2D& from);
-  void MergeFrom(const GeometryOperation_LocalPoint2D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_LocalPoint2D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.LocalPoint2D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kXFieldNumber = 1,
-    kYFieldNumber = 2,
-  };
-  // float x = 1;
-  void clear_x();
-  float x() const;
-  void set_x(float value);
-  private:
-  float _internal_x() const;
-  void _internal_set_x(float value);
-  public:
-
-  // float y = 2;
-  void clear_y();
-  float y() const;
-  void set_y(float value);
-  private:
-  float _internal_y() const;
-  void _internal_set_y(float value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.LocalPoint2D)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  float x_;
-  float y_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_GeodeticPoint2D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.GeodeticPoint2D) */ {
- public:
-  GeometryOperation_GeodeticPoint2D();
-  virtual ~GeometryOperation_GeodeticPoint2D();
-
-  GeometryOperation_GeodeticPoint2D(const GeometryOperation_GeodeticPoint2D& from);
-  GeometryOperation_GeodeticPoint2D(GeometryOperation_GeodeticPoint2D&& from) noexcept
-    : GeometryOperation_GeodeticPoint2D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_GeodeticPoint2D& operator=(const GeometryOperation_GeodeticPoint2D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_GeodeticPoint2D& operator=(GeometryOperation_GeodeticPoint2D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_GeodeticPoint2D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_GeodeticPoint2D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_GeodeticPoint2D*>(
-               &_GeometryOperation_GeodeticPoint2D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  friend void swap(GeometryOperation_GeodeticPoint2D& a, GeometryOperation_GeodeticPoint2D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_GeodeticPoint2D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_GeodeticPoint2D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_GeodeticPoint2D>(nullptr);
-  }
-
-  GeometryOperation_GeodeticPoint2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_GeodeticPoint2D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_GeodeticPoint2D& from);
-  void MergeFrom(const GeometryOperation_GeodeticPoint2D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_GeodeticPoint2D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.GeodeticPoint2D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kLongitudeFieldNumber = 1,
-    kLatitudeFieldNumber = 2,
-  };
-  // double longitude = 1;
-  void clear_longitude();
-  double longitude() const;
-  void set_longitude(double value);
-  private:
-  double _internal_longitude() const;
-  void _internal_set_longitude(double value);
-  public:
-
-  // double latitude = 2;
-  void clear_latitude();
-  double latitude() const;
-  void set_latitude(double value);
-  private:
-  double _internal_latitude() const;
-  void _internal_set_latitude(double value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.GeodeticPoint2D)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  double longitude_;
-  double latitude_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Point3D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.Point3D) */ {
- public:
-  GeometryOperation_Point3D();
-  virtual ~GeometryOperation_Point3D();
-
-  GeometryOperation_Point3D(const GeometryOperation_Point3D& from);
-  GeometryOperation_Point3D(GeometryOperation_Point3D&& from) noexcept
-    : GeometryOperation_Point3D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_Point3D& operator=(const GeometryOperation_Point3D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_Point3D& operator=(GeometryOperation_Point3D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_Point3D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_Point3D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_Point3D*>(
-               &_GeometryOperation_Point3D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  friend void swap(GeometryOperation_Point3D& a, GeometryOperation_Point3D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_Point3D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_Point3D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_Point3D>(nullptr);
-  }
-
-  GeometryOperation_Point3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_Point3D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_Point3D& from);
-  void MergeFrom(const GeometryOperation_Point3D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_Point3D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.Point3D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kLocalFieldNumber = 1,
-    kGeodeticFieldNumber = 2,
-  };
-  // .inhumate.rti.proto.GeometryOperation.LocalPoint3D local = 1;
-  bool has_local() const;
-  private:
-  bool _internal_has_local() const;
-  public:
-  void clear_local();
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& local() const;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* release_local();
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* mutable_local();
-  void set_allocated_local(::inhumate::rti::proto::GeometryOperation_LocalPoint3D* local);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& _internal_local() const;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* _internal_mutable_local();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.GeodeticPoint3D geodetic = 2;
-  bool has_geodetic() const;
-  private:
-  bool _internal_has_geodetic() const;
-  public:
-  void clear_geodetic();
-  const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D& geodetic() const;
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* release_geodetic();
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* mutable_geodetic();
-  void set_allocated_geodetic(::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* geodetic);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D& _internal_geodetic() const;
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* _internal_mutable_geodetic();
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.Point3D)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* local_;
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* geodetic_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_LocalPoint3D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.LocalPoint3D) */ {
- public:
-  GeometryOperation_LocalPoint3D();
-  virtual ~GeometryOperation_LocalPoint3D();
-
-  GeometryOperation_LocalPoint3D(const GeometryOperation_LocalPoint3D& from);
-  GeometryOperation_LocalPoint3D(GeometryOperation_LocalPoint3D&& from) noexcept
-    : GeometryOperation_LocalPoint3D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_LocalPoint3D& operator=(const GeometryOperation_LocalPoint3D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_LocalPoint3D& operator=(GeometryOperation_LocalPoint3D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_LocalPoint3D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_LocalPoint3D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_LocalPoint3D*>(
-               &_GeometryOperation_LocalPoint3D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(GeometryOperation_LocalPoint3D& a, GeometryOperation_LocalPoint3D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_LocalPoint3D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_LocalPoint3D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_LocalPoint3D>(nullptr);
-  }
-
-  GeometryOperation_LocalPoint3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_LocalPoint3D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_LocalPoint3D& from);
-  void MergeFrom(const GeometryOperation_LocalPoint3D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_LocalPoint3D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.LocalPoint3D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kXFieldNumber = 1,
-    kYFieldNumber = 2,
-    kZFieldNumber = 3,
-  };
-  // float x = 1;
-  void clear_x();
-  float x() const;
-  void set_x(float value);
-  private:
-  float _internal_x() const;
-  void _internal_set_x(float value);
-  public:
-
-  // float y = 2;
-  void clear_y();
-  float y() const;
-  void set_y(float value);
-  private:
-  float _internal_y() const;
-  void _internal_set_y(float value);
-  public:
-
-  // float z = 3;
-  void clear_z();
-  float z() const;
-  void set_z(float value);
-  private:
-  float _internal_z() const;
-  void _internal_set_z(float value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.LocalPoint3D)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  float x_;
-  float y_;
-  float z_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_GeodeticPoint3D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.GeodeticPoint3D) */ {
- public:
-  GeometryOperation_GeodeticPoint3D();
-  virtual ~GeometryOperation_GeodeticPoint3D();
-
-  GeometryOperation_GeodeticPoint3D(const GeometryOperation_GeodeticPoint3D& from);
-  GeometryOperation_GeodeticPoint3D(GeometryOperation_GeodeticPoint3D&& from) noexcept
-    : GeometryOperation_GeodeticPoint3D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_GeodeticPoint3D& operator=(const GeometryOperation_GeodeticPoint3D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_GeodeticPoint3D& operator=(GeometryOperation_GeodeticPoint3D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_GeodeticPoint3D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_GeodeticPoint3D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_GeodeticPoint3D*>(
-               &_GeometryOperation_GeodeticPoint3D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    6;
-
-  friend void swap(GeometryOperation_GeodeticPoint3D& a, GeometryOperation_GeodeticPoint3D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_GeodeticPoint3D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_GeodeticPoint3D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_GeodeticPoint3D>(nullptr);
-  }
-
-  GeometryOperation_GeodeticPoint3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_GeodeticPoint3D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_GeodeticPoint3D& from);
-  void MergeFrom(const GeometryOperation_GeodeticPoint3D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_GeodeticPoint3D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.GeodeticPoint3D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kLongitudeFieldNumber = 1,
-    kLatitudeFieldNumber = 2,
-    kAltitudeFieldNumber = 3,
-  };
-  // double longitude = 1;
-  void clear_longitude();
-  double longitude() const;
-  void set_longitude(double value);
-  private:
-  double _internal_longitude() const;
-  void _internal_set_longitude(double value);
-  public:
-
-  // double latitude = 2;
-  void clear_latitude();
-  double latitude() const;
-  void set_latitude(double value);
-  private:
-  double _internal_latitude() const;
-  void _internal_set_latitude(double value);
-  public:
-
-  // double altitude = 3;
-  void clear_altitude();
-  double altitude() const;
-  void set_altitude(double value);
-  private:
-  double _internal_altitude() const;
-  void _internal_set_altitude(double value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.GeodeticPoint3D)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  double longitude_;
-  double latitude_;
-  double altitude_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Line2D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.Line2D) */ {
- public:
-  GeometryOperation_Line2D();
-  virtual ~GeometryOperation_Line2D();
-
-  GeometryOperation_Line2D(const GeometryOperation_Line2D& from);
-  GeometryOperation_Line2D(GeometryOperation_Line2D&& from) noexcept
-    : GeometryOperation_Line2D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_Line2D& operator=(const GeometryOperation_Line2D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_Line2D& operator=(GeometryOperation_Line2D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_Line2D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_Line2D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_Line2D*>(
-               &_GeometryOperation_Line2D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    7;
-
-  friend void swap(GeometryOperation_Line2D& a, GeometryOperation_Line2D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_Line2D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_Line2D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_Line2D>(nullptr);
-  }
-
-  GeometryOperation_Line2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_Line2D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_Line2D& from);
-  void MergeFrom(const GeometryOperation_Line2D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_Line2D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.Line2D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPointsFieldNumber = 1,
-  };
-  // repeated .inhumate.rti.proto.GeometryOperation.Point2D points = 1;
-  int points_size() const;
-  private:
-  int _internal_points_size() const;
-  public:
-  void clear_points();
-  ::inhumate::rti::proto::GeometryOperation_Point2D* mutable_points(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >*
-      mutable_points();
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& _internal_points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* _internal_add_points();
-  public:
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* add_points();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >&
-      points() const;
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.Line2D)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D > points_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Line3D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.Line3D) */ {
- public:
-  GeometryOperation_Line3D();
-  virtual ~GeometryOperation_Line3D();
-
-  GeometryOperation_Line3D(const GeometryOperation_Line3D& from);
-  GeometryOperation_Line3D(GeometryOperation_Line3D&& from) noexcept
-    : GeometryOperation_Line3D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_Line3D& operator=(const GeometryOperation_Line3D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_Line3D& operator=(GeometryOperation_Line3D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_Line3D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_Line3D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_Line3D*>(
-               &_GeometryOperation_Line3D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    8;
-
-  friend void swap(GeometryOperation_Line3D& a, GeometryOperation_Line3D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_Line3D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_Line3D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_Line3D>(nullptr);
-  }
-
-  GeometryOperation_Line3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_Line3D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_Line3D& from);
-  void MergeFrom(const GeometryOperation_Line3D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_Line3D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.Line3D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPointsFieldNumber = 1,
-  };
-  // repeated .inhumate.rti.proto.GeometryOperation.Point3D points = 1;
-  int points_size() const;
-  private:
-  int _internal_points_size() const;
-  public:
-  void clear_points();
-  ::inhumate::rti::proto::GeometryOperation_Point3D* mutable_points(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >*
-      mutable_points();
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Point3D& _internal_points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point3D* _internal_add_points();
-  public:
-  const ::inhumate::rti::proto::GeometryOperation_Point3D& points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point3D* add_points();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >&
-      points() const;
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.Line3D)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D > points_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Polygon :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.Polygon) */ {
- public:
-  GeometryOperation_Polygon();
-  virtual ~GeometryOperation_Polygon();
-
-  GeometryOperation_Polygon(const GeometryOperation_Polygon& from);
-  GeometryOperation_Polygon(GeometryOperation_Polygon&& from) noexcept
-    : GeometryOperation_Polygon() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_Polygon& operator=(const GeometryOperation_Polygon& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_Polygon& operator=(GeometryOperation_Polygon&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_Polygon& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_Polygon* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_Polygon*>(
-               &_GeometryOperation_Polygon_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    9;
-
-  friend void swap(GeometryOperation_Polygon& a, GeometryOperation_Polygon& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_Polygon* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_Polygon* New() const final {
-    return CreateMaybeMessage<GeometryOperation_Polygon>(nullptr);
-  }
-
-  GeometryOperation_Polygon* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_Polygon>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_Polygon& from);
-  void MergeFrom(const GeometryOperation_Polygon& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_Polygon* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.Polygon";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPointsFieldNumber = 1,
-    kBaseFieldNumber = 2,
-    kHeightFieldNumber = 3,
-  };
-  // repeated .inhumate.rti.proto.GeometryOperation.Point2D points = 1;
-  int points_size() const;
-  private:
-  int _internal_points_size() const;
-  public:
-  void clear_points();
-  ::inhumate::rti::proto::GeometryOperation_Point2D* mutable_points(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >*
-      mutable_points();
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& _internal_points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* _internal_add_points();
-  public:
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* add_points();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >&
-      points() const;
-
-  // float base = 2;
-  void clear_base();
-  float base() const;
-  void set_base(float value);
-  private:
-  float _internal_base() const;
-  void _internal_set_base(float value);
-  public:
-
-  // float height = 3;
-  void clear_height();
-  float height() const;
-  void set_height(float value);
-  private:
-  float _internal_height() const;
-  void _internal_set_height(float value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.Polygon)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D > points_;
-  float base_;
-  float height_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Mesh :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.Mesh) */ {
- public:
-  GeometryOperation_Mesh();
-  virtual ~GeometryOperation_Mesh();
-
-  GeometryOperation_Mesh(const GeometryOperation_Mesh& from);
-  GeometryOperation_Mesh(GeometryOperation_Mesh&& from) noexcept
-    : GeometryOperation_Mesh() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_Mesh& operator=(const GeometryOperation_Mesh& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_Mesh& operator=(GeometryOperation_Mesh&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_Mesh& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_Mesh* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_Mesh*>(
-               &_GeometryOperation_Mesh_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    10;
-
-  friend void swap(GeometryOperation_Mesh& a, GeometryOperation_Mesh& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_Mesh* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_Mesh* New() const final {
-    return CreateMaybeMessage<GeometryOperation_Mesh>(nullptr);
-  }
-
-  GeometryOperation_Mesh* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_Mesh>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_Mesh& from);
-  void MergeFrom(const GeometryOperation_Mesh& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_Mesh* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.Mesh";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kVerticesFieldNumber = 1,
-    kIndicesFieldNumber = 2,
-    kNormalsFieldNumber = 3,
-  };
-  // repeated .inhumate.rti.proto.GeometryOperation.LocalPoint3D vertices = 1;
-  int vertices_size() const;
-  private:
-  int _internal_vertices_size() const;
-  public:
-  void clear_vertices();
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* mutable_vertices(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D >*
-      mutable_vertices();
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& _internal_vertices(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* _internal_add_vertices();
-  public:
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& vertices(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* add_vertices();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D >&
-      vertices() const;
-
-  // repeated int32 indices = 2;
-  int indices_size() const;
-  private:
-  int _internal_indices_size() const;
-  public:
-  void clear_indices();
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_indices(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_indices() const;
-  void _internal_add_indices(::PROTOBUF_NAMESPACE_ID::int32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_indices();
-  public:
-  ::PROTOBUF_NAMESPACE_ID::int32 indices(int index) const;
-  void set_indices(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_indices(::PROTOBUF_NAMESPACE_ID::int32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      indices() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_indices();
-
-  // repeated .inhumate.rti.proto.GeometryOperation.LocalPoint3D normals = 3;
-  int normals_size() const;
-  private:
-  int _internal_normals_size() const;
-  public:
-  void clear_normals();
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* mutable_normals(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D >*
-      mutable_normals();
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& _internal_normals(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* _internal_add_normals();
-  public:
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& normals(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* add_normals();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D >&
-      normals() const;
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.Mesh)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D > vertices_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > indices_;
-  mutable std::atomic<int> _indices_cached_byte_size_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D > normals_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Spline2D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.Spline2D) */ {
- public:
-  GeometryOperation_Spline2D();
-  virtual ~GeometryOperation_Spline2D();
-
-  GeometryOperation_Spline2D(const GeometryOperation_Spline2D& from);
-  GeometryOperation_Spline2D(GeometryOperation_Spline2D&& from) noexcept
-    : GeometryOperation_Spline2D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_Spline2D& operator=(const GeometryOperation_Spline2D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_Spline2D& operator=(GeometryOperation_Spline2D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_Spline2D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_Spline2D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_Spline2D*>(
-               &_GeometryOperation_Spline2D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    11;
-
-  friend void swap(GeometryOperation_Spline2D& a, GeometryOperation_Spline2D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_Spline2D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_Spline2D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_Spline2D>(nullptr);
-  }
-
-  GeometryOperation_Spline2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_Spline2D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_Spline2D& from);
-  void MergeFrom(const GeometryOperation_Spline2D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_Spline2D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.Spline2D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPointsFieldNumber = 2,
-    kControlPointsFieldNumber = 3,
-  };
-  // repeated .inhumate.rti.proto.GeometryOperation.Point2D points = 2;
-  int points_size() const;
-  private:
-  int _internal_points_size() const;
-  public:
-  void clear_points();
-  ::inhumate::rti::proto::GeometryOperation_Point2D* mutable_points(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >*
-      mutable_points();
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& _internal_points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* _internal_add_points();
-  public:
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* add_points();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >&
-      points() const;
-
-  // repeated .inhumate.rti.proto.GeometryOperation.Point2D control_points = 3;
-  int control_points_size() const;
-  private:
-  int _internal_control_points_size() const;
-  public:
-  void clear_control_points();
-  ::inhumate::rti::proto::GeometryOperation_Point2D* mutable_control_points(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >*
-      mutable_control_points();
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& _internal_control_points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* _internal_add_control_points();
-  public:
-  const ::inhumate::rti::proto::GeometryOperation_Point2D& control_points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point2D* add_control_points();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >&
-      control_points() const;
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.Spline2D)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D > points_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D > control_points_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GeometryOperation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation_Spline3D :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.GeometryOperation.Spline3D) */ {
- public:
-  GeometryOperation_Spline3D();
-  virtual ~GeometryOperation_Spline3D();
-
-  GeometryOperation_Spline3D(const GeometryOperation_Spline3D& from);
-  GeometryOperation_Spline3D(GeometryOperation_Spline3D&& from) noexcept
-    : GeometryOperation_Spline3D() {
-    *this = ::std::move(from);
-  }
-
-  inline GeometryOperation_Spline3D& operator=(const GeometryOperation_Spline3D& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GeometryOperation_Spline3D& operator=(GeometryOperation_Spline3D&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GeometryOperation_Spline3D& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeometryOperation_Spline3D* internal_default_instance() {
-    return reinterpret_cast<const GeometryOperation_Spline3D*>(
-               &_GeometryOperation_Spline3D_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    12;
-
-  friend void swap(GeometryOperation_Spline3D& a, GeometryOperation_Spline3D& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GeometryOperation_Spline3D* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GeometryOperation_Spline3D* New() const final {
-    return CreateMaybeMessage<GeometryOperation_Spline3D>(nullptr);
-  }
-
-  GeometryOperation_Spline3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GeometryOperation_Spline3D>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GeometryOperation_Spline3D& from);
-  void MergeFrom(const GeometryOperation_Spline3D& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GeometryOperation_Spline3D* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.GeometryOperation.Spline3D";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GeometryOperation_2eproto);
-    return ::descriptor_table_GeometryOperation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPointsFieldNumber = 2,
-    kControlPointsFieldNumber = 3,
-  };
-  // repeated .inhumate.rti.proto.GeometryOperation.Point3D points = 2;
-  int points_size() const;
-  private:
-  int _internal_points_size() const;
-  public:
-  void clear_points();
-  ::inhumate::rti::proto::GeometryOperation_Point3D* mutable_points(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >*
-      mutable_points();
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Point3D& _internal_points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point3D* _internal_add_points();
-  public:
-  const ::inhumate::rti::proto::GeometryOperation_Point3D& points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point3D* add_points();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >&
-      points() const;
-
-  // repeated .inhumate.rti.proto.GeometryOperation.Point3D control_points = 3;
-  int control_points_size() const;
-  private:
-  int _internal_control_points_size() const;
-  public:
-  void clear_control_points();
-  ::inhumate::rti::proto::GeometryOperation_Point3D* mutable_control_points(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >*
-      mutable_control_points();
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Point3D& _internal_control_points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point3D* _internal_add_control_points();
-  public:
-  const ::inhumate::rti::proto::GeometryOperation_Point3D& control_points(int index) const;
-  ::inhumate::rti::proto::GeometryOperation_Point3D* add_control_points();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >&
-      control_points() const;
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation.Spline3D)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D > points_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D > control_points_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr application_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GeometryOperation_2eproto;
 };
@@ -2477,16 +266,11 @@ class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation :
   }
   static const GeometryOperation& default_instance();
 
-  enum OperationCase {
-    kCreate = 10,
-    kDestroy = 11,
-    kUpdate = 12,
-    kRequestUpdate = 13,
-    kRequestPersistentOwnership = 14,
-    kClaimPersistentOwnership = 15,
-    kShow = 16,
-    kHide = 17,
-    OPERATION_NOT_SET = 0,
+  enum WhichCase {
+    kRequestUpdate = 1,
+    kRequestPersistentOwnership = 2,
+    kClaimPersistentOwnership = 3,
+    WHICH_NOT_SET = 0,
   };
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -2495,7 +279,7 @@ class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation :
                &_GeometryOperation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    1;
 
   friend void swap(GeometryOperation& a, GeometryOperation& b) {
     a.Swap(&b);
@@ -2556,200 +340,16 @@ class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation :
 
   // nested types ----------------------------------------------------
 
-  typedef GeometryOperation_Geometry Geometry;
-  typedef GeometryOperation_Point2D Point2D;
-  typedef GeometryOperation_LocalPoint2D LocalPoint2D;
-  typedef GeometryOperation_GeodeticPoint2D GeodeticPoint2D;
-  typedef GeometryOperation_Point3D Point3D;
-  typedef GeometryOperation_LocalPoint3D LocalPoint3D;
-  typedef GeometryOperation_GeodeticPoint3D GeodeticPoint3D;
-  typedef GeometryOperation_Line2D Line2D;
-  typedef GeometryOperation_Line3D Line3D;
-  typedef GeometryOperation_Polygon Polygon;
-  typedef GeometryOperation_Mesh Mesh;
-  typedef GeometryOperation_Spline2D Spline2D;
-  typedef GeometryOperation_Spline3D Spline3D;
-
-  typedef GeometryOperation_Usage Usage;
-  static constexpr Usage SCENARIO =
-    GeometryOperation_Usage_SCENARIO;
-  static constexpr Usage ENTITY =
-    GeometryOperation_Usage_ENTITY;
-  static inline bool Usage_IsValid(int value) {
-    return GeometryOperation_Usage_IsValid(value);
-  }
-  static constexpr Usage Usage_MIN =
-    GeometryOperation_Usage_Usage_MIN;
-  static constexpr Usage Usage_MAX =
-    GeometryOperation_Usage_Usage_MAX;
-  static constexpr int Usage_ARRAYSIZE =
-    GeometryOperation_Usage_Usage_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  Usage_descriptor() {
-    return GeometryOperation_Usage_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& Usage_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, Usage>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function Usage_Name.");
-    return GeometryOperation_Usage_Name(enum_t_value);
-  }
-  static inline bool Usage_Parse(const std::string& name,
-      Usage* value) {
-    return GeometryOperation_Usage_Parse(name, value);
-  }
-
-  typedef GeometryOperation_Category Category;
-  static constexpr Category UNKNOWN_GEOMETRY =
-    GeometryOperation_Category_UNKNOWN_GEOMETRY;
-  static constexpr Category PHYSICAL_GEOMETRY =
-    GeometryOperation_Category_PHYSICAL_GEOMETRY;
-  static constexpr Category GROUND =
-    GeometryOperation_Category_GROUND;
-  static constexpr Category VEGETATION =
-    GeometryOperation_Category_VEGETATION;
-  static constexpr Category STRUCTURE =
-    GeometryOperation_Category_STRUCTURE;
-  static constexpr Category ROAD =
-    GeometryOperation_Category_ROAD;
-  static constexpr Category ABSTRACT_GEOMETRY =
-    GeometryOperation_Category_ABSTRACT_GEOMETRY;
-  static constexpr Category ZONE =
-    GeometryOperation_Category_ZONE;
-  static constexpr Category TRIGGER =
-    GeometryOperation_Category_TRIGGER;
-  static constexpr Category EDGE =
-    GeometryOperation_Category_EDGE;
-  static constexpr Category PATH =
-    GeometryOperation_Category_PATH;
-  static constexpr Category PLANNED_PATH =
-    GeometryOperation_Category_PLANNED_PATH;
-  static constexpr Category HISTORIC_PATH =
-    GeometryOperation_Category_HISTORIC_PATH;
-  static constexpr Category SENSOR_COVERAGE =
-    GeometryOperation_Category_SENSOR_COVERAGE;
-  static constexpr Category SENSOR_HIT =
-    GeometryOperation_Category_SENSOR_HIT;
-  static constexpr Category DEBUG_GEOMETRY =
-    GeometryOperation_Category_DEBUG_GEOMETRY;
-  static inline bool Category_IsValid(int value) {
-    return GeometryOperation_Category_IsValid(value);
-  }
-  static constexpr Category Category_MIN =
-    GeometryOperation_Category_Category_MIN;
-  static constexpr Category Category_MAX =
-    GeometryOperation_Category_Category_MAX;
-  static constexpr int Category_ARRAYSIZE =
-    GeometryOperation_Category_Category_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  Category_descriptor() {
-    return GeometryOperation_Category_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& Category_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, Category>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function Category_Name.");
-    return GeometryOperation_Category_Name(enum_t_value);
-  }
-  static inline bool Category_Parse(const std::string& name,
-      Category* value) {
-    return GeometryOperation_Category_Parse(name, value);
-  }
+  typedef GeometryOperation_ApplicationClient ApplicationClient;
 
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
-    kClientIdFieldNumber = 3,
-    kCreateFieldNumber = 10,
-    kDestroyFieldNumber = 11,
-    kUpdateFieldNumber = 12,
-    kRequestUpdateFieldNumber = 13,
-    kRequestPersistentOwnershipFieldNumber = 14,
-    kClaimPersistentOwnershipFieldNumber = 15,
-    kShowFieldNumber = 16,
-    kHideFieldNumber = 17,
+    kRequestUpdateFieldNumber = 1,
+    kRequestPersistentOwnershipFieldNumber = 2,
+    kClaimPersistentOwnershipFieldNumber = 3,
   };
-  // string id = 1;
-  void clear_id();
-  const std::string& id() const;
-  void set_id(const std::string& value);
-  void set_id(std::string&& value);
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  std::string* mutable_id();
-  std::string* release_id();
-  void set_allocated_id(std::string* id);
-  private:
-  const std::string& _internal_id() const;
-  void _internal_set_id(const std::string& value);
-  std::string* _internal_mutable_id();
-  public:
-
-  // string client_id = 3;
-  void clear_client_id();
-  const std::string& client_id() const;
-  void set_client_id(const std::string& value);
-  void set_client_id(std::string&& value);
-  void set_client_id(const char* value);
-  void set_client_id(const char* value, size_t size);
-  std::string* mutable_client_id();
-  std::string* release_client_id();
-  void set_allocated_client_id(std::string* client_id);
-  private:
-  const std::string& _internal_client_id() const;
-  void _internal_set_client_id(const std::string& value);
-  std::string* _internal_mutable_client_id();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Geometry create = 10;
-  bool has_create() const;
-  private:
-  bool _internal_has_create() const;
-  public:
-  void clear_create();
-  const ::inhumate::rti::proto::GeometryOperation_Geometry& create() const;
-  ::inhumate::rti::proto::GeometryOperation_Geometry* release_create();
-  ::inhumate::rti::proto::GeometryOperation_Geometry* mutable_create();
-  void set_allocated_create(::inhumate::rti::proto::GeometryOperation_Geometry* create);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Geometry& _internal_create() const;
-  ::inhumate::rti::proto::GeometryOperation_Geometry* _internal_mutable_create();
-  public:
-
-  // .google.protobuf.Empty destroy = 11;
-  bool has_destroy() const;
-  private:
-  bool _internal_has_destroy() const;
-  public:
-  void clear_destroy();
-  const PROTOBUF_NAMESPACE_ID::Empty& destroy() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_destroy();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_destroy();
-  void set_allocated_destroy(PROTOBUF_NAMESPACE_ID::Empty* destroy);
-  private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_destroy() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_destroy();
-  public:
-
-  // .inhumate.rti.proto.GeometryOperation.Geometry update = 12;
-  bool has_update() const;
-  private:
-  bool _internal_has_update() const;
-  public:
-  void clear_update();
-  const ::inhumate::rti::proto::GeometryOperation_Geometry& update() const;
-  ::inhumate::rti::proto::GeometryOperation_Geometry* release_update();
-  ::inhumate::rti::proto::GeometryOperation_Geometry* mutable_update();
-  void set_allocated_update(::inhumate::rti::proto::GeometryOperation_Geometry* update);
-  private:
-  const ::inhumate::rti::proto::GeometryOperation_Geometry& _internal_update() const;
-  ::inhumate::rti::proto::GeometryOperation_Geometry* _internal_mutable_update();
-  public:
-
-  // .google.protobuf.Empty request_update = 13;
+  // .google.protobuf.Empty request_update = 1;
   bool has_request_update() const;
   private:
   bool _internal_has_request_update() const;
@@ -2764,97 +364,55 @@ class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation :
   PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_request_update();
   public:
 
-  // .google.protobuf.Empty request_persistent_ownership = 14;
+  // .inhumate.rti.proto.GeometryOperation.ApplicationClient request_persistent_ownership = 2;
   bool has_request_persistent_ownership() const;
   private:
   bool _internal_has_request_persistent_ownership() const;
   public:
   void clear_request_persistent_ownership();
-  const PROTOBUF_NAMESPACE_ID::Empty& request_persistent_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_request_persistent_ownership();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_request_persistent_ownership();
-  void set_allocated_request_persistent_ownership(PROTOBUF_NAMESPACE_ID::Empty* request_persistent_ownership);
+  const ::inhumate::rti::proto::GeometryOperation_ApplicationClient& request_persistent_ownership() const;
+  ::inhumate::rti::proto::GeometryOperation_ApplicationClient* release_request_persistent_ownership();
+  ::inhumate::rti::proto::GeometryOperation_ApplicationClient* mutable_request_persistent_ownership();
+  void set_allocated_request_persistent_ownership(::inhumate::rti::proto::GeometryOperation_ApplicationClient* request_persistent_ownership);
   private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_request_persistent_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_request_persistent_ownership();
+  const ::inhumate::rti::proto::GeometryOperation_ApplicationClient& _internal_request_persistent_ownership() const;
+  ::inhumate::rti::proto::GeometryOperation_ApplicationClient* _internal_mutable_request_persistent_ownership();
   public:
 
-  // .google.protobuf.Empty claim_persistent_ownership = 15;
+  // .inhumate.rti.proto.GeometryOperation.ApplicationClient claim_persistent_ownership = 3;
   bool has_claim_persistent_ownership() const;
   private:
   bool _internal_has_claim_persistent_ownership() const;
   public:
   void clear_claim_persistent_ownership();
-  const PROTOBUF_NAMESPACE_ID::Empty& claim_persistent_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_claim_persistent_ownership();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_claim_persistent_ownership();
-  void set_allocated_claim_persistent_ownership(PROTOBUF_NAMESPACE_ID::Empty* claim_persistent_ownership);
+  const ::inhumate::rti::proto::GeometryOperation_ApplicationClient& claim_persistent_ownership() const;
+  ::inhumate::rti::proto::GeometryOperation_ApplicationClient* release_claim_persistent_ownership();
+  ::inhumate::rti::proto::GeometryOperation_ApplicationClient* mutable_claim_persistent_ownership();
+  void set_allocated_claim_persistent_ownership(::inhumate::rti::proto::GeometryOperation_ApplicationClient* claim_persistent_ownership);
   private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_claim_persistent_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_claim_persistent_ownership();
+  const ::inhumate::rti::proto::GeometryOperation_ApplicationClient& _internal_claim_persistent_ownership() const;
+  ::inhumate::rti::proto::GeometryOperation_ApplicationClient* _internal_mutable_claim_persistent_ownership();
   public:
 
-  // .google.protobuf.Empty show = 16;
-  bool has_show() const;
-  private:
-  bool _internal_has_show() const;
-  public:
-  void clear_show();
-  const PROTOBUF_NAMESPACE_ID::Empty& show() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_show();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_show();
-  void set_allocated_show(PROTOBUF_NAMESPACE_ID::Empty* show);
-  private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_show() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_show();
-  public:
-
-  // .google.protobuf.Empty hide = 17;
-  bool has_hide() const;
-  private:
-  bool _internal_has_hide() const;
-  public:
-  void clear_hide();
-  const PROTOBUF_NAMESPACE_ID::Empty& hide() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_hide();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_hide();
-  void set_allocated_hide(PROTOBUF_NAMESPACE_ID::Empty* hide);
-  private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_hide() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_hide();
-  public:
-
-  void clear_operation();
-  OperationCase operation_case() const;
+  void clear_which();
+  WhichCase which_case() const;
   // @@protoc_insertion_point(class_scope:inhumate.rti.proto.GeometryOperation)
  private:
   class _Internal;
-  void set_has_create();
-  void set_has_destroy();
-  void set_has_update();
   void set_has_request_update();
   void set_has_request_persistent_ownership();
   void set_has_claim_persistent_ownership();
-  void set_has_show();
-  void set_has_hide();
 
-  inline bool has_operation() const;
-  inline void clear_has_operation();
+  inline bool has_which() const;
+  inline void clear_has_which();
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_id_;
-  union OperationUnion {
-    OperationUnion() {}
-    ::inhumate::rti::proto::GeometryOperation_Geometry* create_;
-    PROTOBUF_NAMESPACE_ID::Empty* destroy_;
-    ::inhumate::rti::proto::GeometryOperation_Geometry* update_;
+  union WhichUnion {
+    WhichUnion() {}
     PROTOBUF_NAMESPACE_ID::Empty* request_update_;
-    PROTOBUF_NAMESPACE_ID::Empty* request_persistent_ownership_;
-    PROTOBUF_NAMESPACE_ID::Empty* claim_persistent_ownership_;
-    PROTOBUF_NAMESPACE_ID::Empty* show_;
-    PROTOBUF_NAMESPACE_ID::Empty* hide_;
-  } operation_;
+    ::inhumate::rti::proto::GeometryOperation_ApplicationClient* request_persistent_ownership_;
+    ::inhumate::rti::proto::GeometryOperation_ApplicationClient* claim_persistent_ownership_;
+  } which_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
 
@@ -2869,2002 +427,135 @@ class INHUMATE_RTI_PROTOS_EXPORT GeometryOperation :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// GeometryOperation_Geometry
+// GeometryOperation_ApplicationClient
 
-// .inhumate.rti.proto.GeometryOperation.Point2D point = 1;
-inline bool GeometryOperation_Geometry::_internal_has_point() const {
-  return shape_case() == kPoint;
+// string application = 1;
+inline void GeometryOperation_ApplicationClient::clear_application() {
+  application_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline bool GeometryOperation_Geometry::has_point() const {
-  return _internal_has_point();
+inline const std::string& GeometryOperation_ApplicationClient::application() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.ApplicationClient.application)
+  return _internal_application();
 }
-inline void GeometryOperation_Geometry::set_has_point() {
-  _oneof_case_[0] = kPoint;
+inline void GeometryOperation_ApplicationClient::set_application(const std::string& value) {
+  _internal_set_application(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.ApplicationClient.application)
 }
-inline void GeometryOperation_Geometry::clear_point() {
-  if (_internal_has_point()) {
-    delete shape_.point_;
-    clear_has_shape();
-  }
+inline std::string* GeometryOperation_ApplicationClient::mutable_application() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.ApplicationClient.application)
+  return _internal_mutable_application();
 }
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Geometry::release_point() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.point)
-  if (_internal_has_point()) {
-    clear_has_shape();
-      ::inhumate::rti::proto::GeometryOperation_Point2D* temp = shape_.point_;
-    shape_.point_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
+inline const std::string& GeometryOperation_ApplicationClient::_internal_application() const {
+  return application_.GetNoArena();
 }
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Geometry::_internal_point() const {
-  return _internal_has_point()
-      ? *shape_.point_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Point2D*>(&::inhumate::rti::proto::_GeometryOperation_Point2D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Geometry::point() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.point)
-  return _internal_point();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Geometry::_internal_mutable_point() {
-  if (!_internal_has_point()) {
-    clear_shape();
-    set_has_point();
-    shape_.point_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Point2D >(
-        GetArenaNoVirtual());
-  }
-  return shape_.point_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Geometry::mutable_point() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.point)
-  return _internal_mutable_point();
-}
-
-// .inhumate.rti.proto.GeometryOperation.Point3D point3d = 2;
-inline bool GeometryOperation_Geometry::_internal_has_point3d() const {
-  return shape_case() == kPoint3D;
-}
-inline bool GeometryOperation_Geometry::has_point3d() const {
-  return _internal_has_point3d();
-}
-inline void GeometryOperation_Geometry::set_has_point3d() {
-  _oneof_case_[0] = kPoint3D;
-}
-inline void GeometryOperation_Geometry::clear_point3d() {
-  if (_internal_has_point3d()) {
-    delete shape_.point3d_;
-    clear_has_shape();
-  }
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Geometry::release_point3d() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.point3d)
-  if (_internal_has_point3d()) {
-    clear_has_shape();
-      ::inhumate::rti::proto::GeometryOperation_Point3D* temp = shape_.point3d_;
-    shape_.point3d_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point3D& GeometryOperation_Geometry::_internal_point3d() const {
-  return _internal_has_point3d()
-      ? *shape_.point3d_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Point3D*>(&::inhumate::rti::proto::_GeometryOperation_Point3D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point3D& GeometryOperation_Geometry::point3d() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.point3d)
-  return _internal_point3d();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Geometry::_internal_mutable_point3d() {
-  if (!_internal_has_point3d()) {
-    clear_shape();
-    set_has_point3d();
-    shape_.point3d_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Point3D >(
-        GetArenaNoVirtual());
-  }
-  return shape_.point3d_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Geometry::mutable_point3d() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.point3d)
-  return _internal_mutable_point3d();
-}
-
-// .inhumate.rti.proto.GeometryOperation.Line2D line = 3;
-inline bool GeometryOperation_Geometry::_internal_has_line() const {
-  return shape_case() == kLine;
-}
-inline bool GeometryOperation_Geometry::has_line() const {
-  return _internal_has_line();
-}
-inline void GeometryOperation_Geometry::set_has_line() {
-  _oneof_case_[0] = kLine;
-}
-inline void GeometryOperation_Geometry::clear_line() {
-  if (_internal_has_line()) {
-    delete shape_.line_;
-    clear_has_shape();
-  }
-}
-inline ::inhumate::rti::proto::GeometryOperation_Line2D* GeometryOperation_Geometry::release_line() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.line)
-  if (_internal_has_line()) {
-    clear_has_shape();
-      ::inhumate::rti::proto::GeometryOperation_Line2D* temp = shape_.line_;
-    shape_.line_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Line2D& GeometryOperation_Geometry::_internal_line() const {
-  return _internal_has_line()
-      ? *shape_.line_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Line2D*>(&::inhumate::rti::proto::_GeometryOperation_Line2D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Line2D& GeometryOperation_Geometry::line() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.line)
-  return _internal_line();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Line2D* GeometryOperation_Geometry::_internal_mutable_line() {
-  if (!_internal_has_line()) {
-    clear_shape();
-    set_has_line();
-    shape_.line_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Line2D >(
-        GetArenaNoVirtual());
-  }
-  return shape_.line_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Line2D* GeometryOperation_Geometry::mutable_line() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.line)
-  return _internal_mutable_line();
-}
-
-// .inhumate.rti.proto.GeometryOperation.Line3D line3d = 4;
-inline bool GeometryOperation_Geometry::_internal_has_line3d() const {
-  return shape_case() == kLine3D;
-}
-inline bool GeometryOperation_Geometry::has_line3d() const {
-  return _internal_has_line3d();
-}
-inline void GeometryOperation_Geometry::set_has_line3d() {
-  _oneof_case_[0] = kLine3D;
-}
-inline void GeometryOperation_Geometry::clear_line3d() {
-  if (_internal_has_line3d()) {
-    delete shape_.line3d_;
-    clear_has_shape();
-  }
-}
-inline ::inhumate::rti::proto::GeometryOperation_Line3D* GeometryOperation_Geometry::release_line3d() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.line3d)
-  if (_internal_has_line3d()) {
-    clear_has_shape();
-      ::inhumate::rti::proto::GeometryOperation_Line3D* temp = shape_.line3d_;
-    shape_.line3d_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Line3D& GeometryOperation_Geometry::_internal_line3d() const {
-  return _internal_has_line3d()
-      ? *shape_.line3d_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Line3D*>(&::inhumate::rti::proto::_GeometryOperation_Line3D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Line3D& GeometryOperation_Geometry::line3d() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.line3d)
-  return _internal_line3d();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Line3D* GeometryOperation_Geometry::_internal_mutable_line3d() {
-  if (!_internal_has_line3d()) {
-    clear_shape();
-    set_has_line3d();
-    shape_.line3d_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Line3D >(
-        GetArenaNoVirtual());
-  }
-  return shape_.line3d_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Line3D* GeometryOperation_Geometry::mutable_line3d() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.line3d)
-  return _internal_mutable_line3d();
-}
-
-// .inhumate.rti.proto.GeometryOperation.Polygon polygon = 5;
-inline bool GeometryOperation_Geometry::_internal_has_polygon() const {
-  return shape_case() == kPolygon;
-}
-inline bool GeometryOperation_Geometry::has_polygon() const {
-  return _internal_has_polygon();
-}
-inline void GeometryOperation_Geometry::set_has_polygon() {
-  _oneof_case_[0] = kPolygon;
-}
-inline void GeometryOperation_Geometry::clear_polygon() {
-  if (_internal_has_polygon()) {
-    delete shape_.polygon_;
-    clear_has_shape();
-  }
-}
-inline ::inhumate::rti::proto::GeometryOperation_Polygon* GeometryOperation_Geometry::release_polygon() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.polygon)
-  if (_internal_has_polygon()) {
-    clear_has_shape();
-      ::inhumate::rti::proto::GeometryOperation_Polygon* temp = shape_.polygon_;
-    shape_.polygon_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Polygon& GeometryOperation_Geometry::_internal_polygon() const {
-  return _internal_has_polygon()
-      ? *shape_.polygon_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Polygon*>(&::inhumate::rti::proto::_GeometryOperation_Polygon_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Polygon& GeometryOperation_Geometry::polygon() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.polygon)
-  return _internal_polygon();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Polygon* GeometryOperation_Geometry::_internal_mutable_polygon() {
-  if (!_internal_has_polygon()) {
-    clear_shape();
-    set_has_polygon();
-    shape_.polygon_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Polygon >(
-        GetArenaNoVirtual());
-  }
-  return shape_.polygon_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Polygon* GeometryOperation_Geometry::mutable_polygon() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.polygon)
-  return _internal_mutable_polygon();
-}
-
-// .inhumate.rti.proto.GeometryOperation.Mesh mesh = 6;
-inline bool GeometryOperation_Geometry::_internal_has_mesh() const {
-  return shape_case() == kMesh;
-}
-inline bool GeometryOperation_Geometry::has_mesh() const {
-  return _internal_has_mesh();
-}
-inline void GeometryOperation_Geometry::set_has_mesh() {
-  _oneof_case_[0] = kMesh;
-}
-inline void GeometryOperation_Geometry::clear_mesh() {
-  if (_internal_has_mesh()) {
-    delete shape_.mesh_;
-    clear_has_shape();
-  }
-}
-inline ::inhumate::rti::proto::GeometryOperation_Mesh* GeometryOperation_Geometry::release_mesh() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.mesh)
-  if (_internal_has_mesh()) {
-    clear_has_shape();
-      ::inhumate::rti::proto::GeometryOperation_Mesh* temp = shape_.mesh_;
-    shape_.mesh_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Mesh& GeometryOperation_Geometry::_internal_mesh() const {
-  return _internal_has_mesh()
-      ? *shape_.mesh_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Mesh*>(&::inhumate::rti::proto::_GeometryOperation_Mesh_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Mesh& GeometryOperation_Geometry::mesh() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.mesh)
-  return _internal_mesh();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Mesh* GeometryOperation_Geometry::_internal_mutable_mesh() {
-  if (!_internal_has_mesh()) {
-    clear_shape();
-    set_has_mesh();
-    shape_.mesh_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Mesh >(
-        GetArenaNoVirtual());
-  }
-  return shape_.mesh_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Mesh* GeometryOperation_Geometry::mutable_mesh() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.mesh)
-  return _internal_mutable_mesh();
-}
-
-// .inhumate.rti.proto.GeometryOperation.Spline2D spline = 7;
-inline bool GeometryOperation_Geometry::_internal_has_spline() const {
-  return shape_case() == kSpline;
-}
-inline bool GeometryOperation_Geometry::has_spline() const {
-  return _internal_has_spline();
-}
-inline void GeometryOperation_Geometry::set_has_spline() {
-  _oneof_case_[0] = kSpline;
-}
-inline void GeometryOperation_Geometry::clear_spline() {
-  if (_internal_has_spline()) {
-    delete shape_.spline_;
-    clear_has_shape();
-  }
-}
-inline ::inhumate::rti::proto::GeometryOperation_Spline2D* GeometryOperation_Geometry::release_spline() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.spline)
-  if (_internal_has_spline()) {
-    clear_has_shape();
-      ::inhumate::rti::proto::GeometryOperation_Spline2D* temp = shape_.spline_;
-    shape_.spline_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Spline2D& GeometryOperation_Geometry::_internal_spline() const {
-  return _internal_has_spline()
-      ? *shape_.spline_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Spline2D*>(&::inhumate::rti::proto::_GeometryOperation_Spline2D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Spline2D& GeometryOperation_Geometry::spline() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.spline)
-  return _internal_spline();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Spline2D* GeometryOperation_Geometry::_internal_mutable_spline() {
-  if (!_internal_has_spline()) {
-    clear_shape();
-    set_has_spline();
-    shape_.spline_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Spline2D >(
-        GetArenaNoVirtual());
-  }
-  return shape_.spline_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Spline2D* GeometryOperation_Geometry::mutable_spline() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.spline)
-  return _internal_mutable_spline();
-}
-
-// .inhumate.rti.proto.GeometryOperation.Spline3D spline3d = 8;
-inline bool GeometryOperation_Geometry::_internal_has_spline3d() const {
-  return shape_case() == kSpline3D;
-}
-inline bool GeometryOperation_Geometry::has_spline3d() const {
-  return _internal_has_spline3d();
-}
-inline void GeometryOperation_Geometry::set_has_spline3d() {
-  _oneof_case_[0] = kSpline3D;
-}
-inline void GeometryOperation_Geometry::clear_spline3d() {
-  if (_internal_has_spline3d()) {
-    delete shape_.spline3d_;
-    clear_has_shape();
-  }
-}
-inline ::inhumate::rti::proto::GeometryOperation_Spline3D* GeometryOperation_Geometry::release_spline3d() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.spline3d)
-  if (_internal_has_spline3d()) {
-    clear_has_shape();
-      ::inhumate::rti::proto::GeometryOperation_Spline3D* temp = shape_.spline3d_;
-    shape_.spline3d_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Spline3D& GeometryOperation_Geometry::_internal_spline3d() const {
-  return _internal_has_spline3d()
-      ? *shape_.spline3d_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Spline3D*>(&::inhumate::rti::proto::_GeometryOperation_Spline3D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Spline3D& GeometryOperation_Geometry::spline3d() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.spline3d)
-  return _internal_spline3d();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Spline3D* GeometryOperation_Geometry::_internal_mutable_spline3d() {
-  if (!_internal_has_spline3d()) {
-    clear_shape();
-    set_has_spline3d();
-    shape_.spline3d_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Spline3D >(
-        GetArenaNoVirtual());
-  }
-  return shape_.spline3d_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Spline3D* GeometryOperation_Geometry::mutable_spline3d() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.spline3d)
-  return _internal_mutable_spline3d();
-}
-
-// .inhumate.rti.proto.Color color = 10;
-inline bool GeometryOperation_Geometry::_internal_has_color() const {
-  return this != internal_default_instance() && color_ != nullptr;
-}
-inline bool GeometryOperation_Geometry::has_color() const {
-  return _internal_has_color();
-}
-inline const ::inhumate::rti::proto::Color& GeometryOperation_Geometry::_internal_color() const {
-  const ::inhumate::rti::proto::Color* p = color_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::Color*>(
-      &::inhumate::rti::proto::_Color_default_instance_);
-}
-inline const ::inhumate::rti::proto::Color& GeometryOperation_Geometry::color() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.color)
-  return _internal_color();
-}
-inline ::inhumate::rti::proto::Color* GeometryOperation_Geometry::release_color() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.color)
+inline void GeometryOperation_ApplicationClient::_internal_set_application(const std::string& value) {
   
-  ::inhumate::rti::proto::Color* temp = color_;
-  color_ = nullptr;
-  return temp;
+  application_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
 }
-inline ::inhumate::rti::proto::Color* GeometryOperation_Geometry::_internal_mutable_color() {
+inline void GeometryOperation_ApplicationClient::set_application(std::string&& value) {
   
-  if (color_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::Color>(GetArenaNoVirtual());
-    color_ = p;
-  }
-  return color_;
-}
-inline ::inhumate::rti::proto::Color* GeometryOperation_Geometry::mutable_color() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.color)
-  return _internal_mutable_color();
-}
-inline void GeometryOperation_Geometry::set_allocated_color(::inhumate::rti::proto::Color* color) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(color_);
-  }
-  if (color) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      color = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, color, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  color_ = color;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.Geometry.color)
-}
-
-// float transparency = 11;
-inline void GeometryOperation_Geometry::clear_transparency() {
-  transparency_ = 0;
-}
-inline float GeometryOperation_Geometry::_internal_transparency() const {
-  return transparency_;
-}
-inline float GeometryOperation_Geometry::transparency() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.transparency)
-  return _internal_transparency();
-}
-inline void GeometryOperation_Geometry::_internal_set_transparency(float value) {
-  
-  transparency_ = value;
-}
-inline void GeometryOperation_Geometry::set_transparency(float value) {
-  _internal_set_transparency(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.transparency)
-}
-
-// string title = 12;
-inline void GeometryOperation_Geometry::clear_title() {
-  title_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline const std::string& GeometryOperation_Geometry::title() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.title)
-  return _internal_title();
-}
-inline void GeometryOperation_Geometry::set_title(const std::string& value) {
-  _internal_set_title(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.title)
-}
-inline std::string* GeometryOperation_Geometry::mutable_title() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.title)
-  return _internal_mutable_title();
-}
-inline const std::string& GeometryOperation_Geometry::_internal_title() const {
-  return title_.GetNoArena();
-}
-inline void GeometryOperation_Geometry::_internal_set_title(const std::string& value) {
-  
-  title_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-}
-inline void GeometryOperation_Geometry::set_title(std::string&& value) {
-  
-  title_.SetNoArena(
+  application_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.GeometryOperation.Geometry.title)
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.GeometryOperation.ApplicationClient.application)
 }
-inline void GeometryOperation_Geometry::set_title(const char* value) {
+inline void GeometryOperation_ApplicationClient::set_application(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  title_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.GeometryOperation.Geometry.title)
+  application_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.GeometryOperation.ApplicationClient.application)
 }
-inline void GeometryOperation_Geometry::set_title(const char* value, size_t size) {
+inline void GeometryOperation_ApplicationClient::set_application(const char* value, size_t size) {
   
-  title_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+  application_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.GeometryOperation.Geometry.title)
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.GeometryOperation.ApplicationClient.application)
 }
-inline std::string* GeometryOperation_Geometry::_internal_mutable_title() {
+inline std::string* GeometryOperation_ApplicationClient::_internal_mutable_application() {
   
-  return title_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  return application_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline std::string* GeometryOperation_Geometry::release_title() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.title)
+inline std::string* GeometryOperation_ApplicationClient::release_application() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.ApplicationClient.application)
   
-  return title_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  return application_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void GeometryOperation_Geometry::set_allocated_title(std::string* title) {
-  if (title != nullptr) {
+inline void GeometryOperation_ApplicationClient::set_allocated_application(std::string* application) {
+  if (application != nullptr) {
     
   } else {
     
   }
-  title_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), title);
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.Geometry.title)
+  application_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), application);
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.ApplicationClient.application)
 }
 
-// .inhumate.rti.proto.Color label_color = 13;
-inline bool GeometryOperation_Geometry::_internal_has_label_color() const {
-  return this != internal_default_instance() && label_color_ != nullptr;
-}
-inline bool GeometryOperation_Geometry::has_label_color() const {
-  return _internal_has_label_color();
-}
-inline const ::inhumate::rti::proto::Color& GeometryOperation_Geometry::_internal_label_color() const {
-  const ::inhumate::rti::proto::Color* p = label_color_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::Color*>(
-      &::inhumate::rti::proto::_Color_default_instance_);
-}
-inline const ::inhumate::rti::proto::Color& GeometryOperation_Geometry::label_color() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.label_color)
-  return _internal_label_color();
-}
-inline ::inhumate::rti::proto::Color* GeometryOperation_Geometry::release_label_color() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.label_color)
-  
-  ::inhumate::rti::proto::Color* temp = label_color_;
-  label_color_ = nullptr;
-  return temp;
-}
-inline ::inhumate::rti::proto::Color* GeometryOperation_Geometry::_internal_mutable_label_color() {
-  
-  if (label_color_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::Color>(GetArenaNoVirtual());
-    label_color_ = p;
-  }
-  return label_color_;
-}
-inline ::inhumate::rti::proto::Color* GeometryOperation_Geometry::mutable_label_color() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.label_color)
-  return _internal_mutable_label_color();
-}
-inline void GeometryOperation_Geometry::set_allocated_label_color(::inhumate::rti::proto::Color* label_color) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(label_color_);
-  }
-  if (label_color) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      label_color = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, label_color, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  label_color_ = label_color;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.Geometry.label_color)
-}
-
-// float label_transparency = 14;
-inline void GeometryOperation_Geometry::clear_label_transparency() {
-  label_transparency_ = 0;
-}
-inline float GeometryOperation_Geometry::_internal_label_transparency() const {
-  return label_transparency_;
-}
-inline float GeometryOperation_Geometry::label_transparency() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.label_transparency)
-  return _internal_label_transparency();
-}
-inline void GeometryOperation_Geometry::_internal_set_label_transparency(float value) {
-  
-  label_transparency_ = value;
-}
-inline void GeometryOperation_Geometry::set_label_transparency(float value) {
-  _internal_set_label_transparency(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.label_transparency)
-}
-
-// bool scalable = 15;
-inline void GeometryOperation_Geometry::clear_scalable() {
-  scalable_ = false;
-}
-inline bool GeometryOperation_Geometry::_internal_scalable() const {
-  return scalable_;
-}
-inline bool GeometryOperation_Geometry::scalable() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.scalable)
-  return _internal_scalable();
-}
-inline void GeometryOperation_Geometry::_internal_set_scalable(bool value) {
-  
-  scalable_ = value;
-}
-inline void GeometryOperation_Geometry::set_scalable(bool value) {
-  _internal_set_scalable(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.scalable)
-}
-
-// bool wireframe = 16;
-inline void GeometryOperation_Geometry::clear_wireframe() {
-  wireframe_ = false;
-}
-inline bool GeometryOperation_Geometry::_internal_wireframe() const {
-  return wireframe_;
-}
-inline bool GeometryOperation_Geometry::wireframe() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.wireframe)
-  return _internal_wireframe();
-}
-inline void GeometryOperation_Geometry::_internal_set_wireframe(bool value) {
-  
-  wireframe_ = value;
-}
-inline void GeometryOperation_Geometry::set_wireframe(bool value) {
-  _internal_set_wireframe(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.wireframe)
-}
-
-// float line_width = 17;
-inline void GeometryOperation_Geometry::clear_line_width() {
-  line_width_ = 0;
-}
-inline float GeometryOperation_Geometry::_internal_line_width() const {
-  return line_width_;
-}
-inline float GeometryOperation_Geometry::line_width() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.line_width)
-  return _internal_line_width();
-}
-inline void GeometryOperation_Geometry::_internal_set_line_width(float value) {
-  
-  line_width_ = value;
-}
-inline void GeometryOperation_Geometry::set_line_width(float value) {
-  _internal_set_line_width(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.line_width)
-}
-
-// bool hidden = 18;
-inline void GeometryOperation_Geometry::clear_hidden() {
-  hidden_ = false;
-}
-inline bool GeometryOperation_Geometry::_internal_hidden() const {
-  return hidden_;
-}
-inline bool GeometryOperation_Geometry::hidden() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.hidden)
-  return _internal_hidden();
-}
-inline void GeometryOperation_Geometry::_internal_set_hidden(bool value) {
-  
-  hidden_ = value;
-}
-inline void GeometryOperation_Geometry::set_hidden(bool value) {
-  _internal_set_hidden(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.hidden)
-}
-
-// .inhumate.rti.proto.GeometryOperation.Usage usage = 20;
-inline void GeometryOperation_Geometry::clear_usage() {
-  usage_ = 0;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Usage GeometryOperation_Geometry::_internal_usage() const {
-  return static_cast< ::inhumate::rti::proto::GeometryOperation_Usage >(usage_);
-}
-inline ::inhumate::rti::proto::GeometryOperation_Usage GeometryOperation_Geometry::usage() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.usage)
-  return _internal_usage();
-}
-inline void GeometryOperation_Geometry::_internal_set_usage(::inhumate::rti::proto::GeometryOperation_Usage value) {
-  
-  usage_ = value;
-}
-inline void GeometryOperation_Geometry::set_usage(::inhumate::rti::proto::GeometryOperation_Usage value) {
-  _internal_set_usage(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.usage)
-}
-
-// string type = 21;
-inline void GeometryOperation_Geometry::clear_type() {
-  type_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline const std::string& GeometryOperation_Geometry::type() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.type)
-  return _internal_type();
-}
-inline void GeometryOperation_Geometry::set_type(const std::string& value) {
-  _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.type)
-}
-inline std::string* GeometryOperation_Geometry::mutable_type() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Geometry.type)
-  return _internal_mutable_type();
-}
-inline const std::string& GeometryOperation_Geometry::_internal_type() const {
-  return type_.GetNoArena();
-}
-inline void GeometryOperation_Geometry::_internal_set_type(const std::string& value) {
-  
-  type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-}
-inline void GeometryOperation_Geometry::set_type(std::string&& value) {
-  
-  type_.SetNoArena(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.GeometryOperation.Geometry.type)
-}
-inline void GeometryOperation_Geometry::set_type(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.GeometryOperation.Geometry.type)
-}
-inline void GeometryOperation_Geometry::set_type(const char* value, size_t size) {
-  
-  type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.GeometryOperation.Geometry.type)
-}
-inline std::string* GeometryOperation_Geometry::_internal_mutable_type() {
-  
-  return type_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline std::string* GeometryOperation_Geometry::release_type() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Geometry.type)
-  
-  return type_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline void GeometryOperation_Geometry::set_allocated_type(std::string* type) {
-  if (type != nullptr) {
-    
-  } else {
-    
-  }
-  type_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), type);
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.Geometry.type)
-}
-
-// .inhumate.rti.proto.GeometryOperation.Category category = 22;
-inline void GeometryOperation_Geometry::clear_category() {
-  category_ = 0;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Category GeometryOperation_Geometry::_internal_category() const {
-  return static_cast< ::inhumate::rti::proto::GeometryOperation_Category >(category_);
-}
-inline ::inhumate::rti::proto::GeometryOperation_Category GeometryOperation_Geometry::category() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Geometry.category)
-  return _internal_category();
-}
-inline void GeometryOperation_Geometry::_internal_set_category(::inhumate::rti::proto::GeometryOperation_Category value) {
-  
-  category_ = value;
-}
-inline void GeometryOperation_Geometry::set_category(::inhumate::rti::proto::GeometryOperation_Category value) {
-  _internal_set_category(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Geometry.category)
-}
-
-inline bool GeometryOperation_Geometry::has_shape() const {
-  return shape_case() != SHAPE_NOT_SET;
-}
-inline void GeometryOperation_Geometry::clear_has_shape() {
-  _oneof_case_[0] = SHAPE_NOT_SET;
-}
-inline GeometryOperation_Geometry::ShapeCase GeometryOperation_Geometry::shape_case() const {
-  return GeometryOperation_Geometry::ShapeCase(_oneof_case_[0]);
-}
-// -------------------------------------------------------------------
-
-// GeometryOperation_Point2D
-
-// .inhumate.rti.proto.GeometryOperation.LocalPoint2D local = 1;
-inline bool GeometryOperation_Point2D::_internal_has_local() const {
-  return this != internal_default_instance() && local_ != nullptr;
-}
-inline bool GeometryOperation_Point2D::has_local() const {
-  return _internal_has_local();
-}
-inline void GeometryOperation_Point2D::clear_local() {
-  if (GetArenaNoVirtual() == nullptr && local_ != nullptr) {
-    delete local_;
-  }
-  local_ = nullptr;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_LocalPoint2D& GeometryOperation_Point2D::_internal_local() const {
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* p = local_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::GeometryOperation_LocalPoint2D*>(
-      &::inhumate::rti::proto::_GeometryOperation_LocalPoint2D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_LocalPoint2D& GeometryOperation_Point2D::local() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Point2D.local)
-  return _internal_local();
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* GeometryOperation_Point2D::release_local() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Point2D.local)
-  
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* temp = local_;
-  local_ = nullptr;
-  return temp;
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* GeometryOperation_Point2D::_internal_mutable_local() {
-  
-  if (local_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_LocalPoint2D>(GetArenaNoVirtual());
-    local_ = p;
-  }
-  return local_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint2D* GeometryOperation_Point2D::mutable_local() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Point2D.local)
-  return _internal_mutable_local();
-}
-inline void GeometryOperation_Point2D::set_allocated_local(::inhumate::rti::proto::GeometryOperation_LocalPoint2D* local) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete local_;
-  }
-  if (local) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      local = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, local, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  local_ = local;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.Point2D.local)
-}
-
-// .inhumate.rti.proto.GeometryOperation.GeodeticPoint2D geodetic = 2;
-inline bool GeometryOperation_Point2D::_internal_has_geodetic() const {
-  return this != internal_default_instance() && geodetic_ != nullptr;
-}
-inline bool GeometryOperation_Point2D::has_geodetic() const {
-  return _internal_has_geodetic();
-}
-inline void GeometryOperation_Point2D::clear_geodetic() {
-  if (GetArenaNoVirtual() == nullptr && geodetic_ != nullptr) {
-    delete geodetic_;
-  }
-  geodetic_ = nullptr;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D& GeometryOperation_Point2D::_internal_geodetic() const {
-  const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* p = geodetic_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D*>(
-      &::inhumate::rti::proto::_GeometryOperation_GeodeticPoint2D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D& GeometryOperation_Point2D::geodetic() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Point2D.geodetic)
-  return _internal_geodetic();
-}
-inline ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* GeometryOperation_Point2D::release_geodetic() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Point2D.geodetic)
-  
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* temp = geodetic_;
-  geodetic_ = nullptr;
-  return temp;
-}
-inline ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* GeometryOperation_Point2D::_internal_mutable_geodetic() {
-  
-  if (geodetic_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D>(GetArenaNoVirtual());
-    geodetic_ = p;
-  }
-  return geodetic_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* GeometryOperation_Point2D::mutable_geodetic() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Point2D.geodetic)
-  return _internal_mutable_geodetic();
-}
-inline void GeometryOperation_Point2D::set_allocated_geodetic(::inhumate::rti::proto::GeometryOperation_GeodeticPoint2D* geodetic) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete geodetic_;
-  }
-  if (geodetic) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      geodetic = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, geodetic, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  geodetic_ = geodetic;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.Point2D.geodetic)
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_LocalPoint2D
-
-// float x = 1;
-inline void GeometryOperation_LocalPoint2D::clear_x() {
-  x_ = 0;
-}
-inline float GeometryOperation_LocalPoint2D::_internal_x() const {
-  return x_;
-}
-inline float GeometryOperation_LocalPoint2D::x() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.LocalPoint2D.x)
-  return _internal_x();
-}
-inline void GeometryOperation_LocalPoint2D::_internal_set_x(float value) {
-  
-  x_ = value;
-}
-inline void GeometryOperation_LocalPoint2D::set_x(float value) {
-  _internal_set_x(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.LocalPoint2D.x)
-}
-
-// float y = 2;
-inline void GeometryOperation_LocalPoint2D::clear_y() {
-  y_ = 0;
-}
-inline float GeometryOperation_LocalPoint2D::_internal_y() const {
-  return y_;
-}
-inline float GeometryOperation_LocalPoint2D::y() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.LocalPoint2D.y)
-  return _internal_y();
-}
-inline void GeometryOperation_LocalPoint2D::_internal_set_y(float value) {
-  
-  y_ = value;
-}
-inline void GeometryOperation_LocalPoint2D::set_y(float value) {
-  _internal_set_y(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.LocalPoint2D.y)
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_GeodeticPoint2D
-
-// double longitude = 1;
-inline void GeometryOperation_GeodeticPoint2D::clear_longitude() {
-  longitude_ = 0;
-}
-inline double GeometryOperation_GeodeticPoint2D::_internal_longitude() const {
-  return longitude_;
-}
-inline double GeometryOperation_GeodeticPoint2D::longitude() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.GeodeticPoint2D.longitude)
-  return _internal_longitude();
-}
-inline void GeometryOperation_GeodeticPoint2D::_internal_set_longitude(double value) {
-  
-  longitude_ = value;
-}
-inline void GeometryOperation_GeodeticPoint2D::set_longitude(double value) {
-  _internal_set_longitude(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.GeodeticPoint2D.longitude)
-}
-
-// double latitude = 2;
-inline void GeometryOperation_GeodeticPoint2D::clear_latitude() {
-  latitude_ = 0;
-}
-inline double GeometryOperation_GeodeticPoint2D::_internal_latitude() const {
-  return latitude_;
-}
-inline double GeometryOperation_GeodeticPoint2D::latitude() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.GeodeticPoint2D.latitude)
-  return _internal_latitude();
-}
-inline void GeometryOperation_GeodeticPoint2D::_internal_set_latitude(double value) {
-  
-  latitude_ = value;
-}
-inline void GeometryOperation_GeodeticPoint2D::set_latitude(double value) {
-  _internal_set_latitude(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.GeodeticPoint2D.latitude)
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_Point3D
-
-// .inhumate.rti.proto.GeometryOperation.LocalPoint3D local = 1;
-inline bool GeometryOperation_Point3D::_internal_has_local() const {
-  return this != internal_default_instance() && local_ != nullptr;
-}
-inline bool GeometryOperation_Point3D::has_local() const {
-  return _internal_has_local();
-}
-inline void GeometryOperation_Point3D::clear_local() {
-  if (GetArenaNoVirtual() == nullptr && local_ != nullptr) {
-    delete local_;
-  }
-  local_ = nullptr;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& GeometryOperation_Point3D::_internal_local() const {
-  const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* p = local_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D*>(
-      &::inhumate::rti::proto::_GeometryOperation_LocalPoint3D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& GeometryOperation_Point3D::local() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Point3D.local)
-  return _internal_local();
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* GeometryOperation_Point3D::release_local() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Point3D.local)
-  
-  ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* temp = local_;
-  local_ = nullptr;
-  return temp;
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* GeometryOperation_Point3D::_internal_mutable_local() {
-  
-  if (local_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_LocalPoint3D>(GetArenaNoVirtual());
-    local_ = p;
-  }
-  return local_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* GeometryOperation_Point3D::mutable_local() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Point3D.local)
-  return _internal_mutable_local();
-}
-inline void GeometryOperation_Point3D::set_allocated_local(::inhumate::rti::proto::GeometryOperation_LocalPoint3D* local) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete local_;
-  }
-  if (local) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      local = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, local, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  local_ = local;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.Point3D.local)
-}
-
-// .inhumate.rti.proto.GeometryOperation.GeodeticPoint3D geodetic = 2;
-inline bool GeometryOperation_Point3D::_internal_has_geodetic() const {
-  return this != internal_default_instance() && geodetic_ != nullptr;
-}
-inline bool GeometryOperation_Point3D::has_geodetic() const {
-  return _internal_has_geodetic();
-}
-inline void GeometryOperation_Point3D::clear_geodetic() {
-  if (GetArenaNoVirtual() == nullptr && geodetic_ != nullptr) {
-    delete geodetic_;
-  }
-  geodetic_ = nullptr;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D& GeometryOperation_Point3D::_internal_geodetic() const {
-  const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* p = geodetic_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D*>(
-      &::inhumate::rti::proto::_GeometryOperation_GeodeticPoint3D_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D& GeometryOperation_Point3D::geodetic() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Point3D.geodetic)
-  return _internal_geodetic();
-}
-inline ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* GeometryOperation_Point3D::release_geodetic() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.Point3D.geodetic)
-  
-  ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* temp = geodetic_;
-  geodetic_ = nullptr;
-  return temp;
-}
-inline ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* GeometryOperation_Point3D::_internal_mutable_geodetic() {
-  
-  if (geodetic_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D>(GetArenaNoVirtual());
-    geodetic_ = p;
-  }
-  return geodetic_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* GeometryOperation_Point3D::mutable_geodetic() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Point3D.geodetic)
-  return _internal_mutable_geodetic();
-}
-inline void GeometryOperation_Point3D::set_allocated_geodetic(::inhumate::rti::proto::GeometryOperation_GeodeticPoint3D* geodetic) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete geodetic_;
-  }
-  if (geodetic) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      geodetic = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, geodetic, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  geodetic_ = geodetic;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.Point3D.geodetic)
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_LocalPoint3D
-
-// float x = 1;
-inline void GeometryOperation_LocalPoint3D::clear_x() {
-  x_ = 0;
-}
-inline float GeometryOperation_LocalPoint3D::_internal_x() const {
-  return x_;
-}
-inline float GeometryOperation_LocalPoint3D::x() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.LocalPoint3D.x)
-  return _internal_x();
-}
-inline void GeometryOperation_LocalPoint3D::_internal_set_x(float value) {
-  
-  x_ = value;
-}
-inline void GeometryOperation_LocalPoint3D::set_x(float value) {
-  _internal_set_x(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.LocalPoint3D.x)
-}
-
-// float y = 2;
-inline void GeometryOperation_LocalPoint3D::clear_y() {
-  y_ = 0;
-}
-inline float GeometryOperation_LocalPoint3D::_internal_y() const {
-  return y_;
-}
-inline float GeometryOperation_LocalPoint3D::y() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.LocalPoint3D.y)
-  return _internal_y();
-}
-inline void GeometryOperation_LocalPoint3D::_internal_set_y(float value) {
-  
-  y_ = value;
-}
-inline void GeometryOperation_LocalPoint3D::set_y(float value) {
-  _internal_set_y(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.LocalPoint3D.y)
-}
-
-// float z = 3;
-inline void GeometryOperation_LocalPoint3D::clear_z() {
-  z_ = 0;
-}
-inline float GeometryOperation_LocalPoint3D::_internal_z() const {
-  return z_;
-}
-inline float GeometryOperation_LocalPoint3D::z() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.LocalPoint3D.z)
-  return _internal_z();
-}
-inline void GeometryOperation_LocalPoint3D::_internal_set_z(float value) {
-  
-  z_ = value;
-}
-inline void GeometryOperation_LocalPoint3D::set_z(float value) {
-  _internal_set_z(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.LocalPoint3D.z)
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_GeodeticPoint3D
-
-// double longitude = 1;
-inline void GeometryOperation_GeodeticPoint3D::clear_longitude() {
-  longitude_ = 0;
-}
-inline double GeometryOperation_GeodeticPoint3D::_internal_longitude() const {
-  return longitude_;
-}
-inline double GeometryOperation_GeodeticPoint3D::longitude() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.GeodeticPoint3D.longitude)
-  return _internal_longitude();
-}
-inline void GeometryOperation_GeodeticPoint3D::_internal_set_longitude(double value) {
-  
-  longitude_ = value;
-}
-inline void GeometryOperation_GeodeticPoint3D::set_longitude(double value) {
-  _internal_set_longitude(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.GeodeticPoint3D.longitude)
-}
-
-// double latitude = 2;
-inline void GeometryOperation_GeodeticPoint3D::clear_latitude() {
-  latitude_ = 0;
-}
-inline double GeometryOperation_GeodeticPoint3D::_internal_latitude() const {
-  return latitude_;
-}
-inline double GeometryOperation_GeodeticPoint3D::latitude() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.GeodeticPoint3D.latitude)
-  return _internal_latitude();
-}
-inline void GeometryOperation_GeodeticPoint3D::_internal_set_latitude(double value) {
-  
-  latitude_ = value;
-}
-inline void GeometryOperation_GeodeticPoint3D::set_latitude(double value) {
-  _internal_set_latitude(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.GeodeticPoint3D.latitude)
-}
-
-// double altitude = 3;
-inline void GeometryOperation_GeodeticPoint3D::clear_altitude() {
-  altitude_ = 0;
-}
-inline double GeometryOperation_GeodeticPoint3D::_internal_altitude() const {
-  return altitude_;
-}
-inline double GeometryOperation_GeodeticPoint3D::altitude() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.GeodeticPoint3D.altitude)
-  return _internal_altitude();
-}
-inline void GeometryOperation_GeodeticPoint3D::_internal_set_altitude(double value) {
-  
-  altitude_ = value;
-}
-inline void GeometryOperation_GeodeticPoint3D::set_altitude(double value) {
-  _internal_set_altitude(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.GeodeticPoint3D.altitude)
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_Line2D
-
-// repeated .inhumate.rti.proto.GeometryOperation.Point2D points = 1;
-inline int GeometryOperation_Line2D::_internal_points_size() const {
-  return points_.size();
-}
-inline int GeometryOperation_Line2D::points_size() const {
-  return _internal_points_size();
-}
-inline void GeometryOperation_Line2D::clear_points() {
-  points_.Clear();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Line2D::mutable_points(int index) {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Line2D.points)
-  return points_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >*
-GeometryOperation_Line2D::mutable_points() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Line2D.points)
-  return &points_;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Line2D::_internal_points(int index) const {
-  return points_.Get(index);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Line2D::points(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Line2D.points)
-  return _internal_points(index);
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Line2D::_internal_add_points() {
-  return points_.Add();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Line2D::add_points() {
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Line2D.points)
-  return _internal_add_points();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >&
-GeometryOperation_Line2D::points() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Line2D.points)
-  return points_;
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_Line3D
-
-// repeated .inhumate.rti.proto.GeometryOperation.Point3D points = 1;
-inline int GeometryOperation_Line3D::_internal_points_size() const {
-  return points_.size();
-}
-inline int GeometryOperation_Line3D::points_size() const {
-  return _internal_points_size();
-}
-inline void GeometryOperation_Line3D::clear_points() {
-  points_.Clear();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Line3D::mutable_points(int index) {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Line3D.points)
-  return points_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >*
-GeometryOperation_Line3D::mutable_points() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Line3D.points)
-  return &points_;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point3D& GeometryOperation_Line3D::_internal_points(int index) const {
-  return points_.Get(index);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point3D& GeometryOperation_Line3D::points(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Line3D.points)
-  return _internal_points(index);
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Line3D::_internal_add_points() {
-  return points_.Add();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Line3D::add_points() {
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Line3D.points)
-  return _internal_add_points();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >&
-GeometryOperation_Line3D::points() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Line3D.points)
-  return points_;
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_Polygon
-
-// repeated .inhumate.rti.proto.GeometryOperation.Point2D points = 1;
-inline int GeometryOperation_Polygon::_internal_points_size() const {
-  return points_.size();
-}
-inline int GeometryOperation_Polygon::points_size() const {
-  return _internal_points_size();
-}
-inline void GeometryOperation_Polygon::clear_points() {
-  points_.Clear();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Polygon::mutable_points(int index) {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Polygon.points)
-  return points_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >*
-GeometryOperation_Polygon::mutable_points() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Polygon.points)
-  return &points_;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Polygon::_internal_points(int index) const {
-  return points_.Get(index);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Polygon::points(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Polygon.points)
-  return _internal_points(index);
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Polygon::_internal_add_points() {
-  return points_.Add();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Polygon::add_points() {
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Polygon.points)
-  return _internal_add_points();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >&
-GeometryOperation_Polygon::points() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Polygon.points)
-  return points_;
-}
-
-// float base = 2;
-inline void GeometryOperation_Polygon::clear_base() {
-  base_ = 0;
-}
-inline float GeometryOperation_Polygon::_internal_base() const {
-  return base_;
-}
-inline float GeometryOperation_Polygon::base() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Polygon.base)
-  return _internal_base();
-}
-inline void GeometryOperation_Polygon::_internal_set_base(float value) {
-  
-  base_ = value;
-}
-inline void GeometryOperation_Polygon::set_base(float value) {
-  _internal_set_base(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Polygon.base)
-}
-
-// float height = 3;
-inline void GeometryOperation_Polygon::clear_height() {
-  height_ = 0;
-}
-inline float GeometryOperation_Polygon::_internal_height() const {
-  return height_;
-}
-inline float GeometryOperation_Polygon::height() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Polygon.height)
-  return _internal_height();
-}
-inline void GeometryOperation_Polygon::_internal_set_height(float value) {
-  
-  height_ = value;
-}
-inline void GeometryOperation_Polygon::set_height(float value) {
-  _internal_set_height(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Polygon.height)
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_Mesh
-
-// repeated .inhumate.rti.proto.GeometryOperation.LocalPoint3D vertices = 1;
-inline int GeometryOperation_Mesh::_internal_vertices_size() const {
-  return vertices_.size();
-}
-inline int GeometryOperation_Mesh::vertices_size() const {
-  return _internal_vertices_size();
-}
-inline void GeometryOperation_Mesh::clear_vertices() {
-  vertices_.Clear();
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* GeometryOperation_Mesh::mutable_vertices(int index) {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Mesh.vertices)
-  return vertices_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D >*
-GeometryOperation_Mesh::mutable_vertices() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Mesh.vertices)
-  return &vertices_;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& GeometryOperation_Mesh::_internal_vertices(int index) const {
-  return vertices_.Get(index);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& GeometryOperation_Mesh::vertices(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Mesh.vertices)
-  return _internal_vertices(index);
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* GeometryOperation_Mesh::_internal_add_vertices() {
-  return vertices_.Add();
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* GeometryOperation_Mesh::add_vertices() {
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Mesh.vertices)
-  return _internal_add_vertices();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D >&
-GeometryOperation_Mesh::vertices() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Mesh.vertices)
-  return vertices_;
-}
-
-// repeated int32 indices = 2;
-inline int GeometryOperation_Mesh::_internal_indices_size() const {
-  return indices_.size();
-}
-inline int GeometryOperation_Mesh::indices_size() const {
-  return _internal_indices_size();
-}
-inline void GeometryOperation_Mesh::clear_indices() {
-  indices_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 GeometryOperation_Mesh::_internal_indices(int index) const {
-  return indices_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 GeometryOperation_Mesh::indices(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Mesh.indices)
-  return _internal_indices(index);
-}
-inline void GeometryOperation_Mesh::set_indices(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  indices_.Set(index, value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.Mesh.indices)
-}
-inline void GeometryOperation_Mesh::_internal_add_indices(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  indices_.Add(value);
-}
-inline void GeometryOperation_Mesh::add_indices(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_indices(value);
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Mesh.indices)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-GeometryOperation_Mesh::_internal_indices() const {
-  return indices_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-GeometryOperation_Mesh::indices() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Mesh.indices)
-  return _internal_indices();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-GeometryOperation_Mesh::_internal_mutable_indices() {
-  return &indices_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-GeometryOperation_Mesh::mutable_indices() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Mesh.indices)
-  return _internal_mutable_indices();
-}
-
-// repeated .inhumate.rti.proto.GeometryOperation.LocalPoint3D normals = 3;
-inline int GeometryOperation_Mesh::_internal_normals_size() const {
-  return normals_.size();
-}
-inline int GeometryOperation_Mesh::normals_size() const {
-  return _internal_normals_size();
-}
-inline void GeometryOperation_Mesh::clear_normals() {
-  normals_.Clear();
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* GeometryOperation_Mesh::mutable_normals(int index) {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Mesh.normals)
-  return normals_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D >*
-GeometryOperation_Mesh::mutable_normals() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Mesh.normals)
-  return &normals_;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& GeometryOperation_Mesh::_internal_normals(int index) const {
-  return normals_.Get(index);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_LocalPoint3D& GeometryOperation_Mesh::normals(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Mesh.normals)
-  return _internal_normals(index);
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* GeometryOperation_Mesh::_internal_add_normals() {
-  return normals_.Add();
-}
-inline ::inhumate::rti::proto::GeometryOperation_LocalPoint3D* GeometryOperation_Mesh::add_normals() {
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Mesh.normals)
-  return _internal_add_normals();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_LocalPoint3D >&
-GeometryOperation_Mesh::normals() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Mesh.normals)
-  return normals_;
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_Spline2D
-
-// repeated .inhumate.rti.proto.GeometryOperation.Point2D points = 2;
-inline int GeometryOperation_Spline2D::_internal_points_size() const {
-  return points_.size();
-}
-inline int GeometryOperation_Spline2D::points_size() const {
-  return _internal_points_size();
-}
-inline void GeometryOperation_Spline2D::clear_points() {
-  points_.Clear();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Spline2D::mutable_points(int index) {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Spline2D.points)
-  return points_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >*
-GeometryOperation_Spline2D::mutable_points() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Spline2D.points)
-  return &points_;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Spline2D::_internal_points(int index) const {
-  return points_.Get(index);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Spline2D::points(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Spline2D.points)
-  return _internal_points(index);
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Spline2D::_internal_add_points() {
-  return points_.Add();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Spline2D::add_points() {
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Spline2D.points)
-  return _internal_add_points();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >&
-GeometryOperation_Spline2D::points() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Spline2D.points)
-  return points_;
-}
-
-// repeated .inhumate.rti.proto.GeometryOperation.Point2D control_points = 3;
-inline int GeometryOperation_Spline2D::_internal_control_points_size() const {
-  return control_points_.size();
-}
-inline int GeometryOperation_Spline2D::control_points_size() const {
-  return _internal_control_points_size();
-}
-inline void GeometryOperation_Spline2D::clear_control_points() {
-  control_points_.Clear();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Spline2D::mutable_control_points(int index) {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Spline2D.control_points)
-  return control_points_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >*
-GeometryOperation_Spline2D::mutable_control_points() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Spline2D.control_points)
-  return &control_points_;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Spline2D::_internal_control_points(int index) const {
-  return control_points_.Get(index);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point2D& GeometryOperation_Spline2D::control_points(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Spline2D.control_points)
-  return _internal_control_points(index);
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Spline2D::_internal_add_control_points() {
-  return control_points_.Add();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point2D* GeometryOperation_Spline2D::add_control_points() {
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Spline2D.control_points)
-  return _internal_add_control_points();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point2D >&
-GeometryOperation_Spline2D::control_points() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Spline2D.control_points)
-  return control_points_;
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation_Spline3D
-
-// repeated .inhumate.rti.proto.GeometryOperation.Point3D points = 2;
-inline int GeometryOperation_Spline3D::_internal_points_size() const {
-  return points_.size();
-}
-inline int GeometryOperation_Spline3D::points_size() const {
-  return _internal_points_size();
-}
-inline void GeometryOperation_Spline3D::clear_points() {
-  points_.Clear();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Spline3D::mutable_points(int index) {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Spline3D.points)
-  return points_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >*
-GeometryOperation_Spline3D::mutable_points() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Spline3D.points)
-  return &points_;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point3D& GeometryOperation_Spline3D::_internal_points(int index) const {
-  return points_.Get(index);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point3D& GeometryOperation_Spline3D::points(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Spline3D.points)
-  return _internal_points(index);
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Spline3D::_internal_add_points() {
-  return points_.Add();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Spline3D::add_points() {
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Spline3D.points)
-  return _internal_add_points();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >&
-GeometryOperation_Spline3D::points() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Spline3D.points)
-  return points_;
-}
-
-// repeated .inhumate.rti.proto.GeometryOperation.Point3D control_points = 3;
-inline int GeometryOperation_Spline3D::_internal_control_points_size() const {
-  return control_points_.size();
-}
-inline int GeometryOperation_Spline3D::control_points_size() const {
-  return _internal_control_points_size();
-}
-inline void GeometryOperation_Spline3D::clear_control_points() {
-  control_points_.Clear();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Spline3D::mutable_control_points(int index) {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.Spline3D.control_points)
-  return control_points_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >*
-GeometryOperation_Spline3D::mutable_control_points() {
-  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.GeometryOperation.Spline3D.control_points)
-  return &control_points_;
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point3D& GeometryOperation_Spline3D::_internal_control_points(int index) const {
-  return control_points_.Get(index);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Point3D& GeometryOperation_Spline3D::control_points(int index) const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.Spline3D.control_points)
-  return _internal_control_points(index);
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Spline3D::_internal_add_control_points() {
-  return control_points_.Add();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Point3D* GeometryOperation_Spline3D::add_control_points() {
-  // @@protoc_insertion_point(field_add:inhumate.rti.proto.GeometryOperation.Spline3D.control_points)
-  return _internal_add_control_points();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::GeometryOperation_Point3D >&
-GeometryOperation_Spline3D::control_points() const {
-  // @@protoc_insertion_point(field_list:inhumate.rti.proto.GeometryOperation.Spline3D.control_points)
-  return control_points_;
-}
-
-// -------------------------------------------------------------------
-
-// GeometryOperation
-
-// string id = 1;
-inline void GeometryOperation::clear_id() {
-  id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline const std::string& GeometryOperation::id() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.id)
-  return _internal_id();
-}
-inline void GeometryOperation::set_id(const std::string& value) {
-  _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.id)
-}
-inline std::string* GeometryOperation::mutable_id() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.id)
-  return _internal_mutable_id();
-}
-inline const std::string& GeometryOperation::_internal_id() const {
-  return id_.GetNoArena();
-}
-inline void GeometryOperation::_internal_set_id(const std::string& value) {
-  
-  id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-}
-inline void GeometryOperation::set_id(std::string&& value) {
-  
-  id_.SetNoArena(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.GeometryOperation.id)
-}
-inline void GeometryOperation::set_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.GeometryOperation.id)
-}
-inline void GeometryOperation::set_id(const char* value, size_t size) {
-  
-  id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.GeometryOperation.id)
-}
-inline std::string* GeometryOperation::_internal_mutable_id() {
-  
-  return id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline std::string* GeometryOperation::release_id() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.id)
-  
-  return id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline void GeometryOperation::set_allocated_id(std::string* id) {
-  if (id != nullptr) {
-    
-  } else {
-    
-  }
-  id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.id)
-}
-
-// string client_id = 3;
-inline void GeometryOperation::clear_client_id() {
+// string client_id = 2;
+inline void GeometryOperation_ApplicationClient::clear_client_id() {
   client_id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline const std::string& GeometryOperation::client_id() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.client_id)
+inline const std::string& GeometryOperation_ApplicationClient::client_id() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.ApplicationClient.client_id)
   return _internal_client_id();
 }
-inline void GeometryOperation::set_client_id(const std::string& value) {
+inline void GeometryOperation_ApplicationClient::set_client_id(const std::string& value) {
   _internal_set_client_id(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.client_id)
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.GeometryOperation.ApplicationClient.client_id)
 }
-inline std::string* GeometryOperation::mutable_client_id() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.client_id)
+inline std::string* GeometryOperation_ApplicationClient::mutable_client_id() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.ApplicationClient.client_id)
   return _internal_mutable_client_id();
 }
-inline const std::string& GeometryOperation::_internal_client_id() const {
+inline const std::string& GeometryOperation_ApplicationClient::_internal_client_id() const {
   return client_id_.GetNoArena();
 }
-inline void GeometryOperation::_internal_set_client_id(const std::string& value) {
+inline void GeometryOperation_ApplicationClient::_internal_set_client_id(const std::string& value) {
   
   client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
 }
-inline void GeometryOperation::set_client_id(std::string&& value) {
+inline void GeometryOperation_ApplicationClient::set_client_id(std::string&& value) {
   
   client_id_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.GeometryOperation.client_id)
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.GeometryOperation.ApplicationClient.client_id)
 }
-inline void GeometryOperation::set_client_id(const char* value) {
+inline void GeometryOperation_ApplicationClient::set_client_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.GeometryOperation.client_id)
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.GeometryOperation.ApplicationClient.client_id)
 }
-inline void GeometryOperation::set_client_id(const char* value, size_t size) {
+inline void GeometryOperation_ApplicationClient::set_client_id(const char* value, size_t size) {
   
   client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.GeometryOperation.client_id)
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.GeometryOperation.ApplicationClient.client_id)
 }
-inline std::string* GeometryOperation::_internal_mutable_client_id() {
+inline std::string* GeometryOperation_ApplicationClient::_internal_mutable_client_id() {
   
   return client_id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline std::string* GeometryOperation::release_client_id() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.client_id)
+inline std::string* GeometryOperation_ApplicationClient::release_client_id() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.ApplicationClient.client_id)
   
   return client_id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void GeometryOperation::set_allocated_client_id(std::string* client_id) {
+inline void GeometryOperation_ApplicationClient::set_allocated_client_id(std::string* client_id) {
   if (client_id != nullptr) {
     
   } else {
     
   }
   client_id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), client_id);
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.client_id)
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.GeometryOperation.ApplicationClient.client_id)
 }
 
-// .inhumate.rti.proto.GeometryOperation.Geometry create = 10;
-inline bool GeometryOperation::_internal_has_create() const {
-  return operation_case() == kCreate;
-}
-inline bool GeometryOperation::has_create() const {
-  return _internal_has_create();
-}
-inline void GeometryOperation::set_has_create() {
-  _oneof_case_[0] = kCreate;
-}
-inline void GeometryOperation::clear_create() {
-  if (_internal_has_create()) {
-    delete operation_.create_;
-    clear_has_operation();
-  }
-}
-inline ::inhumate::rti::proto::GeometryOperation_Geometry* GeometryOperation::release_create() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.create)
-  if (_internal_has_create()) {
-    clear_has_operation();
-      ::inhumate::rti::proto::GeometryOperation_Geometry* temp = operation_.create_;
-    operation_.create_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Geometry& GeometryOperation::_internal_create() const {
-  return _internal_has_create()
-      ? *operation_.create_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Geometry*>(&::inhumate::rti::proto::_GeometryOperation_Geometry_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Geometry& GeometryOperation::create() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.create)
-  return _internal_create();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Geometry* GeometryOperation::_internal_mutable_create() {
-  if (!_internal_has_create()) {
-    clear_operation();
-    set_has_create();
-    operation_.create_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Geometry >(
-        GetArenaNoVirtual());
-  }
-  return operation_.create_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Geometry* GeometryOperation::mutable_create() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.create)
-  return _internal_mutable_create();
-}
+// -------------------------------------------------------------------
 
-// .google.protobuf.Empty destroy = 11;
-inline bool GeometryOperation::_internal_has_destroy() const {
-  return operation_case() == kDestroy;
-}
-inline bool GeometryOperation::has_destroy() const {
-  return _internal_has_destroy();
-}
-inline void GeometryOperation::set_has_destroy() {
-  _oneof_case_[0] = kDestroy;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::release_destroy() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.destroy)
-  if (_internal_has_destroy()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.destroy_;
-    operation_.destroy_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::_internal_destroy() const {
-  return _internal_has_destroy()
-      ? *operation_.destroy_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::destroy() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.destroy)
-  return _internal_destroy();
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::_internal_mutable_destroy() {
-  if (!_internal_has_destroy()) {
-    clear_operation();
-    set_has_destroy();
-    operation_.destroy_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
-        GetArenaNoVirtual());
-  }
-  return operation_.destroy_;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::mutable_destroy() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.destroy)
-  return _internal_mutable_destroy();
-}
+// GeometryOperation
 
-// .inhumate.rti.proto.GeometryOperation.Geometry update = 12;
-inline bool GeometryOperation::_internal_has_update() const {
-  return operation_case() == kUpdate;
-}
-inline bool GeometryOperation::has_update() const {
-  return _internal_has_update();
-}
-inline void GeometryOperation::set_has_update() {
-  _oneof_case_[0] = kUpdate;
-}
-inline void GeometryOperation::clear_update() {
-  if (_internal_has_update()) {
-    delete operation_.update_;
-    clear_has_operation();
-  }
-}
-inline ::inhumate::rti::proto::GeometryOperation_Geometry* GeometryOperation::release_update() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.update)
-  if (_internal_has_update()) {
-    clear_has_operation();
-      ::inhumate::rti::proto::GeometryOperation_Geometry* temp = operation_.update_;
-    operation_.update_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Geometry& GeometryOperation::_internal_update() const {
-  return _internal_has_update()
-      ? *operation_.update_
-      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_Geometry*>(&::inhumate::rti::proto::_GeometryOperation_Geometry_default_instance_);
-}
-inline const ::inhumate::rti::proto::GeometryOperation_Geometry& GeometryOperation::update() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.update)
-  return _internal_update();
-}
-inline ::inhumate::rti::proto::GeometryOperation_Geometry* GeometryOperation::_internal_mutable_update() {
-  if (!_internal_has_update()) {
-    clear_operation();
-    set_has_update();
-    operation_.update_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_Geometry >(
-        GetArenaNoVirtual());
-  }
-  return operation_.update_;
-}
-inline ::inhumate::rti::proto::GeometryOperation_Geometry* GeometryOperation::mutable_update() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.update)
-  return _internal_mutable_update();
-}
-
-// .google.protobuf.Empty request_update = 13;
+// .google.protobuf.Empty request_update = 1;
 inline bool GeometryOperation::_internal_has_request_update() const {
-  return operation_case() == kRequestUpdate;
+  return which_case() == kRequestUpdate;
 }
 inline bool GeometryOperation::has_request_update() const {
   return _internal_has_request_update();
@@ -4875,9 +566,9 @@ inline void GeometryOperation::set_has_request_update() {
 inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::release_request_update() {
   // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.request_update)
   if (_internal_has_request_update()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.request_update_;
-    operation_.request_update_ = nullptr;
+    clear_has_which();
+      PROTOBUF_NAMESPACE_ID::Empty* temp = which_.request_update_;
+    which_.request_update_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -4885,7 +576,7 @@ inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::release_request_update()
 }
 inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::_internal_request_update() const {
   return _internal_has_request_update()
-      ? *operation_.request_update_
+      ? *which_.request_update_
       : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
 }
 inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::request_update() const {
@@ -4894,21 +585,21 @@ inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::request_update() c
 }
 inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::_internal_mutable_request_update() {
   if (!_internal_has_request_update()) {
-    clear_operation();
+    clear_which();
     set_has_request_update();
-    operation_.request_update_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
+    which_.request_update_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
         GetArenaNoVirtual());
   }
-  return operation_.request_update_;
+  return which_.request_update_;
 }
 inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::mutable_request_update() {
   // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.request_update)
   return _internal_mutable_request_update();
 }
 
-// .google.protobuf.Empty request_persistent_ownership = 14;
+// .inhumate.rti.proto.GeometryOperation.ApplicationClient request_persistent_ownership = 2;
 inline bool GeometryOperation::_internal_has_request_persistent_ownership() const {
-  return operation_case() == kRequestPersistentOwnership;
+  return which_case() == kRequestPersistentOwnership;
 }
 inline bool GeometryOperation::has_request_persistent_ownership() const {
   return _internal_has_request_persistent_ownership();
@@ -4916,43 +607,49 @@ inline bool GeometryOperation::has_request_persistent_ownership() const {
 inline void GeometryOperation::set_has_request_persistent_ownership() {
   _oneof_case_[0] = kRequestPersistentOwnership;
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::release_request_persistent_ownership() {
+inline void GeometryOperation::clear_request_persistent_ownership() {
+  if (_internal_has_request_persistent_ownership()) {
+    delete which_.request_persistent_ownership_;
+    clear_has_which();
+  }
+}
+inline ::inhumate::rti::proto::GeometryOperation_ApplicationClient* GeometryOperation::release_request_persistent_ownership() {
   // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.request_persistent_ownership)
   if (_internal_has_request_persistent_ownership()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.request_persistent_ownership_;
-    operation_.request_persistent_ownership_ = nullptr;
+    clear_has_which();
+      ::inhumate::rti::proto::GeometryOperation_ApplicationClient* temp = which_.request_persistent_ownership_;
+    which_.request_persistent_ownership_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::_internal_request_persistent_ownership() const {
+inline const ::inhumate::rti::proto::GeometryOperation_ApplicationClient& GeometryOperation::_internal_request_persistent_ownership() const {
   return _internal_has_request_persistent_ownership()
-      ? *operation_.request_persistent_ownership_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
+      ? *which_.request_persistent_ownership_
+      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_ApplicationClient*>(&::inhumate::rti::proto::_GeometryOperation_ApplicationClient_default_instance_);
 }
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::request_persistent_ownership() const {
+inline const ::inhumate::rti::proto::GeometryOperation_ApplicationClient& GeometryOperation::request_persistent_ownership() const {
   // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.request_persistent_ownership)
   return _internal_request_persistent_ownership();
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::_internal_mutable_request_persistent_ownership() {
+inline ::inhumate::rti::proto::GeometryOperation_ApplicationClient* GeometryOperation::_internal_mutable_request_persistent_ownership() {
   if (!_internal_has_request_persistent_ownership()) {
-    clear_operation();
+    clear_which();
     set_has_request_persistent_ownership();
-    operation_.request_persistent_ownership_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
+    which_.request_persistent_ownership_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_ApplicationClient >(
         GetArenaNoVirtual());
   }
-  return operation_.request_persistent_ownership_;
+  return which_.request_persistent_ownership_;
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::mutable_request_persistent_ownership() {
+inline ::inhumate::rti::proto::GeometryOperation_ApplicationClient* GeometryOperation::mutable_request_persistent_ownership() {
   // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.request_persistent_ownership)
   return _internal_mutable_request_persistent_ownership();
 }
 
-// .google.protobuf.Empty claim_persistent_ownership = 15;
+// .inhumate.rti.proto.GeometryOperation.ApplicationClient claim_persistent_ownership = 3;
 inline bool GeometryOperation::_internal_has_claim_persistent_ownership() const {
-  return operation_case() == kClaimPersistentOwnership;
+  return which_case() == kClaimPersistentOwnership;
 }
 inline bool GeometryOperation::has_claim_persistent_ownership() const {
   return _internal_has_claim_persistent_ownership();
@@ -4960,164 +657,58 @@ inline bool GeometryOperation::has_claim_persistent_ownership() const {
 inline void GeometryOperation::set_has_claim_persistent_ownership() {
   _oneof_case_[0] = kClaimPersistentOwnership;
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::release_claim_persistent_ownership() {
+inline void GeometryOperation::clear_claim_persistent_ownership() {
+  if (_internal_has_claim_persistent_ownership()) {
+    delete which_.claim_persistent_ownership_;
+    clear_has_which();
+  }
+}
+inline ::inhumate::rti::proto::GeometryOperation_ApplicationClient* GeometryOperation::release_claim_persistent_ownership() {
   // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.claim_persistent_ownership)
   if (_internal_has_claim_persistent_ownership()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.claim_persistent_ownership_;
-    operation_.claim_persistent_ownership_ = nullptr;
+    clear_has_which();
+      ::inhumate::rti::proto::GeometryOperation_ApplicationClient* temp = which_.claim_persistent_ownership_;
+    which_.claim_persistent_ownership_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::_internal_claim_persistent_ownership() const {
+inline const ::inhumate::rti::proto::GeometryOperation_ApplicationClient& GeometryOperation::_internal_claim_persistent_ownership() const {
   return _internal_has_claim_persistent_ownership()
-      ? *operation_.claim_persistent_ownership_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
+      ? *which_.claim_persistent_ownership_
+      : *reinterpret_cast< ::inhumate::rti::proto::GeometryOperation_ApplicationClient*>(&::inhumate::rti::proto::_GeometryOperation_ApplicationClient_default_instance_);
 }
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::claim_persistent_ownership() const {
+inline const ::inhumate::rti::proto::GeometryOperation_ApplicationClient& GeometryOperation::claim_persistent_ownership() const {
   // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.claim_persistent_ownership)
   return _internal_claim_persistent_ownership();
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::_internal_mutable_claim_persistent_ownership() {
+inline ::inhumate::rti::proto::GeometryOperation_ApplicationClient* GeometryOperation::_internal_mutable_claim_persistent_ownership() {
   if (!_internal_has_claim_persistent_ownership()) {
-    clear_operation();
+    clear_which();
     set_has_claim_persistent_ownership();
-    operation_.claim_persistent_ownership_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
+    which_.claim_persistent_ownership_ = CreateMaybeMessage< ::inhumate::rti::proto::GeometryOperation_ApplicationClient >(
         GetArenaNoVirtual());
   }
-  return operation_.claim_persistent_ownership_;
+  return which_.claim_persistent_ownership_;
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::mutable_claim_persistent_ownership() {
+inline ::inhumate::rti::proto::GeometryOperation_ApplicationClient* GeometryOperation::mutable_claim_persistent_ownership() {
   // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.claim_persistent_ownership)
   return _internal_mutable_claim_persistent_ownership();
 }
 
-// .google.protobuf.Empty show = 16;
-inline bool GeometryOperation::_internal_has_show() const {
-  return operation_case() == kShow;
+inline bool GeometryOperation::has_which() const {
+  return which_case() != WHICH_NOT_SET;
 }
-inline bool GeometryOperation::has_show() const {
-  return _internal_has_show();
+inline void GeometryOperation::clear_has_which() {
+  _oneof_case_[0] = WHICH_NOT_SET;
 }
-inline void GeometryOperation::set_has_show() {
-  _oneof_case_[0] = kShow;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::release_show() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.show)
-  if (_internal_has_show()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.show_;
-    operation_.show_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::_internal_show() const {
-  return _internal_has_show()
-      ? *operation_.show_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::show() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.show)
-  return _internal_show();
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::_internal_mutable_show() {
-  if (!_internal_has_show()) {
-    clear_operation();
-    set_has_show();
-    operation_.show_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
-        GetArenaNoVirtual());
-  }
-  return operation_.show_;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::mutable_show() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.show)
-  return _internal_mutable_show();
-}
-
-// .google.protobuf.Empty hide = 17;
-inline bool GeometryOperation::_internal_has_hide() const {
-  return operation_case() == kHide;
-}
-inline bool GeometryOperation::has_hide() const {
-  return _internal_has_hide();
-}
-inline void GeometryOperation::set_has_hide() {
-  _oneof_case_[0] = kHide;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::release_hide() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.GeometryOperation.hide)
-  if (_internal_has_hide()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.hide_;
-    operation_.hide_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::_internal_hide() const {
-  return _internal_has_hide()
-      ? *operation_.hide_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& GeometryOperation::hide() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.GeometryOperation.hide)
-  return _internal_hide();
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::_internal_mutable_hide() {
-  if (!_internal_has_hide()) {
-    clear_operation();
-    set_has_hide();
-    operation_.hide_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
-        GetArenaNoVirtual());
-  }
-  return operation_.hide_;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* GeometryOperation::mutable_hide() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.GeometryOperation.hide)
-  return _internal_mutable_hide();
-}
-
-inline bool GeometryOperation::has_operation() const {
-  return operation_case() != OPERATION_NOT_SET;
-}
-inline void GeometryOperation::clear_has_operation() {
-  _oneof_case_[0] = OPERATION_NOT_SET;
-}
-inline GeometryOperation::OperationCase GeometryOperation::operation_case() const {
-  return GeometryOperation::OperationCase(_oneof_case_[0]);
+inline GeometryOperation::WhichCase GeometryOperation::which_case() const {
+  return GeometryOperation::WhichCase(_oneof_case_[0]);
 }
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 
@@ -5126,21 +717,6 @@ inline GeometryOperation::OperationCase GeometryOperation::operation_case() cons
 }  // namespace proto
 }  // namespace rti
 }  // namespace inhumate
-
-PROTOBUF_NAMESPACE_OPEN
-
-template <> struct is_proto_enum< ::inhumate::rti::proto::GeometryOperation_Usage> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::inhumate::rti::proto::GeometryOperation_Usage>() {
-  return ::inhumate::rti::proto::GeometryOperation_Usage_descriptor();
-}
-template <> struct is_proto_enum< ::inhumate::rti::proto::GeometryOperation_Category> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::inhumate::rti::proto::GeometryOperation_Category>() {
-  return ::inhumate::rti::proto::GeometryOperation_Category_descriptor();
-}
-
-PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

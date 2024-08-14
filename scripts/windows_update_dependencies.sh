@@ -1,20 +1,12 @@
 #!/bin/bash -e
 
-[ -z "$UE5" -a -d "/c/Program Files/Epic Games/UE_5.3" ] && export UE5="/c/Program Files/Epic Games/UE_5.3"
-[ -z "$UE5" -a -d "/c/UE_5.3" ] && export UE5="/c/UE_5.3"
-[ -z "$UE5" -a -d "/d/UE_5.3" ] && export UE5="/d/UE_5.3"
-if [ -z "$UE5" ]; then
-    echo "Don't know where UE5 is installed. Please set environment variable UE5."
-    exit 1
-fi
-
 root="$(realpath $(dirname $0)/..)"
 
-if [ -d "$root/../../rti/clients/cpp" ]; then
-    cpp_root="$root/../../rti/clients/cpp"
+if [ -d "$root/../../rti-client/cpp" ]; then
+    cpp_root="$root/../../rti-client/cpp"
     echo "Using local c++ client"
-elif [ -d "$root/../../../../rti/clients/cpp" ]; then
-    cpp_root="$root/../../../../rti/clients/cpp"
+elif [ -d "$root/../../../../rti-client/cpp" ]; then
+    cpp_root="$root/../../../../rti-client/cpp"
     echo "Using local c++ client"
 else
     echo "Where c++ client?"

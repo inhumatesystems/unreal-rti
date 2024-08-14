@@ -6,9 +6,10 @@
 #include "Components/PrimitiveComponent.h"
 
 URTIPositionComponent::URTIPositionComponent()
-: URTIEntityBaseComponent(inhumate::rti::POSITION_CHANNEL, true)
+: URTIEntityStateComponent(inhumate::rti::POSITION_CHANNEL, true)
 {
-    UpdateInterval = 1.f;
+    MinPublishInterval = 1.f;
+    MaxPublishInterval = 10.f;
     PositionThreshold = 1.0f;
     RotationThreshold = 0.1f;
     VelocityThreshold = 10.f;
@@ -81,8 +82,9 @@ void URTIPositionComponent::TickComponent(float DeltaTime, ELevelTick TickType, 
     TimeSinceLastPublish += DeltaTime;
     float time = GetWorld()->GetTimeSeconds();
     FVector LocalVelocity = GetOwner()->GetActorRotation().GetInverse().RotateVector(GetOwner()->GetVelocity());
-    if (IsPublishing() && TimeSinceLastPublish > UpdateInterval
-            && (PositionThreshold < 1e-5f || RotationThreshold < 1e-5f || VelocityThreshold < 1e-5f
+    if (IsPublishing() && TimeSinceLastPublish > MinPublishInterval
+            && (TimeSinceLastPublish > MaxPublishInterval
+                || PositionThreshold < 1e-5f || RotationThreshold < 1e-5f || VelocityThreshold < 1e-5f
                 || FVector::Distance(GetOwner()->GetActorLocation(), LastPosition) > PositionThreshold
                 || GetOwner()->GetActorQuat().AngularDistance(LastRotation) * 180.0f / PI > RotationThreshold
                 || (LastVelocityValid && FVector::Distance(LocalVelocity, LastVelocity) > VelocityThreshold )

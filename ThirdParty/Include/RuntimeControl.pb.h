@@ -53,7 +53,7 @@ struct INHUMATE_RTI_PROTOS_EXPORT TableStruct_RuntimeControl_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[10]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[9]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -87,9 +87,6 @@ INHUMATE_RTI_PROTOS_EXPORT extern RuntimeControl_SeekDefaultTypeInternal _Runtim
 class RuntimeControl_SetTimeScale;
 class RuntimeControl_SetTimeScaleDefaultTypeInternal;
 INHUMATE_RTI_PROTOS_EXPORT extern RuntimeControl_SetTimeScaleDefaultTypeInternal _RuntimeControl_SetTimeScale_default_instance_;
-class RuntimeControl_StateUpdate;
-class RuntimeControl_StateUpdateDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern RuntimeControl_StateUpdateDefaultTypeInternal _RuntimeControl_StateUpdate_default_instance_;
 class RuntimeControl_TimeSync;
 class RuntimeControl_TimeSyncDefaultTypeInternal;
 INHUMATE_RTI_PROTOS_EXPORT extern RuntimeControl_TimeSyncDefaultTypeInternal _RuntimeControl_TimeSync_default_instance_;
@@ -105,7 +102,6 @@ template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::RuntimeControl_Loa
 template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::RuntimeControl_LoadScenario_ParameterValuesEntry_DoNotUse* Arena::CreateMaybeMessage<::inhumate::rti::proto::RuntimeControl_LoadScenario_ParameterValuesEntry_DoNotUse>(Arena*);
 template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::RuntimeControl_Seek* Arena::CreateMaybeMessage<::inhumate::rti::proto::RuntimeControl_Seek>(Arena*);
 template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::RuntimeControl_SetTimeScale* Arena::CreateMaybeMessage<::inhumate::rti::proto::RuntimeControl_SetTimeScale>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::RuntimeControl_StateUpdate* Arena::CreateMaybeMessage<::inhumate::rti::proto::RuntimeControl_StateUpdate>(Arena*);
 template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::RuntimeControl_TimeSync* Arena::CreateMaybeMessage<::inhumate::rti::proto::RuntimeControl_TimeSync>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace inhumate {
@@ -564,152 +560,6 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl_Seek :
 };
 // -------------------------------------------------------------------
 
-class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl_StateUpdate :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.RuntimeControl.StateUpdate) */ {
- public:
-  RuntimeControl_StateUpdate();
-  virtual ~RuntimeControl_StateUpdate();
-
-  RuntimeControl_StateUpdate(const RuntimeControl_StateUpdate& from);
-  RuntimeControl_StateUpdate(RuntimeControl_StateUpdate&& from) noexcept
-    : RuntimeControl_StateUpdate() {
-    *this = ::std::move(from);
-  }
-
-  inline RuntimeControl_StateUpdate& operator=(const RuntimeControl_StateUpdate& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline RuntimeControl_StateUpdate& operator=(RuntimeControl_StateUpdate&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const RuntimeControl_StateUpdate& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const RuntimeControl_StateUpdate* internal_default_instance() {
-    return reinterpret_cast<const RuntimeControl_StateUpdate*>(
-               &_RuntimeControl_StateUpdate_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  friend void swap(RuntimeControl_StateUpdate& a, RuntimeControl_StateUpdate& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(RuntimeControl_StateUpdate* other) {
-    if (other == this) return;
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline RuntimeControl_StateUpdate* New() const final {
-    return CreateMaybeMessage<RuntimeControl_StateUpdate>(nullptr);
-  }
-
-  RuntimeControl_StateUpdate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<RuntimeControl_StateUpdate>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const RuntimeControl_StateUpdate& from);
-  void MergeFrom(const RuntimeControl_StateUpdate& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(RuntimeControl_StateUpdate* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.RuntimeControl.StateUpdate";
-  }
-  private:
-  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_RuntimeControl_2eproto);
-    return ::descriptor_table_RuntimeControl_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kClientIdFieldNumber = 1,
-    kStateFieldNumber = 2,
-  };
-  // string client_id = 1;
-  void clear_client_id();
-  const std::string& client_id() const;
-  void set_client_id(const std::string& value);
-  void set_client_id(std::string&& value);
-  void set_client_id(const char* value);
-  void set_client_id(const char* value, size_t size);
-  std::string* mutable_client_id();
-  std::string* release_client_id();
-  void set_allocated_client_id(std::string* client_id);
-  private:
-  const std::string& _internal_client_id() const;
-  void _internal_set_client_id(const std::string& value);
-  std::string* _internal_mutable_client_id();
-  public:
-
-  // .inhumate.rti.proto.RuntimeState state = 2;
-  void clear_state();
-  ::inhumate::rti::proto::RuntimeState state() const;
-  void set_state(::inhumate::rti::proto::RuntimeState value);
-  private:
-  ::inhumate::rti::proto::RuntimeState _internal_state() const;
-  void _internal_set_state(::inhumate::rti::proto::RuntimeState value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.RuntimeControl.StateUpdate)
- private:
-  class _Internal;
-
-  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_id_;
-  int state_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_RuntimeControl_2eproto;
-};
-// -------------------------------------------------------------------
-
 class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl_Error :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.RuntimeControl.Error) */ {
  public:
@@ -752,7 +602,7 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl_Error :
                &_RuntimeControl_Error_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    4;
 
   friend void swap(RuntimeControl_Error& a, RuntimeControl_Error& b) {
     a.Swap(&b);
@@ -916,7 +766,7 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl_TimeSync :
                &_RuntimeControl_TimeSync_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    5;
 
   friend void swap(RuntimeControl_TimeSync& a, RuntimeControl_TimeSync& b) {
     a.Swap(&b);
@@ -1057,7 +907,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_RuntimeControl_2eproto);
-    return ::descriptor_table_RuntimeControl_2eproto.file_level_metadata[7];
+    return ::descriptor_table_RuntimeControl_2eproto.file_level_metadata[6];
   }
 
   public:
@@ -1107,7 +957,7 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl_Launch :
                &_RuntimeControl_Launch_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    7;
 
   friend void swap(RuntimeControl_Launch& a, RuntimeControl_Launch& b) {
     a.Swap(&b);
@@ -1272,7 +1122,6 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl :
     kSetTimeScale = 10,
     kSeek = 11,
     kTimeSync = 12,
-    kState = 16,
     kError = 17,
     kNewLog = 21,
     kRequestCurrentLog = 22,
@@ -1296,7 +1145,7 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl :
                &_RuntimeControl_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    8;
 
   friend void swap(RuntimeControl& a, RuntimeControl& b) {
     a.Swap(&b);
@@ -1360,7 +1209,6 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl :
   typedef RuntimeControl_LoadScenario LoadScenario;
   typedef RuntimeControl_SetTimeScale SetTimeScale;
   typedef RuntimeControl_Seek Seek;
-  typedef RuntimeControl_StateUpdate StateUpdate;
   typedef RuntimeControl_Error Error;
   typedef RuntimeControl_TimeSync TimeSync;
   typedef RuntimeControl_Launch Launch;
@@ -1378,7 +1226,6 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl :
     kSetTimeScaleFieldNumber = 10,
     kSeekFieldNumber = 11,
     kTimeSyncFieldNumber = 12,
-    kStateFieldNumber = 16,
     kErrorFieldNumber = 17,
     kNewLogFieldNumber = 21,
     kRequestCurrentLogFieldNumber = 22,
@@ -1542,21 +1389,6 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl :
   private:
   const ::inhumate::rti::proto::RuntimeControl_TimeSync& _internal_time_sync() const;
   ::inhumate::rti::proto::RuntimeControl_TimeSync* _internal_mutable_time_sync();
-  public:
-
-  // .inhumate.rti.proto.RuntimeControl.StateUpdate state = 16;
-  bool has_state() const;
-  private:
-  bool _internal_has_state() const;
-  public:
-  void clear_state();
-  const ::inhumate::rti::proto::RuntimeControl_StateUpdate& state() const;
-  ::inhumate::rti::proto::RuntimeControl_StateUpdate* release_state();
-  ::inhumate::rti::proto::RuntimeControl_StateUpdate* mutable_state();
-  void set_allocated_state(::inhumate::rti::proto::RuntimeControl_StateUpdate* state);
-  private:
-  const ::inhumate::rti::proto::RuntimeControl_StateUpdate& _internal_state() const;
-  ::inhumate::rti::proto::RuntimeControl_StateUpdate* _internal_mutable_state();
   public:
 
   // .inhumate.rti.proto.RuntimeControl.Error error = 17;
@@ -1804,7 +1636,6 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl :
   void set_has_set_time_scale();
   void set_has_seek();
   void set_has_time_sync();
-  void set_has_state();
   void set_has_error();
   void set_has_new_log();
   void set_has_request_current_log();
@@ -1836,7 +1667,6 @@ class INHUMATE_RTI_PROTOS_EXPORT RuntimeControl :
     ::inhumate::rti::proto::RuntimeControl_SetTimeScale* set_time_scale_;
     ::inhumate::rti::proto::RuntimeControl_Seek* seek_;
     ::inhumate::rti::proto::RuntimeControl_TimeSync* time_sync_;
-    ::inhumate::rti::proto::RuntimeControl_StateUpdate* state_;
     ::inhumate::rti::proto::RuntimeControl_Error* error_;
     PROTOBUF_NAMESPACE_ID::Empty* new_log_;
     PROTOBUF_NAMESPACE_ID::Empty* request_current_log_;
@@ -2005,90 +1835,6 @@ inline void RuntimeControl_Seek::_internal_set_time(double value) {
 inline void RuntimeControl_Seek::set_time(double value) {
   _internal_set_time(value);
   // @@protoc_insertion_point(field_set:inhumate.rti.proto.RuntimeControl.Seek.time)
-}
-
-// -------------------------------------------------------------------
-
-// RuntimeControl_StateUpdate
-
-// string client_id = 1;
-inline void RuntimeControl_StateUpdate::clear_client_id() {
-  client_id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline const std::string& RuntimeControl_StateUpdate::client_id() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.RuntimeControl.StateUpdate.client_id)
-  return _internal_client_id();
-}
-inline void RuntimeControl_StateUpdate::set_client_id(const std::string& value) {
-  _internal_set_client_id(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.RuntimeControl.StateUpdate.client_id)
-}
-inline std::string* RuntimeControl_StateUpdate::mutable_client_id() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.RuntimeControl.StateUpdate.client_id)
-  return _internal_mutable_client_id();
-}
-inline const std::string& RuntimeControl_StateUpdate::_internal_client_id() const {
-  return client_id_.GetNoArena();
-}
-inline void RuntimeControl_StateUpdate::_internal_set_client_id(const std::string& value) {
-  
-  client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-}
-inline void RuntimeControl_StateUpdate::set_client_id(std::string&& value) {
-  
-  client_id_.SetNoArena(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.RuntimeControl.StateUpdate.client_id)
-}
-inline void RuntimeControl_StateUpdate::set_client_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.RuntimeControl.StateUpdate.client_id)
-}
-inline void RuntimeControl_StateUpdate::set_client_id(const char* value, size_t size) {
-  
-  client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.RuntimeControl.StateUpdate.client_id)
-}
-inline std::string* RuntimeControl_StateUpdate::_internal_mutable_client_id() {
-  
-  return client_id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline std::string* RuntimeControl_StateUpdate::release_client_id() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.RuntimeControl.StateUpdate.client_id)
-  
-  return client_id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline void RuntimeControl_StateUpdate::set_allocated_client_id(std::string* client_id) {
-  if (client_id != nullptr) {
-    
-  } else {
-    
-  }
-  client_id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), client_id);
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.RuntimeControl.StateUpdate.client_id)
-}
-
-// .inhumate.rti.proto.RuntimeState state = 2;
-inline void RuntimeControl_StateUpdate::clear_state() {
-  state_ = 0;
-}
-inline ::inhumate::rti::proto::RuntimeState RuntimeControl_StateUpdate::_internal_state() const {
-  return static_cast< ::inhumate::rti::proto::RuntimeState >(state_);
-}
-inline ::inhumate::rti::proto::RuntimeState RuntimeControl_StateUpdate::state() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.RuntimeControl.StateUpdate.state)
-  return _internal_state();
-}
-inline void RuntimeControl_StateUpdate::_internal_set_state(::inhumate::rti::proto::RuntimeState value) {
-  
-  state_ = value;
-}
-inline void RuntimeControl_StateUpdate::set_state(::inhumate::rti::proto::RuntimeState value) {
-  _internal_set_state(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.RuntimeControl.StateUpdate.state)
 }
 
 // -------------------------------------------------------------------
@@ -2900,56 +2646,6 @@ inline ::inhumate::rti::proto::RuntimeControl_TimeSync* RuntimeControl::_interna
 inline ::inhumate::rti::proto::RuntimeControl_TimeSync* RuntimeControl::mutable_time_sync() {
   // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.RuntimeControl.time_sync)
   return _internal_mutable_time_sync();
-}
-
-// .inhumate.rti.proto.RuntimeControl.StateUpdate state = 16;
-inline bool RuntimeControl::_internal_has_state() const {
-  return control_case() == kState;
-}
-inline bool RuntimeControl::has_state() const {
-  return _internal_has_state();
-}
-inline void RuntimeControl::set_has_state() {
-  _oneof_case_[0] = kState;
-}
-inline void RuntimeControl::clear_state() {
-  if (_internal_has_state()) {
-    delete control_.state_;
-    clear_has_control();
-  }
-}
-inline ::inhumate::rti::proto::RuntimeControl_StateUpdate* RuntimeControl::release_state() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.RuntimeControl.state)
-  if (_internal_has_state()) {
-    clear_has_control();
-      ::inhumate::rti::proto::RuntimeControl_StateUpdate* temp = control_.state_;
-    control_.state_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::RuntimeControl_StateUpdate& RuntimeControl::_internal_state() const {
-  return _internal_has_state()
-      ? *control_.state_
-      : *reinterpret_cast< ::inhumate::rti::proto::RuntimeControl_StateUpdate*>(&::inhumate::rti::proto::_RuntimeControl_StateUpdate_default_instance_);
-}
-inline const ::inhumate::rti::proto::RuntimeControl_StateUpdate& RuntimeControl::state() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.RuntimeControl.state)
-  return _internal_state();
-}
-inline ::inhumate::rti::proto::RuntimeControl_StateUpdate* RuntimeControl::_internal_mutable_state() {
-  if (!_internal_has_state()) {
-    clear_control();
-    set_has_state();
-    control_.state_ = CreateMaybeMessage< ::inhumate::rti::proto::RuntimeControl_StateUpdate >(
-        GetArenaNoVirtual());
-  }
-  return control_.state_;
-}
-inline ::inhumate::rti::proto::RuntimeControl_StateUpdate* RuntimeControl::mutable_state() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.RuntimeControl.state)
-  return _internal_mutable_state();
 }
 
 // .inhumate.rti.proto.RuntimeControl.Error error = 17;
@@ -3868,8 +3564,6 @@ inline RuntimeControl::ControlCase RuntimeControl::control_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

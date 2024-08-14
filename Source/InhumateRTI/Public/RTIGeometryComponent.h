@@ -45,8 +45,6 @@ class INHUMATERTI_API URTIGeometryComponent : public URTISceneComponent
     void RequestUpdate();
 
     protected:
-    void PublishCreate();
-    void PublishUpdate();
 
     UFUNCTION()
     void On_TryPublishCreate();
@@ -58,32 +56,34 @@ class INHUMATERTI_API URTIGeometryComponent : public URTISceneComponent
     FTimerHandle RequestCreateTimer;
     FTimerHandle RequestUpdateTimer;
 
-    virtual void FillGeometryData(inhumate::rti::proto::GeometryOperation_Geometry *data);
-    inhumate::rti::proto::GeometryOperation_Point2D *CreatePoint2D(const FVector &location);
-    inhumate::rti::proto::GeometryOperation_Point3D *CreatePoint3D(const FVector &location);
-    inhumate::rti::proto::GeometryOperation_Polygon *CreatePolygon(const UStaticMeshComponent *component);
-    inhumate::rti::proto::GeometryOperation_Mesh *CreateMesh(const UStaticMesh *Mesh);
-    inhumate::rti::proto::GeometryOperation_Mesh *CreateMesh(const TArray<UStaticMeshComponent *> &components,
+    void Publish();
+
+    virtual void FillGeometryData(inhumate::rti::proto::Geometry &data);
+    inhumate::rti::proto::Geometry_Point2D *CreatePoint2D(const FVector &location);
+    inhumate::rti::proto::Geometry_Point3D *CreatePoint3D(const FVector &location);
+    inhumate::rti::proto::Geometry_Polygon *CreatePolygon(const UStaticMeshComponent *component);
+    inhumate::rti::proto::Geometry_Mesh *CreateMesh(const UStaticMesh *Mesh);
+    inhumate::rti::proto::Geometry_Mesh *CreateMesh(const TArray<UStaticMeshComponent *> &components,
                                                     const bool local = false,
                                                     const bool bFlippedNormals = false);
-    uint32 AddMesh(inhumate::rti::proto::GeometryOperation_Mesh *mesh,
+    uint32 AddMesh(inhumate::rti::proto::Geometry_Mesh *mesh,
                    const UStaticMesh *Mesh,
                    uint32 Offset,
                    const FTransform *ComponentTransform,
                    const FTransform *ActorTransform,
                    const bool bFlippedNormals = false);
-    inhumate::rti::proto::GeometryOperation_Mesh *CreateMeshFromCollision(const TArray<UShapeComponent *> &components);
-    inhumate::rti::proto::GeometryOperation_Line2D *CreateLine2DFromSpline(const TArray<USplineComponent *> &components);
-    inhumate::rti::proto::GeometryOperation_Line3D *CreateLine3DFromSpline(const TArray<USplineComponent *> &components);
-    inhumate::rti::proto::GeometryOperation_Spline2D *CreateSpline2D(const TArray<USplineComponent *> &components);
-    inhumate::rti::proto::GeometryOperation_Spline3D *CreateSpline3D(const TArray<USplineComponent *> &components);
+    inhumate::rti::proto::Geometry_Mesh *CreateMeshFromCollision(const TArray<UShapeComponent *> &components);
+    inhumate::rti::proto::Geometry_Line2D *CreateLine2DFromSpline(const TArray<USplineComponent *> &components);
+    inhumate::rti::proto::Geometry_Line3D *CreateLine3DFromSpline(const TArray<USplineComponent *> &components);
+    inhumate::rti::proto::Geometry_Spline2D *CreateSpline2D(const TArray<USplineComponent *> &components);
+    inhumate::rti::proto::Geometry_Spline3D *CreateSpline3D(const TArray<USplineComponent *> &components);
 
-    void SetPoint2D(const FVector &location, inhumate::rti::proto::GeometryOperation_Point2D *point);
-    void SetPoint3D(const FVector &location, inhumate::rti::proto::GeometryOperation_Point3D *point);
+    void SetPoint2D(const FVector &location, inhumate::rti::proto::Geometry_Point2D *point);
+    void SetPoint3D(const FVector &location, inhumate::rti::proto::Geometry_Point3D *point);
 
     public:
-    static inhumate::rti::proto::GeometryOperation_LocalPoint2D *UEToRTILocalPoint2D(const FVector &location);
-    static inhumate::rti::proto::GeometryOperation_LocalPoint3D *UEToRTILocalPoint3D(const FVector &location);
+    static inhumate::rti::proto::Geometry_LocalPoint2D *UEToRTILocalPoint2D(const FVector &location);
+    static inhumate::rti::proto::Geometry_LocalPoint3D *UEToRTILocalPoint3D(const FVector &location);
     static inhumate::rti::proto::Color *UEToRTIColor(const FColor &color);
 
     UPROPERTY(BlueprintReadWrite, Category = "RTI")
@@ -91,7 +91,7 @@ class INHUMATERTI_API URTIGeometryComponent : public URTISceneComponent
 
     protected:
     UPROPERTY(BlueprintReadonly, Category = "RTI")
-    bool Created;
+    bool Published;
 
     bool UpdateRequested;
     bool Registered;

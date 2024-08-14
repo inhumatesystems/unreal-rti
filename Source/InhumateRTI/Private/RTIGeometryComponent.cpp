@@ -5,8 +5,9 @@
 #include "Components/SplineComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "RTICoordinateConversionInterface.h"
-#include "Runtime/Engine/Classes/Engine/World.h"
-#include "Runtime/Engine/Classes/Engine/StaticMesh.h"
+#include "Engine/World.h"
+#include "Engine/StaticMesh.h"
+#include "Runtime/Engine/Public/StaticMeshResources.h"
 
 URTIGeometryComponent::URTIGeometryComponent()
 {
@@ -34,15 +35,14 @@ void URTIGeometryComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
     Super::EndPlay(EndPlayReason);
     auto subsystem = GetSubsystem();
     if (subsystem) {
-        if (IsActive() && Registered && Created && Owned && (!Persistent || subsystem->IsPersistentGeometryOwner())) {
+        if (IsActive() && Registered && Published && Owned && (!Persistent || subsystem->IsPersistentGeometryOwner())) {
             auto rti = subsystem->RTI();
             if (!rti || !rti->connected()) return;
             UE_LOG(LogRTI, Log, TEXT("Publish destroy geometry %s"), *Id);
-            inhumate::rti::proto::GeometryOperation message;
-            message.set_id(TCHAR_TO_UTF8(*Id));
-            message.set_client_id(rti->client_id());
-            message.set_allocated_destroy(new google::protobuf::Empty());
-            rti->Publish(inhumate::rti::GEOMETRY_CHANNEL, message);
+            inhumate::rti::proto::Geometry geometry;
+            FillGeometryData(geometry);
+            geometry.set_deleted(true);
+            rti->Publish(inhumate::rti::GEOMETRY_CHANNEL, geometry);
         }
         subsystem->UnregisterGeometry(this);
     }
@@ -57,9 +57,11 @@ void URTIGeometryComponent::On_TryPublishCreate()
     if (subsystem && !Registered) {
         Registered = subsystem->RegisterGeometry(this);
     }
-    if (Registered && !Created && Owned && (!Persistent || subsystem->IsPersistentGeometryOwner())) {
-        PublishCreate();
+    if (Registered && !Published && Owned && (!Persistent || subsystem->IsPersistentGeometryOwner())) {
+        Publish();
         GetWorld()->GetTimerManager().ClearTimer(RequestCreateTimer);
+        Published = true;
+        CreatedEvent.Broadcast();
     }
 }
 
@@ -75,79 +77,58 @@ void URTIGeometryComponent::On_TryPublishUpdate()
 {
     auto subsystem = GetSubsystem();
     if (!subsystem || !subsystem->RTI() || !subsystem->RTI()->connected()) return;
-    if (Registered && Owned && Created && (!Persistent || subsystem->IsPersistentGeometryOwner())) {
-        PublishUpdate();
+    if (Registered && Owned && Published && (!Persistent || subsystem->IsPersistentGeometryOwner())) {
+        Publish();
         GetWorld()->GetTimerManager().ClearTimer(RequestUpdateTimer);
+        UpdateRequested = false;
+        UpdatedEvent.Broadcast();
     }
 }
 
-void URTIGeometryComponent::PublishCreate()
+void URTIGeometryComponent::Publish()
 {
     auto subsystem = GetSubsystem();
-    if (!subsystem || !subsystem->RTI() || !subsystem->RTI()->connected()) return;
+    if (!subsystem) return;
     auto rti = subsystem->RTI();
-
-    Created = true;
-
-    inhumate::rti::proto::GeometryOperation message;
-    message.set_id(TCHAR_TO_UTF8(*Id));
-    message.set_client_id(rti->client_id());
-    auto data = new inhumate::rti::proto::GeometryOperation_Geometry();
-    FillGeometryData(data);
-    message.set_allocated_create(data);
-    switch (data->usage()) {
-    case inhumate::rti::proto::GeometryOperation::Usage::GeometryOperation_Usage_SCENARIO:
-        UE_LOG(LogRTI, Log, TEXT("Publish static geometry %s"), *Id);
-        break;
-    case inhumate::rti::proto::GeometryOperation::Usage::GeometryOperation_Usage_ENTITY:
-        UE_LOG(LogRTI, Log, TEXT("Publish entity geometry %s"), *Id);
-        break;
-    default:
-        UE_LOG(LogRTI, Log, TEXT("Publish UNKNOWN (%d) geometry %s"), data->usage(), *Id);
+    if (!rti || !rti->connected()) return;
+    inhumate::rti::proto::Geometry geometry;
+    FillGeometryData(geometry);
+    if (!Published) {
+        switch (geometry.usage()) {
+        case inhumate::rti::proto::Geometry::Usage::Geometry_Usage_SCENARIO:
+            UE_LOG(LogRTI, Log, TEXT("Publish static geometry %s"), *Id);
+            break;
+        case inhumate::rti::proto::Geometry::Usage::Geometry_Usage_ENTITY:
+            UE_LOG(LogRTI, Log, TEXT("Publish entity geometry %s"), *Id);
+            break;
+        default:
+            UE_LOG(LogRTI, Log, TEXT("Publish UNKNOWN (%d) geometry %s"), geometry.usage(), *Id);
+        }
     }
-    rti->Publish(inhumate::rti::GEOMETRY_CHANNEL, message);
-    CreatedEvent.Broadcast();
+    rti->Publish(inhumate::rti::GEOMETRY_CHANNEL, geometry);
 }
 
-void URTIGeometryComponent::PublishUpdate()
-{
-    auto subsystem = GetSubsystem();
-    if (!subsystem || !subsystem->RTI() || !subsystem->RTI()->connected()) return;
-    auto rti = subsystem->RTI();
-
-    UpdateRequested = false;
-
-    inhumate::rti::proto::GeometryOperation message;
-    message.set_id(TCHAR_TO_UTF8(*Id));
-    message.set_client_id(rti->client_id());
-    auto data = new inhumate::rti::proto::GeometryOperation_Geometry();
-    FillGeometryData(data);
-    message.set_allocated_update(data);
-    rti->Publish(inhumate::rti::GEOMETRY_CHANNEL, message);
-    UpdatedEvent.Broadcast();
-}
-
-void URTIGeometryComponent::FillGeometryData(inhumate::rti::proto::GeometryOperation_Geometry *data)
+void URTIGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometry& data)
 {
 }
 
-inhumate::rti::proto::GeometryOperation_Point2D *URTIGeometryComponent::CreatePoint2D(const FVector &location)
+inhumate::rti::proto::Geometry_Point2D *URTIGeometryComponent::CreatePoint2D(const FVector &location)
 {
-    auto point = new inhumate::rti::proto::GeometryOperation_Point2D();
+    auto point = new inhumate::rti::proto::Geometry_Point2D();
     SetPoint2D(location, point);
     return point;
 }
 
-inhumate::rti::proto::GeometryOperation_Point3D *URTIGeometryComponent::CreatePoint3D(const FVector &location)
+inhumate::rti::proto::Geometry_Point3D *URTIGeometryComponent::CreatePoint3D(const FVector &location)
 {
-    auto point = new inhumate::rti::proto::GeometryOperation_Point3D();
+    auto point = new inhumate::rti::proto::Geometry_Point3D();
     SetPoint3D(location, point);
     return point;
 }
 
-inhumate::rti::proto::GeometryOperation_Polygon *URTIGeometryComponent::CreatePolygon(const UStaticMeshComponent *component)
+inhumate::rti::proto::Geometry_Polygon *URTIGeometryComponent::CreatePolygon(const UStaticMeshComponent *component)
 {
-    auto polygon = new inhumate::rti::proto::GeometryOperation_Polygon();
+    auto polygon = new inhumate::rti::proto::Geometry_Polygon();
     FVector Min;
     FVector Max;
     component->GetLocalBounds(Min, Max);
@@ -165,17 +146,17 @@ inhumate::rti::proto::GeometryOperation_Polygon *URTIGeometryComponent::CreatePo
     return polygon;
 }
 
-inhumate::rti::proto::GeometryOperation_Mesh *URTIGeometryComponent::CreateMesh(const UStaticMesh *Mesh)
+inhumate::rti::proto::Geometry_Mesh *URTIGeometryComponent::CreateMesh(const UStaticMesh *Mesh)
 {
-    auto mesh = new inhumate::rti::proto::GeometryOperation_Mesh();
+    auto mesh = new inhumate::rti::proto::Geometry_Mesh();
     AddMesh(mesh, Mesh, 0, nullptr, nullptr);
     return mesh;
 }
 
-inhumate::rti::proto::GeometryOperation_Mesh *
+inhumate::rti::proto::Geometry_Mesh *
 URTIGeometryComponent::CreateMesh(const TArray<UStaticMeshComponent *> &components, const bool local, const bool bFlippedNormals)
 {
-    auto mesh = new inhumate::rti::proto::GeometryOperation_Mesh();
+    auto mesh = new inhumate::rti::proto::Geometry_Mesh();
     uint32 offset = 0; // offset indices when adding multiple meshes
     for (auto component : components) {
         if (!component->GetStaticMesh()) continue;
@@ -190,7 +171,7 @@ URTIGeometryComponent::CreateMesh(const TArray<UStaticMeshComponent *> &componen
     return mesh;
 }
 
-uint32 URTIGeometryComponent::AddMesh(inhumate::rti::proto::GeometryOperation_Mesh *mesh,
+uint32 URTIGeometryComponent::AddMesh(inhumate::rti::proto::Geometry_Mesh *mesh,
                                       const UStaticMesh *Mesh,
                                       uint32 Offset = 0,
                                       const FTransform *ComponentTransform = nullptr,
@@ -256,9 +237,9 @@ int BOX_INDICES[] = { 0, 2, 1, // face front
                       5, 7, 6, 0, 6, 7, // face bottom
                       0, 1, 6 };
 
-inhumate::rti::proto::GeometryOperation_Mesh *URTIGeometryComponent::CreateMeshFromCollision(const TArray<UShapeComponent *> &components)
+inhumate::rti::proto::Geometry_Mesh *URTIGeometryComponent::CreateMeshFromCollision(const TArray<UShapeComponent *> &components)
 {
-    auto mesh = new inhumate::rti::proto::GeometryOperation_Mesh();
+    auto mesh = new inhumate::rti::proto::Geometry_Mesh();
     uint32 offset = 0; // offset indices when adding multiple meshes
     for (auto component : components) {
         FVector Size;
@@ -295,9 +276,9 @@ inhumate::rti::proto::GeometryOperation_Mesh *URTIGeometryComponent::CreateMeshF
     return mesh;
 }
 
-inhumate::rti::proto::GeometryOperation_Line2D *URTIGeometryComponent::CreateLine2DFromSpline(const TArray<USplineComponent *> &components)
+inhumate::rti::proto::Geometry_Line2D *URTIGeometryComponent::CreateLine2DFromSpline(const TArray<USplineComponent *> &components)
 {
-    auto line = new inhumate::rti::proto::GeometryOperation_Line2D();
+    auto line = new inhumate::rti::proto::Geometry_Line2D();
     for (auto component : components) {
         for (int32 i = 0; i < component->GetNumberOfSplinePoints(); i++) {
             auto location = component->GetLocationAtSplinePoint(i, ESplineCoordinateSpace::World);
@@ -308,9 +289,9 @@ inhumate::rti::proto::GeometryOperation_Line2D *URTIGeometryComponent::CreateLin
     return line;
 }
 
-inhumate::rti::proto::GeometryOperation_Line3D *URTIGeometryComponent::CreateLine3DFromSpline(const TArray<USplineComponent *> &components)
+inhumate::rti::proto::Geometry_Line3D *URTIGeometryComponent::CreateLine3DFromSpline(const TArray<USplineComponent *> &components)
 {
-    auto line = new inhumate::rti::proto::GeometryOperation_Line3D();
+    auto line = new inhumate::rti::proto::Geometry_Line3D();
     for (auto component : components) {
         for (int32 i = 0; i < component->GetNumberOfSplinePoints(); i++) {
             auto location = component->GetLocationAtSplinePoint(i, ESplineCoordinateSpace::World);
@@ -321,9 +302,9 @@ inhumate::rti::proto::GeometryOperation_Line3D *URTIGeometryComponent::CreateLin
     return line;
 }
 
-inhumate::rti::proto::GeometryOperation_Spline2D *URTIGeometryComponent::CreateSpline2D(const TArray<USplineComponent *> &components)
+inhumate::rti::proto::Geometry_Spline2D *URTIGeometryComponent::CreateSpline2D(const TArray<USplineComponent *> &components)
 {
-    auto spline = new inhumate::rti::proto::GeometryOperation_Spline2D();
+    auto spline = new inhumate::rti::proto::Geometry_Spline2D();
     for (auto component : components) {
         for (int32 i = 0; i < component->GetNumberOfSplinePoints(); i++) {
             FVector Location, Tangent;
@@ -339,9 +320,9 @@ inhumate::rti::proto::GeometryOperation_Spline2D *URTIGeometryComponent::CreateS
     return spline;
 }
 
-inhumate::rti::proto::GeometryOperation_Spline3D *URTIGeometryComponent::CreateSpline3D(const TArray<USplineComponent *> &components)
+inhumate::rti::proto::Geometry_Spline3D *URTIGeometryComponent::CreateSpline3D(const TArray<USplineComponent *> &components)
 {
-    auto spline = new inhumate::rti::proto::GeometryOperation_Spline3D();
+    auto spline = new inhumate::rti::proto::Geometry_Spline3D();
     for (auto component : components) {
         for (int32 i = 0; i < component->GetNumberOfSplinePoints(); i++) {
             FVector Location, Tangent;
@@ -358,7 +339,7 @@ inhumate::rti::proto::GeometryOperation_Spline3D *URTIGeometryComponent::CreateS
 
 // Conversion methods similar to those in RTIPositionComponent
 
-void URTIGeometryComponent::SetPoint2D(const FVector &location, inhumate::rti::proto::GeometryOperation_Point2D *point)
+void URTIGeometryComponent::SetPoint2D(const FVector &location, inhumate::rti::proto::Geometry_Point2D *point)
 {
     point->set_allocated_local(UEToRTILocalPoint2D(location));
 
@@ -366,14 +347,14 @@ void URTIGeometryComponent::SetPoint2D(const FVector &location, inhumate::rti::p
     if (LevelBP && LevelBP->Implements<URTIGeodeticCoordinateConversionInterface>()) {
         IRTIGeodeticCoordinateConversionInterface *Conversion = Cast<IRTIGeodeticCoordinateConversionInterface>(LevelBP);
         auto GeoLocation = Conversion->Execute_LocalToGeodetic(LevelBP, location);
-        auto geo = new inhumate::rti::proto::GeometryOperation_GeodeticPoint2D();
+        auto geo = new inhumate::rti::proto::Geometry_GeodeticPoint2D();
         geo->set_longitude(GeoLocation.Longitude);
         geo->set_latitude(GeoLocation.Latitude);
         point->set_allocated_geodetic(geo);
     }
 }
 
-void URTIGeometryComponent::SetPoint3D(const FVector &location, inhumate::rti::proto::GeometryOperation_Point3D *point)
+void URTIGeometryComponent::SetPoint3D(const FVector &location, inhumate::rti::proto::Geometry_Point3D *point)
 {
     point->set_allocated_local(UEToRTILocalPoint3D(location));
 
@@ -381,7 +362,7 @@ void URTIGeometryComponent::SetPoint3D(const FVector &location, inhumate::rti::p
     if (LevelBP && LevelBP->Implements<URTIGeodeticCoordinateConversionInterface>()) {
         IRTIGeodeticCoordinateConversionInterface *Conversion = Cast<IRTIGeodeticCoordinateConversionInterface>(LevelBP);
         auto GeoLocation = Conversion->Execute_LocalToGeodetic(LevelBP, location);
-        auto geo = new inhumate::rti::proto::GeometryOperation_GeodeticPoint3D();
+        auto geo = new inhumate::rti::proto::Geometry_GeodeticPoint3D();
         geo->set_longitude(GeoLocation.Longitude);
         geo->set_latitude(GeoLocation.Latitude);
         geo->set_altitude(GeoLocation.Altitude);
@@ -389,17 +370,17 @@ void URTIGeometryComponent::SetPoint3D(const FVector &location, inhumate::rti::p
     }
 }
 
-inhumate::rti::proto::GeometryOperation_LocalPoint2D *URTIGeometryComponent::UEToRTILocalPoint2D(const FVector &location)
+inhumate::rti::proto::Geometry_LocalPoint2D *URTIGeometryComponent::UEToRTILocalPoint2D(const FVector &location)
 {
-    auto local = new inhumate::rti::proto::GeometryOperation_LocalPoint2D();
+    auto local = new inhumate::rti::proto::Geometry_LocalPoint2D();
     local->set_x(location.Y / 100);
     local->set_y(location.X / 100);
     return local;
 }
 
-inhumate::rti::proto::GeometryOperation_LocalPoint3D *URTIGeometryComponent::UEToRTILocalPoint3D(const FVector &location)
+inhumate::rti::proto::Geometry_LocalPoint3D *URTIGeometryComponent::UEToRTILocalPoint3D(const FVector &location)
 {
-    auto local = new inhumate::rti::proto::GeometryOperation_LocalPoint3D();
+    auto local = new inhumate::rti::proto::Geometry_LocalPoint3D();
     local->set_x(location.Y / 100);
     local->set_y(location.Z / 100);
     local->set_z(location.X / 100);

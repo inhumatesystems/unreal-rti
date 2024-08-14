@@ -65,7 +65,7 @@ public:
 
     // If non-zero, an entity update message will be published periodically (at the specified interval in seconds).
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
-    float UpdateInterval = 0.f;
+    float PublishInterval = 0.f;
 
     // If TRUE, this entity is controlled by us and we should be publishing its state
     UFUNCTION(BlueprintPure, Category = "RTI")
@@ -93,7 +93,7 @@ public:
     UFUNCTION(BlueprintCallable, Category = "RTI")
     void RequestUpdate();
 
-    void SetPropertiesFromEntityData(const inhumate::rti::proto::EntityOperation_EntityData& data);
+    void SetPropertiesFromEntityData(const inhumate::rti::proto::Entity& data);
 
     UPROPERTY(BlueprintReadonly, Category = "RTI")
     bool Persistent;
@@ -102,17 +102,22 @@ public:
     bool Owned = true;
 
     UPROPERTY(BlueprintReadonly, Category = "RTI")
+    bool Deleted;
+
+    UPROPERTY(BlueprintReadonly, Category = "RTI")
     FString OwnerClientId;
 
     float LastOwnershipChangeTime;
 
 protected:
     UPROPERTY(BlueprintReadonly, Category = "RTI")
-    bool Created;
+    bool Published;
 
-    void FillEntityData(inhumate::rti::proto::EntityOperation_EntityData *data);
+    void Publish();
 
-    float TimeSinceLastUpdate;
+    void FillEntityData(inhumate::rti::proto::Entity& data);
+
+    float TimeSinceLastPublish;
     bool UpdateRequested;
     friend class ARTISpawnerActor;
 

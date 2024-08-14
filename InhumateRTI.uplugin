@@ -13,11 +13,13 @@
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"Installed": false,
+	"SupportedTargetPlatforms": [ "Linux", "Win64", "Mac" ],
 	"Modules": [
 		{
 			"Name": "InhumateRTI",
 			"Type": "Runtime",
 			"LoadingPhase": "PreLoadingScreen",
+			"PlatformAllowList": [ "Linux", "Win64", "Mac" ],
 			"WhitelistPlatforms": [ "Linux", "Win64", "Mac" ],
 			"SupportedTargetPlatforms": [ "Linux", "Win64", "Mac" ]
 		},
@@ -25,6 +27,7 @@
             "Name": "InhumateRTIEditor",
             "Type": "UncookedOnly",
             "LoadingPhase": "PreDefault",
+			"PlatformAllowList": [ "Linux", "Win64", "Mac" ],
 			"WhitelistPlatforms": [ "Linux", "Win64", "Mac" ],
 			"SupportedTargetPlatforms": [ "Linux", "Win64", "Mac" ]
         }

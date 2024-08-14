@@ -1,5 +1,5 @@
 #include "RTIInjectableComponent.h"
-#include "RTIInjectionBaseComponent.h"
+#include "RTIInjectionBehaviourComponent.h"
 #include "RuntimeStateEnum.h"
 
 URTIInjectableComponent::URTIInjectableComponent()
@@ -57,15 +57,15 @@ void URTIInjectableComponent::Inject(const inhumate::rti::proto::InjectionOperat
     }
     AActor *SpawnedActor = SpawnActorForInjection(Injection);
     if (SpawnedActor != nullptr) {
-        TArray<URTIInjectionBaseComponent *> ActorBehaviours;
-        SpawnedActor->GetComponents<URTIInjectionBaseComponent>(ActorBehaviours, true);
+        TArray<URTIInjectionBehaviourComponent *> ActorBehaviours;
+        SpawnedActor->GetComponents<URTIInjectionBehaviourComponent>(ActorBehaviours, true);
         if (ActorBehaviours.Num() == 0) {
             UE_LOG(LogRTI, Log, TEXT("Spawned injection actor has no behaviour component: %s"), *Name);
         } else {
             InjectionBehaviours.Add(Injection.Id, {ActorBehaviours});
         }
     }
-    TArray<URTIInjectionBaseComponent *> LocalBehaviours;
+    TArray<URTIInjectionBehaviourComponent *> LocalBehaviours;
     GetBehaviours(Injection, LocalBehaviours);
     for (const auto behaviour : LocalBehaviours) {
         behaviour->Inject(Injection, this);
@@ -81,7 +81,7 @@ bool URTIInjectableComponent::EnableInjection(FInjection &Injection)
 {
     if (Injection.State < EInjectionState::ENABLED) {
         auto behavioursEnabled = true;
-        TArray<URTIInjectionBaseComponent *> LocalBehaviours;
+        TArray<URTIInjectionBehaviourComponent *> LocalBehaviours;
         GetBehaviours(Injection, LocalBehaviours);
         for (auto Behaviour : LocalBehaviours) {
             if (!Behaviour->Enable()) {
@@ -115,7 +115,7 @@ bool URTIInjectableComponent::EnableInjection(FInjection &Injection)
 
 void URTIInjectableComponent::DisableInjection(FInjection &Injection)
 {
-    TArray<URTIInjectionBaseComponent *> LcoalBehaviours;
+    TArray<URTIInjectionBehaviourComponent *> LcoalBehaviours;
     GetBehaviours(Injection, LcoalBehaviours);
     for (auto Behaviour : LcoalBehaviours)
         Behaviour->Disable();
@@ -124,7 +124,7 @@ void URTIInjectableComponent::DisableInjection(FInjection &Injection)
 
 void URTIInjectableComponent::StartInjection(FInjection &Injection)
 {
-    TArray<URTIInjectionBaseComponent *> LocalBehaviours;
+    TArray<URTIInjectionBehaviourComponent *> LocalBehaviours;
     GetBehaviours(Injection, LocalBehaviours);
     if (LocalBehaviours.Num() == 0) {
         Injection.StartTime = GetSubsystem()->GetTime();
@@ -146,7 +146,7 @@ void URTIInjectableComponent::StartInjection(FInjection &Injection)
 
 void URTIInjectableComponent::EndInjection(FInjection &Injection)
 {
-    TArray<URTIInjectionBaseComponent *> LocalBehaviours;
+    TArray<URTIInjectionBehaviourComponent *> LocalBehaviours;
     GetBehaviours(Injection, LocalBehaviours);
     if (LocalBehaviours.Num() == 0) {
         Injection.EndTime = GetSubsystem()->GetTime();
@@ -159,7 +159,7 @@ void URTIInjectableComponent::EndInjection(FInjection &Injection)
 
 void URTIInjectableComponent::StopInjection(FInjection &Injection)
 {
-    TArray<URTIInjectionBaseComponent *> LocalBehaviours;
+    TArray<URTIInjectionBehaviourComponent *> LocalBehaviours;
     GetBehaviours(Injection, LocalBehaviours);
     for (auto Behaviour : LocalBehaviours)
         Behaviour->Stop();
@@ -169,7 +169,7 @@ void URTIInjectableComponent::StopInjection(FInjection &Injection)
 
 void URTIInjectableComponent::CancelInjection(FInjection &Injection)
 {
-    TArray<URTIInjectionBaseComponent *> LocalBehaviours;
+    TArray<URTIInjectionBehaviourComponent *> LocalBehaviours;
     GetBehaviours(Injection, LocalBehaviours);
     for (auto Behaviour : LocalBehaviours)
         Behaviour->Cancel();
@@ -180,7 +180,7 @@ void URTIInjectableComponent::CancelInjection(FInjection &Injection)
 void URTIInjectableComponent::ScheduleInjection(const float EnableTime, FInjection &Injection)
 {
     Injection.EnableTime = EnableTime;
-    TArray<URTIInjectionBaseComponent *> LocalBehaviours;
+    TArray<URTIInjectionBehaviourComponent *> LocalBehaviours;
     GetBehaviours(Injection, LocalBehaviours);
     for (auto Behaviour : LocalBehaviours)
         Behaviour->Schedule();
@@ -197,19 +197,17 @@ void URTIInjectableComponent::Publish()
 {
     auto rti = RTI();
     if (!rti || !rti->connected()) return;
-    inhumate::rti::proto::Injectables message;
-    auto injectable = new inhumate::rti::proto::Injectable();
-    injectable->set_name(TCHAR_TO_UTF8(*Name));
-    injectable->set_description(TCHAR_TO_UTF8(*Description));
-    injectable->set_concurrent(IsConcurrent());
-    injectable->set_start_mode(PbControlMode(StartMode));
-    injectable->set_end_mode(PbControlMode(EndMode));
+    inhumate::rti::proto::Injectable injectable;
+    injectable.set_name(TCHAR_TO_UTF8(*Name));
+    injectable.set_description(TCHAR_TO_UTF8(*Description));
+    injectable.set_concurrent(IsConcurrent());
+    injectable.set_start_mode(PbControlMode(StartMode));
+    injectable.set_end_mode(PbControlMode(EndMode));
     for (auto parameter : Parameters) {
-        auto pbParameter = injectable->add_parameters();
+        auto pbParameter = injectable.add_parameters();
         ParameterToPb(parameter, pbParameter);
     }
-    message.set_allocated_injectable(injectable);
-    rti->Publish(inhumate::rti::INJECTABLES_CHANNEL, message);
+    rti->Publish(inhumate::rti::INJECTABLE_CHANNEL, injectable);
 }
 
 void URTIInjectableComponent::PublishClearInjections()
@@ -269,7 +267,7 @@ void URTIInjectableComponent::TickComponent(float DeltaTime, ELevelTick TickType
             RtiTime >= injection.EnableTime && LastRtiTime < injection.EnableTime) {
             EnableInjection(injection);
         }
-        TArray<URTIInjectionBaseComponent *> LocalBehaviours;
+        TArray<URTIInjectionBehaviourComponent *> LocalBehaviours;
         GetBehaviours(injection, LocalBehaviours);
         if (LocalBehaviours.Num() > 0) {
             bool anyRunning = false;
@@ -299,7 +297,7 @@ void URTIInjectableComponent::BeginPlay()
         Name = Name.Replace(*(GetOwner()->GetName() + "."), TEXT(""));
     }
 
-    GetOwner()->GetComponents<URTIInjectionBaseComponent>(Behaviours);
+    GetOwner()->GetComponents<URTIInjectionBehaviourComponent>(Behaviours);
     TArray<URTIInjectableComponent*> Injectables;
     GetOwner()->GetComponents<URTIInjectableComponent>(Injectables);
     if (InjectActor == nullptr && Behaviours.Num() == 0) {
@@ -352,7 +350,7 @@ void URTIInjectableComponent::UpdateState(FInjection &Injection, EInjectionState
 }
 
 void URTIInjectableComponent::GetBehaviours(const FInjection &Injection,
-                                            TArray<URTIInjectionBaseComponent *> &outBehaviours)
+                                            TArray<URTIInjectionBehaviourComponent *> &outBehaviours)
 {
     if (InjectionBehaviours.Contains(Injection.Id)) {
         outBehaviours.Append(InjectionBehaviours[Injection.Id]);

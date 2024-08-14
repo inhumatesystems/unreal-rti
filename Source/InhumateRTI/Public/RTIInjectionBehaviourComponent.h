@@ -5,19 +5,19 @@
 #include "RTIComponent.h"
 #include "InjectionStateEnum.h"
 
-#include "RTIInjectionBaseComponent.generated.h"
+#include "RTIInjectionBehaviourComponent.generated.h"
 
 // Base class for components that implement injection behavior
 
 struct FInjection;
 UCLASS(Abstract, Blueprintable, meta=(BlueprintSpawnableComponent))
-class INHUMATERTI_API URTIInjectionBaseComponent : public URTIComponent
+class INHUMATERTI_API URTIInjectionBehaviourComponent : public URTIComponent
 {
 	GENERATED_BODY()
 
 public:
-    URTIInjectionBaseComponent(const FObjectInitializer& init);
-    URTIInjectionBaseComponent();
+    URTIInjectionBehaviourComponent(const FObjectInitializer& init);
+    URTIInjectionBehaviourComponent();
 
     UFUNCTION(BlueprintPure, Category = "RTI")
     bool IsRunning() const { return Running; }

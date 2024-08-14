@@ -1,4 +1,5 @@
 #include "RTIComponent.h"
+#include "RTISubsystem.h"
 
 inhumate::rti::RTIClient *URTIComponent::RTI()
 {

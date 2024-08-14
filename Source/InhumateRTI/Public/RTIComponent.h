@@ -2,7 +2,6 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-
 #include "RTISubsystem.h"
 
 #include "RTIComponent.generated.h"
