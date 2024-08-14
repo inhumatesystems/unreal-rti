@@ -50,8 +50,8 @@ class INHUMATERTI_API ARTISpawnerActor : public AActor
     virtual void Tick(float DeltaTime) override;
 
     protected:
-    void OnEntityOperation(const std::string &ChannelName, const inhumate::rti::proto::EntityOperation &Message);
-    void CreateEntity(const inhumate::rti::proto::EntityOperation &message);
+    void OnEntity(const std::string &ChannelName, const inhumate::rti::proto::Entity &message);
+    void CreateEntity(const inhumate::rti::proto::Entity &entity);
 
     inhumate::rti::RTIClient *RTI();
     URTISubsystem *GetSubsystem();

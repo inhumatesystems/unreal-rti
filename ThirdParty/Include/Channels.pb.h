@@ -712,7 +712,7 @@ class INHUMATE_RTI_PROTOS_EXPORT Channel :
     kNameFieldNumber = 1,
     kDataTypeFieldNumber = 2,
     kEphemeralFieldNumber = 3,
-    kStatelessFieldNumber = 4,
+    kStateFieldNumber = 4,
     kFirstFieldIdFieldNumber = 5,
   };
   // string name = 1;
@@ -756,13 +756,13 @@ class INHUMATE_RTI_PROTOS_EXPORT Channel :
   void _internal_set_ephemeral(bool value);
   public:
 
-  // bool stateless = 4;
-  void clear_stateless();
-  bool stateless() const;
-  void set_stateless(bool value);
+  // bool state = 4;
+  void clear_state();
+  bool state() const;
+  void set_state(bool value);
   private:
-  bool _internal_stateless() const;
-  void _internal_set_stateless(bool value);
+  bool _internal_state() const;
+  void _internal_set_state(bool value);
   public:
 
   // bool first_field_id = 5;
@@ -782,7 +782,7 @@ class INHUMATE_RTI_PROTOS_EXPORT Channel :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_type_;
   bool ephemeral_;
-  bool stateless_;
+  bool state_;
   bool first_field_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Channels_2eproto;
@@ -1352,24 +1352,24 @@ inline void Channel::set_ephemeral(bool value) {
   // @@protoc_insertion_point(field_set:inhumate.rti.proto.Channel.ephemeral)
 }
 
-// bool stateless = 4;
-inline void Channel::clear_stateless() {
-  stateless_ = false;
+// bool state = 4;
+inline void Channel::clear_state() {
+  state_ = false;
 }
-inline bool Channel::_internal_stateless() const {
-  return stateless_;
+inline bool Channel::_internal_state() const {
+  return state_;
 }
-inline bool Channel::stateless() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Channel.stateless)
-  return _internal_stateless();
+inline bool Channel::state() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Channel.state)
+  return _internal_state();
 }
-inline void Channel::_internal_set_stateless(bool value) {
+inline void Channel::_internal_set_state(bool value) {
   
-  stateless_ = value;
+  state_ = value;
 }
-inline void Channel::set_stateless(bool value) {
-  _internal_set_stateless(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Channel.stateless)
+inline void Channel::set_state(bool value) {
+  _internal_set_state(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Channel.state)
 }
 
 // bool first_field_id = 5;

@@ -5,7 +5,7 @@
 
 #include "GeometryCategoryEnum.generated.h"
 
-// Blueprint-usable mapping of inhumate::rti::proto::GeometryOperation::Category
+// Blueprint-usable mapping of inhumate::rti::proto::Geometry::Category
 // TODO this really needs to be generated...
 
 UENUM(BlueprintType)
@@ -34,7 +34,7 @@ enum class EGeometryCategory : uint8 {
     DEBUG_GEOMETRY = 200 UMETA(DisplayName = "Debug geometry"),
 };
 
-static EGeometryCategory GeometryCategoryFromPb(const inhumate::rti::proto::GeometryOperation::Category pbCategory) {
+static EGeometryCategory GeometryCategoryFromPb(const inhumate::rti::proto::Geometry::Category pbCategory) {
     return (EGeometryCategory)pbCategory;
     /*
     switch (pbCategory) {
@@ -45,11 +45,11 @@ static EGeometryCategory GeometryCategoryFromPb(const inhumate::rti::proto::Geom
     */
 }
 
-static inhumate::rti::proto::GeometryOperation::Category PbCategoryFromGeometryCategory(EGeometryCategory category)
+static inhumate::rti::proto::Geometry::Category PbCategoryFromGeometryCategory(EGeometryCategory category)
 {
-    return (inhumate::rti::proto::GeometryOperation::Category)category;
+    return (inhumate::rti::proto::Geometry::Category)category;
     /*
-    inhumate::rti::proto::GeometryOperation::Category pbCategory = inhumate::rti::proto::GeometryOperation::UNKNOWN_GEOMETRY;
+    inhumate::rti::proto::Geometry::Category pbCategory = inhumate::rti::proto::GeometryOperation::UNKNOWN_GEOMETRY;
     switch (category) {
         case EGeometryCategory::PHYSICAL_GEOMETRY: pbCategory = inhumate::rti::proto::GeometryOperation::PHYSICAL_GEOMETRY; break;
     }

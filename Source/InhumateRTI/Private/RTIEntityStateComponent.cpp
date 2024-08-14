@@ -1,15 +1,15 @@
-#include "RTIEntityBaseComponent.h"
+#include "RTIEntityStateComponent.h"
 #include "GameFramework/Actor.h"
 #include "inhumaterti.hpp"
 #include "IdMessage.pb.h"
 #include "EntityPosition.pb.h"
 
-URTIEntityBaseComponent::URTIEntityBaseComponent(const FObjectInitializer& init)
+URTIEntityStateComponent::URTIEntityStateComponent(const FObjectInitializer& init)
 {
     // uh.. this is required by Unreal. dunno what to do.
 }
 
-URTIEntityBaseComponent::URTIEntityBaseComponent(const FString& channelName, const bool stateless, const bool ephemeral)
+URTIEntityStateComponent::URTIEntityStateComponent(const FString& channelName, const bool stateless, const bool ephemeral)
 {
     ChannelName = channelName;
     Stateless = stateless;
@@ -17,28 +17,28 @@ URTIEntityBaseComponent::URTIEntityBaseComponent(const FString& channelName, con
     PrimaryComponentTick.bCanEverTick = true;
 }
 
-bool URTIEntityBaseComponent::IsPublishing()
+bool URTIEntityStateComponent::IsPublishing()
 {
     return Entity && Entity->IsPublishing();
 }
 
-bool URTIEntityBaseComponent::IsReceiving()
+bool URTIEntityStateComponent::IsReceiving()
 {
     return Entity && Entity->IsReceiving();
 }
 
-void URTIEntityBaseComponent::BeginPlay()
+void URTIEntityStateComponent::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
-void URTIEntityBaseComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
+void URTIEntityStateComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
     Super::EndPlay(EndPlayReason);
     Unsubscribe();
 }
 
-void URTIEntityBaseComponent::Publish(const google::protobuf::Message& message)
+void URTIEntityStateComponent::Publish(const google::protobuf::Message& message)
 {
     auto *idmessage_p = (inhumate::rti::proto::IdMessage*) &message;
     if (idmessage_p->id().empty()) {
@@ -50,12 +50,12 @@ void URTIEntityBaseComponent::Publish(const google::protobuf::Message& message)
     if (rti->connected()) rti->Publish(TCHAR_TO_UTF8(*ChannelName), message);
 }
 
-void URTIEntityBaseComponent::Initialize()
+void URTIEntityStateComponent::Initialize()
 {
     // Q: Why not in BeginPlay() or InitializeComponent() 
     // A: Because it gets called right after spawn... and RTISpawnerActor needs to have a chance to set id.
     if (!instances.Contains(ChannelName)) {
-        TMap<FString, TArray<URTIEntityBaseComponent*>> newInstanceMap;
+        TMap<FString, TArray<URTIEntityStateComponent*>> newInstanceMap;
         instances.Add(ChannelName, newInstanceMap);
         subscribed.Add(ChannelName, false);
     }
@@ -70,7 +70,7 @@ void URTIEntityBaseComponent::Initialize()
     }
 }
 
-void URTIEntityBaseComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void URTIEntityStateComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
@@ -107,7 +107,7 @@ void URTIEntityBaseComponent::TickComponent(float DeltaTime, ELevelTick TickType
     }
 }
 
-void URTIEntityBaseComponent::ResetSubscriptions()
+void URTIEntityStateComponent::ResetSubscriptions()
 {
     subscribed.Empty();
     subscription.Empty();
@@ -115,7 +115,7 @@ void URTIEntityBaseComponent::ResetSubscriptions()
     warnedUnknown.Empty();
 }
 
-void URTIEntityBaseComponent::Unsubscribe()
+void URTIEntityStateComponent::Unsubscribe()
 {
     if (SubscribedEntityId.IsEmpty() || ChannelName.IsEmpty() || !instances.Contains(ChannelName)) return;
     if (instances[ChannelName].Contains(SubscribedEntityId)) {
@@ -132,12 +132,12 @@ void URTIEntityBaseComponent::Unsubscribe()
     SubscribedEntityId = "";
 }
 
-void URTIEntityBaseComponent::RegisterChannel()
+void URTIEntityStateComponent::RegisterChannel()
 {
     inhumate::rti::proto::Channel channel;
     channel.set_name(TCHAR_TO_UTF8(*ChannelName));
     channel.set_data_type(TCHAR_TO_UTF8(*GetClass()->GetName()));
-    channel.set_stateless(Stateless);
+    channel.set_state(Stateless);
     channel.set_ephemeral(Ephemeral);
     channel.set_first_field_id(true);
     RTI()->RegisterChannel(channel);
@@ -145,8 +145,8 @@ void URTIEntityBaseComponent::RegisterChannel()
     registeredChannel[ChannelName] = true;
 }
 
-TMap< FString, bool> URTIEntityBaseComponent::subscribed;
-TMap< FString, TMap< FString, TArray<URTIEntityBaseComponent*> > > URTIEntityBaseComponent::instances;
-TMap< FString, inhumate::rti::messagecallback_p > URTIEntityBaseComponent::subscription;
-TMap< FString, bool> URTIEntityBaseComponent::warnedUnknown;
-TMap< FString, bool> URTIEntityBaseComponent::registeredChannel;
+TMap< FString, bool> URTIEntityStateComponent::subscribed;
+TMap< FString, TMap< FString, TArray<URTIEntityStateComponent*> > > URTIEntityStateComponent::instances;
+TMap< FString, inhumate::rti::messagecallback_p > URTIEntityStateComponent::subscription;
+TMap< FString, bool> URTIEntityStateComponent::warnedUnknown;
+TMap< FString, bool> URTIEntityStateComponent::registeredChannel;

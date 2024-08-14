@@ -12,30 +12,12 @@ URTIStaticGeometryComponent::URTIStaticGeometryComponent()
 void URTIStaticGeometryComponent::BeginPlay()
 {
     Super::BeginPlay();
-    PublishedHidden = Hidden;
-}
-
-void URTIStaticGeometryComponent::SetHidden(bool bHidden)
-{
-    Hidden = bHidden;
-    auto rti = RTI();
-    if (rti && rti->connected()) {
-        inhumate::rti::proto::GeometryOperation message;
-        message.set_id(TCHAR_TO_UTF8(*Id));
-        message.set_client_id(rti->client_id());
-        if (Hidden) {
-            message.set_allocated_hide(new google::protobuf::Empty());
-        } else {
-            message.set_allocated_show(new google::protobuf::Empty());
-        }
-        rti->Publish(inhumate::rti::GEOMETRY_CHANNEL, message);
-    }
 }
 
 void URTIStaticGeometryComponent::SetColor(const FColor &NewColor)
 {
     Color = NewColor;
-    PublishUpdate();
+    Publish();
 }
 
 void URTIStaticGeometryComponent::InitializeComponent()
@@ -47,14 +29,15 @@ void URTIStaticGeometryComponent::InitializeComponent()
     } else {
         Super::Id = SpecificId;
     }
-    PublishedHidden = Hidden;
 }
 
-void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::GeometryOperation_Geometry *data)
+void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometry& data)
 {
-    data->set_usage(inhumate::rti::proto::GeometryOperation::Usage::GeometryOperation_Usage_SCENARIO);
-    data->set_type(TCHAR_TO_UTF8(*Type));
-    data->set_category(PbCategoryFromGeometryCategory(Category));
+    data.set_id(TCHAR_TO_UTF8(*Id));
+    if (GetSubsystem() && GetSubsystem()->RTI()) data.set_owner_client_id(GetSubsystem()->RTI()->client_id());
+    data.set_usage(inhumate::rti::proto::Geometry::Usage::Geometry_Usage_SCENARIO);
+    data.set_type(TCHAR_TO_UTF8(*Type));
+    data.set_category(PbCategoryFromGeometryCategory(Category));
 
     auto RTIColor = UEToRTIColor(Color);
     if (RTIColor == nullptr) {
@@ -65,15 +48,14 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
             if (RTIColor != nullptr) break;
         }
     }
-    data->set_allocated_color(RTIColor);
+    data.set_allocated_color(RTIColor);
 
-    data->set_transparency(1 - Opacity);
-    data->set_title(TCHAR_TO_UTF8(*Title));
-    data->set_allocated_label_color(UEToRTIColor(LabelColor));
-    data->set_label_transparency(1 - LabelOpacity);
-    data->set_wireframe(Wireframe);
-    data->set_line_width(LineWidth);
-    data->set_hidden(Hidden);
+    data.set_transparency(1 - Opacity);
+    data.set_title(TCHAR_TO_UTF8(*Title));
+    data.set_allocated_label_color(UEToRTIColor(LabelColor));
+    data.set_label_transparency(1 - LabelOpacity);
+    data.set_wireframe(Wireframe);
+    data.set_line_width(LineWidth);
 
     EStaticGeometryShape UseShape = Shape;
 
@@ -98,16 +80,16 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
 
     switch (UseShape) {
     case EStaticGeometryShape::POINT:
-        data->set_allocated_point(CreatePoint2D(GetOwner()->GetActorLocation()));
+        data.set_allocated_point(CreatePoint2D(GetOwner()->GetActorLocation()));
         break;
     case EStaticGeometryShape::POINT3D:
-        data->set_allocated_point3d(CreatePoint3D(GetOwner()->GetActorLocation()));
+        data.set_allocated_point3d(CreatePoint3D(GetOwner()->GetActorLocation()));
         break;
     case EStaticGeometryShape::POLYGON_FROM_MESH_BOUNDS: {
         TArray<UStaticMeshComponent *> MeshComponents;
         GetComponents<UStaticMeshComponent>(MeshComponents, true);
         if (MeshComponents.Num() == 1) {
-            data->set_allocated_polygon(CreatePolygon(MeshComponents[0]));
+            data.set_allocated_polygon(CreatePolygon(MeshComponents[0]));
         } else {
             UE_LOG(LogRTI, Warning, TEXT("Can't create polygon from %d static mesh components, needs to be exactly one"),
                    MeshComponents.Num());
@@ -118,7 +100,7 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
         TArray<UStaticMeshComponent *> MeshComponents;
         GetComponents<UStaticMeshComponent>(MeshComponents, true);
         if (MeshComponents.Num() > 0) {
-            data->set_allocated_mesh(CreateMesh(MeshComponents));
+            data.set_allocated_mesh(CreateMesh(MeshComponents));
         } else {
             UE_LOG(LogRTI, Warning, TEXT("Can't create mesh geometry - no static mesh"));
         }
@@ -128,7 +110,7 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
         TArray<UStaticMeshComponent *> MeshComponents;
         GetComponents<UStaticMeshComponent>(MeshComponents, true);
         if (MeshComponents.Num() > 0) {
-            data->set_allocated_mesh(CreateMesh(MeshComponents, false, true));
+            data.set_allocated_mesh(CreateMesh(MeshComponents, false, true));
         } else {
             UE_LOG(LogRTI, Warning, TEXT("Can't create mesh geometry - no static mesh"));
         }
@@ -138,7 +120,7 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
         TArray<UShapeComponent *> ShapeComponents;
         GetComponents<UShapeComponent>(ShapeComponents, true);
         if (ShapeComponents.Num() > 0) {
-            data->set_allocated_mesh(CreateMeshFromCollision(ShapeComponents));
+            data.set_allocated_mesh(CreateMeshFromCollision(ShapeComponents));
         } else {
             UE_LOG(LogRTI, Warning, TEXT("Can't create mesh geometry - no shapes"));
         }
@@ -148,7 +130,7 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
         TArray<USplineComponent *> SplineComponents;
         GetComponents<USplineComponent>(SplineComponents, true);
         if (SplineComponents.Num() > 0) {
-            data->set_allocated_line(CreateLine2DFromSpline(SplineComponents));
+            data.set_allocated_line(CreateLine2DFromSpline(SplineComponents));
         } else {
             UE_LOG(LogRTI, Warning, TEXT("Can't create line geometry - no splines"));
         }
@@ -158,7 +140,7 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
         TArray<USplineComponent *> SplineComponents;
         GetComponents<USplineComponent>(SplineComponents, true);
         if (SplineComponents.Num() > 0) {
-            data->set_allocated_line3d(CreateLine3DFromSpline(SplineComponents));
+            data.set_allocated_line3d(CreateLine3DFromSpline(SplineComponents));
         } else {
             UE_LOG(LogRTI, Warning, TEXT("Can't create line3d geometry - no splines"));
         }
@@ -168,7 +150,7 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
         TArray<USplineComponent *> SplineComponents;
         GetComponents<USplineComponent>(SplineComponents, true);
         if (SplineComponents.Num() > 0) {
-            data->set_allocated_spline(CreateSpline2D(SplineComponents));
+            data.set_allocated_spline(CreateSpline2D(SplineComponents));
         } else {
             UE_LOG(LogRTI, Warning, TEXT("Can't create spline geometry - no splines"));
         }
@@ -178,7 +160,7 @@ void URTIStaticGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
         TArray<USplineComponent *> SplineComponents;
         GetComponents<USplineComponent>(SplineComponents, true);
         if (SplineComponents.Num() > 0) {
-            data->set_allocated_spline3d(CreateSpline3D(SplineComponents));
+            data.set_allocated_spline3d(CreateSpline3D(SplineComponents));
         } else {
             UE_LOG(LogRTI, Warning, TEXT("Can't create spline3d geometry - no splines"));
         }

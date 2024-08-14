@@ -33,11 +33,6 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/empty.pb.h>
-#include "EntityPosition.pb.h"
-#include "EntityCategory.pb.h"
-#include "EntityDomain.pb.h"
-#include "LVCCategory.pb.h"
-#include "Color.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_EntityOperation_2eproto INHUMATE_RTI_PROTOS_EXPORT
@@ -66,19 +61,19 @@ namespace proto {
 class EntityOperation;
 class EntityOperationDefaultTypeInternal;
 INHUMATE_RTI_PROTOS_EXPORT extern EntityOperationDefaultTypeInternal _EntityOperation_default_instance_;
-class EntityOperation_Dimensions;
-class EntityOperation_DimensionsDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern EntityOperation_DimensionsDefaultTypeInternal _EntityOperation_Dimensions_default_instance_;
-class EntityOperation_EntityData;
-class EntityOperation_EntityDataDefaultTypeInternal;
-INHUMATE_RTI_PROTOS_EXPORT extern EntityOperation_EntityDataDefaultTypeInternal _EntityOperation_EntityData_default_instance_;
+class EntityOperation_ApplicationClient;
+class EntityOperation_ApplicationClientDefaultTypeInternal;
+INHUMATE_RTI_PROTOS_EXPORT extern EntityOperation_ApplicationClientDefaultTypeInternal _EntityOperation_ApplicationClient_default_instance_;
+class EntityOperation_EntityClient;
+class EntityOperation_EntityClientDefaultTypeInternal;
+INHUMATE_RTI_PROTOS_EXPORT extern EntityOperation_EntityClientDefaultTypeInternal _EntityOperation_EntityClient_default_instance_;
 }  // namespace proto
 }  // namespace rti
 }  // namespace inhumate
 PROTOBUF_NAMESPACE_OPEN
 template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::EntityOperation* Arena::CreateMaybeMessage<::inhumate::rti::proto::EntityOperation>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::EntityOperation_Dimensions* Arena::CreateMaybeMessage<::inhumate::rti::proto::EntityOperation_Dimensions>(Arena*);
-template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::EntityOperation_EntityData* Arena::CreateMaybeMessage<::inhumate::rti::proto::EntityOperation_EntityData>(Arena*);
+template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::EntityOperation_ApplicationClient* Arena::CreateMaybeMessage<::inhumate::rti::proto::EntityOperation_ApplicationClient>(Arena*);
+template<> INHUMATE_RTI_PROTOS_EXPORT ::inhumate::rti::proto::EntityOperation_EntityClient* Arena::CreateMaybeMessage<::inhumate::rti::proto::EntityOperation_EntityClient>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace inhumate {
 namespace rti {
@@ -86,23 +81,23 @@ namespace proto {
 
 // ===================================================================
 
-class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_EntityData :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.EntityOperation.EntityData) */ {
+class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_EntityClient :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.EntityOperation.EntityClient) */ {
  public:
-  EntityOperation_EntityData();
-  virtual ~EntityOperation_EntityData();
+  EntityOperation_EntityClient();
+  virtual ~EntityOperation_EntityClient();
 
-  EntityOperation_EntityData(const EntityOperation_EntityData& from);
-  EntityOperation_EntityData(EntityOperation_EntityData&& from) noexcept
-    : EntityOperation_EntityData() {
+  EntityOperation_EntityClient(const EntityOperation_EntityClient& from);
+  EntityOperation_EntityClient(EntityOperation_EntityClient&& from) noexcept
+    : EntityOperation_EntityClient() {
     *this = ::std::move(from);
   }
 
-  inline EntityOperation_EntityData& operator=(const EntityOperation_EntityData& from) {
+  inline EntityOperation_EntityClient& operator=(const EntityOperation_EntityClient& from) {
     CopyFrom(from);
     return *this;
   }
-  inline EntityOperation_EntityData& operator=(EntityOperation_EntityData&& from) noexcept {
+  inline EntityOperation_EntityClient& operator=(EntityOperation_EntityClient&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -120,37 +115,37 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_EntityData :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const EntityOperation_EntityData& default_instance();
+  static const EntityOperation_EntityClient& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const EntityOperation_EntityData* internal_default_instance() {
-    return reinterpret_cast<const EntityOperation_EntityData*>(
-               &_EntityOperation_EntityData_default_instance_);
+  static inline const EntityOperation_EntityClient* internal_default_instance() {
+    return reinterpret_cast<const EntityOperation_EntityClient*>(
+               &_EntityOperation_EntityClient_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(EntityOperation_EntityData& a, EntityOperation_EntityData& b) {
+  friend void swap(EntityOperation_EntityClient& a, EntityOperation_EntityClient& b) {
     a.Swap(&b);
   }
-  inline void Swap(EntityOperation_EntityData* other) {
+  inline void Swap(EntityOperation_EntityClient* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline EntityOperation_EntityData* New() const final {
-    return CreateMaybeMessage<EntityOperation_EntityData>(nullptr);
+  inline EntityOperation_EntityClient* New() const final {
+    return CreateMaybeMessage<EntityOperation_EntityClient>(nullptr);
   }
 
-  EntityOperation_EntityData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<EntityOperation_EntityData>(arena);
+  EntityOperation_EntityClient* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<EntityOperation_EntityClient>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const EntityOperation_EntityData& from);
-  void MergeFrom(const EntityOperation_EntityData& from);
+  void CopyFrom(const EntityOperation_EntityClient& from);
+  void MergeFrom(const EntityOperation_EntityClient& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -164,10 +159,10 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_EntityData :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(EntityOperation_EntityData* other);
+  void InternalSwap(EntityOperation_EntityClient* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.EntityOperation.EntityData";
+    return "inhumate.rti.proto.EntityOperation.EntityClient";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -192,165 +187,70 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_EntityData :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTypeFieldNumber = 3,
-    kTitleFieldNumber = 9,
-    kPositionFieldNumber = 1,
-    kDimensionsFieldNumber = 7,
-    kColorFieldNumber = 8,
-    kCategoryFieldNumber = 4,
-    kDomainFieldNumber = 5,
-    kLvcFieldNumber = 6,
-    kDisabledFieldNumber = 10,
+    kEntityIdFieldNumber = 1,
+    kClientIdFieldNumber = 2,
   };
-  // string type = 3;
-  void clear_type();
-  const std::string& type() const;
-  void set_type(const std::string& value);
-  void set_type(std::string&& value);
-  void set_type(const char* value);
-  void set_type(const char* value, size_t size);
-  std::string* mutable_type();
-  std::string* release_type();
-  void set_allocated_type(std::string* type);
+  // string entity_id = 1;
+  void clear_entity_id();
+  const std::string& entity_id() const;
+  void set_entity_id(const std::string& value);
+  void set_entity_id(std::string&& value);
+  void set_entity_id(const char* value);
+  void set_entity_id(const char* value, size_t size);
+  std::string* mutable_entity_id();
+  std::string* release_entity_id();
+  void set_allocated_entity_id(std::string* entity_id);
   private:
-  const std::string& _internal_type() const;
-  void _internal_set_type(const std::string& value);
-  std::string* _internal_mutable_type();
+  const std::string& _internal_entity_id() const;
+  void _internal_set_entity_id(const std::string& value);
+  std::string* _internal_mutable_entity_id();
   public:
 
-  // string title = 9;
-  void clear_title();
-  const std::string& title() const;
-  void set_title(const std::string& value);
-  void set_title(std::string&& value);
-  void set_title(const char* value);
-  void set_title(const char* value, size_t size);
-  std::string* mutable_title();
-  std::string* release_title();
-  void set_allocated_title(std::string* title);
+  // string client_id = 2;
+  void clear_client_id();
+  const std::string& client_id() const;
+  void set_client_id(const std::string& value);
+  void set_client_id(std::string&& value);
+  void set_client_id(const char* value);
+  void set_client_id(const char* value, size_t size);
+  std::string* mutable_client_id();
+  std::string* release_client_id();
+  void set_allocated_client_id(std::string* client_id);
   private:
-  const std::string& _internal_title() const;
-  void _internal_set_title(const std::string& value);
-  std::string* _internal_mutable_title();
+  const std::string& _internal_client_id() const;
+  void _internal_set_client_id(const std::string& value);
+  std::string* _internal_mutable_client_id();
   public:
 
-  // .inhumate.rti.proto.EntityPosition position = 1;
-  bool has_position() const;
-  private:
-  bool _internal_has_position() const;
-  public:
-  void clear_position();
-  const ::inhumate::rti::proto::EntityPosition& position() const;
-  ::inhumate::rti::proto::EntityPosition* release_position();
-  ::inhumate::rti::proto::EntityPosition* mutable_position();
-  void set_allocated_position(::inhumate::rti::proto::EntityPosition* position);
-  private:
-  const ::inhumate::rti::proto::EntityPosition& _internal_position() const;
-  ::inhumate::rti::proto::EntityPosition* _internal_mutable_position();
-  public:
-
-  // .inhumate.rti.proto.EntityOperation.Dimensions dimensions = 7;
-  bool has_dimensions() const;
-  private:
-  bool _internal_has_dimensions() const;
-  public:
-  void clear_dimensions();
-  const ::inhumate::rti::proto::EntityOperation_Dimensions& dimensions() const;
-  ::inhumate::rti::proto::EntityOperation_Dimensions* release_dimensions();
-  ::inhumate::rti::proto::EntityOperation_Dimensions* mutable_dimensions();
-  void set_allocated_dimensions(::inhumate::rti::proto::EntityOperation_Dimensions* dimensions);
-  private:
-  const ::inhumate::rti::proto::EntityOperation_Dimensions& _internal_dimensions() const;
-  ::inhumate::rti::proto::EntityOperation_Dimensions* _internal_mutable_dimensions();
-  public:
-
-  // .inhumate.rti.proto.Color color = 8;
-  bool has_color() const;
-  private:
-  bool _internal_has_color() const;
-  public:
-  void clear_color();
-  const ::inhumate::rti::proto::Color& color() const;
-  ::inhumate::rti::proto::Color* release_color();
-  ::inhumate::rti::proto::Color* mutable_color();
-  void set_allocated_color(::inhumate::rti::proto::Color* color);
-  private:
-  const ::inhumate::rti::proto::Color& _internal_color() const;
-  ::inhumate::rti::proto::Color* _internal_mutable_color();
-  public:
-
-  // .inhumate.rti.proto.EntityCategory category = 4;
-  void clear_category();
-  ::inhumate::rti::proto::EntityCategory category() const;
-  void set_category(::inhumate::rti::proto::EntityCategory value);
-  private:
-  ::inhumate::rti::proto::EntityCategory _internal_category() const;
-  void _internal_set_category(::inhumate::rti::proto::EntityCategory value);
-  public:
-
-  // .inhumate.rti.proto.EntityDomain domain = 5;
-  void clear_domain();
-  ::inhumate::rti::proto::EntityDomain domain() const;
-  void set_domain(::inhumate::rti::proto::EntityDomain value);
-  private:
-  ::inhumate::rti::proto::EntityDomain _internal_domain() const;
-  void _internal_set_domain(::inhumate::rti::proto::EntityDomain value);
-  public:
-
-  // .inhumate.rti.proto.LVCCategory lvc = 6;
-  void clear_lvc();
-  ::inhumate::rti::proto::LVCCategory lvc() const;
-  void set_lvc(::inhumate::rti::proto::LVCCategory value);
-  private:
-  ::inhumate::rti::proto::LVCCategory _internal_lvc() const;
-  void _internal_set_lvc(::inhumate::rti::proto::LVCCategory value);
-  public:
-
-  // bool disabled = 10;
-  void clear_disabled();
-  bool disabled() const;
-  void set_disabled(bool value);
-  private:
-  bool _internal_disabled() const;
-  void _internal_set_disabled(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.EntityOperation.EntityData)
+  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.EntityOperation.EntityClient)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr title_;
-  ::inhumate::rti::proto::EntityPosition* position_;
-  ::inhumate::rti::proto::EntityOperation_Dimensions* dimensions_;
-  ::inhumate::rti::proto::Color* color_;
-  int category_;
-  int domain_;
-  int lvc_;
-  bool disabled_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr entity_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_EntityOperation_2eproto;
 };
 // -------------------------------------------------------------------
 
-class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_Dimensions :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.EntityOperation.Dimensions) */ {
+class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_ApplicationClient :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inhumate.rti.proto.EntityOperation.ApplicationClient) */ {
  public:
-  EntityOperation_Dimensions();
-  virtual ~EntityOperation_Dimensions();
+  EntityOperation_ApplicationClient();
+  virtual ~EntityOperation_ApplicationClient();
 
-  EntityOperation_Dimensions(const EntityOperation_Dimensions& from);
-  EntityOperation_Dimensions(EntityOperation_Dimensions&& from) noexcept
-    : EntityOperation_Dimensions() {
+  EntityOperation_ApplicationClient(const EntityOperation_ApplicationClient& from);
+  EntityOperation_ApplicationClient(EntityOperation_ApplicationClient&& from) noexcept
+    : EntityOperation_ApplicationClient() {
     *this = ::std::move(from);
   }
 
-  inline EntityOperation_Dimensions& operator=(const EntityOperation_Dimensions& from) {
+  inline EntityOperation_ApplicationClient& operator=(const EntityOperation_ApplicationClient& from) {
     CopyFrom(from);
     return *this;
   }
-  inline EntityOperation_Dimensions& operator=(EntityOperation_Dimensions&& from) noexcept {
+  inline EntityOperation_ApplicationClient& operator=(EntityOperation_ApplicationClient&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -368,37 +268,37 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_Dimensions :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const EntityOperation_Dimensions& default_instance();
+  static const EntityOperation_ApplicationClient& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const EntityOperation_Dimensions* internal_default_instance() {
-    return reinterpret_cast<const EntityOperation_Dimensions*>(
-               &_EntityOperation_Dimensions_default_instance_);
+  static inline const EntityOperation_ApplicationClient* internal_default_instance() {
+    return reinterpret_cast<const EntityOperation_ApplicationClient*>(
+               &_EntityOperation_ApplicationClient_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(EntityOperation_Dimensions& a, EntityOperation_Dimensions& b) {
+  friend void swap(EntityOperation_ApplicationClient& a, EntityOperation_ApplicationClient& b) {
     a.Swap(&b);
   }
-  inline void Swap(EntityOperation_Dimensions* other) {
+  inline void Swap(EntityOperation_ApplicationClient* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline EntityOperation_Dimensions* New() const final {
-    return CreateMaybeMessage<EntityOperation_Dimensions>(nullptr);
+  inline EntityOperation_ApplicationClient* New() const final {
+    return CreateMaybeMessage<EntityOperation_ApplicationClient>(nullptr);
   }
 
-  EntityOperation_Dimensions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<EntityOperation_Dimensions>(arena);
+  EntityOperation_ApplicationClient* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<EntityOperation_ApplicationClient>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const EntityOperation_Dimensions& from);
-  void MergeFrom(const EntityOperation_Dimensions& from);
+  void CopyFrom(const EntityOperation_ApplicationClient& from);
+  void MergeFrom(const EntityOperation_ApplicationClient& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -412,10 +312,10 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_Dimensions :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(EntityOperation_Dimensions* other);
+  void InternalSwap(EntityOperation_ApplicationClient* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "inhumate.rti.proto.EntityOperation.Dimensions";
+    return "inhumate.rti.proto.EntityOperation.ApplicationClient";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -440,62 +340,48 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation_Dimensions :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kCenterFieldNumber = 4,
-    kLengthFieldNumber = 1,
-    kWidthFieldNumber = 2,
-    kHeightFieldNumber = 3,
+    kApplicationFieldNumber = 1,
+    kClientIdFieldNumber = 2,
   };
-  // .inhumate.rti.proto.EntityPosition.LocalPosition center = 4;
-  bool has_center() const;
+  // string application = 1;
+  void clear_application();
+  const std::string& application() const;
+  void set_application(const std::string& value);
+  void set_application(std::string&& value);
+  void set_application(const char* value);
+  void set_application(const char* value, size_t size);
+  std::string* mutable_application();
+  std::string* release_application();
+  void set_allocated_application(std::string* application);
   private:
-  bool _internal_has_center() const;
-  public:
-  void clear_center();
-  const ::inhumate::rti::proto::EntityPosition_LocalPosition& center() const;
-  ::inhumate::rti::proto::EntityPosition_LocalPosition* release_center();
-  ::inhumate::rti::proto::EntityPosition_LocalPosition* mutable_center();
-  void set_allocated_center(::inhumate::rti::proto::EntityPosition_LocalPosition* center);
-  private:
-  const ::inhumate::rti::proto::EntityPosition_LocalPosition& _internal_center() const;
-  ::inhumate::rti::proto::EntityPosition_LocalPosition* _internal_mutable_center();
-  public:
-
-  // float length = 1;
-  void clear_length();
-  float length() const;
-  void set_length(float value);
-  private:
-  float _internal_length() const;
-  void _internal_set_length(float value);
+  const std::string& _internal_application() const;
+  void _internal_set_application(const std::string& value);
+  std::string* _internal_mutable_application();
   public:
 
-  // float width = 2;
-  void clear_width();
-  float width() const;
-  void set_width(float value);
+  // string client_id = 2;
+  void clear_client_id();
+  const std::string& client_id() const;
+  void set_client_id(const std::string& value);
+  void set_client_id(std::string&& value);
+  void set_client_id(const char* value);
+  void set_client_id(const char* value, size_t size);
+  std::string* mutable_client_id();
+  std::string* release_client_id();
+  void set_allocated_client_id(std::string* client_id);
   private:
-  float _internal_width() const;
-  void _internal_set_width(float value);
+  const std::string& _internal_client_id() const;
+  void _internal_set_client_id(const std::string& value);
+  std::string* _internal_mutable_client_id();
   public:
 
-  // float height = 3;
-  void clear_height();
-  float height() const;
-  void set_height(float value);
-  private:
-  float _internal_height() const;
-  void _internal_set_height(float value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.EntityOperation.Dimensions)
+  // @@protoc_insertion_point(class_scope:inhumate.rti.proto.EntityOperation.ApplicationClient)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::inhumate::rti::proto::EntityPosition_LocalPosition* center_;
-  float length_;
-  float width_;
-  float height_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr application_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_EntityOperation_2eproto;
 };
@@ -537,17 +423,14 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation :
   }
   static const EntityOperation& default_instance();
 
-  enum OperationCase {
-    kCreate = 10,
-    kDestroy = 11,
-    kUpdate = 12,
-    kRequestUpdate = 13,
-    kTransferOwnership = 14,
-    kAssumeOwnership = 15,
-    kReleaseOwnership = 16,
-    kRequestPersistentOwnership = 17,
-    kClaimPersistentOwnership = 18,
-    OPERATION_NOT_SET = 0,
+  enum WhichCase {
+    kRequestUpdate = 1,
+    kRequestPersistentOwnership = 2,
+    kClaimPersistentOwnership = 3,
+    kTransferOwnership = 4,
+    kAssumeOwnership = 5,
+    kReleaseOwnership = 6,
+    WHICH_NOT_SET = 0,
   };
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -617,102 +500,20 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation :
 
   // nested types ----------------------------------------------------
 
-  typedef EntityOperation_EntityData EntityData;
-  typedef EntityOperation_Dimensions Dimensions;
+  typedef EntityOperation_EntityClient EntityClient;
+  typedef EntityOperation_ApplicationClient ApplicationClient;
 
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
-    kClientIdFieldNumber = 3,
-    kCreateFieldNumber = 10,
-    kDestroyFieldNumber = 11,
-    kUpdateFieldNumber = 12,
-    kRequestUpdateFieldNumber = 13,
-    kTransferOwnershipFieldNumber = 14,
-    kAssumeOwnershipFieldNumber = 15,
-    kReleaseOwnershipFieldNumber = 16,
-    kRequestPersistentOwnershipFieldNumber = 17,
-    kClaimPersistentOwnershipFieldNumber = 18,
+    kRequestUpdateFieldNumber = 1,
+    kRequestPersistentOwnershipFieldNumber = 2,
+    kClaimPersistentOwnershipFieldNumber = 3,
+    kTransferOwnershipFieldNumber = 4,
+    kAssumeOwnershipFieldNumber = 5,
+    kReleaseOwnershipFieldNumber = 6,
   };
-  // string id = 1;
-  void clear_id();
-  const std::string& id() const;
-  void set_id(const std::string& value);
-  void set_id(std::string&& value);
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  std::string* mutable_id();
-  std::string* release_id();
-  void set_allocated_id(std::string* id);
-  private:
-  const std::string& _internal_id() const;
-  void _internal_set_id(const std::string& value);
-  std::string* _internal_mutable_id();
-  public:
-
-  // string client_id = 3;
-  void clear_client_id();
-  const std::string& client_id() const;
-  void set_client_id(const std::string& value);
-  void set_client_id(std::string&& value);
-  void set_client_id(const char* value);
-  void set_client_id(const char* value, size_t size);
-  std::string* mutable_client_id();
-  std::string* release_client_id();
-  void set_allocated_client_id(std::string* client_id);
-  private:
-  const std::string& _internal_client_id() const;
-  void _internal_set_client_id(const std::string& value);
-  std::string* _internal_mutable_client_id();
-  public:
-
-  // .inhumate.rti.proto.EntityOperation.EntityData create = 10;
-  bool has_create() const;
-  private:
-  bool _internal_has_create() const;
-  public:
-  void clear_create();
-  const ::inhumate::rti::proto::EntityOperation_EntityData& create() const;
-  ::inhumate::rti::proto::EntityOperation_EntityData* release_create();
-  ::inhumate::rti::proto::EntityOperation_EntityData* mutable_create();
-  void set_allocated_create(::inhumate::rti::proto::EntityOperation_EntityData* create);
-  private:
-  const ::inhumate::rti::proto::EntityOperation_EntityData& _internal_create() const;
-  ::inhumate::rti::proto::EntityOperation_EntityData* _internal_mutable_create();
-  public:
-
-  // .google.protobuf.Empty destroy = 11;
-  bool has_destroy() const;
-  private:
-  bool _internal_has_destroy() const;
-  public:
-  void clear_destroy();
-  const PROTOBUF_NAMESPACE_ID::Empty& destroy() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_destroy();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_destroy();
-  void set_allocated_destroy(PROTOBUF_NAMESPACE_ID::Empty* destroy);
-  private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_destroy() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_destroy();
-  public:
-
-  // .inhumate.rti.proto.EntityOperation.EntityData update = 12;
-  bool has_update() const;
-  private:
-  bool _internal_has_update() const;
-  public:
-  void clear_update();
-  const ::inhumate::rti::proto::EntityOperation_EntityData& update() const;
-  ::inhumate::rti::proto::EntityOperation_EntityData* release_update();
-  ::inhumate::rti::proto::EntityOperation_EntityData* mutable_update();
-  void set_allocated_update(::inhumate::rti::proto::EntityOperation_EntityData* update);
-  private:
-  const ::inhumate::rti::proto::EntityOperation_EntityData& _internal_update() const;
-  ::inhumate::rti::proto::EntityOperation_EntityData* _internal_mutable_update();
-  public:
-
-  // .google.protobuf.Empty request_update = 13;
+  // .google.protobuf.Empty request_update = 1;
   bool has_request_update() const;
   private:
   bool _internal_has_request_update() const;
@@ -727,118 +528,106 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation :
   PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_request_update();
   public:
 
-  // string transfer_ownership = 14;
-  private:
-  bool _internal_has_transfer_ownership() const;
-  public:
-  void clear_transfer_ownership();
-  const std::string& transfer_ownership() const;
-  void set_transfer_ownership(const std::string& value);
-  void set_transfer_ownership(std::string&& value);
-  void set_transfer_ownership(const char* value);
-  void set_transfer_ownership(const char* value, size_t size);
-  std::string* mutable_transfer_ownership();
-  std::string* release_transfer_ownership();
-  void set_allocated_transfer_ownership(std::string* transfer_ownership);
-  private:
-  const std::string& _internal_transfer_ownership() const;
-  void _internal_set_transfer_ownership(const std::string& value);
-  std::string* _internal_mutable_transfer_ownership();
-  public:
-
-  // .google.protobuf.Empty assume_ownership = 15;
-  bool has_assume_ownership() const;
-  private:
-  bool _internal_has_assume_ownership() const;
-  public:
-  void clear_assume_ownership();
-  const PROTOBUF_NAMESPACE_ID::Empty& assume_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_assume_ownership();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_assume_ownership();
-  void set_allocated_assume_ownership(PROTOBUF_NAMESPACE_ID::Empty* assume_ownership);
-  private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_assume_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_assume_ownership();
-  public:
-
-  // .google.protobuf.Empty release_ownership = 16;
-  bool has_release_ownership() const;
-  private:
-  bool _internal_has_release_ownership() const;
-  public:
-  void clear_release_ownership();
-  const PROTOBUF_NAMESPACE_ID::Empty& release_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_release_ownership();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_release_ownership();
-  void set_allocated_release_ownership(PROTOBUF_NAMESPACE_ID::Empty* release_ownership);
-  private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_release_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_release_ownership();
-  public:
-
-  // .google.protobuf.Empty request_persistent_ownership = 17;
+  // .inhumate.rti.proto.EntityOperation.ApplicationClient request_persistent_ownership = 2;
   bool has_request_persistent_ownership() const;
   private:
   bool _internal_has_request_persistent_ownership() const;
   public:
   void clear_request_persistent_ownership();
-  const PROTOBUF_NAMESPACE_ID::Empty& request_persistent_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_request_persistent_ownership();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_request_persistent_ownership();
-  void set_allocated_request_persistent_ownership(PROTOBUF_NAMESPACE_ID::Empty* request_persistent_ownership);
+  const ::inhumate::rti::proto::EntityOperation_ApplicationClient& request_persistent_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_ApplicationClient* release_request_persistent_ownership();
+  ::inhumate::rti::proto::EntityOperation_ApplicationClient* mutable_request_persistent_ownership();
+  void set_allocated_request_persistent_ownership(::inhumate::rti::proto::EntityOperation_ApplicationClient* request_persistent_ownership);
   private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_request_persistent_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_request_persistent_ownership();
+  const ::inhumate::rti::proto::EntityOperation_ApplicationClient& _internal_request_persistent_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_ApplicationClient* _internal_mutable_request_persistent_ownership();
   public:
 
-  // .google.protobuf.Empty claim_persistent_ownership = 18;
+  // .inhumate.rti.proto.EntityOperation.ApplicationClient claim_persistent_ownership = 3;
   bool has_claim_persistent_ownership() const;
   private:
   bool _internal_has_claim_persistent_ownership() const;
   public:
   void clear_claim_persistent_ownership();
-  const PROTOBUF_NAMESPACE_ID::Empty& claim_persistent_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* release_claim_persistent_ownership();
-  PROTOBUF_NAMESPACE_ID::Empty* mutable_claim_persistent_ownership();
-  void set_allocated_claim_persistent_ownership(PROTOBUF_NAMESPACE_ID::Empty* claim_persistent_ownership);
+  const ::inhumate::rti::proto::EntityOperation_ApplicationClient& claim_persistent_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_ApplicationClient* release_claim_persistent_ownership();
+  ::inhumate::rti::proto::EntityOperation_ApplicationClient* mutable_claim_persistent_ownership();
+  void set_allocated_claim_persistent_ownership(::inhumate::rti::proto::EntityOperation_ApplicationClient* claim_persistent_ownership);
   private:
-  const PROTOBUF_NAMESPACE_ID::Empty& _internal_claim_persistent_ownership() const;
-  PROTOBUF_NAMESPACE_ID::Empty* _internal_mutable_claim_persistent_ownership();
+  const ::inhumate::rti::proto::EntityOperation_ApplicationClient& _internal_claim_persistent_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_ApplicationClient* _internal_mutable_claim_persistent_ownership();
   public:
 
-  void clear_operation();
-  OperationCase operation_case() const;
+  // .inhumate.rti.proto.EntityOperation.EntityClient transfer_ownership = 4;
+  bool has_transfer_ownership() const;
+  private:
+  bool _internal_has_transfer_ownership() const;
+  public:
+  void clear_transfer_ownership();
+  const ::inhumate::rti::proto::EntityOperation_EntityClient& transfer_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_EntityClient* release_transfer_ownership();
+  ::inhumate::rti::proto::EntityOperation_EntityClient* mutable_transfer_ownership();
+  void set_allocated_transfer_ownership(::inhumate::rti::proto::EntityOperation_EntityClient* transfer_ownership);
+  private:
+  const ::inhumate::rti::proto::EntityOperation_EntityClient& _internal_transfer_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_EntityClient* _internal_mutable_transfer_ownership();
+  public:
+
+  // .inhumate.rti.proto.EntityOperation.EntityClient assume_ownership = 5;
+  bool has_assume_ownership() const;
+  private:
+  bool _internal_has_assume_ownership() const;
+  public:
+  void clear_assume_ownership();
+  const ::inhumate::rti::proto::EntityOperation_EntityClient& assume_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_EntityClient* release_assume_ownership();
+  ::inhumate::rti::proto::EntityOperation_EntityClient* mutable_assume_ownership();
+  void set_allocated_assume_ownership(::inhumate::rti::proto::EntityOperation_EntityClient* assume_ownership);
+  private:
+  const ::inhumate::rti::proto::EntityOperation_EntityClient& _internal_assume_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_EntityClient* _internal_mutable_assume_ownership();
+  public:
+
+  // .inhumate.rti.proto.EntityOperation.EntityClient release_ownership = 6;
+  bool has_release_ownership() const;
+  private:
+  bool _internal_has_release_ownership() const;
+  public:
+  void clear_release_ownership();
+  const ::inhumate::rti::proto::EntityOperation_EntityClient& release_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_EntityClient* release_release_ownership();
+  ::inhumate::rti::proto::EntityOperation_EntityClient* mutable_release_ownership();
+  void set_allocated_release_ownership(::inhumate::rti::proto::EntityOperation_EntityClient* release_ownership);
+  private:
+  const ::inhumate::rti::proto::EntityOperation_EntityClient& _internal_release_ownership() const;
+  ::inhumate::rti::proto::EntityOperation_EntityClient* _internal_mutable_release_ownership();
+  public:
+
+  void clear_which();
+  WhichCase which_case() const;
   // @@protoc_insertion_point(class_scope:inhumate.rti.proto.EntityOperation)
  private:
   class _Internal;
-  void set_has_create();
-  void set_has_destroy();
-  void set_has_update();
   void set_has_request_update();
+  void set_has_request_persistent_ownership();
+  void set_has_claim_persistent_ownership();
   void set_has_transfer_ownership();
   void set_has_assume_ownership();
   void set_has_release_ownership();
-  void set_has_request_persistent_ownership();
-  void set_has_claim_persistent_ownership();
 
-  inline bool has_operation() const;
-  inline void clear_has_operation();
+  inline bool has_which() const;
+  inline void clear_has_which();
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_id_;
-  union OperationUnion {
-    OperationUnion() {}
-    ::inhumate::rti::proto::EntityOperation_EntityData* create_;
-    PROTOBUF_NAMESPACE_ID::Empty* destroy_;
-    ::inhumate::rti::proto::EntityOperation_EntityData* update_;
+  union WhichUnion {
+    WhichUnion() {}
     PROTOBUF_NAMESPACE_ID::Empty* request_update_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr transfer_ownership_;
-    PROTOBUF_NAMESPACE_ID::Empty* assume_ownership_;
-    PROTOBUF_NAMESPACE_ID::Empty* release_ownership_;
-    PROTOBUF_NAMESPACE_ID::Empty* request_persistent_ownership_;
-    PROTOBUF_NAMESPACE_ID::Empty* claim_persistent_ownership_;
-  } operation_;
+    ::inhumate::rti::proto::EntityOperation_ApplicationClient* request_persistent_ownership_;
+    ::inhumate::rti::proto::EntityOperation_ApplicationClient* claim_persistent_ownership_;
+    ::inhumate::rti::proto::EntityOperation_EntityClient* transfer_ownership_;
+    ::inhumate::rti::proto::EntityOperation_EntityClient* assume_ownership_;
+    ::inhumate::rti::proto::EntityOperation_EntityClient* release_ownership_;
+  } which_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
 
@@ -853,765 +642,259 @@ class INHUMATE_RTI_PROTOS_EXPORT EntityOperation :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// EntityOperation_EntityData
+// EntityOperation_EntityClient
 
-// .inhumate.rti.proto.EntityPosition position = 1;
-inline bool EntityOperation_EntityData::_internal_has_position() const {
-  return this != internal_default_instance() && position_ != nullptr;
+// string entity_id = 1;
+inline void EntityOperation_EntityClient::clear_entity_id() {
+  entity_id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline bool EntityOperation_EntityData::has_position() const {
-  return _internal_has_position();
+inline const std::string& EntityOperation_EntityClient::entity_id() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityClient.entity_id)
+  return _internal_entity_id();
 }
-inline const ::inhumate::rti::proto::EntityPosition& EntityOperation_EntityData::_internal_position() const {
-  const ::inhumate::rti::proto::EntityPosition* p = position_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::EntityPosition*>(
-      &::inhumate::rti::proto::_EntityPosition_default_instance_);
+inline void EntityOperation_EntityClient::set_entity_id(const std::string& value) {
+  _internal_set_entity_id(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.EntityClient.entity_id)
 }
-inline const ::inhumate::rti::proto::EntityPosition& EntityOperation_EntityData::position() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityData.position)
-  return _internal_position();
+inline std::string* EntityOperation_EntityClient::mutable_entity_id() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.EntityClient.entity_id)
+  return _internal_mutable_entity_id();
 }
-inline ::inhumate::rti::proto::EntityPosition* EntityOperation_EntityData::release_position() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.EntityData.position)
+inline const std::string& EntityOperation_EntityClient::_internal_entity_id() const {
+  return entity_id_.GetNoArena();
+}
+inline void EntityOperation_EntityClient::_internal_set_entity_id(const std::string& value) {
   
-  ::inhumate::rti::proto::EntityPosition* temp = position_;
-  position_ = nullptr;
-  return temp;
+  entity_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
 }
-inline ::inhumate::rti::proto::EntityPosition* EntityOperation_EntityData::_internal_mutable_position() {
+inline void EntityOperation_EntityClient::set_entity_id(std::string&& value) {
   
-  if (position_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::EntityPosition>(GetArenaNoVirtual());
-    position_ = p;
-  }
-  return position_;
-}
-inline ::inhumate::rti::proto::EntityPosition* EntityOperation_EntityData::mutable_position() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.EntityData.position)
-  return _internal_mutable_position();
-}
-inline void EntityOperation_EntityData::set_allocated_position(::inhumate::rti::proto::EntityPosition* position) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(position_);
-  }
-  if (position) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, position, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  position_ = position;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.EntityData.position)
-}
-
-// string type = 3;
-inline void EntityOperation_EntityData::clear_type() {
-  type_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline const std::string& EntityOperation_EntityData::type() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityData.type)
-  return _internal_type();
-}
-inline void EntityOperation_EntityData::set_type(const std::string& value) {
-  _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.EntityData.type)
-}
-inline std::string* EntityOperation_EntityData::mutable_type() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.EntityData.type)
-  return _internal_mutable_type();
-}
-inline const std::string& EntityOperation_EntityData::_internal_type() const {
-  return type_.GetNoArena();
-}
-inline void EntityOperation_EntityData::_internal_set_type(const std::string& value) {
-  
-  type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-}
-inline void EntityOperation_EntityData::set_type(std::string&& value) {
-  
-  type_.SetNoArena(
+  entity_id_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.EntityOperation.EntityData.type)
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.EntityOperation.EntityClient.entity_id)
 }
-inline void EntityOperation_EntityData::set_type(const char* value) {
+inline void EntityOperation_EntityClient::set_entity_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.EntityOperation.EntityData.type)
+  entity_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.EntityOperation.EntityClient.entity_id)
 }
-inline void EntityOperation_EntityData::set_type(const char* value, size_t size) {
+inline void EntityOperation_EntityClient::set_entity_id(const char* value, size_t size) {
   
-  type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+  entity_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.EntityOperation.EntityData.type)
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.EntityOperation.EntityClient.entity_id)
 }
-inline std::string* EntityOperation_EntityData::_internal_mutable_type() {
+inline std::string* EntityOperation_EntityClient::_internal_mutable_entity_id() {
   
-  return type_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  return entity_id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline std::string* EntityOperation_EntityData::release_type() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.EntityData.type)
+inline std::string* EntityOperation_EntityClient::release_entity_id() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.EntityClient.entity_id)
   
-  return type_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  return entity_id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void EntityOperation_EntityData::set_allocated_type(std::string* type) {
-  if (type != nullptr) {
+inline void EntityOperation_EntityClient::set_allocated_entity_id(std::string* entity_id) {
+  if (entity_id != nullptr) {
     
   } else {
     
   }
-  type_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), type);
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.EntityData.type)
+  entity_id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), entity_id);
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.EntityClient.entity_id)
 }
 
-// .inhumate.rti.proto.EntityCategory category = 4;
-inline void EntityOperation_EntityData::clear_category() {
-  category_ = 0;
-}
-inline ::inhumate::rti::proto::EntityCategory EntityOperation_EntityData::_internal_category() const {
-  return static_cast< ::inhumate::rti::proto::EntityCategory >(category_);
-}
-inline ::inhumate::rti::proto::EntityCategory EntityOperation_EntityData::category() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityData.category)
-  return _internal_category();
-}
-inline void EntityOperation_EntityData::_internal_set_category(::inhumate::rti::proto::EntityCategory value) {
-  
-  category_ = value;
-}
-inline void EntityOperation_EntityData::set_category(::inhumate::rti::proto::EntityCategory value) {
-  _internal_set_category(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.EntityData.category)
-}
-
-// .inhumate.rti.proto.EntityDomain domain = 5;
-inline void EntityOperation_EntityData::clear_domain() {
-  domain_ = 0;
-}
-inline ::inhumate::rti::proto::EntityDomain EntityOperation_EntityData::_internal_domain() const {
-  return static_cast< ::inhumate::rti::proto::EntityDomain >(domain_);
-}
-inline ::inhumate::rti::proto::EntityDomain EntityOperation_EntityData::domain() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityData.domain)
-  return _internal_domain();
-}
-inline void EntityOperation_EntityData::_internal_set_domain(::inhumate::rti::proto::EntityDomain value) {
-  
-  domain_ = value;
-}
-inline void EntityOperation_EntityData::set_domain(::inhumate::rti::proto::EntityDomain value) {
-  _internal_set_domain(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.EntityData.domain)
-}
-
-// .inhumate.rti.proto.LVCCategory lvc = 6;
-inline void EntityOperation_EntityData::clear_lvc() {
-  lvc_ = 0;
-}
-inline ::inhumate::rti::proto::LVCCategory EntityOperation_EntityData::_internal_lvc() const {
-  return static_cast< ::inhumate::rti::proto::LVCCategory >(lvc_);
-}
-inline ::inhumate::rti::proto::LVCCategory EntityOperation_EntityData::lvc() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityData.lvc)
-  return _internal_lvc();
-}
-inline void EntityOperation_EntityData::_internal_set_lvc(::inhumate::rti::proto::LVCCategory value) {
-  
-  lvc_ = value;
-}
-inline void EntityOperation_EntityData::set_lvc(::inhumate::rti::proto::LVCCategory value) {
-  _internal_set_lvc(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.EntityData.lvc)
-}
-
-// .inhumate.rti.proto.EntityOperation.Dimensions dimensions = 7;
-inline bool EntityOperation_EntityData::_internal_has_dimensions() const {
-  return this != internal_default_instance() && dimensions_ != nullptr;
-}
-inline bool EntityOperation_EntityData::has_dimensions() const {
-  return _internal_has_dimensions();
-}
-inline void EntityOperation_EntityData::clear_dimensions() {
-  if (GetArenaNoVirtual() == nullptr && dimensions_ != nullptr) {
-    delete dimensions_;
-  }
-  dimensions_ = nullptr;
-}
-inline const ::inhumate::rti::proto::EntityOperation_Dimensions& EntityOperation_EntityData::_internal_dimensions() const {
-  const ::inhumate::rti::proto::EntityOperation_Dimensions* p = dimensions_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::EntityOperation_Dimensions*>(
-      &::inhumate::rti::proto::_EntityOperation_Dimensions_default_instance_);
-}
-inline const ::inhumate::rti::proto::EntityOperation_Dimensions& EntityOperation_EntityData::dimensions() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityData.dimensions)
-  return _internal_dimensions();
-}
-inline ::inhumate::rti::proto::EntityOperation_Dimensions* EntityOperation_EntityData::release_dimensions() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.EntityData.dimensions)
-  
-  ::inhumate::rti::proto::EntityOperation_Dimensions* temp = dimensions_;
-  dimensions_ = nullptr;
-  return temp;
-}
-inline ::inhumate::rti::proto::EntityOperation_Dimensions* EntityOperation_EntityData::_internal_mutable_dimensions() {
-  
-  if (dimensions_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::EntityOperation_Dimensions>(GetArenaNoVirtual());
-    dimensions_ = p;
-  }
-  return dimensions_;
-}
-inline ::inhumate::rti::proto::EntityOperation_Dimensions* EntityOperation_EntityData::mutable_dimensions() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.EntityData.dimensions)
-  return _internal_mutable_dimensions();
-}
-inline void EntityOperation_EntityData::set_allocated_dimensions(::inhumate::rti::proto::EntityOperation_Dimensions* dimensions) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete dimensions_;
-  }
-  if (dimensions) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      dimensions = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, dimensions, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  dimensions_ = dimensions;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.EntityData.dimensions)
-}
-
-// .inhumate.rti.proto.Color color = 8;
-inline bool EntityOperation_EntityData::_internal_has_color() const {
-  return this != internal_default_instance() && color_ != nullptr;
-}
-inline bool EntityOperation_EntityData::has_color() const {
-  return _internal_has_color();
-}
-inline const ::inhumate::rti::proto::Color& EntityOperation_EntityData::_internal_color() const {
-  const ::inhumate::rti::proto::Color* p = color_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::Color*>(
-      &::inhumate::rti::proto::_Color_default_instance_);
-}
-inline const ::inhumate::rti::proto::Color& EntityOperation_EntityData::color() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityData.color)
-  return _internal_color();
-}
-inline ::inhumate::rti::proto::Color* EntityOperation_EntityData::release_color() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.EntityData.color)
-  
-  ::inhumate::rti::proto::Color* temp = color_;
-  color_ = nullptr;
-  return temp;
-}
-inline ::inhumate::rti::proto::Color* EntityOperation_EntityData::_internal_mutable_color() {
-  
-  if (color_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::Color>(GetArenaNoVirtual());
-    color_ = p;
-  }
-  return color_;
-}
-inline ::inhumate::rti::proto::Color* EntityOperation_EntityData::mutable_color() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.EntityData.color)
-  return _internal_mutable_color();
-}
-inline void EntityOperation_EntityData::set_allocated_color(::inhumate::rti::proto::Color* color) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(color_);
-  }
-  if (color) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      color = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, color, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  color_ = color;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.EntityData.color)
-}
-
-// string title = 9;
-inline void EntityOperation_EntityData::clear_title() {
-  title_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline const std::string& EntityOperation_EntityData::title() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityData.title)
-  return _internal_title();
-}
-inline void EntityOperation_EntityData::set_title(const std::string& value) {
-  _internal_set_title(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.EntityData.title)
-}
-inline std::string* EntityOperation_EntityData::mutable_title() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.EntityData.title)
-  return _internal_mutable_title();
-}
-inline const std::string& EntityOperation_EntityData::_internal_title() const {
-  return title_.GetNoArena();
-}
-inline void EntityOperation_EntityData::_internal_set_title(const std::string& value) {
-  
-  title_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-}
-inline void EntityOperation_EntityData::set_title(std::string&& value) {
-  
-  title_.SetNoArena(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.EntityOperation.EntityData.title)
-}
-inline void EntityOperation_EntityData::set_title(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  title_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.EntityOperation.EntityData.title)
-}
-inline void EntityOperation_EntityData::set_title(const char* value, size_t size) {
-  
-  title_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.EntityOperation.EntityData.title)
-}
-inline std::string* EntityOperation_EntityData::_internal_mutable_title() {
-  
-  return title_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline std::string* EntityOperation_EntityData::release_title() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.EntityData.title)
-  
-  return title_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline void EntityOperation_EntityData::set_allocated_title(std::string* title) {
-  if (title != nullptr) {
-    
-  } else {
-    
-  }
-  title_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), title);
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.EntityData.title)
-}
-
-// bool disabled = 10;
-inline void EntityOperation_EntityData::clear_disabled() {
-  disabled_ = false;
-}
-inline bool EntityOperation_EntityData::_internal_disabled() const {
-  return disabled_;
-}
-inline bool EntityOperation_EntityData::disabled() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityData.disabled)
-  return _internal_disabled();
-}
-inline void EntityOperation_EntityData::_internal_set_disabled(bool value) {
-  
-  disabled_ = value;
-}
-inline void EntityOperation_EntityData::set_disabled(bool value) {
-  _internal_set_disabled(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.EntityData.disabled)
-}
-
-// -------------------------------------------------------------------
-
-// EntityOperation_Dimensions
-
-// float length = 1;
-inline void EntityOperation_Dimensions::clear_length() {
-  length_ = 0;
-}
-inline float EntityOperation_Dimensions::_internal_length() const {
-  return length_;
-}
-inline float EntityOperation_Dimensions::length() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.Dimensions.length)
-  return _internal_length();
-}
-inline void EntityOperation_Dimensions::_internal_set_length(float value) {
-  
-  length_ = value;
-}
-inline void EntityOperation_Dimensions::set_length(float value) {
-  _internal_set_length(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.Dimensions.length)
-}
-
-// float width = 2;
-inline void EntityOperation_Dimensions::clear_width() {
-  width_ = 0;
-}
-inline float EntityOperation_Dimensions::_internal_width() const {
-  return width_;
-}
-inline float EntityOperation_Dimensions::width() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.Dimensions.width)
-  return _internal_width();
-}
-inline void EntityOperation_Dimensions::_internal_set_width(float value) {
-  
-  width_ = value;
-}
-inline void EntityOperation_Dimensions::set_width(float value) {
-  _internal_set_width(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.Dimensions.width)
-}
-
-// float height = 3;
-inline void EntityOperation_Dimensions::clear_height() {
-  height_ = 0;
-}
-inline float EntityOperation_Dimensions::_internal_height() const {
-  return height_;
-}
-inline float EntityOperation_Dimensions::height() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.Dimensions.height)
-  return _internal_height();
-}
-inline void EntityOperation_Dimensions::_internal_set_height(float value) {
-  
-  height_ = value;
-}
-inline void EntityOperation_Dimensions::set_height(float value) {
-  _internal_set_height(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.Dimensions.height)
-}
-
-// .inhumate.rti.proto.EntityPosition.LocalPosition center = 4;
-inline bool EntityOperation_Dimensions::_internal_has_center() const {
-  return this != internal_default_instance() && center_ != nullptr;
-}
-inline bool EntityOperation_Dimensions::has_center() const {
-  return _internal_has_center();
-}
-inline const ::inhumate::rti::proto::EntityPosition_LocalPosition& EntityOperation_Dimensions::_internal_center() const {
-  const ::inhumate::rti::proto::EntityPosition_LocalPosition* p = center_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::inhumate::rti::proto::EntityPosition_LocalPosition*>(
-      &::inhumate::rti::proto::_EntityPosition_LocalPosition_default_instance_);
-}
-inline const ::inhumate::rti::proto::EntityPosition_LocalPosition& EntityOperation_Dimensions::center() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.Dimensions.center)
-  return _internal_center();
-}
-inline ::inhumate::rti::proto::EntityPosition_LocalPosition* EntityOperation_Dimensions::release_center() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.Dimensions.center)
-  
-  ::inhumate::rti::proto::EntityPosition_LocalPosition* temp = center_;
-  center_ = nullptr;
-  return temp;
-}
-inline ::inhumate::rti::proto::EntityPosition_LocalPosition* EntityOperation_Dimensions::_internal_mutable_center() {
-  
-  if (center_ == nullptr) {
-    auto* p = CreateMaybeMessage<::inhumate::rti::proto::EntityPosition_LocalPosition>(GetArenaNoVirtual());
-    center_ = p;
-  }
-  return center_;
-}
-inline ::inhumate::rti::proto::EntityPosition_LocalPosition* EntityOperation_Dimensions::mutable_center() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.Dimensions.center)
-  return _internal_mutable_center();
-}
-inline void EntityOperation_Dimensions::set_allocated_center(::inhumate::rti::proto::EntityPosition_LocalPosition* center) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(center_);
-  }
-  if (center) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      center = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, center, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  center_ = center;
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.Dimensions.center)
-}
-
-// -------------------------------------------------------------------
-
-// EntityOperation
-
-// string id = 1;
-inline void EntityOperation::clear_id() {
-  id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline const std::string& EntityOperation::id() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.id)
-  return _internal_id();
-}
-inline void EntityOperation::set_id(const std::string& value) {
-  _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.id)
-}
-inline std::string* EntityOperation::mutable_id() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.id)
-  return _internal_mutable_id();
-}
-inline const std::string& EntityOperation::_internal_id() const {
-  return id_.GetNoArena();
-}
-inline void EntityOperation::_internal_set_id(const std::string& value) {
-  
-  id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-}
-inline void EntityOperation::set_id(std::string&& value) {
-  
-  id_.SetNoArena(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.EntityOperation.id)
-}
-inline void EntityOperation::set_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.EntityOperation.id)
-}
-inline void EntityOperation::set_id(const char* value, size_t size) {
-  
-  id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.EntityOperation.id)
-}
-inline std::string* EntityOperation::_internal_mutable_id() {
-  
-  return id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline std::string* EntityOperation::release_id() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.id)
-  
-  return id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline void EntityOperation::set_allocated_id(std::string* id) {
-  if (id != nullptr) {
-    
-  } else {
-    
-  }
-  id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.id)
-}
-
-// string client_id = 3;
-inline void EntityOperation::clear_client_id() {
+// string client_id = 2;
+inline void EntityOperation_EntityClient::clear_client_id() {
   client_id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline const std::string& EntityOperation::client_id() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.client_id)
+inline const std::string& EntityOperation_EntityClient::client_id() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.EntityClient.client_id)
   return _internal_client_id();
 }
-inline void EntityOperation::set_client_id(const std::string& value) {
+inline void EntityOperation_EntityClient::set_client_id(const std::string& value) {
   _internal_set_client_id(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.client_id)
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.EntityClient.client_id)
 }
-inline std::string* EntityOperation::mutable_client_id() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.client_id)
+inline std::string* EntityOperation_EntityClient::mutable_client_id() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.EntityClient.client_id)
   return _internal_mutable_client_id();
 }
-inline const std::string& EntityOperation::_internal_client_id() const {
+inline const std::string& EntityOperation_EntityClient::_internal_client_id() const {
   return client_id_.GetNoArena();
 }
-inline void EntityOperation::_internal_set_client_id(const std::string& value) {
+inline void EntityOperation_EntityClient::_internal_set_client_id(const std::string& value) {
   
   client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
 }
-inline void EntityOperation::set_client_id(std::string&& value) {
+inline void EntityOperation_EntityClient::set_client_id(std::string&& value) {
   
   client_id_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.EntityOperation.client_id)
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.EntityOperation.EntityClient.client_id)
 }
-inline void EntityOperation::set_client_id(const char* value) {
+inline void EntityOperation_EntityClient::set_client_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.EntityOperation.client_id)
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.EntityOperation.EntityClient.client_id)
 }
-inline void EntityOperation::set_client_id(const char* value, size_t size) {
+inline void EntityOperation_EntityClient::set_client_id(const char* value, size_t size) {
   
   client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.EntityOperation.client_id)
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.EntityOperation.EntityClient.client_id)
 }
-inline std::string* EntityOperation::_internal_mutable_client_id() {
+inline std::string* EntityOperation_EntityClient::_internal_mutable_client_id() {
   
   return client_id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline std::string* EntityOperation::release_client_id() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.client_id)
+inline std::string* EntityOperation_EntityClient::release_client_id() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.EntityClient.client_id)
   
   return client_id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void EntityOperation::set_allocated_client_id(std::string* client_id) {
+inline void EntityOperation_EntityClient::set_allocated_client_id(std::string* client_id) {
   if (client_id != nullptr) {
     
   } else {
     
   }
   client_id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), client_id);
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.client_id)
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.EntityClient.client_id)
 }
 
-// .inhumate.rti.proto.EntityOperation.EntityData create = 10;
-inline bool EntityOperation::_internal_has_create() const {
-  return operation_case() == kCreate;
+// -------------------------------------------------------------------
+
+// EntityOperation_ApplicationClient
+
+// string application = 1;
+inline void EntityOperation_ApplicationClient::clear_application() {
+  application_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline bool EntityOperation::has_create() const {
-  return _internal_has_create();
+inline const std::string& EntityOperation_ApplicationClient::application() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.ApplicationClient.application)
+  return _internal_application();
 }
-inline void EntityOperation::set_has_create() {
-  _oneof_case_[0] = kCreate;
+inline void EntityOperation_ApplicationClient::set_application(const std::string& value) {
+  _internal_set_application(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.ApplicationClient.application)
 }
-inline void EntityOperation::clear_create() {
-  if (_internal_has_create()) {
-    delete operation_.create_;
-    clear_has_operation();
-  }
+inline std::string* EntityOperation_ApplicationClient::mutable_application() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.ApplicationClient.application)
+  return _internal_mutable_application();
 }
-inline ::inhumate::rti::proto::EntityOperation_EntityData* EntityOperation::release_create() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.create)
-  if (_internal_has_create()) {
-    clear_has_operation();
-      ::inhumate::rti::proto::EntityOperation_EntityData* temp = operation_.create_;
-    operation_.create_ = nullptr;
-    return temp;
+inline const std::string& EntityOperation_ApplicationClient::_internal_application() const {
+  return application_.GetNoArena();
+}
+inline void EntityOperation_ApplicationClient::_internal_set_application(const std::string& value) {
+  
+  application_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void EntityOperation_ApplicationClient::set_application(std::string&& value) {
+  
+  application_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.EntityOperation.ApplicationClient.application)
+}
+inline void EntityOperation_ApplicationClient::set_application(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  application_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.EntityOperation.ApplicationClient.application)
+}
+inline void EntityOperation_ApplicationClient::set_application(const char* value, size_t size) {
+  
+  application_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.EntityOperation.ApplicationClient.application)
+}
+inline std::string* EntityOperation_ApplicationClient::_internal_mutable_application() {
+  
+  return application_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* EntityOperation_ApplicationClient::release_application() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.ApplicationClient.application)
+  
+  return application_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void EntityOperation_ApplicationClient::set_allocated_application(std::string* application) {
+  if (application != nullptr) {
+    
   } else {
-    return nullptr;
+    
   }
-}
-inline const ::inhumate::rti::proto::EntityOperation_EntityData& EntityOperation::_internal_create() const {
-  return _internal_has_create()
-      ? *operation_.create_
-      : *reinterpret_cast< ::inhumate::rti::proto::EntityOperation_EntityData*>(&::inhumate::rti::proto::_EntityOperation_EntityData_default_instance_);
-}
-inline const ::inhumate::rti::proto::EntityOperation_EntityData& EntityOperation::create() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.create)
-  return _internal_create();
-}
-inline ::inhumate::rti::proto::EntityOperation_EntityData* EntityOperation::_internal_mutable_create() {
-  if (!_internal_has_create()) {
-    clear_operation();
-    set_has_create();
-    operation_.create_ = CreateMaybeMessage< ::inhumate::rti::proto::EntityOperation_EntityData >(
-        GetArenaNoVirtual());
-  }
-  return operation_.create_;
-}
-inline ::inhumate::rti::proto::EntityOperation_EntityData* EntityOperation::mutable_create() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.create)
-  return _internal_mutable_create();
+  application_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), application);
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.ApplicationClient.application)
 }
 
-// .google.protobuf.Empty destroy = 11;
-inline bool EntityOperation::_internal_has_destroy() const {
-  return operation_case() == kDestroy;
+// string client_id = 2;
+inline void EntityOperation_ApplicationClient::clear_client_id() {
+  client_id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline bool EntityOperation::has_destroy() const {
-  return _internal_has_destroy();
+inline const std::string& EntityOperation_ApplicationClient::client_id() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.ApplicationClient.client_id)
+  return _internal_client_id();
 }
-inline void EntityOperation::set_has_destroy() {
-  _oneof_case_[0] = kDestroy;
+inline void EntityOperation_ApplicationClient::set_client_id(const std::string& value) {
+  _internal_set_client_id(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.ApplicationClient.client_id)
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::release_destroy() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.destroy)
-  if (_internal_has_destroy()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.destroy_;
-    operation_.destroy_ = nullptr;
-    return temp;
+inline std::string* EntityOperation_ApplicationClient::mutable_client_id() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.ApplicationClient.client_id)
+  return _internal_mutable_client_id();
+}
+inline const std::string& EntityOperation_ApplicationClient::_internal_client_id() const {
+  return client_id_.GetNoArena();
+}
+inline void EntityOperation_ApplicationClient::_internal_set_client_id(const std::string& value) {
+  
+  client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void EntityOperation_ApplicationClient::set_client_id(std::string&& value) {
+  
+  client_id_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.EntityOperation.ApplicationClient.client_id)
+}
+inline void EntityOperation_ApplicationClient::set_client_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.EntityOperation.ApplicationClient.client_id)
+}
+inline void EntityOperation_ApplicationClient::set_client_id(const char* value, size_t size) {
+  
+  client_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.EntityOperation.ApplicationClient.client_id)
+}
+inline std::string* EntityOperation_ApplicationClient::_internal_mutable_client_id() {
+  
+  return client_id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* EntityOperation_ApplicationClient::release_client_id() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.ApplicationClient.client_id)
+  
+  return client_id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void EntityOperation_ApplicationClient::set_allocated_client_id(std::string* client_id) {
+  if (client_id != nullptr) {
+    
   } else {
-    return nullptr;
+    
   }
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::_internal_destroy() const {
-  return _internal_has_destroy()
-      ? *operation_.destroy_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::destroy() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.destroy)
-  return _internal_destroy();
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::_internal_mutable_destroy() {
-  if (!_internal_has_destroy()) {
-    clear_operation();
-    set_has_destroy();
-    operation_.destroy_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
-        GetArenaNoVirtual());
-  }
-  return operation_.destroy_;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::mutable_destroy() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.destroy)
-  return _internal_mutable_destroy();
+  client_id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), client_id);
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.ApplicationClient.client_id)
 }
 
-// .inhumate.rti.proto.EntityOperation.EntityData update = 12;
-inline bool EntityOperation::_internal_has_update() const {
-  return operation_case() == kUpdate;
-}
-inline bool EntityOperation::has_update() const {
-  return _internal_has_update();
-}
-inline void EntityOperation::set_has_update() {
-  _oneof_case_[0] = kUpdate;
-}
-inline void EntityOperation::clear_update() {
-  if (_internal_has_update()) {
-    delete operation_.update_;
-    clear_has_operation();
-  }
-}
-inline ::inhumate::rti::proto::EntityOperation_EntityData* EntityOperation::release_update() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.update)
-  if (_internal_has_update()) {
-    clear_has_operation();
-      ::inhumate::rti::proto::EntityOperation_EntityData* temp = operation_.update_;
-    operation_.update_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::inhumate::rti::proto::EntityOperation_EntityData& EntityOperation::_internal_update() const {
-  return _internal_has_update()
-      ? *operation_.update_
-      : *reinterpret_cast< ::inhumate::rti::proto::EntityOperation_EntityData*>(&::inhumate::rti::proto::_EntityOperation_EntityData_default_instance_);
-}
-inline const ::inhumate::rti::proto::EntityOperation_EntityData& EntityOperation::update() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.update)
-  return _internal_update();
-}
-inline ::inhumate::rti::proto::EntityOperation_EntityData* EntityOperation::_internal_mutable_update() {
-  if (!_internal_has_update()) {
-    clear_operation();
-    set_has_update();
-    operation_.update_ = CreateMaybeMessage< ::inhumate::rti::proto::EntityOperation_EntityData >(
-        GetArenaNoVirtual());
-  }
-  return operation_.update_;
-}
-inline ::inhumate::rti::proto::EntityOperation_EntityData* EntityOperation::mutable_update() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.update)
-  return _internal_mutable_update();
-}
+// -------------------------------------------------------------------
 
-// .google.protobuf.Empty request_update = 13;
+// EntityOperation
+
+// .google.protobuf.Empty request_update = 1;
 inline bool EntityOperation::_internal_has_request_update() const {
-  return operation_case() == kRequestUpdate;
+  return which_case() == kRequestUpdate;
 }
 inline bool EntityOperation::has_request_update() const {
   return _internal_has_request_update();
@@ -1622,9 +905,9 @@ inline void EntityOperation::set_has_request_update() {
 inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::release_request_update() {
   // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.request_update)
   if (_internal_has_request_update()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.request_update_;
-    operation_.request_update_ = nullptr;
+    clear_has_which();
+      PROTOBUF_NAMESPACE_ID::Empty* temp = which_.request_update_;
+    which_.request_update_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -1632,7 +915,7 @@ inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::release_request_update() {
 }
 inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::_internal_request_update() const {
   return _internal_has_request_update()
-      ? *operation_.request_update_
+      ? *which_.request_update_
       : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
 }
 inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::request_update() const {
@@ -1641,207 +924,21 @@ inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::request_update() con
 }
 inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::_internal_mutable_request_update() {
   if (!_internal_has_request_update()) {
-    clear_operation();
+    clear_which();
     set_has_request_update();
-    operation_.request_update_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
+    which_.request_update_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
         GetArenaNoVirtual());
   }
-  return operation_.request_update_;
+  return which_.request_update_;
 }
 inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::mutable_request_update() {
   // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.request_update)
   return _internal_mutable_request_update();
 }
 
-// string transfer_ownership = 14;
-inline bool EntityOperation::_internal_has_transfer_ownership() const {
-  return operation_case() == kTransferOwnership;
-}
-inline void EntityOperation::set_has_transfer_ownership() {
-  _oneof_case_[0] = kTransferOwnership;
-}
-inline void EntityOperation::clear_transfer_ownership() {
-  if (_internal_has_transfer_ownership()) {
-    operation_.transfer_ownership_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-    clear_has_operation();
-  }
-}
-inline const std::string& EntityOperation::transfer_ownership() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.transfer_ownership)
-  return _internal_transfer_ownership();
-}
-inline void EntityOperation::set_transfer_ownership(const std::string& value) {
-  _internal_set_transfer_ownership(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.transfer_ownership)
-}
-inline std::string* EntityOperation::mutable_transfer_ownership() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.transfer_ownership)
-  return _internal_mutable_transfer_ownership();
-}
-inline const std::string& EntityOperation::_internal_transfer_ownership() const {
-  if (_internal_has_transfer_ownership()) {
-    return operation_.transfer_ownership_.GetNoArena();
-  }
-  return *&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
-}
-inline void EntityOperation::_internal_set_transfer_ownership(const std::string& value) {
-  if (!_internal_has_transfer_ownership()) {
-    clear_operation();
-    set_has_transfer_ownership();
-    operation_.transfer_ownership_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  operation_.transfer_ownership_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-}
-inline void EntityOperation::set_transfer_ownership(std::string&& value) {
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.EntityOperation.transfer_ownership)
-  if (!_internal_has_transfer_ownership()) {
-    clear_operation();
-    set_has_transfer_ownership();
-    operation_.transfer_ownership_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  operation_.transfer_ownership_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.EntityOperation.transfer_ownership)
-}
-inline void EntityOperation::set_transfer_ownership(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  if (!_internal_has_transfer_ownership()) {
-    clear_operation();
-    set_has_transfer_ownership();
-    operation_.transfer_ownership_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  operation_.transfer_ownership_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.EntityOperation.transfer_ownership)
-}
-inline void EntityOperation::set_transfer_ownership(const char* value, size_t size) {
-  if (!_internal_has_transfer_ownership()) {
-    clear_operation();
-    set_has_transfer_ownership();
-    operation_.transfer_ownership_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  operation_.transfer_ownership_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.EntityOperation.transfer_ownership)
-}
-inline std::string* EntityOperation::_internal_mutable_transfer_ownership() {
-  if (!_internal_has_transfer_ownership()) {
-    clear_operation();
-    set_has_transfer_ownership();
-    operation_.transfer_ownership_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  return operation_.transfer_ownership_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline std::string* EntityOperation::release_transfer_ownership() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.transfer_ownership)
-  if (_internal_has_transfer_ownership()) {
-    clear_has_operation();
-    return operation_.transfer_ownership_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityOperation::set_allocated_transfer_ownership(std::string* transfer_ownership) {
-  if (has_operation()) {
-    clear_operation();
-  }
-  if (transfer_ownership != nullptr) {
-    set_has_transfer_ownership();
-    operation_.transfer_ownership_.UnsafeSetDefault(transfer_ownership);
-  }
-  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.EntityOperation.transfer_ownership)
-}
-
-// .google.protobuf.Empty assume_ownership = 15;
-inline bool EntityOperation::_internal_has_assume_ownership() const {
-  return operation_case() == kAssumeOwnership;
-}
-inline bool EntityOperation::has_assume_ownership() const {
-  return _internal_has_assume_ownership();
-}
-inline void EntityOperation::set_has_assume_ownership() {
-  _oneof_case_[0] = kAssumeOwnership;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::release_assume_ownership() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.assume_ownership)
-  if (_internal_has_assume_ownership()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.assume_ownership_;
-    operation_.assume_ownership_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::_internal_assume_ownership() const {
-  return _internal_has_assume_ownership()
-      ? *operation_.assume_ownership_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::assume_ownership() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.assume_ownership)
-  return _internal_assume_ownership();
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::_internal_mutable_assume_ownership() {
-  if (!_internal_has_assume_ownership()) {
-    clear_operation();
-    set_has_assume_ownership();
-    operation_.assume_ownership_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
-        GetArenaNoVirtual());
-  }
-  return operation_.assume_ownership_;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::mutable_assume_ownership() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.assume_ownership)
-  return _internal_mutable_assume_ownership();
-}
-
-// .google.protobuf.Empty release_ownership = 16;
-inline bool EntityOperation::_internal_has_release_ownership() const {
-  return operation_case() == kReleaseOwnership;
-}
-inline bool EntityOperation::has_release_ownership() const {
-  return _internal_has_release_ownership();
-}
-inline void EntityOperation::set_has_release_ownership() {
-  _oneof_case_[0] = kReleaseOwnership;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::release_release_ownership() {
-  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.release_ownership)
-  if (_internal_has_release_ownership()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.release_ownership_;
-    operation_.release_ownership_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::_internal_release_ownership() const {
-  return _internal_has_release_ownership()
-      ? *operation_.release_ownership_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::release_ownership() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.release_ownership)
-  return _internal_release_ownership();
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::_internal_mutable_release_ownership() {
-  if (!_internal_has_release_ownership()) {
-    clear_operation();
-    set_has_release_ownership();
-    operation_.release_ownership_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
-        GetArenaNoVirtual());
-  }
-  return operation_.release_ownership_;
-}
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::mutable_release_ownership() {
-  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.release_ownership)
-  return _internal_mutable_release_ownership();
-}
-
-// .google.protobuf.Empty request_persistent_ownership = 17;
+// .inhumate.rti.proto.EntityOperation.ApplicationClient request_persistent_ownership = 2;
 inline bool EntityOperation::_internal_has_request_persistent_ownership() const {
-  return operation_case() == kRequestPersistentOwnership;
+  return which_case() == kRequestPersistentOwnership;
 }
 inline bool EntityOperation::has_request_persistent_ownership() const {
   return _internal_has_request_persistent_ownership();
@@ -1849,43 +946,49 @@ inline bool EntityOperation::has_request_persistent_ownership() const {
 inline void EntityOperation::set_has_request_persistent_ownership() {
   _oneof_case_[0] = kRequestPersistentOwnership;
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::release_request_persistent_ownership() {
+inline void EntityOperation::clear_request_persistent_ownership() {
+  if (_internal_has_request_persistent_ownership()) {
+    delete which_.request_persistent_ownership_;
+    clear_has_which();
+  }
+}
+inline ::inhumate::rti::proto::EntityOperation_ApplicationClient* EntityOperation::release_request_persistent_ownership() {
   // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.request_persistent_ownership)
   if (_internal_has_request_persistent_ownership()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.request_persistent_ownership_;
-    operation_.request_persistent_ownership_ = nullptr;
+    clear_has_which();
+      ::inhumate::rti::proto::EntityOperation_ApplicationClient* temp = which_.request_persistent_ownership_;
+    which_.request_persistent_ownership_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::_internal_request_persistent_ownership() const {
+inline const ::inhumate::rti::proto::EntityOperation_ApplicationClient& EntityOperation::_internal_request_persistent_ownership() const {
   return _internal_has_request_persistent_ownership()
-      ? *operation_.request_persistent_ownership_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
+      ? *which_.request_persistent_ownership_
+      : *reinterpret_cast< ::inhumate::rti::proto::EntityOperation_ApplicationClient*>(&::inhumate::rti::proto::_EntityOperation_ApplicationClient_default_instance_);
 }
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::request_persistent_ownership() const {
+inline const ::inhumate::rti::proto::EntityOperation_ApplicationClient& EntityOperation::request_persistent_ownership() const {
   // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.request_persistent_ownership)
   return _internal_request_persistent_ownership();
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::_internal_mutable_request_persistent_ownership() {
+inline ::inhumate::rti::proto::EntityOperation_ApplicationClient* EntityOperation::_internal_mutable_request_persistent_ownership() {
   if (!_internal_has_request_persistent_ownership()) {
-    clear_operation();
+    clear_which();
     set_has_request_persistent_ownership();
-    operation_.request_persistent_ownership_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
+    which_.request_persistent_ownership_ = CreateMaybeMessage< ::inhumate::rti::proto::EntityOperation_ApplicationClient >(
         GetArenaNoVirtual());
   }
-  return operation_.request_persistent_ownership_;
+  return which_.request_persistent_ownership_;
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::mutable_request_persistent_ownership() {
+inline ::inhumate::rti::proto::EntityOperation_ApplicationClient* EntityOperation::mutable_request_persistent_ownership() {
   // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.request_persistent_ownership)
   return _internal_mutable_request_persistent_ownership();
 }
 
-// .google.protobuf.Empty claim_persistent_ownership = 18;
+// .inhumate.rti.proto.EntityOperation.ApplicationClient claim_persistent_ownership = 3;
 inline bool EntityOperation::_internal_has_claim_persistent_ownership() const {
-  return operation_case() == kClaimPersistentOwnership;
+  return which_case() == kClaimPersistentOwnership;
 }
 inline bool EntityOperation::has_claim_persistent_ownership() const {
   return _internal_has_claim_persistent_ownership();
@@ -1893,48 +996,204 @@ inline bool EntityOperation::has_claim_persistent_ownership() const {
 inline void EntityOperation::set_has_claim_persistent_ownership() {
   _oneof_case_[0] = kClaimPersistentOwnership;
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::release_claim_persistent_ownership() {
+inline void EntityOperation::clear_claim_persistent_ownership() {
+  if (_internal_has_claim_persistent_ownership()) {
+    delete which_.claim_persistent_ownership_;
+    clear_has_which();
+  }
+}
+inline ::inhumate::rti::proto::EntityOperation_ApplicationClient* EntityOperation::release_claim_persistent_ownership() {
   // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.claim_persistent_ownership)
   if (_internal_has_claim_persistent_ownership()) {
-    clear_has_operation();
-      PROTOBUF_NAMESPACE_ID::Empty* temp = operation_.claim_persistent_ownership_;
-    operation_.claim_persistent_ownership_ = nullptr;
+    clear_has_which();
+      ::inhumate::rti::proto::EntityOperation_ApplicationClient* temp = which_.claim_persistent_ownership_;
+    which_.claim_persistent_ownership_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::_internal_claim_persistent_ownership() const {
+inline const ::inhumate::rti::proto::EntityOperation_ApplicationClient& EntityOperation::_internal_claim_persistent_ownership() const {
   return _internal_has_claim_persistent_ownership()
-      ? *operation_.claim_persistent_ownership_
-      : *reinterpret_cast< PROTOBUF_NAMESPACE_ID::Empty*>(&PROTOBUF_NAMESPACE_ID::_Empty_default_instance_);
+      ? *which_.claim_persistent_ownership_
+      : *reinterpret_cast< ::inhumate::rti::proto::EntityOperation_ApplicationClient*>(&::inhumate::rti::proto::_EntityOperation_ApplicationClient_default_instance_);
 }
-inline const PROTOBUF_NAMESPACE_ID::Empty& EntityOperation::claim_persistent_ownership() const {
+inline const ::inhumate::rti::proto::EntityOperation_ApplicationClient& EntityOperation::claim_persistent_ownership() const {
   // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.claim_persistent_ownership)
   return _internal_claim_persistent_ownership();
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::_internal_mutable_claim_persistent_ownership() {
+inline ::inhumate::rti::proto::EntityOperation_ApplicationClient* EntityOperation::_internal_mutable_claim_persistent_ownership() {
   if (!_internal_has_claim_persistent_ownership()) {
-    clear_operation();
+    clear_which();
     set_has_claim_persistent_ownership();
-    operation_.claim_persistent_ownership_ = CreateMaybeMessage< PROTOBUF_NAMESPACE_ID::Empty >(
+    which_.claim_persistent_ownership_ = CreateMaybeMessage< ::inhumate::rti::proto::EntityOperation_ApplicationClient >(
         GetArenaNoVirtual());
   }
-  return operation_.claim_persistent_ownership_;
+  return which_.claim_persistent_ownership_;
 }
-inline PROTOBUF_NAMESPACE_ID::Empty* EntityOperation::mutable_claim_persistent_ownership() {
+inline ::inhumate::rti::proto::EntityOperation_ApplicationClient* EntityOperation::mutable_claim_persistent_ownership() {
   // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.claim_persistent_ownership)
   return _internal_mutable_claim_persistent_ownership();
 }
 
-inline bool EntityOperation::has_operation() const {
-  return operation_case() != OPERATION_NOT_SET;
+// .inhumate.rti.proto.EntityOperation.EntityClient transfer_ownership = 4;
+inline bool EntityOperation::_internal_has_transfer_ownership() const {
+  return which_case() == kTransferOwnership;
 }
-inline void EntityOperation::clear_has_operation() {
-  _oneof_case_[0] = OPERATION_NOT_SET;
+inline bool EntityOperation::has_transfer_ownership() const {
+  return _internal_has_transfer_ownership();
 }
-inline EntityOperation::OperationCase EntityOperation::operation_case() const {
-  return EntityOperation::OperationCase(_oneof_case_[0]);
+inline void EntityOperation::set_has_transfer_ownership() {
+  _oneof_case_[0] = kTransferOwnership;
+}
+inline void EntityOperation::clear_transfer_ownership() {
+  if (_internal_has_transfer_ownership()) {
+    delete which_.transfer_ownership_;
+    clear_has_which();
+  }
+}
+inline ::inhumate::rti::proto::EntityOperation_EntityClient* EntityOperation::release_transfer_ownership() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.transfer_ownership)
+  if (_internal_has_transfer_ownership()) {
+    clear_has_which();
+      ::inhumate::rti::proto::EntityOperation_EntityClient* temp = which_.transfer_ownership_;
+    which_.transfer_ownership_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::inhumate::rti::proto::EntityOperation_EntityClient& EntityOperation::_internal_transfer_ownership() const {
+  return _internal_has_transfer_ownership()
+      ? *which_.transfer_ownership_
+      : *reinterpret_cast< ::inhumate::rti::proto::EntityOperation_EntityClient*>(&::inhumate::rti::proto::_EntityOperation_EntityClient_default_instance_);
+}
+inline const ::inhumate::rti::proto::EntityOperation_EntityClient& EntityOperation::transfer_ownership() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.transfer_ownership)
+  return _internal_transfer_ownership();
+}
+inline ::inhumate::rti::proto::EntityOperation_EntityClient* EntityOperation::_internal_mutable_transfer_ownership() {
+  if (!_internal_has_transfer_ownership()) {
+    clear_which();
+    set_has_transfer_ownership();
+    which_.transfer_ownership_ = CreateMaybeMessage< ::inhumate::rti::proto::EntityOperation_EntityClient >(
+        GetArenaNoVirtual());
+  }
+  return which_.transfer_ownership_;
+}
+inline ::inhumate::rti::proto::EntityOperation_EntityClient* EntityOperation::mutable_transfer_ownership() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.transfer_ownership)
+  return _internal_mutable_transfer_ownership();
+}
+
+// .inhumate.rti.proto.EntityOperation.EntityClient assume_ownership = 5;
+inline bool EntityOperation::_internal_has_assume_ownership() const {
+  return which_case() == kAssumeOwnership;
+}
+inline bool EntityOperation::has_assume_ownership() const {
+  return _internal_has_assume_ownership();
+}
+inline void EntityOperation::set_has_assume_ownership() {
+  _oneof_case_[0] = kAssumeOwnership;
+}
+inline void EntityOperation::clear_assume_ownership() {
+  if (_internal_has_assume_ownership()) {
+    delete which_.assume_ownership_;
+    clear_has_which();
+  }
+}
+inline ::inhumate::rti::proto::EntityOperation_EntityClient* EntityOperation::release_assume_ownership() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.assume_ownership)
+  if (_internal_has_assume_ownership()) {
+    clear_has_which();
+      ::inhumate::rti::proto::EntityOperation_EntityClient* temp = which_.assume_ownership_;
+    which_.assume_ownership_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::inhumate::rti::proto::EntityOperation_EntityClient& EntityOperation::_internal_assume_ownership() const {
+  return _internal_has_assume_ownership()
+      ? *which_.assume_ownership_
+      : *reinterpret_cast< ::inhumate::rti::proto::EntityOperation_EntityClient*>(&::inhumate::rti::proto::_EntityOperation_EntityClient_default_instance_);
+}
+inline const ::inhumate::rti::proto::EntityOperation_EntityClient& EntityOperation::assume_ownership() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.assume_ownership)
+  return _internal_assume_ownership();
+}
+inline ::inhumate::rti::proto::EntityOperation_EntityClient* EntityOperation::_internal_mutable_assume_ownership() {
+  if (!_internal_has_assume_ownership()) {
+    clear_which();
+    set_has_assume_ownership();
+    which_.assume_ownership_ = CreateMaybeMessage< ::inhumate::rti::proto::EntityOperation_EntityClient >(
+        GetArenaNoVirtual());
+  }
+  return which_.assume_ownership_;
+}
+inline ::inhumate::rti::proto::EntityOperation_EntityClient* EntityOperation::mutable_assume_ownership() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.assume_ownership)
+  return _internal_mutable_assume_ownership();
+}
+
+// .inhumate.rti.proto.EntityOperation.EntityClient release_ownership = 6;
+inline bool EntityOperation::_internal_has_release_ownership() const {
+  return which_case() == kReleaseOwnership;
+}
+inline bool EntityOperation::has_release_ownership() const {
+  return _internal_has_release_ownership();
+}
+inline void EntityOperation::set_has_release_ownership() {
+  _oneof_case_[0] = kReleaseOwnership;
+}
+inline void EntityOperation::clear_release_ownership() {
+  if (_internal_has_release_ownership()) {
+    delete which_.release_ownership_;
+    clear_has_which();
+  }
+}
+inline ::inhumate::rti::proto::EntityOperation_EntityClient* EntityOperation::release_release_ownership() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.EntityOperation.release_ownership)
+  if (_internal_has_release_ownership()) {
+    clear_has_which();
+      ::inhumate::rti::proto::EntityOperation_EntityClient* temp = which_.release_ownership_;
+    which_.release_ownership_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::inhumate::rti::proto::EntityOperation_EntityClient& EntityOperation::_internal_release_ownership() const {
+  return _internal_has_release_ownership()
+      ? *which_.release_ownership_
+      : *reinterpret_cast< ::inhumate::rti::proto::EntityOperation_EntityClient*>(&::inhumate::rti::proto::_EntityOperation_EntityClient_default_instance_);
+}
+inline const ::inhumate::rti::proto::EntityOperation_EntityClient& EntityOperation::release_ownership() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.EntityOperation.release_ownership)
+  return _internal_release_ownership();
+}
+inline ::inhumate::rti::proto::EntityOperation_EntityClient* EntityOperation::_internal_mutable_release_ownership() {
+  if (!_internal_has_release_ownership()) {
+    clear_which();
+    set_has_release_ownership();
+    which_.release_ownership_ = CreateMaybeMessage< ::inhumate::rti::proto::EntityOperation_EntityClient >(
+        GetArenaNoVirtual());
+  }
+  return which_.release_ownership_;
+}
+inline ::inhumate::rti::proto::EntityOperation_EntityClient* EntityOperation::mutable_release_ownership() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.EntityOperation.release_ownership)
+  return _internal_mutable_release_ownership();
+}
+
+inline bool EntityOperation::has_which() const {
+  return which_case() != WHICH_NOT_SET;
+}
+inline void EntityOperation::clear_has_which() {
+  _oneof_case_[0] = WHICH_NOT_SET;
+}
+inline EntityOperation::WhichCase EntityOperation::which_case() const {
+  return EntityOperation::WhichCase(_oneof_case_[0]);
 }
 #ifdef __GNUC__
   #pragma GCC diagnostic pop

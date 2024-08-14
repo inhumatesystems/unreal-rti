@@ -1,67 +1,67 @@
-#include "RTIInjectionBaseComponent.h"
+#include "RTIInjectionBehaviourComponent.h"
 #include "RTIInjectableComponent.h"
 
-URTIInjectionBaseComponent::URTIInjectionBaseComponent(const FObjectInitializer& init)
+URTIInjectionBehaviourComponent::URTIInjectionBehaviourComponent(const FObjectInitializer& init)
 {
     Running = false;
 }
 
-URTIInjectionBaseComponent::URTIInjectionBaseComponent()
+URTIInjectionBehaviourComponent::URTIInjectionBehaviourComponent()
 {
     Running = false;
 }
 
-bool URTIInjectionBaseComponent::Disable_Implementation()
+bool URTIInjectionBehaviourComponent::Disable_Implementation()
 {
     return true;
 }
 
-bool URTIInjectionBaseComponent::Enable_Implementation()
+bool URTIInjectionBehaviourComponent::Enable_Implementation()
 {
     return true;
 }
 
-bool URTIInjectionBaseComponent::Start_Implementation()
+bool URTIInjectionBehaviourComponent::Start_Implementation()
 {
     return Begin();
 }
 
-bool URTIInjectionBaseComponent::Stop_Implementation()
+bool URTIInjectionBehaviourComponent::Stop_Implementation()
 {
     return End();
 }
 
-bool URTIInjectionBaseComponent::Cancel_Implementation()
+bool URTIInjectionBehaviourComponent::Cancel_Implementation()
 {
     if (Running) End();
     return Disable();
 }
 
-void URTIInjectionBaseComponent::Schedule_Implementation()
+void URTIInjectionBehaviourComponent::Schedule_Implementation()
 {
 }
 
-bool URTIInjectionBaseComponent::Begin_Implementation() {
+bool URTIInjectionBehaviourComponent::Begin_Implementation() {
     Running = true;
     return true;
 }
 
-bool URTIInjectionBaseComponent::End_Implementation() {
+bool URTIInjectionBehaviourComponent::End_Implementation() {
     Running = false;
     return true;
 }
 
-EInjectionState URTIInjectionBaseComponent::GetState() const
+EInjectionState URTIInjectionBehaviourComponent::GetState() const
 {
     return GetInjection() != nullptr ? GetInjection()->State : EInjectionState::UNKNOWN;
 }
 
-FString URTIInjectionBaseComponent::GetTitle() const
+FString URTIInjectionBehaviourComponent::GetTitle() const
 {
     return GetInjection() != nullptr ? GetInjection()->Title : TEXT("");
 }
 
-void URTIInjectionBaseComponent::SetTitle(const FString& Title)
+void URTIInjectionBehaviourComponent::SetTitle(const FString& Title)
 {
     auto Injection = GetInjection();
     if (Injection == nullptr) return;
@@ -69,13 +69,13 @@ void URTIInjectionBaseComponent::SetTitle(const FString& Title)
     Publish();
 }
 
-void URTIInjectionBaseComponent::Inject(FInjection& Injection, class URTIInjectableComponent* injectable)
+void URTIInjectionBehaviourComponent::Inject(FInjection& Injection, class URTIInjectableComponent* injectable)
 {
     InjectionId = FString(Injection.Id);
     Injectable = injectable;
 }
 
-void URTIInjectionBaseComponent::Publish()
+void URTIInjectionBehaviourComponent::Publish()
 {
     auto Injection = GetInjection();
     if (Injection == nullptr) return;
@@ -99,12 +99,12 @@ void URTIInjectionBaseComponent::Publish()
     rti->Publish(inhumate::rti::INJECTION_CHANNEL, ProtoInjection);
 }
 
-FInjection* URTIInjectionBaseComponent::GetInjection() const {
+FInjection* URTIInjectionBehaviourComponent::GetInjection() const {
     if (Injectable != nullptr) return Injectable->GetInjection(InjectionId);
     return nullptr;
 }
 
-FString URTIInjectionBaseComponent::GetParameterValue(const FString& ParameterName) {
+FString URTIInjectionBehaviourComponent::GetParameterValue(const FString& ParameterName) {
     auto injection = GetInjection();
     if (injection != nullptr && injection->ParameterValues.Contains(ParameterName)) {
         return FString(injection->ParameterValues[ParameterName]);

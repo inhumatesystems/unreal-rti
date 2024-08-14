@@ -72,56 +72,38 @@ void ARTISpawnerActor::Tick(float DeltaTime)
     if (!Subscribed) Subscribe();
 }
 
-void ARTISpawnerActor::OnEntityOperation(const std::string &channelName, const inhumate::rti::proto::EntityOperation &message)
+void ARTISpawnerActor::OnEntity(const std::string &channelName, const inhumate::rti::proto::Entity &message)
 {
     auto subsystem = GetSubsystem();
     FString Id = FString(message.id().c_str());
     URTIEntityComponent *entity = subsystem->GetEntityById(Id);
-    switch (message.operation_case()) {
-    case inhumate::rti::proto::EntityOperation::OperationCase::kCreate: {
-        if (entity) {
-            if (!entity->Owned && !entity->Persistent) UE_LOG(LogRTI, Warning, TEXT("Already created entity %s"), *Id);
-        } else {
-            CreateEntity(message);
-        }
-        break;
-    }
-    case inhumate::rti::proto::EntityOperation::OperationCase::kDestroy: {
-        if (entity) {
-            entity->Created = false;
-            subsystem->UnregisterEntity(entity);
-            DestroyActorForEntity(entity->GetOwner(), entity);
-        } else if (subsystem->GetState() == ERuntimeState::RUNNING) {
-            UE_LOG(LogRTI, Warning, TEXT("Destroy unknown entity %s"), *Id);
-        }
-        break;
-    }
-    case inhumate::rti::proto::EntityOperation::OperationCase::kUpdate: {
-        if (entity) {
-            if (!entity->Owned) {
+    if (entity != nullptr) {
+        if (!entity->Persistent && !entity->Owned) {
+            if (message.deleted()) {
+                entity->Deleted = true;
+                subsystem->UnregisterEntity(entity);
+                DestroyActorForEntity(entity->GetOwner(), entity);
+            } else {
                 UE_LOG(LogRTI, Log, TEXT("Update entity %s"), *Id);
-                entity->SetPropertiesFromEntityData(message.update());
+                entity->SetPropertiesFromEntityData(message);
                 entity->UpdatedEvent.Broadcast();
             }
-        } else {
-            CreateEntity(message);
         }
-        break;
-    }
+    } else if (!message.deleted()) {
+        CreateEntity(message);
     }
 }
 
-void ARTISpawnerActor::CreateEntity(const inhumate::rti::proto::EntityOperation &message)
+void ARTISpawnerActor::CreateEntity(const inhumate::rti::proto::Entity &entity)
 {
-    FString Id = FString(message.id().c_str());
-    auto data = message.has_create() ? message.create() : message.update();
-    FString Type = FString(data.type().c_str());
+    FString Id = FString(entity.id().c_str());
+    FString Type = FString(entity.type().c_str());
 
     FVector Location = GetActorLocation();
     FRotator Rotation = GetActorRotation();
-    if (data.has_position()) {
-        Location = URTIPositionComponent::GetMessageLocation(data.position(), GetWorld());
-        Rotation = URTIPositionComponent::GetMessageRotation(data.position(), GetWorld());
+    if (entity.has_position()) {
+        Location = URTIPositionComponent::GetMessageLocation(entity.position(), GetWorld());
+        Rotation = URTIPositionComponent::GetMessageRotation(entity.position(), GetWorld());
     }
     AActor *Actor = SpawnActorForEntity(Id, Type, Location, Rotation);
     if (Actor == nullptr) return;
@@ -131,26 +113,26 @@ void ARTISpawnerActor::CreateEntity(const inhumate::rti::proto::EntityOperation 
     Cast<URTIEntityComponent>(Actor->GetComponentByClass(URTIEntityComponent::StaticClass()));
     if (EntityComponent) {
         EntityComponent->Id = Id;
-        EntityComponent->SetPropertiesFromEntityData(data);
-        EntityComponent->Created = true;
+        EntityComponent->SetPropertiesFromEntityData(entity);
+        EntityComponent->Published = true;
         auto rti = RTI();
-        EntityComponent->Owned = message.client_id() == rti->client_id();
-        EntityComponent->OwnerClientId = FString(message.client_id().c_str());
+        EntityComponent->Owned = entity.owner_client_id() == rti->client_id();
+        EntityComponent->OwnerClientId = FString(entity.owner_client_id().c_str());
         // Actor->Rename(*(Type + TEXT(" ") + Id));
         // This would be nice but crashes the engine when playing via Play > Standalone Game in the
         // editor menu #if WITH_EDITOR
         //             Actor->SetActorLabel(*(Type + TEXT(" ") + Id));
         // #endif
 
-        TArray<URTIEntityBaseComponent *> Components;
-        Actor->GetComponents<URTIEntityBaseComponent>(Components, true);
-        for (URTIEntityBaseComponent *Component : Components) {
+        TArray<URTIEntityStateComponent *> Components;
+        Actor->GetComponents<URTIEntityStateComponent>(Components, true);
+        for (URTIEntityStateComponent *Component : Components) {
             Component->Initialize();
         }
-        if (data.has_position()) {
+        if (entity.has_position()) {
             URTIPositionComponent *PositionComponent =
             Cast<URTIPositionComponent>(Actor->GetComponentByClass(URTIPositionComponent::StaticClass()));
-            if (PositionComponent) PositionComponent->ReceivePosition(data.position(), true);
+            if (PositionComponent) PositionComponent->ReceivePosition(entity.position(), true);
         }
         GetSubsystem()->RegisterEntity(EntityComponent);
         EntityComponent->CreatedEvent.Broadcast();
@@ -184,13 +166,12 @@ void ARTISpawnerActor::Subscribe()
 {
     auto rti = RTI();
     if (rti && rti->connected()) {
-        std::function<void(const std::string &, const inhumate::rti::proto::EntityOperation &)> callback =
-        std::bind(&ARTISpawnerActor::OnEntityOperation, this, _1, _2);
+        std::function<void(const std::string &, const inhumate::rti::proto::Entity &)> callback = std::bind(&ARTISpawnerActor::OnEntity, this, _1, _2);
         subscription = rti->Subscribe(inhumate::rti::ENTITY_CHANNEL, callback);
         if (RequestUpdatesOnStart) {
             inhumate::rti::proto::EntityOperation message;
             message.set_allocated_request_update(new google::protobuf::Empty());
-            rti->Publish(inhumate::rti::ENTITY_CHANNEL, message);
+            rti->Publish(inhumate::rti::ENTITY_OPERATION_CHANNEL, message);
         }
         Subscribed = true;
     }

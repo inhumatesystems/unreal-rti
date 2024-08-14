@@ -61,6 +61,7 @@ namespace proto {
 
 enum RuntimeState : int {
   UNKNOWN = 0,
+  INACTIVE = 1,
   LAUNCHING = 5,
   LAUNCHED = 6,
   INITIAL = 10,

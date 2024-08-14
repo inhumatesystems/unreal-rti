@@ -13,14 +13,16 @@ void URTIEntityGeometryComponent::InitializeComponent()
     Id = EntityType;
 }
 
-void URTIEntityGeometryComponent::FillGeometryData(inhumate::rti::proto::GeometryOperation_Geometry *data)
+void URTIEntityGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometry& data)
 {
-    data->set_usage(inhumate::rti::proto::GeometryOperation::Usage::GeometryOperation_Usage_ENTITY);
-    data->set_scalable(ScaleToEntityDimensions);
-    data->set_allocated_color(UEToRTIColor(Color));
-    data->set_transparency(1 - Opacity);
-    data->set_allocated_label_color(UEToRTIColor(LabelColor));
-    data->set_label_transparency(1 - LabelOpacity);
+    data.set_id(TCHAR_TO_UTF8(*Id));
+    if (GetSubsystem() && GetSubsystem()->RTI()) data.set_owner_client_id(GetSubsystem()->RTI()->client_id());
+    data.set_usage(inhumate::rti::proto::Geometry::Usage::Geometry_Usage_ENTITY);
+    data.set_scalable(ScaleToEntityDimensions);
+    data.set_allocated_color(UEToRTIColor(Color));
+    data.set_transparency(1 - Opacity);
+    data.set_allocated_label_color(UEToRTIColor(LabelColor));
+    data.set_label_transparency(1 - LabelOpacity);
 
     auto UseShape = Shape;
     if (UseShape == EEntityGeometryShape::AUTO && StaticMesh != nullptr) {
@@ -41,18 +43,18 @@ void URTIEntityGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
     }
     switch (UseShape) {
     case EEntityGeometryShape::POINT3D:
-        data->set_allocated_point3d(CreatePoint3D(GetOwner()->GetActorLocation()));
+        data.set_allocated_point3d(CreatePoint3D(GetOwner()->GetActorLocation()));
         break;
     case EEntityGeometryShape::MESH: {
         bool found = false;
         if (StaticMesh != nullptr) {
-            data->set_allocated_mesh(CreateMesh(StaticMesh));
+            data.set_allocated_mesh(CreateMesh(StaticMesh));
             found = true;
         } else {
             TArray<UStaticMeshComponent *> MeshComponents;
             GetComponents<UStaticMeshComponent>(MeshComponents);
             if (MeshComponents.Num() > 0) {
-                data->set_allocated_mesh(CreateMesh(MeshComponents, true));
+                data.set_allocated_mesh(CreateMesh(MeshComponents, true));
                 found = true;
             }
         }
@@ -65,7 +67,7 @@ void URTIEntityGeometryComponent::FillGeometryData(inhumate::rti::proto::Geometr
         TArray<UShapeComponent *> ShapeComponents;
         GetComponents<UShapeComponent>(ShapeComponents, true);
         if (ShapeComponents.Num() > 0) {
-            data->set_allocated_mesh(CreateMeshFromCollision(ShapeComponents));
+            data.set_allocated_mesh(CreateMeshFromCollision(ShapeComponents));
         } else {
             UE_LOG(LogRTI, Warning, TEXT("Can't create mesh geometry - no shapes"));
         }

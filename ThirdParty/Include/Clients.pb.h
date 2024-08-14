@@ -487,6 +487,7 @@ class INHUMATE_RTI_PROTOS_EXPORT Client :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kCapabilitiesFieldNumber = 17,
     kIdFieldNumber = 1,
     kApplicationFieldNumber = 2,
     kHostFieldNumber = 5,
@@ -502,9 +503,31 @@ class INHUMATE_RTI_PROTOS_EXPORT Client :
     kUserAgentFieldNumber = 15,
     kIntegrationVersionFieldNumber = 16,
     kStateFieldNumber = 3,
-    kPassiveFieldNumber = 4,
-    kInactiveFieldNumber = 17,
   };
+  // repeated string capabilities = 17;
+  int capabilities_size() const;
+  private:
+  int _internal_capabilities_size() const;
+  public:
+  void clear_capabilities();
+  const std::string& capabilities(int index) const;
+  std::string* mutable_capabilities(int index);
+  void set_capabilities(int index, const std::string& value);
+  void set_capabilities(int index, std::string&& value);
+  void set_capabilities(int index, const char* value);
+  void set_capabilities(int index, const char* value, size_t size);
+  std::string* add_capabilities();
+  void add_capabilities(const std::string& value);
+  void add_capabilities(std::string&& value);
+  void add_capabilities(const char* value);
+  void add_capabilities(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& capabilities() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_capabilities();
+  private:
+  const std::string& _internal_capabilities(int index) const;
+  std::string* _internal_add_capabilities();
+  public:
+
   // string id = 1;
   void clear_id();
   const std::string& id() const;
@@ -738,29 +761,12 @@ class INHUMATE_RTI_PROTOS_EXPORT Client :
   void _internal_set_state(::inhumate::rti::proto::RuntimeState value);
   public:
 
-  // bool passive = 4;
-  void clear_passive();
-  bool passive() const;
-  void set_passive(bool value);
-  private:
-  bool _internal_passive() const;
-  void _internal_set_passive(bool value);
-  public:
-
-  // bool inactive = 17;
-  void clear_inactive();
-  bool inactive() const;
-  void set_inactive(bool value);
-  private:
-  bool _internal_inactive() const;
-  void _internal_set_inactive(bool value);
-  public:
-
   // @@protoc_insertion_point(class_scope:inhumate.rti.proto.Client)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> capabilities_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr application_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr host_;
@@ -776,8 +782,6 @@ class INHUMATE_RTI_PROTOS_EXPORT Client :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_agent_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr integration_version_;
   int state_;
-  bool passive_;
-  bool inactive_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Clients_2eproto;
 };
@@ -2166,26 +2170,6 @@ inline void Client::set_state(::inhumate::rti::proto::RuntimeState value) {
   // @@protoc_insertion_point(field_set:inhumate.rti.proto.Client.state)
 }
 
-// bool passive = 4;
-inline void Client::clear_passive() {
-  passive_ = false;
-}
-inline bool Client::_internal_passive() const {
-  return passive_;
-}
-inline bool Client::passive() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Client.passive)
-  return _internal_passive();
-}
-inline void Client::_internal_set_passive(bool value) {
-  
-  passive_ = value;
-}
-inline void Client::set_passive(bool value) {
-  _internal_set_passive(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Client.passive)
-}
-
 // string host = 5;
 inline void Client::clear_host() {
   host_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -2906,24 +2890,78 @@ inline void Client::set_allocated_integration_version(std::string* integration_v
   // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.Client.integration_version)
 }
 
-// bool inactive = 17;
-inline void Client::clear_inactive() {
-  inactive_ = false;
+// repeated string capabilities = 17;
+inline int Client::_internal_capabilities_size() const {
+  return capabilities_.size();
 }
-inline bool Client::_internal_inactive() const {
-  return inactive_;
+inline int Client::capabilities_size() const {
+  return _internal_capabilities_size();
 }
-inline bool Client::inactive() const {
-  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Client.inactive)
-  return _internal_inactive();
+inline void Client::clear_capabilities() {
+  capabilities_.Clear();
 }
-inline void Client::_internal_set_inactive(bool value) {
-  
-  inactive_ = value;
+inline std::string* Client::add_capabilities() {
+  // @@protoc_insertion_point(field_add_mutable:inhumate.rti.proto.Client.capabilities)
+  return _internal_add_capabilities();
 }
-inline void Client::set_inactive(bool value) {
-  _internal_set_inactive(value);
-  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Client.inactive)
+inline const std::string& Client::_internal_capabilities(int index) const {
+  return capabilities_.Get(index);
+}
+inline const std::string& Client::capabilities(int index) const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Client.capabilities)
+  return _internal_capabilities(index);
+}
+inline std::string* Client::mutable_capabilities(int index) {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.Client.capabilities)
+  return capabilities_.Mutable(index);
+}
+inline void Client::set_capabilities(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Client.capabilities)
+  capabilities_.Mutable(index)->assign(value);
+}
+inline void Client::set_capabilities(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Client.capabilities)
+  capabilities_.Mutable(index)->assign(std::move(value));
+}
+inline void Client::set_capabilities(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  capabilities_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.Client.capabilities)
+}
+inline void Client::set_capabilities(int index, const char* value, size_t size) {
+  capabilities_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.Client.capabilities)
+}
+inline std::string* Client::_internal_add_capabilities() {
+  return capabilities_.Add();
+}
+inline void Client::add_capabilities(const std::string& value) {
+  capabilities_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:inhumate.rti.proto.Client.capabilities)
+}
+inline void Client::add_capabilities(std::string&& value) {
+  capabilities_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:inhumate.rti.proto.Client.capabilities)
+}
+inline void Client::add_capabilities(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  capabilities_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:inhumate.rti.proto.Client.capabilities)
+}
+inline void Client::add_capabilities(const char* value, size_t size) {
+  capabilities_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:inhumate.rti.proto.Client.capabilities)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Client::capabilities() const {
+  // @@protoc_insertion_point(field_list:inhumate.rti.proto.Client.capabilities)
+  return capabilities_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Client::mutable_capabilities() {
+  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.Client.capabilities)
+  return &capabilities_;
 }
 
 // -------------------------------------------------------------------

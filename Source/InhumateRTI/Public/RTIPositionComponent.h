@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "RTIEntityBaseComponent.h"
+#include "RTIEntityStateComponent.h"
 #include "RTISubsystem.h"
 
 #include "RTIPositionComponent.generated.h"
@@ -10,16 +10,20 @@
 // Publishes/subscribes to entity positions and updates actor location/rotation
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent), DisplayName="RTI Position")
-class INHUMATERTI_API URTIPositionComponent : public URTIEntityBaseComponent
+class INHUMATERTI_API URTIPositionComponent : public URTIEntityStateComponent
 {
 	GENERATED_BODY()
 
 public:
     URTIPositionComponent();
 
-    // Interval (in seconds) between published position updates
+    // Minimum interval (in seconds) between published position updates
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
-    float UpdateInterval;
+    float MinPublishInterval;
+
+    // Maximum interval (in seconds) between published position updates
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
+    float MaxPublishInterval;
 
     // Minimum distance (in cm) to move to publish update
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")

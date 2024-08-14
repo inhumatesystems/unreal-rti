@@ -71,13 +71,6 @@ class INHUMATERTI_API URTIStaticGeometryComponent : public URTIGeometryComponent
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RTI")
     float LineWidth = 1.f;
 
-    // If checked, geometry is not rendered initially.
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "RTI")
-    bool Hidden;
-
-    UFUNCTION(BlueprintCallable, Category = "RTI")
-    void SetHidden(bool bHidden);
-
     UFUNCTION(BlueprintCallable, Category = "RTI")
     void SetColor(const FColor &NewColor);
 
@@ -88,7 +81,6 @@ class INHUMATERTI_API URTIStaticGeometryComponent : public URTIGeometryComponent
     protected:
     virtual void BeginPlay() override;
     void InitializeComponent();
-    virtual void FillGeometryData(inhumate::rti::proto::GeometryOperation_Geometry *data) override;
+    virtual void FillGeometryData(inhumate::rti::proto::Geometry& data) override;
 
-    bool PublishedHidden;
 };

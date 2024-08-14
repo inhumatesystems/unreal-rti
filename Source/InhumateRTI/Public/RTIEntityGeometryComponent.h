@@ -57,5 +57,5 @@ class INHUMATERTI_API URTIEntityGeometryComponent : public URTIGeometryComponent
 
     protected:
     virtual void InitializeComponent() override;
-    virtual void FillGeometryData(inhumate::rti::proto::GeometryOperation_Geometry *data) override;
+    virtual void FillGeometryData(inhumate::rti::proto::Geometry& data) override;
 };

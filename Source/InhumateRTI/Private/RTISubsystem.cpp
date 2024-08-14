@@ -6,7 +6,7 @@
 #include "Misc/CommandLine.h"
 #include "Misc/ConfigCacheIni.h"
 #include "RTIEntityComponent.h"
-#include "RTIEntityBaseComponent.h"
+#include "RTIEntityStateComponent.h"
 #include "RTIGeometryComponent.h"
 #include "RTIInjectableComponent.h"
 #include "RTISettings.h"
@@ -406,6 +406,9 @@ inhumate::rti::RTIClient *URTISubsystem::RTI()
         if (FString(inhumate::rti::UNREAL_INTEGRATION_VERSION) != "0.0.1-dev-version") {
             rti->set_integration_version(inhumate::rti::UNREAL_INTEGRATION_VERSION);
         }
+        rti->add_capability(inhumate::rti::RUNTIME_CONTROL_CAPABILITY);
+        rti->add_capability(inhumate::rti::SCENARIO_CAPABILITY);
+        rti->add_capability(inhumate::rti::TIME_SCALE_CAPABILITY);
 
         std::function<void(const std::string&, const inhumate::rti::proto::RuntimeControl&)> onRuntimeControl = std::bind(&URTISubsystem::OnRuntimeControl, this, _1, _2);
         rti->Subscribe(inhumate::rti::CONTROL_CHANNEL, onRuntimeControl);
@@ -417,29 +420,43 @@ inhumate::rti::RTIClient *URTISubsystem::RTI()
 
         inhumate::rti::proto::Channel entityChannel;
         entityChannel.set_name(inhumate::rti::ENTITY_CHANNEL);
-        entityChannel.set_data_type("EntityOperation");
+        entityChannel.set_data_type("Entity");
         entityChannel.set_first_field_id(true);
+        entityChannel.set_state(true);
         rti->RegisterChannel(entityChannel);
+        std::function<void(const std::string &, const inhumate::rti::proto::Entity&)> onEntity = std::bind(&URTISubsystem::OnEntity, this, _1, _2);
+        rti->Subscribe(inhumate::rti::ENTITY_CHANNEL, onEntity);
+        inhumate::rti::proto::Channel entityOperationChannel;
+        entityOperationChannel.set_name(inhumate::rti::ENTITY_OPERATION_CHANNEL);
+        entityOperationChannel.set_data_type("EntityOperation");
+        entityOperationChannel.set_ephemeral(true);
+        rti->RegisterChannel(entityOperationChannel);
         std::function<void(const std::string &, const inhumate::rti::proto::EntityOperation &)> onEntityOperation = std::bind(&URTISubsystem::OnEntityOperation, this, _1, _2);
-        rti->Subscribe(inhumate::rti::ENTITY_CHANNEL, onEntityOperation);
+        rti->Subscribe(inhumate::rti::ENTITY_OPERATION_CHANNEL, onEntityOperation);
 
         inhumate::rti::proto::Channel geometryChannel;
         geometryChannel.set_name(inhumate::rti::GEOMETRY_CHANNEL);
-        geometryChannel.set_data_type("EntityOperation");
+        geometryChannel.set_data_type("Geometry");
         geometryChannel.set_first_field_id(true);
+        geometryChannel.set_state(true);
         rti->RegisterChannel(geometryChannel);
-        std::function<void(const std::string&, const inhumate::rti::proto::GeometryOperation&)> onGeometryOperation = std::bind(&URTISubsystem::OnGeometryOperation, this, _1, _2);
-        rti->Subscribe(inhumate::rti::GEOMETRY_CHANNEL, onGeometryOperation);
+        inhumate::rti::proto::Channel geometryOperationChannel;
+        geometryOperationChannel.set_name(inhumate::rti::GEOMETRY_OPERATION_CHANNEL);
+        geometryOperationChannel.set_data_type("GeometryOperation");
+        geometryOperationChannel.set_ephemeral(true);
+        rti->RegisterChannel(geometryOperationChannel);
+        std::function<void(const std::string &, const inhumate::rti::proto::GeometryOperation &)> onGeometryOperation = std::bind(&URTISubsystem::OnGeometryOperation, this, _1, _2);
+        rti->Subscribe(inhumate::rti::GEOMETRY_OPERATION_CHANNEL, onGeometryOperation);
 
-        std::function<void(const std::string&, const inhumate::rti::proto::Injectables&)> onInjectables = std::bind(&URTISubsystem::OnInjectables, this, _1, _2);
-        rti->Subscribe(inhumate::rti::INJECTABLES_CHANNEL, onInjectables);
+        std::function<void(const std::string&, const inhumate::rti::proto::InjectableOperation&)> onInjectableOperation = std::bind(&URTISubsystem::OnInjectableOperation, this, _1, _2);
+        rti->Subscribe(inhumate::rti::INJECTABLE_OPERATION_CHANNEL, onInjectableOperation);
         std::function<void(const std::string&, const inhumate::rti::proto::InjectionOperation&)> onInjectionOperation = std::bind(&URTISubsystem::OnInjectionOperation, this, _1, _2);
         rti->Subscribe(inhumate::rti::INJECTION_OPERATION_CHANNEL, onInjectionOperation);
         inhumate::rti::proto::Channel injectionChannel;
         injectionChannel.set_name(inhumate::rti::INJECTION_CHANNEL);
         injectionChannel.set_data_type("Injection");
         injectionChannel.set_first_field_id(true);
-        injectionChannel.set_stateless(true);
+        injectionChannel.set_state(true);
         rti->RegisterChannel(injectionChannel);
 
         std::function<void(const std::string&, const std::string&)> onClientDisconnect = std::bind(&URTISubsystem::OnClientDisconnect, this, _1, _2);        
@@ -469,7 +486,7 @@ inhumate::rti::RTIClient *URTISubsystem::RTI()
             UE_LOG(LogRTI, Error, TEXT("RTI error %s %s"), *Channel, *Error);
             ErrorEvent.Broadcast(Channel, Error);
         });
-        URTIEntityBaseComponent::ResetSubscriptions();
+        URTIEntityStateComponent::ResetSubscriptions();
         if (AutoConnect) Connect();
     }
     return rti.Get();
@@ -789,69 +806,85 @@ void URTISubsystem::OnScenarios(const std::string &channelName, const inhumate::
     }
 }
 
+void URTISubsystem::OnEntity(const std::string& channelName, const inhumate::rti::proto::Entity& message)
+{
+    FString Id = FString(message.id().c_str());
+    URTIEntityComponent *entity = GetEntityById(Id);
+    if (entity != nullptr && entity->Persistent && !entity->Owned) {
+        if (message.deleted()) {
+            UE_LOG(LogRTI, Warning, TEXT("Destroy deleted persistent entity %s"), *Id);
+            entity->Deleted = true;
+            UnregisterEntity(entity);
+            entity->GetOwner()->Destroy();
+        } else {
+            UE_LOG(LogRTI, Warning, TEXT("Update persistent entity %s"), *Id);
+            entity->SetPropertiesFromEntityData(message);
+            entity->UpdatedEvent.Broadcast();
+        }
+    }
+}
+
+
 void URTISubsystem::OnEntityOperation(const std::string &channelName, const inhumate::rti::proto::EntityOperation &message)
 {
-    switch (message.operation_case()) {
-    case inhumate::rti::proto::EntityOperation::OperationCase::kRequestUpdate: {
-        FString Id = FString(message.id().c_str());
-        if (!Id.IsEmpty()) {
-            auto entity = GetEntityById(Id);
-            if (entity) entity->RequestUpdate();
-        } else {
-            UE_LOG(LogRTI, Log, TEXT("Entity updates requested"));
-            for (auto &it : GetEntities()) {
-                auto entity = it.Value;
-                if (entity->IsPublishing()) entity->RequestUpdate();
-            }
+    switch (message.which_case()) {
+    case inhumate::rti::proto::EntityOperation::WhichCase::kRequestUpdate: {
+        UE_LOG(LogRTI, Log, TEXT("Entity updates requested"));
+        for (auto &it : GetEntities()) {
+            auto entity = it.Value;
+            if (entity->IsPublishing()) entity->RequestUpdate();
         }
         break;
     }
-    case inhumate::rti::proto::EntityOperation::OperationCase::kTransferOwnership: {
-        FString Id = FString(message.id().c_str());
+    case inhumate::rti::proto::EntityOperation::WhichCase::kTransferOwnership: {
+        FString Id = FString(message.transfer_ownership().entity_id().c_str());
         auto entity = GetEntityById(Id);
         if (entity != nullptr) {
-            FString TransferToId = FString(message.transfer_ownership().c_str());
+            FString TransferToId = FString(message.transfer_ownership().entity_id().c_str());
             if (entity->Owned && entity->OwnerClientId == ClientId() && TransferToId != ClientId()) {
                 entity->Owned = false;
                 entity->OwnerClientId = TransferToId;
                 inhumate::rti::proto::EntityOperation opMessage;
-                opMessage.set_id(TCHAR_TO_UTF8(*Id));
-                opMessage.set_client_id(TCHAR_TO_UTF8(*ClientId()));
-                opMessage.set_allocated_release_ownership(new google::protobuf::Empty());
-                rti->Publish(inhumate::rti::ENTITY_CHANNEL, opMessage);
+                auto release = new inhumate::rti::proto::EntityOperation_EntityClient();
+                release->set_entity_id(TCHAR_TO_UTF8(*Id));
+                release->set_client_id(TCHAR_TO_UTF8(*ClientId()));
+                opMessage.set_allocated_release_ownership(release);
+                rti->Publish(inhumate::rti::ENTITY_OPERATION_CHANNEL, opMessage);
             } else if (!entity->Owned && entity->OwnerClientId != ClientId() && TransferToId == ClientId()) {
                 entity->Owned = true;
                 entity->OwnerClientId = ClientId();
                 inhumate::rti::proto::EntityOperation opMessage;
-                opMessage.set_id(TCHAR_TO_UTF8(*Id));
-                opMessage.set_client_id(TCHAR_TO_UTF8(*ClientId()));
-                opMessage.set_allocated_assume_ownership(new google::protobuf::Empty());
-                rti->Publish(inhumate::rti::ENTITY_CHANNEL, opMessage);
+                auto assume = new inhumate::rti::proto::EntityOperation_EntityClient();
+                assume->set_entity_id(TCHAR_TO_UTF8(*Id));
+                assume->set_client_id(TCHAR_TO_UTF8(*ClientId()));
+                opMessage.set_allocated_assume_ownership(assume);
+                rti->Publish(inhumate::rti::ENTITY_OPERATION_CHANNEL, opMessage);
             } else if (entity->Owned) {
                 UE_LOG(LogRTI, Warning, TEXT("Weird ownership transfer of owned entity %s to %s"), *Id, *TransferToId);
             }
         }
         break;
     }
-    case inhumate::rti::proto::EntityOperation::OperationCase::kAssumeOwnership: {
-        FString Id = FString(message.id().c_str());
-        FString AssumingId = FString(message.client_id().c_str());
+    case inhumate::rti::proto::EntityOperation::WhichCase::kAssumeOwnership: {
+        FString Id = FString(message.assume_ownership().entity_id().c_str());
+        FString AssumingId = FString(message.assume_ownership().client_id().c_str());
         auto entity = GetEntityById(Id);
         if (entity != nullptr && entity->Owned && AssumingId != ClientId()) {
             entity->Owned = false;
             entity->OwnerClientId = AssumingId;
             inhumate::rti::proto::EntityOperation opMessage;
-            opMessage.set_id(TCHAR_TO_UTF8(*Id));
-            opMessage.set_client_id(TCHAR_TO_UTF8(*ClientId()));
-            opMessage.set_allocated_release_ownership(new google::protobuf::Empty());
-            rti->Publish(inhumate::rti::ENTITY_CHANNEL, opMessage);
+            auto release = new inhumate::rti::proto::EntityOperation_EntityClient();
+            release->set_entity_id(TCHAR_TO_UTF8(*Id));
+            release->set_client_id(TCHAR_TO_UTF8(*ClientId()));
+            opMessage.set_allocated_release_ownership(release);
+            rti->Publish(inhumate::rti::ENTITY_OPERATION_CHANNEL, opMessage);
             entity->LastOwnershipChangeTime = GetWorld()->GetTimeSeconds();
         }
         break;
     }
-    case inhumate::rti::proto::EntityOperation::OperationCase::kReleaseOwnership: {
-        FString Id = FString(message.id().c_str());
-        FString ReleasingId = FString(message.client_id().c_str());
+    case inhumate::rti::proto::EntityOperation::WhichCase::kReleaseOwnership: {
+        FString Id = FString(message.release_ownership().entity_id().c_str());
+        FString ReleasingId = FString(message.release_ownership().client_id().c_str());
         auto entity = GetEntityById(Id);
         if (entity != nullptr) {
             if (entity->OwnerClientId == ReleasingId) {
@@ -862,15 +895,15 @@ void URTISubsystem::OnEntityOperation(const std::string &channelName, const inhu
         }
         break;
     }
-    case inhumate::rti::proto::EntityOperation::OperationCase::kRequestPersistentOwnership: {
-        if (IsPersistentEntityOwner() && message.id() == rti->application()) {
+    case inhumate::rti::proto::EntityOperation::WhichCase::kRequestPersistentOwnership: {
+        if (IsPersistentEntityOwner() && message.request_persistent_ownership().application() == rti->application()) {
             PublishClaimPersistentEntityOwnership();
         }
         break;
     }
-    case inhumate::rti::proto::EntityOperation::OperationCase::kClaimPersistentOwnership: {
-        if (message.id() == rti->application()) {
-            PersistentEntityOwnerClientId = FString(message.client_id().c_str());
+    case inhumate::rti::proto::EntityOperation::WhichCase::kClaimPersistentOwnership: {
+        if (message.claim_persistent_ownership().application() == rti->application()) {
+            PersistentEntityOwnerClientId = FString(message.claim_persistent_ownership().client_id().c_str());
         }
         break;
     }
@@ -879,40 +912,34 @@ void URTISubsystem::OnEntityOperation(const std::string &channelName, const inhu
 
 void URTISubsystem::OnGeometryOperation(const std::string &channelName, const inhumate::rti::proto::GeometryOperation &message)
 {
-    switch (message.operation_case()) {
-    case inhumate::rti::proto::GeometryOperation::OperationCase::kRequestUpdate: {
-        FString Id = FString(message.id().c_str());
-        if (!Id.IsEmpty()) {
-            auto geometry = GetGeometryById(Id);
-            if (geometry) geometry->RequestUpdate();
-        } else {
-            UE_LOG(LogRTI, Log, TEXT("Geometry updates requested"));
-            for (auto &it : GetGeometries()) {
-                auto geometry = it.Value;
-                geometry->RequestUpdate();
-            }
+    switch (message.which_case()) {
+    case inhumate::rti::proto::GeometryOperation::WhichCase::kRequestUpdate: {
+        UE_LOG(LogRTI, Log, TEXT("Geometry updates requested"));
+        for (auto &it : GetGeometries()) {
+            auto geometry = it.Value;
+            geometry->RequestUpdate();
         }
         break;
     }
-    case inhumate::rti::proto::GeometryOperation::OperationCase::kRequestPersistentOwnership: {
-        if (IsPersistentGeometryOwner() && message.id() == rti->application()) {
+    case inhumate::rti::proto::GeometryOperation::WhichCase::kRequestPersistentOwnership: {
+        if (IsPersistentGeometryOwner() && message.request_persistent_ownership().application() == rti->application()) {
             PublishClaimPersistentGeometryOwnership();
         }
         break;
     }
-    case inhumate::rti::proto::GeometryOperation::OperationCase::kClaimPersistentOwnership: {
-        if (message.id() == rti->application()) {
-            PersistentGeometryOwnerClientId = FString(message.client_id().c_str());
+    case inhumate::rti::proto::GeometryOperation::WhichCase::kClaimPersistentOwnership: {
+        if (message.claim_persistent_ownership().application() == rti->application()) {
+            PersistentGeometryOwnerClientId = FString(message.claim_persistent_ownership().client_id().c_str());
         }
         break;
     }
     }
 }
 
-void URTISubsystem::OnInjectables(const std::string &channelName, const inhumate::rti::proto::Injectables &message)
+void URTISubsystem::OnInjectableOperation(const std::string &channelName, const inhumate::rti::proto::InjectableOperation &message)
 {
     switch (message.which_case()) {
-    case inhumate::rti::proto::Injectables::WhichCase::kRequestInjectables: {
+    case inhumate::rti::proto::InjectableOperation::WhichCase::kRequestUpdate: {
         for (auto &it : GetInjectables()) {
             auto injectable = it.Value;
             injectable->Publish();
@@ -928,7 +955,7 @@ void URTISubsystem::OnInjectionOperation(const std::string &channelName, const i
     URTIInjectableComponent* injectable;
     FInjection* injection;
     switch (message.which_case()) {
-    case inhumate::rti::proto::InjectionOperation::WhichCase::kRequestInjections: {
+    case inhumate::rti::proto::InjectionOperation::WhichCase::kRequestUpdate: {
         for (auto pair : Injectables) {
             pair.Value->PublishInjections();
         }
@@ -1016,10 +1043,11 @@ void URTISubsystem::OnClientDisconnect(const std::string &channelName, const std
 void URTISubsystem::QueryPersistentGeometryOwner()
 {
     inhumate::rti::proto::GeometryOperation message;
-    message.set_id(rti->application());
-    message.set_client_id(rti->client_id());
-    message.set_allocated_request_persistent_ownership(new google::protobuf::Empty());
-    rti->Publish(inhumate::rti::GEOMETRY_CHANNEL, message);
+    auto request = new inhumate::rti::proto::GeometryOperation_ApplicationClient();
+    request->set_application(rti->application());
+    request->set_client_id(rti->client_id());
+    message.set_allocated_request_persistent_ownership(request);
+    rti->Publish(inhumate::rti::GEOMETRY_OPERATION_CHANNEL, message);
     RequestedGeometryOwnership = true;
     RequestGeometryOwnershipDateTime = FDateTime::UtcNow();
     ClaimGeometryOwnershipWaitTime = 0.2 + (double)rand() / RAND_MAX * 0.5;
@@ -1028,18 +1056,20 @@ void URTISubsystem::QueryPersistentGeometryOwner()
 void URTISubsystem::PublishClaimPersistentGeometryOwnership()
 {
     inhumate::rti::proto::GeometryOperation message;
-    message.set_id(rti->application());
-    message.set_client_id(rti->client_id());
-    message.set_allocated_claim_persistent_ownership(new google::protobuf::Empty());
-    rti->Publish(inhumate::rti::GEOMETRY_CHANNEL, message);
+    auto claim = new inhumate::rti::proto::GeometryOperation_ApplicationClient();
+    claim->set_application(rti->application());
+    claim->set_client_id(rti->client_id());
+    message.set_allocated_claim_persistent_ownership(claim);
+    rti->Publish(inhumate::rti::GEOMETRY_OPERATION_CHANNEL, message);
 }
 
 void URTISubsystem::QueryPersistentEntityOwner() {
     inhumate::rti::proto::EntityOperation message;
-    message.set_id(rti->application());
-    message.set_client_id(rti->client_id());
-    message.set_allocated_request_persistent_ownership(new google::protobuf::Empty());
-    rti->Publish(inhumate::rti::ENTITY_CHANNEL, message);
+    auto request = new inhumate::rti::proto::EntityOperation_ApplicationClient();
+    request->set_application(rti->application());
+    request->set_client_id(rti->client_id());
+    message.set_allocated_request_persistent_ownership(request);
+    rti->Publish(inhumate::rti::ENTITY_OPERATION_CHANNEL, message);
     RequestedEntityOwnership = true;
     RequestEntityOwnershipDateTime = FDateTime::UtcNow();
     ClaimEntityOwnershipWaitTime = 0.2 + (double)rand() / RAND_MAX * 0.5;
@@ -1048,10 +1078,11 @@ void URTISubsystem::QueryPersistentEntityOwner() {
 void URTISubsystem::PublishClaimPersistentEntityOwnership()
 {
     inhumate::rti::proto::EntityOperation message;
-    message.set_id(rti->application());
-    message.set_client_id(rti->client_id());
-    message.set_allocated_claim_persistent_ownership(new google::protobuf::Empty());
-    rti->Publish(inhumate::rti::ENTITY_CHANNEL, message);
+    auto claim = new inhumate::rti::proto::EntityOperation_ApplicationClient();
+    claim->set_application(rti->application());
+    claim->set_client_id(rti->client_id());
+    message.set_allocated_claim_persistent_ownership(claim);
+    rti->Publish(inhumate::rti::ENTITY_OPERATION_CHANNEL, message);
 }
 
 FRTIScenario* URTISubsystem::GetScenario(const FString& Name)
