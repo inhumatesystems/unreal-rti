@@ -1,0 +1,67 @@
+stages:
+  - build
+  - test
+  - package
+  - publish
+  - release
+
+default:
+  before_script:
+    - VERSION=${CI_COMMIT_TAG}
+    - "[ -z \"$VERSION\" ] && VERSION=0.0.${CI_PIPELINE_IID}"
+    - export VERSION
+
+
+# TODO build, at least on linux, for verification
+
+
+package:
+  stage: package
+  image: node:20-slim
+  only:
+    - tags
+    - /.*package$/
+    - /.*publish$/
+    - /.*release$/
+  script:
+    - apt-get update -qq && apt-get install -qq zip
+    - scripts/package.sh
+  artifacts:
+    paths:
+      - Build/inhumate*.zip
+    expire_in: 1 week
+
+
+publish:
+  stage: publish
+  needs:
+    - package
+  image: curlimages/curl:latest
+  only:
+    - tags
+    - /.*publish$/
+    - /.*release$/
+  script:
+    - |
+      packages_url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/plugin/${VERSION}"
+      for file in Build/inhumate*.zip ; do
+        filename=$(basename "$file")
+        curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file "$file" "$packages_url/$filename"
+      done
+
+
+release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  only:
+    - tags
+    - /.*release$/
+  script:
+    # NOTE: This fails if you first manually created a release in the Gitlab web app (sigh)
+    # see https://gitlab.com/gitlab-org/release-cli/-/issues/94
+    # On another NOTE: the links end up in the reverse order on the releases page.
+    - |
+      packages_url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/plugin/${VERSION}"
+      release-cli create --name "Version $VERSION" --tag-name $VERSION \
+        --assets-link "{\"name\":\"inhumate-rti-unreal-${VERSION}.zip\",\"url\":\"${packages_url}/inhumate-rti-unreal-${VERSION}.zip\"}" \
+        ;
