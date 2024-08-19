@@ -35,7 +35,7 @@ package:
 publish:
   stage: publish
   needs:
-    - package plugin
+    - package
   image: curlimages/curl:latest
   only:
     - tags
