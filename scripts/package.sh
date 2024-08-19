@@ -11,9 +11,9 @@ cd "$(dirname $0)/.."
 
 rm -rf Build
 mkdir -p Build/InhumateRTI
-cp -rfp InhumateRTI.uplugin Content Resources Source ThirdParty Build/InhumateRTI/
+cp -rfp InhumateRTI.uplugin Content Resources Source ThirdParty LICENSE.txt Build/InhumateRTI/
 cp -f README-Packaged.md Build/InhumateRTI/README.txt
-sed -i "s/0.0.1-dev-version/${VERSION}/g" Build/InhumateRTI/README.txt Build/InhumateRTI/Source/InhumateRTI/Public/RTISubsystem.h
+sed -i "s/0.0.1-dev-version/${VERSION}/g" Build/InhumateRTI/README.txt Build/InhumateRTI/InhumateRTI.uplugin Build/InhumateRTI/Source/InhumateRTI/Public/RTISubsystem.h
 
 cd Build
 zip -r $FILENAME *
