@@ -3,7 +3,7 @@
 	"Version": 1,
 	"VersionName": "0.0.1-dev-version",
 	"FriendlyName": "Inhumate RTI",
-	"Description": "Integration with Inhumate RTI",
+	"Description": "Inhumate RTI - Unreal Engine Integration Plugin",
 	"Category": "Other",
 	"CreatedBy": "Inhumate",
 	"CreatedByURL": "https://inhumatesystems.com",

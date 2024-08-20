@@ -12,8 +12,16 @@ default:
     - export VERSION
 
 
-# TODO build, at least on linux, for verification
-
+build:
+  stage: build
+  tags:
+    - linux
+  script:
+    - scripts/linux_build.sh
+  artifacts:
+    paths:
+      - Build/
+    expire_in: 1 week
 
 package:
   stage: package
