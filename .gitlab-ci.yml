@@ -51,7 +51,7 @@ publish:
     - /.*release$/
   script:
     - |
-      packages_url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/plugin/${VERSION}"
+      packages_url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/unreal-rti/${VERSION}"
       for file in Build/inhumate*.zip ; do
         filename=$(basename "$file")
         curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file "$file" "$packages_url/$filename"
@@ -69,7 +69,7 @@ release:
     # see https://gitlab.com/gitlab-org/release-cli/-/issues/94
     # On another NOTE: the links end up in the reverse order on the releases page.
     - |
-      packages_url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/plugin/${VERSION}"
+      packages_url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/unreal-rti/${VERSION}"
       release-cli create --name "Version $VERSION" --tag-name $VERSION \
-        --assets-link "{\"name\":\"inhumate-rti-unreal-${VERSION}.zip\",\"url\":\"${packages_url}/inhumate-rti-unreal-${VERSION}.zip\"}" \
+        --assets-link "{\"name\":\"inhumate-unreal-rti-${VERSION}.zip\",\"url\":\"${packages_url}/inhumate-unreal-rti-${VERSION}.zip\"}" \
         ;

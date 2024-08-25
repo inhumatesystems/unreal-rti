@@ -5,7 +5,7 @@ if [ -z "$VERSION" ]; then
     exit 1
 fi
 
-FILENAME=inhumate-rti-unreal-$VERSION.zip
+FILENAME=inhumate-unreal-rti-$VERSION.zip
 
 cd "$(dirname $0)/.."
 
