@@ -5,12 +5,6 @@ stages:
   - publish
   - release
 
-default:
-  before_script:
-    - VERSION=${CI_COMMIT_TAG}
-    - "[ -z \"$VERSION\" ] && VERSION=0.0.${CI_PIPELINE_IID}"
-    - export VERSION
-
 
 # build:
 #   stage: build
@@ -28,6 +22,9 @@ build:
   tags:
     - win64
     - nm8
+  before_script:
+    - if ( "${CI_COMMIT_TAG}" ) { $VERSION = "${CI_COMMIT_TAG}" }
+    - if ( ! "$VERSION" ) { $VERSION = "0.0.${CI_PIPELINE_IID}" }
   script:
     - powershell -file scripts\windows_build.ps1
   artifacts:
@@ -43,6 +40,10 @@ package:
     - /.*package$/
     - /.*publish$/
     - /.*release$/
+  before_script:
+    - VERSION=${CI_COMMIT_TAG}
+    - "[ -z \"$VERSION\" ] && VERSION=0.0.${CI_PIPELINE_IID}"
+    - export VERSION
   script:
     - apt-get update -qq && apt-get install -qq zip
     - scripts/package.sh
