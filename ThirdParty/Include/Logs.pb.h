@@ -459,6 +459,8 @@ class INHUMATE_RTI_PROTOS_EXPORT Logs :
     kLog = 3,
     kNoLogs = 4,
     kDeleteLog = 5,
+    kLockLog = 6,
+    kUnlockLog = 7,
     WHICH_NOT_SET = 0,
   };
 
@@ -540,6 +542,8 @@ class INHUMATE_RTI_PROTOS_EXPORT Logs :
     kLogFieldNumber = 3,
     kNoLogsFieldNumber = 4,
     kDeleteLogFieldNumber = 5,
+    kLockLogFieldNumber = 6,
+    kUnlockLogFieldNumber = 7,
   };
   // .inhumate.rti.proto.Logs.ListRequest list = 1;
   bool has_list() const;
@@ -620,6 +624,44 @@ class INHUMATE_RTI_PROTOS_EXPORT Logs :
   std::string* _internal_mutable_delete_log();
   public:
 
+  // string lock_log = 6;
+  private:
+  bool _internal_has_lock_log() const;
+  public:
+  void clear_lock_log();
+  const std::string& lock_log() const;
+  void set_lock_log(const std::string& value);
+  void set_lock_log(std::string&& value);
+  void set_lock_log(const char* value);
+  void set_lock_log(const char* value, size_t size);
+  std::string* mutable_lock_log();
+  std::string* release_lock_log();
+  void set_allocated_lock_log(std::string* lock_log);
+  private:
+  const std::string& _internal_lock_log() const;
+  void _internal_set_lock_log(const std::string& value);
+  std::string* _internal_mutable_lock_log();
+  public:
+
+  // string unlock_log = 7;
+  private:
+  bool _internal_has_unlock_log() const;
+  public:
+  void clear_unlock_log();
+  const std::string& unlock_log() const;
+  void set_unlock_log(const std::string& value);
+  void set_unlock_log(std::string&& value);
+  void set_unlock_log(const char* value);
+  void set_unlock_log(const char* value, size_t size);
+  std::string* mutable_unlock_log();
+  std::string* release_unlock_log();
+  void set_allocated_unlock_log(std::string* unlock_log);
+  private:
+  const std::string& _internal_unlock_log() const;
+  void _internal_set_unlock_log(const std::string& value);
+  std::string* _internal_mutable_unlock_log();
+  public:
+
   void clear_which();
   WhichCase which_case() const;
   // @@protoc_insertion_point(class_scope:inhumate.rti.proto.Logs)
@@ -630,6 +672,8 @@ class INHUMATE_RTI_PROTOS_EXPORT Logs :
   void set_has_log();
   void set_has_no_logs();
   void set_has_delete_log();
+  void set_has_lock_log();
+  void set_has_unlock_log();
 
   inline bool has_which() const;
   inline void clear_has_which();
@@ -642,6 +686,8 @@ class INHUMATE_RTI_PROTOS_EXPORT Logs :
     ::inhumate::rti::proto::Log* log_;
     PROTOBUF_NAMESPACE_ID::Empty* no_logs_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr delete_log_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr lock_log_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr unlock_log_;
   } which_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -842,12 +888,15 @@ class INHUMATE_RTI_PROTOS_EXPORT Log :
     kLengthFieldNumber = 2,
     kMessageCountFieldNumber = 7,
     kMessageBytesFieldNumber = 8,
-    kRecordingDisabledFieldNumber = 9,
-    kMeasureCountFieldNumber = 10,
     kMeasurementCountFieldNumber = 11,
     kMeasurementBytesFieldNumber = 12,
-    kAvmediaBytesFieldNumber = 20,
+    kMeasureCountFieldNumber = 10,
     kAvmediaCountFieldNumber = 19,
+    kAvmediaBytesFieldNumber = 20,
+    kRecordingDisabledFieldNumber = 9,
+    kPersistentFieldNumber = 24,
+    kDeletableFieldNumber = 25,
+    kLockedFieldNumber = 26,
   };
   // repeated string applications = 14;
   int applications_size() const;
@@ -1130,24 +1179,6 @@ class INHUMATE_RTI_PROTOS_EXPORT Log :
   void _internal_set_message_bytes(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
-  // bool recording_disabled = 9;
-  void clear_recording_disabled();
-  bool recording_disabled() const;
-  void set_recording_disabled(bool value);
-  private:
-  bool _internal_recording_disabled() const;
-  void _internal_set_recording_disabled(bool value);
-  public:
-
-  // int32 measure_count = 10;
-  void clear_measure_count();
-  ::PROTOBUF_NAMESPACE_ID::int32 measure_count() const;
-  void set_measure_count(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_measure_count() const;
-  void _internal_set_measure_count(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // int64 measurement_count = 11;
   void clear_measurement_count();
   ::PROTOBUF_NAMESPACE_ID::int64 measurement_count() const;
@@ -1166,13 +1197,13 @@ class INHUMATE_RTI_PROTOS_EXPORT Log :
   void _internal_set_measurement_bytes(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
-  // int64 avmedia_bytes = 20;
-  void clear_avmedia_bytes();
-  ::PROTOBUF_NAMESPACE_ID::int64 avmedia_bytes() const;
-  void set_avmedia_bytes(::PROTOBUF_NAMESPACE_ID::int64 value);
+  // int32 measure_count = 10;
+  void clear_measure_count();
+  ::PROTOBUF_NAMESPACE_ID::int32 measure_count() const;
+  void set_measure_count(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_avmedia_bytes() const;
-  void _internal_set_avmedia_bytes(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_measure_count() const;
+  void _internal_set_measure_count(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // int32 avmedia_count = 19;
@@ -1182,6 +1213,51 @@ class INHUMATE_RTI_PROTOS_EXPORT Log :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_avmedia_count() const;
   void _internal_set_avmedia_count(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int64 avmedia_bytes = 20;
+  void clear_avmedia_bytes();
+  ::PROTOBUF_NAMESPACE_ID::int64 avmedia_bytes() const;
+  void set_avmedia_bytes(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_avmedia_bytes() const;
+  void _internal_set_avmedia_bytes(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // bool recording_disabled = 9;
+  void clear_recording_disabled();
+  bool recording_disabled() const;
+  void set_recording_disabled(bool value);
+  private:
+  bool _internal_recording_disabled() const;
+  void _internal_set_recording_disabled(bool value);
+  public:
+
+  // bool persistent = 24;
+  void clear_persistent();
+  bool persistent() const;
+  void set_persistent(bool value);
+  private:
+  bool _internal_persistent() const;
+  void _internal_set_persistent(bool value);
+  public:
+
+  // bool deletable = 25;
+  void clear_deletable();
+  bool deletable() const;
+  void set_deletable(bool value);
+  private:
+  bool _internal_deletable() const;
+  void _internal_set_deletable(bool value);
+  public:
+
+  // bool locked = 26;
+  void clear_locked();
+  bool locked() const;
+  void set_locked(bool value);
+  private:
+  bool _internal_locked() const;
+  void _internal_set_locked(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:inhumate.rti.proto.Log)
@@ -1216,12 +1292,15 @@ class INHUMATE_RTI_PROTOS_EXPORT Log :
   double length_;
   ::PROTOBUF_NAMESPACE_ID::int64 message_count_;
   ::PROTOBUF_NAMESPACE_ID::int64 message_bytes_;
-  bool recording_disabled_;
-  ::PROTOBUF_NAMESPACE_ID::int32 measure_count_;
   ::PROTOBUF_NAMESPACE_ID::int64 measurement_count_;
   ::PROTOBUF_NAMESPACE_ID::int64 measurement_bytes_;
-  ::PROTOBUF_NAMESPACE_ID::int64 avmedia_bytes_;
+  ::PROTOBUF_NAMESPACE_ID::int32 measure_count_;
   ::PROTOBUF_NAMESPACE_ID::int32 avmedia_count_;
+  ::PROTOBUF_NAMESPACE_ID::int64 avmedia_bytes_;
+  bool recording_disabled_;
+  bool persistent_;
+  bool deletable_;
+  bool locked_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Logs_2eproto;
 };
@@ -2188,6 +2267,202 @@ inline void Logs::set_allocated_delete_log(std::string* delete_log) {
   // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.Logs.delete_log)
 }
 
+// string lock_log = 6;
+inline bool Logs::_internal_has_lock_log() const {
+  return which_case() == kLockLog;
+}
+inline void Logs::set_has_lock_log() {
+  _oneof_case_[0] = kLockLog;
+}
+inline void Logs::clear_lock_log() {
+  if (_internal_has_lock_log()) {
+    which_.lock_log_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    clear_has_which();
+  }
+}
+inline const std::string& Logs::lock_log() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Logs.lock_log)
+  return _internal_lock_log();
+}
+inline void Logs::set_lock_log(const std::string& value) {
+  _internal_set_lock_log(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Logs.lock_log)
+}
+inline std::string* Logs::mutable_lock_log() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.Logs.lock_log)
+  return _internal_mutable_lock_log();
+}
+inline const std::string& Logs::_internal_lock_log() const {
+  if (_internal_has_lock_log()) {
+    return which_.lock_log_.GetNoArena();
+  }
+  return *&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void Logs::_internal_set_lock_log(const std::string& value) {
+  if (!_internal_has_lock_log()) {
+    clear_which();
+    set_has_lock_log();
+    which_.lock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  which_.lock_log_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void Logs::set_lock_log(std::string&& value) {
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Logs.lock_log)
+  if (!_internal_has_lock_log()) {
+    clear_which();
+    set_has_lock_log();
+    which_.lock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  which_.lock_log_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.Logs.lock_log)
+}
+inline void Logs::set_lock_log(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  if (!_internal_has_lock_log()) {
+    clear_which();
+    set_has_lock_log();
+    which_.lock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  which_.lock_log_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.Logs.lock_log)
+}
+inline void Logs::set_lock_log(const char* value, size_t size) {
+  if (!_internal_has_lock_log()) {
+    clear_which();
+    set_has_lock_log();
+    which_.lock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  which_.lock_log_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.Logs.lock_log)
+}
+inline std::string* Logs::_internal_mutable_lock_log() {
+  if (!_internal_has_lock_log()) {
+    clear_which();
+    set_has_lock_log();
+    which_.lock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  return which_.lock_log_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* Logs::release_lock_log() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.Logs.lock_log)
+  if (_internal_has_lock_log()) {
+    clear_has_which();
+    return which_.lock_log_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return nullptr;
+  }
+}
+inline void Logs::set_allocated_lock_log(std::string* lock_log) {
+  if (has_which()) {
+    clear_which();
+  }
+  if (lock_log != nullptr) {
+    set_has_lock_log();
+    which_.lock_log_.UnsafeSetDefault(lock_log);
+  }
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.Logs.lock_log)
+}
+
+// string unlock_log = 7;
+inline bool Logs::_internal_has_unlock_log() const {
+  return which_case() == kUnlockLog;
+}
+inline void Logs::set_has_unlock_log() {
+  _oneof_case_[0] = kUnlockLog;
+}
+inline void Logs::clear_unlock_log() {
+  if (_internal_has_unlock_log()) {
+    which_.unlock_log_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    clear_has_which();
+  }
+}
+inline const std::string& Logs::unlock_log() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Logs.unlock_log)
+  return _internal_unlock_log();
+}
+inline void Logs::set_unlock_log(const std::string& value) {
+  _internal_set_unlock_log(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Logs.unlock_log)
+}
+inline std::string* Logs::mutable_unlock_log() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.Logs.unlock_log)
+  return _internal_mutable_unlock_log();
+}
+inline const std::string& Logs::_internal_unlock_log() const {
+  if (_internal_has_unlock_log()) {
+    return which_.unlock_log_.GetNoArena();
+  }
+  return *&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void Logs::_internal_set_unlock_log(const std::string& value) {
+  if (!_internal_has_unlock_log()) {
+    clear_which();
+    set_has_unlock_log();
+    which_.unlock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  which_.unlock_log_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void Logs::set_unlock_log(std::string&& value) {
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Logs.unlock_log)
+  if (!_internal_has_unlock_log()) {
+    clear_which();
+    set_has_unlock_log();
+    which_.unlock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  which_.unlock_log_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.Logs.unlock_log)
+}
+inline void Logs::set_unlock_log(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  if (!_internal_has_unlock_log()) {
+    clear_which();
+    set_has_unlock_log();
+    which_.unlock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  which_.unlock_log_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.Logs.unlock_log)
+}
+inline void Logs::set_unlock_log(const char* value, size_t size) {
+  if (!_internal_has_unlock_log()) {
+    clear_which();
+    set_has_unlock_log();
+    which_.unlock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  which_.unlock_log_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.Logs.unlock_log)
+}
+inline std::string* Logs::_internal_mutable_unlock_log() {
+  if (!_internal_has_unlock_log()) {
+    clear_which();
+    set_has_unlock_log();
+    which_.unlock_log_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  return which_.unlock_log_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* Logs::release_unlock_log() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.Logs.unlock_log)
+  if (_internal_has_unlock_log()) {
+    clear_has_which();
+    return which_.unlock_log_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return nullptr;
+  }
+}
+inline void Logs::set_allocated_unlock_log(std::string* unlock_log) {
+  if (has_which()) {
+    clear_which();
+  }
+  if (unlock_log != nullptr) {
+    set_has_unlock_log();
+    which_.unlock_log_.UnsafeSetDefault(unlock_log);
+  }
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.Logs.unlock_log)
+}
+
 inline bool Logs::has_which() const {
   return which_case() != WHICH_NOT_SET;
 }
@@ -3130,6 +3405,66 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::
 Log::time_scales() const {
   // @@protoc_insertion_point(field_list:inhumate.rti.proto.Log.time_scales)
   return time_scales_;
+}
+
+// bool persistent = 24;
+inline void Log::clear_persistent() {
+  persistent_ = false;
+}
+inline bool Log::_internal_persistent() const {
+  return persistent_;
+}
+inline bool Log::persistent() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Log.persistent)
+  return _internal_persistent();
+}
+inline void Log::_internal_set_persistent(bool value) {
+  
+  persistent_ = value;
+}
+inline void Log::set_persistent(bool value) {
+  _internal_set_persistent(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Log.persistent)
+}
+
+// bool deletable = 25;
+inline void Log::clear_deletable() {
+  deletable_ = false;
+}
+inline bool Log::_internal_deletable() const {
+  return deletable_;
+}
+inline bool Log::deletable() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Log.deletable)
+  return _internal_deletable();
+}
+inline void Log::_internal_set_deletable(bool value) {
+  
+  deletable_ = value;
+}
+inline void Log::set_deletable(bool value) {
+  _internal_set_deletable(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Log.deletable)
+}
+
+// bool locked = 26;
+inline void Log::clear_locked() {
+  locked_ = false;
+}
+inline bool Log::_internal_locked() const {
+  return locked_;
+}
+inline bool Log::locked() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Log.locked)
+  return _internal_locked();
+}
+inline void Log::_internal_set_locked(bool value) {
+  
+  locked_ = value;
+}
+inline void Log::set_locked(bool value) {
+  _internal_set_locked(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Log.locked)
 }
 
 // -------------------------------------------------------------------

@@ -12,12 +12,24 @@ default:
     - export VERSION
 
 
+# build:
+#   stage: build
+#   tags:
+#     - linux
+#   script:
+#     - scripts/linux_build.sh
+#   artifacts:
+#     paths:
+#       - Build/
+#     expire_in: 1 week
+
 build:
   stage: build
   tags:
-    - linux
+    - win64
+    - nm8
   script:
-    - scripts/linux_build.sh
+    - powershell -file scripts\windows_build.ps1
   artifacts:
     paths:
       - Build/

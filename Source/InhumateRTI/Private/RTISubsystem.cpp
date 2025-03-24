@@ -194,7 +194,7 @@ void URTISubsystem::Connect()
     } else if (rti || (!AutoConnect && RTI())) {
         UE_LOG(LogRTI, Log, TEXT("RTI connecting %s %s to %s"), *Application,
                *FString(rti->client_id().c_str()),
-               (Url.Len() > 0 ? *Url : *FString(inhumate::rti::DEFAULT_URL)));
+               (Url.Len() > 0 ? *Url : *FString(inhumate::rti::RTI_DEFAULT_URL)));
         rti->Connect();
         Connecting = true;
         ConnectDateTime = FDateTime::UtcNow();
