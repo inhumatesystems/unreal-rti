@@ -346,7 +346,8 @@ void URTIGeometryComponent::SetPoint2D(const FVector &location, inhumate::rti::p
     AActor *LevelBP = (AActor *)GetOwner()->GetWorld()->GetLevelScriptActor();
     if (LevelBP && LevelBP->Implements<URTIGeodeticCoordinateConversionInterface>()) {
         IRTIGeodeticCoordinateConversionInterface *Conversion = Cast<IRTIGeodeticCoordinateConversionInterface>(LevelBP);
-        auto GeoLocation = Conversion->Execute_LocalToGeodetic(LevelBP, location);
+        FGeodeticLocation GeoLocation;
+        Conversion->Execute_LocalToGeodetic(LevelBP, location, GeoLocation);
         auto geo = new inhumate::rti::proto::Geometry_GeodeticPoint2D();
         geo->set_longitude(GeoLocation.Longitude);
         geo->set_latitude(GeoLocation.Latitude);
@@ -361,7 +362,8 @@ void URTIGeometryComponent::SetPoint3D(const FVector &location, inhumate::rti::p
     AActor *LevelBP = (AActor *)GetOwner()->GetWorld()->GetLevelScriptActor();
     if (LevelBP && LevelBP->Implements<URTIGeodeticCoordinateConversionInterface>()) {
         IRTIGeodeticCoordinateConversionInterface *Conversion = Cast<IRTIGeodeticCoordinateConversionInterface>(LevelBP);
-        auto GeoLocation = Conversion->Execute_LocalToGeodetic(LevelBP, location);
+        FGeodeticLocation GeoLocation;
+        Conversion->Execute_LocalToGeodetic(LevelBP, location, GeoLocation);
         auto geo = new inhumate::rti::proto::Geometry_GeodeticPoint3D();
         geo->set_longitude(GeoLocation.Longitude);
         geo->set_latitude(GeoLocation.Latitude);

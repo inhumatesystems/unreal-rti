@@ -33,10 +33,10 @@ class INHUMATERTI_API IRTIGeodeticCoordinateConversionInterface
 
     public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = RTI)
-    FVector GeodeticToLocal(const FGeodeticLocation &GeodeticLocation);
+    void GeodeticToLocal(const FGeodeticLocation &GeodeticLocation, FVector &LocalLocation);
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = RTI)
-    FGeodeticLocation LocalToGeodetic(const FVector &XYZ);
+    void LocalToGeodetic(const FVector &LocalLocation, FGeodeticLocation &GeodeticLocation);
 };
 
 UINTERFACE(MinimalAPI, Blueprintable)
@@ -51,14 +51,14 @@ class INHUMATERTI_API IRTILocalCoordinateConversionInterface
 
     public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = RTI)
-    FVector RTIToLocalLocation(const FVector &RTILocation);
+    void RTIToLocalLocation(const FVector &RTILocation, FVector &LocalLocation);
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = RTI)
-    FVector LocalLocationToRTI(const FVector &LocalLocation);
+    void LocalLocationToRTI(const FVector &LocalLocation, FVector &RTILocation);
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = RTI)
-    FRotator RTIEulerToLocalRotation(const FRotator &RTIEuler);
+    void RTIEulerToLocalRotation(const FRotator &RTIEuler, FRotator &LocalRotation);
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = RTI)
-    FRotator LocalRotationToRTIEuler(const FRotator &LocalRotation);
+    void LocalRotationToRTIEuler(const FRotator &LocalRotation, FRotator &RTIEuler);
 };

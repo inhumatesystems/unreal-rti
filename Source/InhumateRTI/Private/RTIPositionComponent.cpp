@@ -159,13 +159,15 @@ void URTIPositionComponent::SetPositionMessageFromActor(inhumate::rti::proto::En
 
     if (LevelBP && LevelBP->Implements<URTILocalCoordinateConversionInterface>()) {
         IRTILocalCoordinateConversionInterface *Conversion = Cast<IRTILocalCoordinateConversionInterface>(LevelBP);
-        auto RTILocation = Conversion->Execute_LocalLocationToRTI(LevelBP, actor->GetActorLocation());
+        FVector RTILocation;
+        Conversion->Execute_LocalLocationToRTI(LevelBP, actor->GetActorLocation(), RTILocation);
         auto local = new inhumate::rti::proto::EntityPosition_LocalPosition();
         local->set_x(RTILocation.X);
         local->set_y(RTILocation.Y);
         local->set_z(RTILocation.Z);
         message.set_allocated_local(local);
-        auto RTIRotation = Conversion->Execute_LocalRotationToRTIEuler(LevelBP, actor->GetActorRotation());
+        FRotator RTIRotation;
+        Conversion->Execute_LocalRotationToRTIEuler(LevelBP, actor->GetActorRotation(), RTIRotation);
         auto euler = new inhumate::rti::proto::EntityPosition_EulerRotation();
         euler->set_roll(RTIRotation.Roll);
         euler->set_pitch(RTIRotation.Pitch);
@@ -180,7 +182,8 @@ void URTIPositionComponent::SetPositionMessageFromActor(inhumate::rti::proto::En
     if (LevelBP && LevelBP->Implements<URTIGeodeticCoordinateConversionInterface>()) {
         IRTIGeodeticCoordinateConversionInterface *Conversion =
         Cast<IRTIGeodeticCoordinateConversionInterface>(LevelBP);
-        auto GeoLocation = Conversion->Execute_LocalToGeodetic(LevelBP, actor->GetActorLocation());
+        FGeodeticLocation GeoLocation;
+        Conversion->Execute_LocalToGeodetic(LevelBP, actor->GetActorLocation(), GeoLocation);
         auto geo = new inhumate::rti::proto::EntityPosition_GeodeticPosition();
         geo->set_longitude(GeoLocation.Longitude);
         geo->set_latitude(GeoLocation.Latitude);
@@ -210,7 +213,9 @@ FVector URTIPositionComponent::GetMessageLocation(const inhumate::rti::proto::En
             RTILocation.X = message.local().x();
             RTILocation.Y = message.local().y();
             RTILocation.Z = message.local().z();
-            return Conversion->Execute_RTIToLocalLocation(LevelBP, RTILocation);
+            FVector LocalLocation;
+            Conversion->Execute_RTIToLocalLocation(LevelBP, RTILocation, LocalLocation);
+            return LocalLocation;
         }
         return RTILocalPositionToUE(message.local());
     } else if (message.has_geodetic()) {
@@ -220,7 +225,9 @@ FVector URTIPositionComponent::GetMessageLocation(const inhumate::rti::proto::En
             GeoLocation.Longitude = message.geodetic().longitude();
             GeoLocation.Latitude = message.geodetic().latitude();
             GeoLocation.Altitude = message.geodetic().altitude();
-            return Conversion->Execute_GeodeticToLocal(LevelBP, GeoLocation);
+            FVector LocalLocation;
+            Conversion->Execute_GeodeticToLocal(LevelBP, GeoLocation, LocalLocation);
+            return LocalLocation;
         }
     }
     return FVector();
@@ -235,7 +242,9 @@ FRotator URTIPositionComponent::GetMessageRotation(const inhumate::rti::proto::E
         RTIRotation.Roll = message.euler_rotation().roll();
         RTIRotation.Pitch = message.euler_rotation().pitch();
         RTIRotation.Yaw = message.euler_rotation().yaw();
-        return Conversion->Execute_RTIEulerToLocalRotation(LevelBP, RTIRotation);
+        FRotator LocalRotation;
+        Conversion->Execute_RTIEulerToLocalRotation(LevelBP, RTIRotation, LocalRotation);
+        return LocalRotation;
     }
     if (message.has_local_rotation()) {
         FQuat rotation = RTILocalRotationToUE(message.local_rotation());
