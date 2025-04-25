@@ -65,7 +65,7 @@ namespace inhumate
 namespace rti
 {
 
-constexpr auto RTI_CLIENT_VERSION = "1.5.1";
+constexpr auto RTI_CLIENT_VERSION = "0.0.1-dev-version";
 constexpr auto RTI_DEFAULT_URL = "ws://localhost:8000/";
 constexpr auto CONTROL_CHANNEL = "rti/control";
 constexpr auto CHANNELS_CHANNEL = "rti/channels";
@@ -636,5 +636,3 @@ inline std::string base64_decode(std::string const &input)
 } // namespace inhumate
 
 #endif
-
-
