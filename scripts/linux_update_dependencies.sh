@@ -17,7 +17,7 @@ cd "$cpp_root"
 
 #scripts/linux_ue5_build.sh
 
-rm -rf "$root/ThirdParty/Include"
-rm -rf "$root/ThirdParty/Linux"
-cp -rfp "$cpp_build_root/Include" "$root/ThirdParty/"
-cp -rfp "$cpp_build_root/Linux" "$root/ThirdParty/"
+rm -rf "$root/Source/ThirdParty/Include"
+rm -rf "$root/Source/ThirdParty/Linux"
+cp -rfp "$cpp_build_root/Include" "$root/Source/ThirdParty/"
+cp -rfp "$cpp_build_root/Linux" "$root/Source/ThirdParty/"

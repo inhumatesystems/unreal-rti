@@ -10,6 +10,7 @@
 #pragma warning(disable : 4251)
 #pragma warning(disable : 4800)
 #pragma warning(disable : 4946)
+#pragma warning(disable : 4996)
 #endif
 
 #if defined(WIN32) && defined(INHUMATE_RTI_SHARED)
@@ -65,7 +66,7 @@ namespace inhumate
 namespace rti
 {
 
-constexpr auto RTI_CLIENT_VERSION = "0.0.1-dev-version";
+constexpr auto RTI_CLIENT_VERSION = "1.5.3";
 constexpr auto RTI_DEFAULT_URL = "ws://localhost:8000/";
 constexpr auto CONTROL_CHANNEL = "rti/control";
 constexpr auto CHANNELS_CHANNEL = "rti/channels";

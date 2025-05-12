@@ -1,8 +1,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/GameInstance.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "Containers/Ticker.h"
+#include "Components/ActorComponent.h"
 #include "InhumateRTI.h"
 #include "inhumaterti.hpp"
 #include "RuntimeStateEnum.h"

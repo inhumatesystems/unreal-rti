@@ -17,7 +17,7 @@ cd "$cpp_root"
 
 #scripts/macos_ue5_build.sh
 
-rm -rf "$root/ThirdParty/Include"
-rm -rf "$root/ThirdParty/Mac"
-cp -rfp "$cpp_build_root/Include" "$root/ThirdParty/"
-cp -rfp "$cpp_build_root/Mac" "$root/ThirdParty/"
+rm -rf "$root/Source/ThirdParty/Include"
+rm -rf "$root/Source/ThirdParty/Mac"
+cp -rfp "$cpp_build_root/Include" "$root/Source/ThirdParty/"
+cp -rfp "$cpp_build_root/Mac" "$root/Source/ThirdParty/"

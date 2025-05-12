@@ -1,7 +1,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "Engine/World.h"
 #include "Components/ActorComponent.h"
+#include "TimerManager.h"
 #include "RTIComponent.h"
 #include "RTIParameter.h"
 #include "InjectionStateEnum.h"

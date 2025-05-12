@@ -7,7 +7,7 @@ public class InhumateRTI : ModuleRules
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
-        var ThirdPartyDir = Path.Combine(ModuleDirectory, "..", "..", "ThirdParty");
+        var ThirdPartyDir = Path.Combine(ModuleDirectory, "..", "ThirdParty");
         PublicIncludePaths.Add(Path.Combine(ThirdPartyDir, "Include"));
 
         if (Target.Platform == UnrealTargetPlatform.Win64)
@@ -73,6 +73,7 @@ public class InhumateRTI : ModuleRules
         PublicDefinitions.Add("PROTOBUF_INLINE_NOT_IN_HEADERS=0");
         PublicDefinitions.Add("GOOGLE_PROTOBUF_USE_UNALIGNED=0");
         PublicDefinitions.Add("GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER=0");
+        PublicDefinitions.Add("_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS=1");
 
 		PublicDependencyModuleNames.AddRange(
 			new string[]

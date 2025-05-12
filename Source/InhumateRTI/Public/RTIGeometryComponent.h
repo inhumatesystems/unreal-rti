@@ -3,6 +3,7 @@
 #include "Components/ActorComponent.h"
 #include "Components/ShapeComponent.h"
 #include "Components/SplineComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "CoreMinimal.h"
 #include "RTISceneComponent.h"
 #include "TimerManager.h"
