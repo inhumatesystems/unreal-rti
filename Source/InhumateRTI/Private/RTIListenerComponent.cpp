@@ -1,3 +1,8 @@
+//
+// Inhumate Unreal Engine RTI Plugin
+// Copyright 2025 Inhumate AB
+//
+
 #include "RTIListenerComponent.h"
 
 void URTIListenerComponent::Subscribe(const FString &Channel)

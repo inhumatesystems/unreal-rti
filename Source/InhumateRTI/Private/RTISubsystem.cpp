@@ -1,3 +1,8 @@
+//
+// Inhumate Unreal Engine RTI Plugin
+// Copyright 2025 Inhumate AB
+//
+
 #include "RTISubsystem.h"
 #include "Engine/World.h"
 #include "GameFramework/WorldSettings.h"

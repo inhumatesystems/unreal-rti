@@ -1,3 +1,7 @@
+//
+// Inhumate RTI C++ Client
+// Copyright 2025 Inhumate AB
+//
 
 // Style guide: https://google.github.io/styleguide/cppguide.html
 // Conforming to Google's style guide because of protobuf dependency,
@@ -66,7 +70,7 @@ namespace inhumate
 namespace rti
 {
 
-constexpr auto RTI_CLIENT_VERSION = "1.5.3";
+constexpr auto RTI_CLIENT_VERSION = "1.5.4";
 constexpr auto RTI_DEFAULT_URL = "ws://localhost:8000/";
 constexpr auto CONTROL_CHANNEL = "rti/control";
 constexpr auto CHANNELS_CHANNEL = "rti/channels";
@@ -637,3 +641,5 @@ inline std::string base64_decode(std::string const &input)
 } // namespace inhumate
 
 #endif
+
+

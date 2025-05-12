@@ -1,3 +1,8 @@
+//
+// Inhumate Unreal Engine RTI Plugin
+// Copyright 2025 Inhumate AB
+//
+
 #include "RTIInjectableComponent.h"
 #include "RTIInjectionBehaviourComponent.h"
 #include "RuntimeStateEnum.h"

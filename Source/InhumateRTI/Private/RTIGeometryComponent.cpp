@@ -1,3 +1,8 @@
+//
+// Inhumate Unreal Engine RTI Plugin
+// Copyright 2025 Inhumate AB
+//
+
 #include "RTIGeometryComponent.h"
 #include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"

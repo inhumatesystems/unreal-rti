@@ -2,7 +2,7 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "0.0.1-dev-version",
-	"EngineVersion": "5.5.4",
+	"EngineVersion": "5.5.0",
 	"FriendlyName": "Inhumate RTI",
 	"Description": "Inhumate RTI - Unreal Engine Integration Plugin",
 	"Category": "Other",

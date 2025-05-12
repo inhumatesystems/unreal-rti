@@ -1,3 +1,8 @@
+//
+// Inhumate Unreal Engine RTI Plugin
+// Copyright 2025 Inhumate AB
+//
+
 #include "InhumateRTI.h"
 #include "Modules/ModuleManager.h"
 #include "Interfaces/IPluginManager.h"

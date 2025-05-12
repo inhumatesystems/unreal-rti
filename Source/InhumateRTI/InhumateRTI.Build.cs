@@ -1,4 +1,9 @@
-﻿using System.IO;
+﻿//
+// Inhumate Unreal Engine RTI Plugin
+// Copyright 2025 Inhumate AB
+//
+
+using System.IO;
 using UnrealBuildTool;
 
 public class InhumateRTI : ModuleRules

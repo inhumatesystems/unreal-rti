@@ -1,3 +1,8 @@
+//
+// Inhumate Unreal Engine RTI Plugin
+// Copyright 2025 Inhumate AB
+//
+
 #include "RTIEntityStateComponent.h"
 #include "GameFramework/Actor.h"
 #include "inhumaterti.hpp"

@@ -1,3 +1,8 @@
+//
+// Inhumate Unreal Engine RTI Plugin
+// Copyright 2025 Inhumate AB
+//
+
 #include "RTIEntityComponent.h"
 #include "Engine/World.h"
 #include "RTIPositionComponent.h"
