@@ -87,4 +87,5 @@ release:
       packages_url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/unreal-rti/${VERSION}"
       release-cli create --name "Version $VERSION" --tag-name $VERSION \
         --assets-link "{\"name\":\"inhumate-unreal-rti-${VERSION}.zip\",\"url\":\"${packages_url}/inhumate-unreal-rti-${VERSION}.zip\"}" \
+        --assets-link "{\"name\":\"inhumate-unreal-rti-fab-${VERSION}.zip\",\"url\":\"${packages_url}/inhumate-unreal-rti-fab-${VERSION}.zip\"}" \
         ;

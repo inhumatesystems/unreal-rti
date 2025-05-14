@@ -1,7 +1,4 @@
-//
-// Inhumate Unreal Engine RTI Plugin
-// Copyright 2025 Inhumate AB
-//
+// Copyright 2025 Inhumate AB. All Rights Reserved.
 
 #include "RTISpawnerActor.h"
 #include "RTIEntityComponent.h"
