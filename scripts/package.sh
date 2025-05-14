@@ -29,14 +29,15 @@ sed -i "s/0.0.1-dev-version/${VERSION}/g" Build/InhumateRTI/README.txt Build/Inh
 
 
 cd Build
-find Source/ThirdParty -name '*.sh' -delete
+
+find InhumateRTI/Source/ThirdParty -name '*.sh' -delete
 zip -r $FILENAME *
 
 # FAB doesn't want executables in their packages...
 
 FILENAME=inhumate-unreal-rti-fab-$VERSION.zip
 
-find Source/ThirdParty -name '*.exe' -delete
-find Source/ThirdParty -name protoc -delete
+find InhumateRTI/Source/ThirdParty -name '*.exe' -delete
+find InhumateRTI/Source/ThirdParty -name protoc -delete
 
 zip -r $FILENAME *
