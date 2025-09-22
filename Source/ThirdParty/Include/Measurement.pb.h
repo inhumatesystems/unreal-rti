@@ -364,6 +364,7 @@ class INHUMATE_RTI_PROTOS_EXPORT Measurement :
   enum : int {
     kMeasureIdFieldNumber = 1,
     kClientIdFieldNumber = 2,
+    kEntityIdFieldNumber = 5,
     kValueFieldNumber = 3,
     kWindowFieldNumber = 4,
   };
@@ -397,6 +398,22 @@ class INHUMATE_RTI_PROTOS_EXPORT Measurement :
   const std::string& _internal_client_id() const;
   void _internal_set_client_id(const std::string& value);
   std::string* _internal_mutable_client_id();
+  public:
+
+  // string entity_id = 5;
+  void clear_entity_id();
+  const std::string& entity_id() const;
+  void set_entity_id(const std::string& value);
+  void set_entity_id(std::string&& value);
+  void set_entity_id(const char* value);
+  void set_entity_id(const char* value, size_t size);
+  std::string* mutable_entity_id();
+  std::string* release_entity_id();
+  void set_allocated_entity_id(std::string* entity_id);
+  private:
+  const std::string& _internal_entity_id() const;
+  void _internal_set_entity_id(const std::string& value);
+  std::string* _internal_mutable_entity_id();
   public:
 
   // float value = 3;
@@ -440,6 +457,7 @@ class INHUMATE_RTI_PROTOS_EXPORT Measurement :
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr measure_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr entity_id_;
   union WhichUnion {
     WhichUnion() {}
     float value_;
@@ -683,6 +701,66 @@ inline void Measurement::set_allocated_client_id(std::string* client_id) {
   }
   client_id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), client_id);
   // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.Measurement.client_id)
+}
+
+// string entity_id = 5;
+inline void Measurement::clear_entity_id() {
+  entity_id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& Measurement::entity_id() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Measurement.entity_id)
+  return _internal_entity_id();
+}
+inline void Measurement::set_entity_id(const std::string& value) {
+  _internal_set_entity_id(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Measurement.entity_id)
+}
+inline std::string* Measurement::mutable_entity_id() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.Measurement.entity_id)
+  return _internal_mutable_entity_id();
+}
+inline const std::string& Measurement::_internal_entity_id() const {
+  return entity_id_.GetNoArena();
+}
+inline void Measurement::_internal_set_entity_id(const std::string& value) {
+  
+  entity_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void Measurement::set_entity_id(std::string&& value) {
+  
+  entity_id_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.Measurement.entity_id)
+}
+inline void Measurement::set_entity_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  entity_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.Measurement.entity_id)
+}
+inline void Measurement::set_entity_id(const char* value, size_t size) {
+  
+  entity_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.Measurement.entity_id)
+}
+inline std::string* Measurement::_internal_mutable_entity_id() {
+  
+  return entity_id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* Measurement::release_entity_id() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.Measurement.entity_id)
+  
+  return entity_id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void Measurement::set_allocated_entity_id(std::string* entity_id) {
+  if (entity_id != nullptr) {
+    
+  } else {
+    
+  }
+  entity_id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), entity_id);
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.Measurement.entity_id)
 }
 
 // float value = 3;

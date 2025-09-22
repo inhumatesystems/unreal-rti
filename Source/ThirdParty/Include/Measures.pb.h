@@ -31,6 +31,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/empty.pb.h>
 // @@protoc_insertion_point(includes)
@@ -75,6 +76,33 @@ namespace inhumate {
 namespace rti {
 namespace proto {
 
+enum MeasureGraphType : int {
+  LINE = 0,
+  STEP = 1,
+  BAR = 2,
+  SCATTER = 3,
+  MeasureGraphType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  MeasureGraphType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+INHUMATE_RTI_PROTOS_EXPORT bool MeasureGraphType_IsValid(int value);
+constexpr MeasureGraphType MeasureGraphType_MIN = LINE;
+constexpr MeasureGraphType MeasureGraphType_MAX = SCATTER;
+constexpr int MeasureGraphType_ARRAYSIZE = MeasureGraphType_MAX + 1;
+
+INHUMATE_RTI_PROTOS_EXPORT const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MeasureGraphType_descriptor();
+template<typename T>
+inline const std::string& MeasureGraphType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, MeasureGraphType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function MeasureGraphType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    MeasureGraphType_descriptor(), enum_t_value);
+}
+inline bool MeasureGraphType_Parse(
+    const std::string& name, MeasureGraphType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<MeasureGraphType>(
+    MeasureGraphType_descriptor(), name, value);
+}
 // ===================================================================
 
 class INHUMATE_RTI_PROTOS_EXPORT Measures :
@@ -377,6 +405,8 @@ class INHUMATE_RTI_PROTOS_EXPORT Measure :
     kUnitFieldNumber = 4,
     kChannelFieldNumber = 5,
     kIntervalFieldNumber = 6,
+    kEntityFieldNumber = 7,
+    kGraphTypeFieldNumber = 8,
   };
   // string id = 1;
   void clear_id();
@@ -467,6 +497,24 @@ class INHUMATE_RTI_PROTOS_EXPORT Measure :
   void _internal_set_interval(float value);
   public:
 
+  // bool entity = 7;
+  void clear_entity();
+  bool entity() const;
+  void set_entity(bool value);
+  private:
+  bool _internal_entity() const;
+  void _internal_set_entity(bool value);
+  public:
+
+  // .inhumate.rti.proto.MeasureGraphType graph_type = 8;
+  void clear_graph_type();
+  ::inhumate::rti::proto::MeasureGraphType graph_type() const;
+  void set_graph_type(::inhumate::rti::proto::MeasureGraphType value);
+  private:
+  ::inhumate::rti::proto::MeasureGraphType _internal_graph_type() const;
+  void _internal_set_graph_type(::inhumate::rti::proto::MeasureGraphType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:inhumate.rti.proto.Measure)
  private:
   class _Internal;
@@ -478,6 +526,8 @@ class INHUMATE_RTI_PROTOS_EXPORT Measure :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr unit_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr channel_;
   float interval_;
+  bool entity_;
+  int graph_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Measures_2eproto;
 };
@@ -969,6 +1019,46 @@ inline void Measure::set_interval(float value) {
   // @@protoc_insertion_point(field_set:inhumate.rti.proto.Measure.interval)
 }
 
+// bool entity = 7;
+inline void Measure::clear_entity() {
+  entity_ = false;
+}
+inline bool Measure::_internal_entity() const {
+  return entity_;
+}
+inline bool Measure::entity() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Measure.entity)
+  return _internal_entity();
+}
+inline void Measure::_internal_set_entity(bool value) {
+  
+  entity_ = value;
+}
+inline void Measure::set_entity(bool value) {
+  _internal_set_entity(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Measure.entity)
+}
+
+// .inhumate.rti.proto.MeasureGraphType graph_type = 8;
+inline void Measure::clear_graph_type() {
+  graph_type_ = 0;
+}
+inline ::inhumate::rti::proto::MeasureGraphType Measure::_internal_graph_type() const {
+  return static_cast< ::inhumate::rti::proto::MeasureGraphType >(graph_type_);
+}
+inline ::inhumate::rti::proto::MeasureGraphType Measure::graph_type() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.Measure.graph_type)
+  return _internal_graph_type();
+}
+inline void Measure::_internal_set_graph_type(::inhumate::rti::proto::MeasureGraphType value) {
+  
+  graph_type_ = value;
+}
+inline void Measure::set_graph_type(::inhumate::rti::proto::MeasureGraphType value) {
+  _internal_set_graph_type(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.Measure.graph_type)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -980,6 +1070,16 @@ inline void Measure::set_interval(float value) {
 }  // namespace proto
 }  // namespace rti
 }  // namespace inhumate
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::inhumate::rti::proto::MeasureGraphType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::inhumate::rti::proto::MeasureGraphType>() {
+  return ::inhumate::rti::proto::MeasureGraphType_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

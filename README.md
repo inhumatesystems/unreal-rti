@@ -4,7 +4,7 @@ Plugin for integrating your Unreal Engine-based simulator or application with th
 
 Read more in the [documentation](https://docs.inhumatesystems.com/integrations/unreal/).
 
-Work in progress. Last tested with UE 5.5.
+Work in progress. Last tested with UE 5.6.1.
 
 ## Usage
 

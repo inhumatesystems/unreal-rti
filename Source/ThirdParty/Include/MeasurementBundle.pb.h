@@ -199,6 +199,7 @@ class INHUMATE_RTI_PROTOS_EXPORT MeasurementBundle_Request :
     kMeasuresFieldNumber = 2,
     kClientsFieldNumber = 3,
     kApplicationsFieldNumber = 4,
+    kEntitiesFieldNumber = 5,
     kResponseChannelFieldNumber = 1,
     kFromTimeFieldNumber = 8,
     kToTimeFieldNumber = 9,
@@ -278,6 +279,30 @@ class INHUMATE_RTI_PROTOS_EXPORT MeasurementBundle_Request :
   private:
   const std::string& _internal_applications(int index) const;
   std::string* _internal_add_applications();
+  public:
+
+  // repeated string entities = 5;
+  int entities_size() const;
+  private:
+  int _internal_entities_size() const;
+  public:
+  void clear_entities();
+  const std::string& entities(int index) const;
+  std::string* mutable_entities(int index);
+  void set_entities(int index, const std::string& value);
+  void set_entities(int index, std::string&& value);
+  void set_entities(int index, const char* value);
+  void set_entities(int index, const char* value, size_t size);
+  std::string* add_entities();
+  void add_entities(const std::string& value);
+  void add_entities(std::string&& value);
+  void add_entities(const char* value);
+  void add_entities(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& entities() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_entities();
+  private:
+  const std::string& _internal_entities(int index) const;
+  std::string* _internal_add_entities();
   public:
 
   // string response_channel = 1;
@@ -367,6 +392,7 @@ class INHUMATE_RTI_PROTOS_EXPORT MeasurementBundle_Request :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> measures_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> clients_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> applications_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> entities_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr response_channel_;
   double from_time_;
   double to_time_;
@@ -636,6 +662,7 @@ class INHUMATE_RTI_PROTOS_EXPORT MeasurementBundle_MeasureResponse :
   enum : int {
     kMeasurementsFieldNumber = 3,
     kClientIdFieldNumber = 2,
+    kEntityIdFieldNumber = 4,
     kMeasureFieldNumber = 1,
   };
   // repeated .inhumate.rti.proto.MeasurementBundle.HistoricMeasurement measurements = 3;
@@ -672,6 +699,22 @@ class INHUMATE_RTI_PROTOS_EXPORT MeasurementBundle_MeasureResponse :
   std::string* _internal_mutable_client_id();
   public:
 
+  // string entity_id = 4;
+  void clear_entity_id();
+  const std::string& entity_id() const;
+  void set_entity_id(const std::string& value);
+  void set_entity_id(std::string&& value);
+  void set_entity_id(const char* value);
+  void set_entity_id(const char* value, size_t size);
+  std::string* mutable_entity_id();
+  std::string* release_entity_id();
+  void set_allocated_entity_id(std::string* entity_id);
+  private:
+  const std::string& _internal_entity_id() const;
+  void _internal_set_entity_id(const std::string& value);
+  std::string* _internal_mutable_entity_id();
+  public:
+
   // .inhumate.rti.proto.Measure measure = 1;
   bool has_measure() const;
   private:
@@ -694,6 +737,7 @@ class INHUMATE_RTI_PROTOS_EXPORT MeasurementBundle_MeasureResponse :
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inhumate::rti::proto::MeasurementBundle_HistoricMeasurement > measurements_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr entity_id_;
   ::inhumate::rti::proto::Measure* measure_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_MeasurementBundle_2eproto;
@@ -1342,6 +1386,80 @@ MeasurementBundle_Request::mutable_applications() {
   return &applications_;
 }
 
+// repeated string entities = 5;
+inline int MeasurementBundle_Request::_internal_entities_size() const {
+  return entities_.size();
+}
+inline int MeasurementBundle_Request::entities_size() const {
+  return _internal_entities_size();
+}
+inline void MeasurementBundle_Request::clear_entities() {
+  entities_.Clear();
+}
+inline std::string* MeasurementBundle_Request::add_entities() {
+  // @@protoc_insertion_point(field_add_mutable:inhumate.rti.proto.MeasurementBundle.Request.entities)
+  return _internal_add_entities();
+}
+inline const std::string& MeasurementBundle_Request::_internal_entities(int index) const {
+  return entities_.Get(index);
+}
+inline const std::string& MeasurementBundle_Request::entities(int index) const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.MeasurementBundle.Request.entities)
+  return _internal_entities(index);
+}
+inline std::string* MeasurementBundle_Request::mutable_entities(int index) {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.MeasurementBundle.Request.entities)
+  return entities_.Mutable(index);
+}
+inline void MeasurementBundle_Request::set_entities(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.MeasurementBundle.Request.entities)
+  entities_.Mutable(index)->assign(value);
+}
+inline void MeasurementBundle_Request::set_entities(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.MeasurementBundle.Request.entities)
+  entities_.Mutable(index)->assign(std::move(value));
+}
+inline void MeasurementBundle_Request::set_entities(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  entities_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.MeasurementBundle.Request.entities)
+}
+inline void MeasurementBundle_Request::set_entities(int index, const char* value, size_t size) {
+  entities_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.MeasurementBundle.Request.entities)
+}
+inline std::string* MeasurementBundle_Request::_internal_add_entities() {
+  return entities_.Add();
+}
+inline void MeasurementBundle_Request::add_entities(const std::string& value) {
+  entities_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:inhumate.rti.proto.MeasurementBundle.Request.entities)
+}
+inline void MeasurementBundle_Request::add_entities(std::string&& value) {
+  entities_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:inhumate.rti.proto.MeasurementBundle.Request.entities)
+}
+inline void MeasurementBundle_Request::add_entities(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  entities_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:inhumate.rti.proto.MeasurementBundle.Request.entities)
+}
+inline void MeasurementBundle_Request::add_entities(const char* value, size_t size) {
+  entities_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:inhumate.rti.proto.MeasurementBundle.Request.entities)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+MeasurementBundle_Request::entities() const {
+  // @@protoc_insertion_point(field_list:inhumate.rti.proto.MeasurementBundle.Request.entities)
+  return entities_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+MeasurementBundle_Request::mutable_entities() {
+  // @@protoc_insertion_point(field_mutable_list:inhumate.rti.proto.MeasurementBundle.Request.entities)
+  return &entities_;
+}
+
 // double from_time = 8;
 inline void MeasurementBundle_Request::clear_from_time() {
   from_time_ = 0;
@@ -1661,6 +1779,66 @@ inline void MeasurementBundle_MeasureResponse::set_allocated_client_id(std::stri
   }
   client_id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), client_id);
   // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.MeasurementBundle.MeasureResponse.client_id)
+}
+
+// string entity_id = 4;
+inline void MeasurementBundle_MeasureResponse::clear_entity_id() {
+  entity_id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& MeasurementBundle_MeasureResponse::entity_id() const {
+  // @@protoc_insertion_point(field_get:inhumate.rti.proto.MeasurementBundle.MeasureResponse.entity_id)
+  return _internal_entity_id();
+}
+inline void MeasurementBundle_MeasureResponse::set_entity_id(const std::string& value) {
+  _internal_set_entity_id(value);
+  // @@protoc_insertion_point(field_set:inhumate.rti.proto.MeasurementBundle.MeasureResponse.entity_id)
+}
+inline std::string* MeasurementBundle_MeasureResponse::mutable_entity_id() {
+  // @@protoc_insertion_point(field_mutable:inhumate.rti.proto.MeasurementBundle.MeasureResponse.entity_id)
+  return _internal_mutable_entity_id();
+}
+inline const std::string& MeasurementBundle_MeasureResponse::_internal_entity_id() const {
+  return entity_id_.GetNoArena();
+}
+inline void MeasurementBundle_MeasureResponse::_internal_set_entity_id(const std::string& value) {
+  
+  entity_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void MeasurementBundle_MeasureResponse::set_entity_id(std::string&& value) {
+  
+  entity_id_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:inhumate.rti.proto.MeasurementBundle.MeasureResponse.entity_id)
+}
+inline void MeasurementBundle_MeasureResponse::set_entity_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  entity_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:inhumate.rti.proto.MeasurementBundle.MeasureResponse.entity_id)
+}
+inline void MeasurementBundle_MeasureResponse::set_entity_id(const char* value, size_t size) {
+  
+  entity_id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:inhumate.rti.proto.MeasurementBundle.MeasureResponse.entity_id)
+}
+inline std::string* MeasurementBundle_MeasureResponse::_internal_mutable_entity_id() {
+  
+  return entity_id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* MeasurementBundle_MeasureResponse::release_entity_id() {
+  // @@protoc_insertion_point(field_release:inhumate.rti.proto.MeasurementBundle.MeasureResponse.entity_id)
+  
+  return entity_id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void MeasurementBundle_MeasureResponse::set_allocated_entity_id(std::string* entity_id) {
+  if (entity_id != nullptr) {
+    
+  } else {
+    
+  }
+  entity_id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), entity_id);
+  // @@protoc_insertion_point(field_set_allocated:inhumate.rti.proto.MeasurementBundle.MeasureResponse.entity_id)
 }
 
 // repeated .inhumate.rti.proto.MeasurementBundle.HistoricMeasurement measurements = 3;
