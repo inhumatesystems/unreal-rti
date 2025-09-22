@@ -70,7 +70,7 @@ namespace inhumate
 namespace rti
 {
 
-constexpr auto RTI_CLIENT_VERSION = "1.6.1";
+constexpr auto RTI_CLIENT_VERSION = "1.6.2";
 constexpr auto RTI_DEFAULT_URL = "ws://localhost:8000/";
 constexpr auto CONTROL_CHANNEL = "rti/control";
 constexpr auto CHANNELS_CHANNEL = "rti/channels";
